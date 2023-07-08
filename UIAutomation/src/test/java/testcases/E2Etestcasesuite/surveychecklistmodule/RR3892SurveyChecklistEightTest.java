@@ -26,7 +26,6 @@ public class RR3892SurveyChecklistEightTest extends TestBase {
 		// ALL TASKS REGARDLESS OF THE TASK STATUS "CANCEL" SHOULD GET DELETED ON THE
 		// PARENT QUESTION-ANSWER SWITCH - The "Cancelled" task consider as a Inactive
 		// task so it should be Deleted.
-
 		title("ALL TASKS REGARDLESS OF THE TASK STATUS \"CANCEL\" SHOULD GET DELETED OR NOT ON THE PARENT QUESTION-ANSWER SWITCH - The \"Cancelled\" task consider as a Inactive task so it should be Deleted.");
 
 		Helper helper = new Helper();
@@ -35,8 +34,6 @@ public class RR3892SurveyChecklistEightTest extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// ADD NEW QUESTIONNIRE
 		title("ADD NEW QUESTIONNIRE");

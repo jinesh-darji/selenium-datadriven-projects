@@ -14,13 +14,13 @@
 		<protocol>https</protocol>
 
 		<!-- title of the document -->
-		<documentTitle>UIAutomation Reports</documentTitle>
+		<documentTitle>UploadImportExportAutomation Reports</documentTitle>
 
 		<!-- report name - displayed at top-nav -->
 		<reportName>Automation Report for</reportName>
 
 		<!-- report headline - displayed at top-nav, after reportHeadline -->
-		<reportHeadline>Project Name</reportHeadline>
+		<reportHeadline>Project</reportHeadline>
 
 		<!-- global date format override -->
 		<!-- defaults to yyyy-MM-dd -->

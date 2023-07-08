@@ -27,15 +27,7 @@ public class RR4778TaskTwoTest extends TestBase {
 
 		// ANYONE WITH THE SAME ROLE AS THE TASK CREATOR HAS ALL THE PERMISSIONS LIKE
 		// THE TASK CREATOR - WITHOUT INTERNAL ROLE CHECKLIST.
-
-		System.out.println(
-				"ANYONE WITH THE SAME ROLE AS THE TASK CREATOR HAS ALL THE PERMISSIONS LIKE THE TASK CREATOR - WITHOUT INTERNAL ROLE CHECKLIST.");
-		test.log(LogStatus.INFO,
-				"ANYONE WITH THE SAME ROLE AS THE TASK CREATOR HAS ALL THE PERMISSIONS LIKE THE TASK CREATOR - WITHOUT INTERNAL ROLE CHECKLIST.");
-		Reporter.log(
-				"ANYONE WITH THE SAME ROLE AS THE TASK CREATOR HAS ALL THE PERMISSIONS LIKE THE TASK CREATOR - WITHOUT INTERNAL ROLE CHECKLIST.");
-		log.info(
-				"ANYONE WITH THE SAME ROLE AS THE TASK CREATOR HAS ALL THE PERMISSIONS LIKE THE TASK CREATOR - WITHOUT INTERNAL ROLE CHECKLIST.");
+		title("ANYONE WITH THE SAME ROLE AS THE TASK CREATOR HAS ALL THE PERMISSIONS LIKE THE TASK CREATOR - WITHOUT INTERNAL ROLE CHECKLIST.");
 
 		Helper helper = new Helper();
 
@@ -44,14 +36,8 @@ public class RR4778TaskTwoTest extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// SET THE PERMISSIONS FOR THE ROLE
-
-		System.out.println("***************** SET THE PERMISSIONS FOR THE ROLE *****************");
-		test.log(LogStatus.INFO, "***************** SET THE PERMISSIONS FOR THE ROLE *****************");
-		Reporter.log("***************** SET THE PERMISSIONS FOR THE ROLE *****************");
-		log.info("***************** SET THE PERMISSIONS FOR THE ROLE *****************");
+		title("SET THE PERMISSIONS FOR THE ROLE");
 
 		try {
 			// wait for element
@@ -59,33 +45,23 @@ public class RR4778TaskTwoTest extends TestBase {
 
 			// click on the settings icon
 			click("questionnaire_settingicon_userupdate_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on he settings icon.");
 
 			// wait for element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Security tab
 			click("questionnaire_securitytab_XPATH");
-			System.out.println("Clicked on the Security tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the roles option
 			click("ssc_securitytab_rolesoption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the roles option.");
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,200)");
+			scrollByPixel(200);
 
 			// collect all the roles
-
 			try {
 				String pages = driver.findElement(By.cssSelector("strong")).getText();
 				String[] arrOfStr = pages.split(" ");
@@ -106,23 +82,17 @@ public class RR4778TaskTwoTest extends TestBase {
 
 							// click on the Contractor role
 							click("task_permission_roles_XPATH");
-							ngDriver.waitForAngularRequestsToFinish();
-							System.out.println("Clicked on the Contractor role.");
+
 							break;
 						}
 					}
 
 					// click on the next button
 					click("task_permission_roles_nextbtn_CSS");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the next button.");
 
 				}
 			} catch (Throwable t) {
-				System.out.println("Successfully navigate to the Role Details screen.");
-				test.log(LogStatus.INFO, "Successfully navigate to the Role Details screen.");
-				Reporter.log("Successfully navigate to the Role Details screen.");
-				log.info("Successfully navigate to the Role Details screen.");
+				successMessage("Successfully navigate to the Role Details screen.");
 			}
 
 			// verify internal role check box is selected or not
@@ -132,24 +102,14 @@ public class RR4778TaskTwoTest extends TestBase {
 
 				// click on the internal role checklist
 				click("task_permission_roles_internalrole_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Unchecked the internal role checklist.");
-				test.log(LogStatus.INFO, "Unchecked the internal role checklist.");
-				Reporter.log("Unchecked the internal role checklist.");
-				log.info("Unchecked the internal role checklist.");
 
+				successMessage("Unchecked the internal role checklist.");
 			} else {
-
-				System.out.println("Already Unchecked the internal role checklist.");
-				test.log(LogStatus.INFO, "Already Unchecked the internal role checklist.");
-				Reporter.log("Already Unchecked the internal role checklist.");
-				log.info("Already Unchecked the internal role checklist.");
+				successMessage("Already Unchecked the internal role checklist.");
 			}
 
 			// click on the save button
 			click("task_permission_roles_saverolebtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -157,8 +117,6 @@ public class RR4778TaskTwoTest extends TestBase {
 
 		// click on the home icon
 		click("questionnaire_homeburgermenubtn_CSS");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Clicked on the home icon.");
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -167,11 +125,7 @@ public class RR4778TaskTwoTest extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// LOGIN WITH CONTRACTOR USER 1
-
-		System.out.println("***************** LOGIN WITH CONTRACTOR USER 1 *****************");
-		test.log(LogStatus.INFO, "***************** LOGIN WITH CONTRACTOR USER 1 *****************");
-		Reporter.log("***************** LOGIN WITH CONTRACTOR USER 1 *****************");
-		log.info("***************** LOGIN WITH CONTRACTOR USER 1 *****************");
+		title("LOGIN WITH CONTRACTOR USER 1");
 
 		try {
 			// wait for the element
@@ -179,120 +133,78 @@ public class RR4778TaskTwoTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			helper.loginAndUpdateSystemCompany(data, "username", "password", "system_company_1");
 
 			// CREATE NEW TASK
-
-			System.out.println("***************** CREATE NEW TASK *****************");
-			test.log(LogStatus.INFO, "***************** CREATE NEW TASK *****************");
-			Reporter.log("***************** CREATE NEW TASK *****************");
-			log.info("***************** CREATE NEW TASK *****************");
+			title("CREATE NEW TASK");
 
 			try {
 				// click on the task icon
 				click("taskicon_CSS");
-				System.out.println("Clicked on the task icon.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the add task button
 				click("task_addtaskbtn_CSS");
-				System.out.println("Clicked on the add task button.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// enter the data in the task title field
 				type("task_addtask_titletxt_CSS", data.get("task_title"));
-				System.out.println("Entered the data in the task title field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// enter the data in the task location field
 				type("task_addtask_locationtxt_CSS", data.get("task_location"));
-				System.out.println("Entered the data in the task location field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the assign to field
 				click("task_assigntotxt_CSS");
-				System.out.println("Clicked on the assign to field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the none button
 				click("task_tasktag_nonebtn_CSS");
-				System.out.println("Clicked on the none button.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// enter the user name in the search field
 				type("workflowsecurity_editortask_taskdetails_searchtasktagtxt_CSS", data.get("search_user"));
-				System.out.println("Entered the user name in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the searched result
 				click("task_permission_task_selectusertxt_XPATH");
-				System.out.println("Clicked on the searched result.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the assign to field
 				click("task_assigntotxt_CSS");
-				System.out.println("Clicked on the assign to field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// scroll down the screen
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,1200)");
+				scrollByPixel(1200);
 
 				// synchronization
 				explicitWait("task_addtask_moduledd_CSS");
 
 				// select the environmental option from the module dropdown
 				select("task_addtask_moduledd_CSS", data.get("task_module"));
-				System.out.println("Selected the environmental option from the module dropdown.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the save button
 				click("survey_task_savebtn_CSS");
-				System.out.println("Clicked on the save button.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// scroll up the screen
-				js.executeScript("window.scrollBy(0,-500)");
+				scrollByPixel(-500);
 
 				// click on the clear button
 				click("task_createdtask_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter the data in the search field
 				type("task_filter_CSS", data.get("task_title"));
-				System.out.println("Entered the data in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the search button
 				click("task_createdtask_searchbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the search button.");
 
 				// verify newly created task is displayed or not
-
 				try {
 					String str2 = (driver
 							.findElement(By.xpath("//p[contains(text(),'Test Task Permission Two Title')]")).getText())
-									.trim();
-					ngDriver.waitForAngularRequestsToFinish();
-					if (str2.equals("Test Task Permission Two Title")) {
+							.trim();
 
-						System.out.println("The Test Task Permission One Title is verified successfully.");
-						test.log(LogStatus.INFO, "The Test Task Permission One Title is verified successfully.");
-						Reporter.log("The Test Task Permission One Title is verified successfully.");
-						log.info("The Test Task Permission One Title is verified successfully.");
+					if (str2.equals("Test Task Permission Two Title")) {
+						successMessage("The Test Task Permission One Title is verified successfully.");
 					} else {
 						verificationFailed();
 					}
@@ -306,8 +218,6 @@ public class RR4778TaskTwoTest extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("propertylist_title_XPATH");
@@ -316,93 +226,50 @@ public class RR4778TaskTwoTest extends TestBase {
 			switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 			// LOGIN WITH VENDER USER
-
-			System.out.println("***************** LOGIN WITH VENDER USER *****************");
-			test.log(LogStatus.INFO, "***************** LOGIN WITH VENDER USER *****************");
-			Reporter.log("***************** LOGIN WITH VENDER USER *****************");
-			log.info("***************** LOGIN WITH VENDER USER *****************");
+			title("LOGIN WITH VENDER USER");
 
 			// wait for element
 			Thread.sleep(7000);
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for element
 			Thread.sleep(7000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			helper.loginAndUpdateSystemCompany(data, "username_2", "password", "system_company_1");
 
 			// VERIFY NEWLY CREATED TASK
-
-			System.out.println("***************** VERIFY NEWLY CREATED TASK *****************");
-			test.log(LogStatus.INFO, "***************** VERIFY NEWLY CREATED TASK *****************");
-			Reporter.log("***************** VERIFY NEWLY CREATED TASK *****************");
-			log.info("***************** VERIFY NEWLY CREATED TASK *****************");
+			title("VERIFY NEWLY CREATED TASK");
 
 			try {
 
 				// click on the task icon
 				click("taskicon_CSS");
-				System.out.println("Clicked on the task icon.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the clear button
 				click("task_createdtask_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter the data in the search field
 				type("task_filter_CSS", data.get("task_title"));
-				System.out.println("Entered the data in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the search button
 				click("task_createdtask_searchbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the search button.");
 
 				try {
 					String str3 = driver
 							.findElement(By.xpath(OR.getProperty("task_permission_taskpermission_addedtask2_XPATH")))
 							.getText();
-					ngDriver.waitForAngularRequestsToFinish();
+
 					if (str3.equals("Test Task Permission Two Title")) {
 
-						Assert.assertTrue(
-								isElementPresent(
-										By.xpath(OR.getProperty("task_permission_taskpermission_addedtask2_XPATH"))),
-								"The Test Task Permission Two Title is not displayed.");
-
-						TestUtil.captureScreenshot();
-
-						// ReportNG
-						Reporter.log("<br>" + "Verification failure : " + "<br>");
-						Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-								+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-						Reporter.log("<br>");
-						Reporter.log("<br>");
-
-						// Extent Report
-						test.log(LogStatus.FAIL, " Verification failed with exception : ");
-						test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-						System.out.println("The task is display successfully.");
-						log.info("The task is display successfully.");
-
+						verificationFailedMessage("The task is display successfully.");
 					}
 				} catch (Throwable t) {
-					System.out.println("The task is not displayed as per the expected.");
-					test.log(LogStatus.INFO, "The task is not displayed as per the expected.");
-					Reporter.log("The task is not displayed as per the expected.");
-					log.info("The task is not displayed as per the expected.");
+					successMessage("The task is not displayed as per the expected.");
 				}
 
 			} catch (Throwable t) {
@@ -411,8 +278,6 @@ public class RR4778TaskTwoTest extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("propertylist_title_XPATH");
@@ -421,125 +286,82 @@ public class RR4778TaskTwoTest extends TestBase {
 			switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 			// LOGIN WITH ADMIN USER
-
-			System.out.println("***************** LOGIN WITH PROPERTY MANAGER USER *****************");
-			test.log(LogStatus.INFO, "***************** LOGIN WITH PROPERTY MANAGER USER *****************");
-			Reporter.log("***************** LOGIN WITH PROPERTY MANAGER USER *****************");
-			log.info("***************** LOGIN WITH PROPERTY MANAGER USER *****************");
+			title("LOGIN WITH ADMIN USER");
 
 			// wait for element
 			explicitWaitClickable("questionnaire_settingicon_CSS");
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			helper.loginAndUpdateSystemCompany(data, "username1", "password", "system_company_1");
 
 			// UPDATE THE TASK
-
-			System.out.println("***************** UPDATE THE TASK *****************");
-			test.log(LogStatus.INFO, "***************** UPDATE THE TASK *****************");
-			Reporter.log("***************** UPDATE THE TASK *****************");
-			log.info("***************** UPDATE THE TASK *****************");
+			title("UPDATE THE TASK");
 
 			try {
 				// click on the task icon
 				click("taskicon_CSS");
-				System.out.println("Clicked on the task icon.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the clear button
 				click("task_createdtask_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter the data in the search field
 				type("task_filter_CSS", data.get("task_title"));
-				System.out.println("Entered the data in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the search button
 				click("task_createdtask_searchbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the search button.");
 
 				// wait for the element
 				Thread.sleep(5000);
 
 				// click on the newly created task
 				driver.findElement(By.xpath("//p[contains(text(),'Test Task Permission Two Title')]")).click();
-				System.out.println("Click on the newly created task.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				try {
 
 					// update the title of the task
-					clear("task_addtask_titletxt_CSS");
 					type("task_addtask_titletxt_CSS", data.get("update_task_title"));
-					System.out.println("Entered the updated data in the task title.");
-					ngDriver.waitForAngularRequestsToFinish();
 
 					// click on the update button
 					click("survey_task_updatebtn_CSS");
-					System.out.println("Clicked on the update button.");
-					ngDriver.waitForAngularRequestsToFinish();
 
 					// wait for the element
 					explicitWaitClickable("closetoastmsg_CSS");
 
 					// click on the toaster close button
 					click("closetoastmsg_CSS");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the toaster close button.");
 
 					// click on the back button
 					driver.findElement(
 							By.xpath("//button[@ng-click='cancelTaskInput(false); resetTaskInputDetails();']")).click();
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the back button.");
 
 					// scroll up the screen
-					JavascriptExecutor js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,-500)");
+					scrollByPixel(-500);
 
 					// click on the clear button
 					click("task_createdtask_clearbtn_XPATH");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the clear button.");
 
 					// enter the data in the search field
 					type("task_filter_CSS", data.get("update_task_title"));
-					System.out.println("Entered the data in the search field.");
-					ngDriver.waitForAngularRequestsToFinish();
 
 					// click on the search button
 					click("task_createdtask_searchbtn_XPATH");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the search button.");
 
 					// verify updated task is displayed or not
 					try {
 						String str2 = (driver
 								.findElement(By.xpath("//P[contains(text(),'Update Test Task Permission Two Title')]"))
 								.getText()).trim();
-						ngDriver.waitForAngularRequestsToFinish();
-						if (str2.equals("Update Test Task Permission Two Title")) {
 
-							System.out.println("The Update Test Task Permission Two Title is verified successfully.");
-							test.log(LogStatus.INFO,
-									"The Update Test Task Permission Two Title is verified successfully.");
-							Reporter.log("The Update Test Task Permission Two Title is verified successfully.");
-							log.info("The Update Test Task Permission Two Title is verified successfully.");
+						if (str2.equals("Update Test Task Permission Two Title")) {
+							successMessage("The Update Test Task Permission Two Title is verified successfully.");
 						} else {
 							verificationFailed();
 						}
@@ -561,8 +383,6 @@ public class RR4778TaskTwoTest extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("propertylist_title_XPATH");
@@ -571,95 +391,62 @@ public class RR4778TaskTwoTest extends TestBase {
 			switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 			// LOGIN WITH CONTRACTOR USER 1
-
-			System.out.println("***************** LOGIN WITH CONTRACTOR USER 1 *****************");
-			test.log(LogStatus.INFO, "***************** LOGIN WITH CONTRACTOR USER 1 *****************");
-			Reporter.log("***************** LOGIN WITH CONTRACTOR USER 1 *****************");
-			log.info("***************** LOGIN WITH CONTRACTOR USER 1 *****************");
+			title("LOGIN WITH CONTRACTOR USER 1");
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for 3 seconds
 			Thread.sleep(3000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			helper.loginAndUpdateSystemCompany(data, "username", "password", "system_company_1");
 
 			// VERIFY TASK IS DISPLAYED OR NOT
-
-			System.out.println("***************** VERIFY TASK IS DISPLAYED OR NOT *****************");
-			test.log(LogStatus.INFO, "***************** VERIFY TASK IS DISPLAYED OR NOT *****************");
-			Reporter.log("***************** VERIFY TASK IS DISPLAYED OR NOT *****************");
-			log.info("***************** VERIFY TASK IS DISPLAYED OR NOT *****************");
+			title("VERIFY TASK IS DISPLAYED OR NOT");
 
 			try {
 
 				// click on the task icon
 				click("taskicon_CSS");
-				System.out.println("Clicked on the task icon.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the clear button
 				click("task_createdtask_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter the data in the search field
 				type("task_filter_CSS", data.get("update_task_title"));
-				System.out.println("Entered the data in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the search button
 				click("task_createdtask_searchbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the search button.");
 
 				// click on the newly created task
 				driver.findElement(By.xpath("//p[contains(text(),'Update Test Task Permission Two Title')]")).click();
-				System.out.println("Click on the updated task.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// wait for element
 				explicitWaitClickable("task_deletedtaskbtn_CSS");
 
 				// click on the delete button
 				click("task_deletedtaskbtn_CSS");
-				System.out.println("Clicked on the delete button.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// wait for element
 				explicitWaitClickable("task_deletedtaskbtn_confirmaiton_CSS");
 
 				// click on the delete button of the confirmation popup
 				click("task_deletedtaskbtn_confirmaiton_CSS");
-				System.out.println("Clicked on the delete button of the confirmation popup.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// scroll up the screen
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,-500)");
+				scrollByPixel(-500);
 
 				// click on the clear button
 				click("task_createdtask_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter the data in the search field
 				type("task_filter_CSS", data.get("update_task_title"));
-				System.out.println("Entered the data in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the search button
 				click("task_createdtask_searchbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the search button.");
 
 				try {
 
@@ -669,28 +456,10 @@ public class RR4778TaskTwoTest extends TestBase {
 
 					if (deleteElement.equals("Update Test Task Permission Two Title")) {
 
-						TestUtil.captureScreenshot();
-
-						// ReportNG
-						Reporter.log("<br>" + "The  Update Test Task Permission Two Title is not deleted : " + "<br>");
-						Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-								+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-						Reporter.log("<br>");
-						Reporter.log("<br>");
-
-						// Extent Report
-						test.log(LogStatus.FAIL, " The Update Test Task Permission Two Title is not deleted : ");
-						test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-						System.out.println("The Update Test Task Permission Two Title is not deleted.");
-						log.info("The Update Test Task Permission Two Title is not deleted.");
-
+						verificationFailedMessage("The  Update Test Task Permission Two Title is not deleted");
 					}
 				} catch (Throwable t) {
-					System.out.println("The Update Test Task Permission Two Title is deleted successfully.");
-					test.log(LogStatus.INFO, "The Update Test Task Permission Two Title is deleted successfully.");
-					Reporter.log("The Update Test Task Permission Two Title is deleted successfully.");
-					log.info("The Update Test Task Permission Two Title is deleted successfully.");
+					successMessage("The Update Test Task Permission Two Title is deleted successfully.");
 				}
 
 			} catch (Throwable t) {
@@ -699,8 +468,6 @@ public class RR4778TaskTwoTest extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("propertylist_title_XPATH");
@@ -709,27 +476,19 @@ public class RR4778TaskTwoTest extends TestBase {
 			switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 			// LOGIN WITH ADMIN USER
-
-			System.out.println("***************** LOGIN WITH ADMIN USER *****************");
-			test.log(LogStatus.INFO, "***************** LOGIN WITH ADMIN USER *****************");
-			Reporter.log("***************** LOGIN WITH ADMIN USER *****************");
-			log.info("***************** LOGIN WITH ADMIN USER *****************");
+			title("LOGIN WITH ADMIN USER");
 
 			// wait for element
 			explicitWaitClickable("questionnaire_settingicon_CSS");
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
@@ -738,11 +497,7 @@ public class RR4778TaskTwoTest extends TestBase {
 		}
 
 		// RESET THE APPLIED PERMISSION ON THE ROLE
-
-		System.out.println("***************** RESET THE APPLIED PERMISSION ON THE ROLE *****************");
-		test.log(LogStatus.INFO, "***************** RESET THE APPLIED PERMISSION ON THE ROLE *****************");
-		Reporter.log("***************** RESET THE APPLIED PERMISSION ON THE ROLE *****************");
-		log.info("***************** RESET THE APPLIED PERMISSION ON THE ROLE *****************");
+		title("RESET THE APPLIED PERMISSION ON THE ROLE");
 
 		try {
 
@@ -751,33 +506,23 @@ public class RR4778TaskTwoTest extends TestBase {
 
 			// click on the settings icon
 			click("questionnaire_settingicon_userupdate_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on he settings icon.");
 
 			// wait for element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Security tab
 			click("questionnaire_securitytab_XPATH");
-			System.out.println("Clicked on the Security tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the roles option
 			click("ssc_securitytab_rolesoption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the roles option.");
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,200)");
+			scrollByPixel(200);
 
 			// collect all the roles
-
 			try {
 				String pages = driver.findElement(By.cssSelector("strong")).getText();
 				String[] arrOfStr = pages.split(" ");
@@ -798,48 +543,34 @@ public class RR4778TaskTwoTest extends TestBase {
 
 							// click on the Contractor role
 							click("task_permission_roles_XPATH");
-							ngDriver.waitForAngularRequestsToFinish();
-							System.out.println("Clicked on the Contractor role.");
+
 							break;
 						}
 					}
 
 					// click on the next button
 					click("task_permission_roles_nextbtn_CSS");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the next button.");
 
 				}
 			} catch (Throwable t) {
-				System.out.println("Successfully navigate to the Role Details screen.");
-				test.log(LogStatus.INFO, "Successfully navigate to the Role Details screen.");
-				Reporter.log("Successfully navigate to the Role Details screen.");
-				log.info("Successfully navigate to the Role Details screen.");
+				successMessage("Successfully navigate to the Role Details screen.");
 			}
 
 			// verify internal role check box is selected or not
 			boolean internalrole1 = driver.findElement(By.cssSelector("input[name='internalRole']")).isSelected();
 
 			if (internalrole1 == true) {
-				System.out.println("The internal role is displayed selected.");
-				test.log(LogStatus.INFO, "The internal role is displayed selected.");
-				Reporter.log("The internal role is displayed selected.");
-				log.info("The internal role is displayed selected.");
+				successMessage("The internal role is displayed selected.");
 			} else {
 
 				// click on the internal role checklist
 				click("task_permission_roles_internalrole_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the internal role checklist.");
-				test.log(LogStatus.INFO, "Clicked on the internal role checklist.");
-				Reporter.log("Clicked on the internal role checklist.");
-				log.info("Clicked on the internal role checklist.");
+
+				successMessage("Clicked on the internal role checklist.");
 			}
 
 			// click on the save button
 			click("task_permission_roles_saverolebtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -847,8 +578,6 @@ public class RR4778TaskTwoTest extends TestBase {
 
 		// click on the home icon
 		click("questionnaire_homeburgermenubtn_CSS");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Clicked on the home icon.");
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");

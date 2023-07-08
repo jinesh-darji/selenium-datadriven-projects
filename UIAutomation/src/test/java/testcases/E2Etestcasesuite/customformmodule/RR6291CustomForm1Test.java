@@ -23,15 +23,12 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// ADD THE NEW FIELDS AND PAGES IN THE CUSTOM RECORDS AND VALIDATE THEM IN THE
 		// PROPERTY SUMMARY DASHBOARD - SINGLE TYPE.
-
 		title("ADD THE NEW FIELDS AND PAGES IN THE CUSTOM RECORDS AND VALIDATE THEM IN THE PROPERTY SUMMARY DASHBOARD - SINGLE TYPE.");
 
 		// refresh the page
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8); // Normal Field 1
 		String fieldName2 = RandomStringUtils.randomAlphabetic(8); // Normal Field 2
@@ -60,56 +57,36 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the custom form option
 			click("customform_option_XPATH");
-			System.out.println("Clicked on the custom form option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the add button
 			click("customform_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// enter name of the form in the name field
 			type("customform_nametxt_XPATH", data.get("name"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered name of the form in the name field.");
 
 			// select the single report type from the drop down
 			select("customform_recordtypedd_XPATH", data.get("type_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the single report type from the drop down.");
 
 			// click on the date sensitive checkbox
 			click("customform_datesensitiveckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the date sensitive checkbox.");
 
 			// click on the Is Verification Workflow Enabled? checkbox
 			click("customform_verificationckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Is Verification Workflow Enabled? checkbox.");
 
 			// click on the save button
 			click("customform_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -137,46 +114,31 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the newly created custom record record
 			String nameTitle = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(nameTitle)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the newly created custom record record.");
+			consoleMessage("Clicked on the newly created custom record record.");
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add field button.");
 
 			// enter field name
 			type("customform_addfield_nametxt_XPATH", fieldName1);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
 
 			// select the option from the type dropdown
 			select("customform_addfield_typedd_XPATH", data.get("fieldtype_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
 
 			// click on the display on list checkbox
 			click("customform_addfield_displayonlistckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// validate the newly created field
 			try {
@@ -194,31 +156,21 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add field button.");
 
 			// enter field name
 			type("customform_addfield_nametxt_XPATH", fieldName2);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
 
 			// select the option from the type dropdown
 			select("customform_addfield_typedd_XPATH", data.get("fieldtype_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// scrolldown to bottom
 			scrollBottom();
@@ -242,18 +194,12 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the add new page icon
 			click("customform_portfoliodashboard_addnewpagebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add new page icon.");
 
 			// enter the first page name in the page name field
 			type("customform_portfoliodashboard_pagenametxt_XPATH", pageName1);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the first page name in the page name field.");
 
 			// click on the add button
 			click("customform_portfoliodashboard_pagename_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// validate the newly added page
 			try {
@@ -270,15 +216,10 @@ public class RR6291CustomForm1Test extends TestBase {
 			}
 
 			// enter the second page name in the page name field
-			clear("customform_portfoliodashboard_pagenametxt_XPATH");
 			type("customform_portfoliodashboard_pagenametxt_XPATH", pageName2);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the second page name name in the page name field.");
 
 			// click on the add button
 			click("customform_portfoliodashboard_pagename_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// validate the newly added page
 			try {
@@ -300,52 +241,36 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the first page name tab
 			String page1 = "//span[contains(text(),'" + pageName1 + "')]";
 			driver.findElement(By.xpath(page1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add field button.");
 
 			// enter field name
 			type("customform_addfield_nametxt_XPATH", pageFieldName1);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
 
 			// select the option from the type dropdown
 			select("customform_addfield_typedd_XPATH", data.get("fieldtype_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
 
 			// click on the display on list checkbox
 			click("customform_addfield_displayonlistckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// click on the first page name tab
 			String page11 = "//span[contains(text(),'" + pageName1 + "')]";
 			driver.findElement(By.xpath(page11)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -369,37 +294,26 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add field button.");
 
 			// enter field name
 			type("customform_addfield_nametxt_XPATH", pageFieldName2);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
 
 			// select the option from the type dropdown
 			select("customform_addfield_typedd_XPATH", data.get("fieldtype_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// click on the first page name tab
 			String page111 = "//span[contains(text(),'" + pageName1 + "')]";
 			driver.findElement(By.xpath(page111)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -427,42 +341,30 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the second page name tab
 			String page2 = "//span[contains(text(),'" + pageName2 + "')]";
 			driver.findElement(By.xpath(page2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the second page name tab.");
+			consoleMessage("Clicked on the second page name tab.");
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add field button.");
 
 			// enter field name
 			type("customform_addfield_nametxt_XPATH", pageFieldName3);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
 
 			// select the option from the type dropdown
 			select("customform_addfield_typedd_XPATH", data.get("fieldtype_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// click on the second page name tab
 			String page22 = "//span[contains(text(),'" + pageName2 + "')]";
 			driver.findElement(By.xpath(page22)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the second page name tab.");
+			consoleMessage("Clicked on the second page name tab.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -486,48 +388,32 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add field button.");
 
 			// enter field name
-			clear("customform_addfield_nametxt_XPATH");
 			type("customform_addfield_nametxt_XPATH", pageFieldName4);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
 
 			// select the option from the type dropdown
 			select("customform_addfield_typedd_XPATH", data.get("fieldtype_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
 
 			// click on the display on list checkbox
 			click("customform_addfield_displayonlistckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// click on the second page name tab
 			String page222 = "//span[contains(text(),'" + pageName2 + "')]";
 			driver.findElement(By.xpath(page222)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the second page name tab.");
+			consoleMessage("Clicked on the second page name tab.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -551,16 +437,12 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -568,8 +450,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -588,8 +468,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property.");
 
 			// scrolldown till Property Information section
 			scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -614,8 +492,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the custom form
 			String customForm1 = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(customForm1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the custom form.");
+			consoleMessage("Clicked on the custom form.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -665,8 +542,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the first page name tab
 			String pageTab1 = "//span[text()='" + pageName1 + "']";
 			driver.findElement(By.xpath(pageTab1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -702,8 +578,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the second page name tab
 			String pageTab2 = "//span[text()='" + pageName2 + "']";
 			driver.findElement(By.xpath(pageTab2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the second page name tab.");
+			consoleMessage("Clicked on the second page name tab.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -742,8 +617,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -761,8 +634,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property.");
 
 			// scrolldown till Property Information section
 			scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -787,36 +658,29 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the custom form
 			String customForm1 = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(customForm1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the custom form.");
+			consoleMessage("Clicked on the custom form.");
 
 			// scroll down to bottom
 			scrollTillElement("customform_portfoliodashboard_editfieldbtn_XPATH");
 
 			// click on the edit field button
 			click("customform_portfoliodashboard_editfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit field button.");
 
 			// enter the details in the first field
 			String firstField = "//input[@id='" + fieldName1 + "TEXT']";
 			driver.findElement(By.xpath(firstField)).sendKeys(data.get("first_field"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the first field.");
+			consoleMessage("enter the details in the field.");
 
 			// enter the details in the second field
 			String secondField = "//input[@id='" + fieldName2 + "NUMBER']";
 			driver.findElement(By.xpath(secondField)).sendKeys("123");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the second field.");
+			consoleMessage("enter the details in the field.");
 
 			// scroll down to bottom
 			scrollBottom();
 
 			// click on the save button
 			click("customform_portfoliodashboard_fields_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 			// scrolldown to bottom
 			scrollBottom();
@@ -855,11 +719,9 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the first page name tab
 			String pageTab1 = "//span[text()='" + pageName1 + "']";
 			driver.findElement(By.xpath(pageTab1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// ADD THE DETAILS IN THE FIELDS OF THE FIRST PAGE TAB
-
 			title("ADD THE DETAILS IN THE FIELDS OF THE FIRST PAGE TAB");
 
 			// scroll down to bottom
@@ -867,28 +729,22 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the edit field button
 			click("customform_portfoliodashboard_editfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit field button.");
 
 			// enter the details in the first field
 			String firstPageField = "//input[@id='" + pageFieldName1 + "TEXT']";
 			driver.findElement(By.xpath(firstPageField)).sendKeys(data.get("first_page_field1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the first field.");
+			consoleMessage("enter the details in the field.");
 
 			// enter the details in the second field
 			String secondPageField = "//input[@id='" + pageFieldName2 + "NUMBER']";
 			driver.findElement(By.xpath(secondPageField)).sendKeys("456");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the second field.");
+			consoleMessage("enter the details in the field.");
 
 			// scroll down to bottom
 			scrollBottom();
 
 			// click on the save button
 			click("customform_portfoliodashboard_fields_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -927,11 +783,9 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the second page name tab
 			String pageTab2 = "//span[text()='" + pageName2 + "']";
 			driver.findElement(By.xpath(pageTab2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the second page name tab.");
+			consoleMessage("Clicked on the second page name tab.");
 
 			// ADD THE DETAILS IN THE FIELDS OF THE SECOND PAGE TAB
-
 			title("ADD THE DETAILS IN THE FIELDS OF THE SECOND PAGE TAB");
 
 			// scroll down to bottom
@@ -939,28 +793,22 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the edit field button
 			click("customform_portfoliodashboard_editfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit field button.");
 
 			// enter the details in the first field
 			String thirdPageField = "//input[@id='" + pageFieldName3 + "TEXT']";
 			driver.findElement(By.xpath(thirdPageField)).sendKeys(data.get("second_page_field1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the first field.");
+			consoleMessage("enter the details in the field.");
 
 			// enter the details in the second field
 			String fourthPageField = "//input[@id='" + pageFieldName4 + "NUMBER']";
 			driver.findElement(By.xpath(fourthPageField)).sendKeys("789");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the second field.");
+			consoleMessage("enter the details in the field.");
 
 			// scroll down to bottom
 			scrollBottom();
 
 			// click on the save button
 			click("customform_portfoliodashboard_fields_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -1002,8 +850,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -1013,7 +859,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// UPDATE THE NEWLY CREATED GENERAL FIELDS AND PAGE'S FIELDS OF THE CUSTOM FORMS
 		// FOR SINGLE RECORD TYPE
-
 		title("UPDATE THE NEWLY CREATED GENERAL FIELDS AND PAGE'S FIELDS OF THE CUSTOM FORMS FOR SINGLE RECORD TYPE");
 
 		try {
@@ -1023,26 +868,18 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the custom form option
 			click("customform_option_XPATH");
-			System.out.println("Clicked on the custom form option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// UPDATE THE GENERAL FIELDS IN THE CUSTOM FORMS
 			title("UPDATE THE GENERAL FIELDS IN THE CUSTOM FORMS");
@@ -1050,12 +887,10 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the newly created custom record record
 			String nameTitle = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(nameTitle)).click();
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Clicked on the newly created custom record record.");
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+			scrollBottom();
 
 			// wait for the element
 			Thread.sleep(3000);
@@ -1064,7 +899,6 @@ public class RR6291CustomForm1Test extends TestBase {
 			String editField1 = "//span[text()='" + fieldName1
 					+ "']//following-sibling::span[@class='pull-right']//button[@data-parent='#collapseParent']";
 			driver.findElement(By.xpath(editField1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Clicked on the edit icon of the first field.");
 
 			// scroll to bottom of the screen
@@ -1074,7 +908,6 @@ public class RR6291CustomForm1Test extends TestBase {
 			String name1 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.name']";
 			driver.findElement(By.xpath(name1)).clear();
 			driver.findElement(By.xpath(name1)).sendKeys(updateFieldName1);
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Entered field name.");
 
 			// select the option from the type dropdown
@@ -1082,7 +915,6 @@ public class RR6291CustomForm1Test extends TestBase {
 			WebElement type1_dd = driver.findElement(By.xpath(type1));
 			Select dd1 = new Select(type1_dd);
 			dd1.selectByVisibleText(data.get("fieldtype_2"));
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Selected the option from the type dropdown.");
 
 			// scroll down the screen
@@ -1091,27 +923,21 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the display on list checkbox
 			String visibilityckbx1 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.visibleOnList']";
 			driver.findElement(By.xpath(visibilityckbx1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			String uniqueckbx1 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.isUniqueId']";
 			driver.findElement(By.xpath(uniqueckbx1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Clicked on the unique identifier checkbox.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// validate the updated field
 			try {
@@ -1137,7 +963,6 @@ public class RR6291CustomForm1Test extends TestBase {
 			String editField2 = "//span[text()='" + fieldName2
 					+ "']//following-sibling::span[@class='pull-right']//button[@data-parent='#collapseParent']";
 			driver.findElement(By.xpath(editField2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Clicked on the edit icon of the second field.");
 
 			// scroll down the screen
@@ -1147,7 +972,6 @@ public class RR6291CustomForm1Test extends TestBase {
 			String name2 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.name']";
 			driver.findElement(By.xpath(name2)).clear();
 			driver.findElement(By.xpath(name2)).sendKeys(updateFieldName2);
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Entered field name.");
 
 			// select the option from the type date
@@ -1155,7 +979,6 @@ public class RR6291CustomForm1Test extends TestBase {
 			WebElement type2_dd = driver.findElement(By.xpath(type2));
 			Select dd2 = new Select(type2_dd);
 			dd2.selectByVisibleText(data.get("fieldtype_3"));
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Selected the option from the type date.");
 
 			// scroll down the screen
@@ -1164,27 +987,21 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the display on list checkbox
 			String visibilityckbx2 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.visibleOnList']";
 			driver.findElement(By.xpath(visibilityckbx2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			String uniqueckbx2 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.isUniqueId']";
 			driver.findElement(By.xpath(uniqueckbx2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
 			consoleMessage("Clicked on the unique identifier checkbox.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// validate the updated field
 			try {
@@ -1203,8 +1020,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the first page name tab
 			String page1 = "//span[contains(text(),'" + pageName1 + "')]";
 			driver.findElement(By.xpath(page1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// scroll down the screen
 			scrollBottom();
@@ -1216,8 +1032,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			String editPage1Field1 = "//span[text()='" + pageFieldName1
 					+ "']//following-sibling::span[@class='pull-right']//button[@data-parent='#collapseParent']";
 			driver.findElement(By.xpath(editPage1Field1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit icon of the first field of page one.");
+			consoleMessage("Clicked on the edit icon of the first field of page one.");
 
 			// scroll to bottom of the screen
 			scrollBottom();
@@ -1226,16 +1041,14 @@ public class RR6291CustomForm1Test extends TestBase {
 			String name3 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.name']";
 			driver.findElement(By.xpath(name3)).clear();
 			driver.findElement(By.xpath(name3)).sendKeys(updatePageFieldName1);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
+			consoleMessage("Entered field name.");
 
 			// select the option from the type dropdown
 			String type3 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//select[@ng-model='item.dataType']";
 			WebElement type3_dd = driver.findElement(By.xpath(type3));
 			Select dd3 = new Select(type3_dd);
 			dd3.selectByVisibleText(data.get("fieldtype_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
+			consoleMessage("Selected the option from the type dropdown.");
 
 			// scroll down the screen
 			scrollByPixel(400);
@@ -1243,27 +1056,21 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the display on list checkbox
 			String visibilityckbx3 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.visibleOnList']";
 			driver.findElement(By.xpath(visibilityckbx3)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
+			consoleMessage("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			String uniqueckbx3 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.isUniqueId']";
 			driver.findElement(By.xpath(uniqueckbx3)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
+			consoleMessage("Clicked on the unique identifier checkbox.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// validate the updated field
 			try {
@@ -1289,8 +1096,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			String editPage1Field2 = "//span[text()='" + pageFieldName2
 					+ "']//following-sibling::span[@class='pull-right']//button[@data-parent='#collapseParent']";
 			driver.findElement(By.xpath(editPage1Field2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit icon of the second field of page one.");
+			consoleMessage("Clicked on the edit icon of the second field of page one.");
 
 			// scroll down the screen
 			scrollBottom();
@@ -1299,16 +1105,14 @@ public class RR6291CustomForm1Test extends TestBase {
 			String name4 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.name']";
 			driver.findElement(By.xpath(name4)).clear();
 			driver.findElement(By.xpath(name4)).sendKeys(updatePageFieldName2);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
+			consoleMessage("Entered field name.");
 
 			// select the option from the type dropdown
 			String type4 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//select[@ng-model='item.dataType']";
 			WebElement type4_dd = driver.findElement(By.xpath(type4));
 			Select dd4 = new Select(type4_dd);
 			dd4.selectByVisibleText(data.get("fieldtype_3"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
+			consoleMessage("Selected the option from the type dropdown.");
 
 			// scroll down the screen
 			scrollByPixel(400);
@@ -1316,27 +1120,21 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the display on list checkbox
 			String visibilityckbx4 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.visibleOnList']";
 			driver.findElement(By.xpath(visibilityckbx4)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
+			consoleMessage("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			String uniqueckbx4 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.isUniqueId']";
 			driver.findElement(By.xpath(uniqueckbx4)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
+			consoleMessage("Clicked on the unique identifier checkbox.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// validate the updated field
 			try {
@@ -1354,22 +1152,17 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// click on the second page name tab
 			String page2 = "//span[contains(text(),'" + pageName2 + "')]";
 			driver.findElement(By.xpath(page2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the second page name tab.");
+			consoleMessage("Clicked on the second page name tab.");
 
 			// scroll down the screen
 			scrollBottom();
@@ -1381,8 +1174,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			String editPage2Field1 = "//span[text()='" + pageFieldName3
 					+ "']//following-sibling::span[@class='pull-right']//button[@data-parent='#collapseParent']";
 			driver.findElement(By.xpath(editPage2Field1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit icon of the first field of page one.");
+			consoleMessage("Clicked on the edit icon of the first field of page two.");
 
 			// scroll to bottom of the screen
 			scrollBottom();
@@ -1391,16 +1183,14 @@ public class RR6291CustomForm1Test extends TestBase {
 			String name5 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.name']";
 			driver.findElement(By.xpath(name5)).clear();
 			driver.findElement(By.xpath(name5)).sendKeys(updatePageFieldName3);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
+			consoleMessage("Entered field name.");
 
 			// select the option from the type dropdown
 			String type5 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//select[@ng-model='item.dataType']";
 			WebElement type5_dd = driver.findElement(By.xpath(type5));
 			Select dd5 = new Select(type5_dd);
 			dd5.selectByVisibleText(data.get("fieldtype_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
+			consoleMessage("Selected the option from the type dropdown.");
 
 			// scroll down the screen
 			scrollByPixel(400);
@@ -1408,27 +1198,21 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the display on list checkbox
 			String visibilityckbx5 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.visibleOnList']";
 			driver.findElement(By.xpath(visibilityckbx5)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
+			consoleMessage("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			String uniqueckbx5 = "//strong[contains(text(),'1.')]//following-sibling::div[@id='collapse0']//input[@ng-model='item.isUniqueId']";
 			driver.findElement(By.xpath(uniqueckbx5)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
+			consoleMessage("Clicked on the unique identifier checkbox.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// validate the updated field
 			try {
@@ -1454,8 +1238,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			String editPage2Field2 = "//span[text()='" + pageFieldName4
 					+ "']//following-sibling::span[@class='pull-right']//button[@data-parent='#collapseParent']";
 			driver.findElement(By.xpath(editPage2Field2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit icon of the second field of page one.");
+			consoleMessage("Clicked on the edit icon of the second field of page two.");
 
 			// scroll to bottom of the screen
 			scrollBottom();
@@ -1464,16 +1247,14 @@ public class RR6291CustomForm1Test extends TestBase {
 			String name6 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.name']";
 			driver.findElement(By.xpath(name6)).clear();
 			driver.findElement(By.xpath(name6)).sendKeys(updatePageFieldName2);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
+			consoleMessage("Entered field name.");
 
 			// select the option from the type dropdown
 			String type6 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//select[@ng-model='item.dataType']";
 			WebElement type6_dd = driver.findElement(By.xpath(type6));
 			Select dd6 = new Select(type6_dd);
 			dd6.selectByVisibleText(data.get("fieldtype_3"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
+			consoleMessage("Selected the option from the type dropdown.");
 
 			// scroll down the screen
 			scrollByPixel(400);
@@ -1481,27 +1262,21 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the display on list checkbox
 			String visibilityckbx6 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.visibleOnList']";
 			driver.findElement(By.xpath(visibilityckbx6)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
+			consoleMessage("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			String uniqueckbx6 = "//strong[contains(text(),'2.')]//following-sibling::div[@id='collapse1']//input[@ng-model='item.isUniqueId']";
 			driver.findElement(By.xpath(uniqueckbx6)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
+			consoleMessage("Clicked on the unique identifier checkbox.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// validate the updated field
 			try {
@@ -1519,16 +1294,12 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -1536,8 +1307,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -1556,8 +1325,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property.");
 
 			// scrolldown till Property Information section
 			scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -1582,8 +1349,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the custom form
 			String customForm1 = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(customForm1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the custom form.");
+			consoleMessage("Clicked on the custom form.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -1633,8 +1399,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the first page name tab
 			String pageTab1 = "//span[text()='" + pageName1 + "']";
 			driver.findElement(By.xpath(pageTab1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -1670,8 +1435,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the second page name tab
 			String pageTab2 = "//span[text()='" + pageName2 + "']";
 			driver.findElement(By.xpath(pageTab2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the second page name tab.");
+			consoleMessage("Clicked on the second page name tab.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -1710,8 +1474,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -1720,7 +1482,6 @@ public class RR6291CustomForm1Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// ADD THE DETAILS IN THE UPDATED GENERAL FIELDS AND PAGE'S FIELDS
-
 		title("ADD THE DETAILS IN THE UPDATED GENERAL FIELDS AND PAGE'S FIELDS");
 
 		try {
@@ -1730,8 +1491,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property.");
 
 			// scrolldown till Property Information section
 			scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -1756,41 +1515,32 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the custom form
 			String customForm1 = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(customForm1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the custom form.");
+			consoleMessage("Clicked on the custom form.");
 
 			// scroll down to bottom
 			scrollTillElement("customform_portfoliodashboard_editfieldbtn_XPATH");
 
 			// click on the edit field button
 			click("customform_portfoliodashboard_editfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit field button.");
 
 			// enter the details in the first field
 			String firstField = "//input[@id='" + updateFieldName1 + "NUMBER']";
 			driver.findElement(By.xpath(firstField)).sendKeys("111");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the first field.");
+			consoleMessage("enter the details in the field.");
 
 			// enter the details in the second field
 			String secondField = "//input[@id='" + updateFieldName2 + "DATE']";
 			driver.findElement(By.xpath(secondField)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the second field.");
+			consoleMessage("enter the details in the field.");
 
 			// click on the today button
 			click("customform_portfoliodashboard_todaybtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the today button.");
 
 			// scroll down to bottom
 			scrollBottom();
 
 			// click on the save button
 			click("customform_portfoliodashboard_fields_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 			// scrolldown to bottom
 			scrollBottom();
@@ -1832,11 +1582,9 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the first page name tab
 			String pageTab1 = "//span[text()='" + pageName1 + "']";
 			driver.findElement(By.xpath(pageTab1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// ADD THE DETAILS IN THE FIELDS OF THE FIRST PAGE TAB
-
 			title("ADD THE DETAILS IN THE FIELDS OF THE FIRST PAGE TAB");
 
 			// scroll down to bottom
@@ -1844,33 +1592,25 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the edit field button
 			click("customform_portfoliodashboard_editfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit field button.");
 
 			// enter the details in the first field
 			String firstPage1Field = "//input[@id='" + updatePageFieldName1 + "NUMBER']";
 			driver.findElement(By.xpath(firstPage1Field)).sendKeys("222");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the first field.");
+			consoleMessage("enter the details in the field.");
 
 			// enter the details in the second field
 			String secondPage1Field = "//input[@id='" + updatePageFieldName2 + "DATE']";
 			driver.findElement(By.xpath(secondPage1Field)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the third field.");
+			consoleMessage("enter the details in the field.");
 
 			// click on the today button
 			click("customform_portfoliodashboard_todaybtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the today button.");
 
 			// scroll down to bottom
 			scrollBottom();
 
 			// click on the save button
 			click("customform_portfoliodashboard_fields_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -1912,11 +1652,9 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the second page name tab
 			String pageTab2 = "//span[text()='" + pageName2 + "']";
 			driver.findElement(By.xpath(pageTab2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the second page name tab.");
+			consoleMessage("Clicked on the second page name tab.");
 
 			// ADD THE DETAILS IN THE FIELDS OF THE SECOND PAGE TAB
-
 			title("ADD THE DETAILS IN THE FIELDS OF THE SECOND PAGE TAB");
 
 			// scroll down to bottom
@@ -1924,33 +1662,25 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the edit field button
 			click("customform_portfoliodashboard_editfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the edit field button.");
 
 			// enter the details in the first field
 			String firstPage2Field = "//input[@id='" + updatePageFieldName3 + "NUMBER']";
 			driver.findElement(By.xpath(firstPage2Field)).sendKeys("333");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the first field.");
+			consoleMessage("enter the details in the field.");
 
 			// enter the details in the second field
 			String secondPage2Field = "//input[@id='" + updatePageFieldName3 + "DATE']";
 			driver.findElement(By.xpath(secondPage2Field)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the third field.");
+			consoleMessage("enter the details in the field.");
 
 			// click on the today button
 			click("customform_portfoliodashboard_todaybtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the today button.");
 
 			// scroll down to bottom
 			scrollBottom();
 
 			// click on the save button
 			click("customform_portfoliodashboard_fields_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 			// scroll to bottom
 			scrollBottom();
@@ -1995,8 +1725,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -2005,7 +1733,6 @@ public class RR6291CustomForm1Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// DELETE THE UPDATED PAGES
-
 		title("DELETE THE UPDATED PAGES");
 
 		try {
@@ -2015,39 +1742,29 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the custom form option
 			click("customform_option_XPATH");
-			System.out.println("Clicked on the custom form option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the newly created custom record
 			String nameTitle = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(nameTitle)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the newly created custom record.");
+			consoleMessage("Clicked on the newly created custom record.");
 
 			// click on the delete icon of the first page
 			String editIcon1 = "//span[contains(text(),'" + pageName1
 					+ "')]//a[@ng-click='deleteSelectedTabPage(tabPage)']";
 			driver.findElement(By.xpath(editIcon1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the delete icon of the first page.");
+			consoleMessage("Clicked on the delete icon of the first page.");
 
 			// wait for the element
 			Thread.sleep(3000);
@@ -2056,13 +1773,10 @@ public class RR6291CustomForm1Test extends TestBase {
 			String editIcon2 = "//span[contains(text(),'" + pageName2
 					+ "')]//a[@ng-click='deleteSelectedTabPage(tabPage)']";
 			driver.findElement(By.xpath(editIcon2)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the delete icon of the second page.");
+			consoleMessage("Clicked on the delete icon of the second page.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -2070,8 +1784,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -2081,7 +1793,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// VALIDATE THE DELETED PAGE NAME IS REFLECTED ON PORTFOLIO SUMMARY DASHBOARD
 		// SCREEN
-
 		title("VALIDATE THE DELETED PAGE NAME IS REFLECTED ON PORTFOLIO SUMMARY DASHBOARD SCREEN");
 
 		try {
@@ -2091,8 +1802,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property.");
 
 			// scrolldown till Property Information section
 			scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -2105,11 +1814,9 @@ public class RR6291CustomForm1Test extends TestBase {
 
 				if (customForm1_actual.equals(data.get("name"))) {
 					successMessage("The newly created custom form is displayed successfully.");
-
 				} else {
 					verificationFailedMessage("The newly created custom form is not displayed.");
 				}
-
 			} catch (Throwable t) {
 				verificationFailedMessage("The newly created custom form is not displayed.");
 			}
@@ -2117,8 +1824,7 @@ public class RR6291CustomForm1Test extends TestBase {
 			// click on the custom form
 			String customForm1 = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(customForm1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the custom form.");
+			consoleMessage("Clicked on the custom form.");
 
 			// scroll down to bottom
 			scrollBottom();
@@ -2143,13 +1849,9 @@ public class RR6291CustomForm1Test extends TestBase {
 				String updatePageTab1_actual = (driver.findElement(By.xpath(updatePageTab1)).getText()).trim();
 
 				if (updatePageTab1_actual.equals(updatePageName1)) {
-
 					verificationFailedMessage("The first deleted page name is displayed.");
-
 				} else {
-
 					successMessage("The first deleted page name is not displayed.");
-
 				}
 			} catch (Throwable t) {
 				successMessage("The first deleted page name is not displayed.");
@@ -2161,13 +1863,9 @@ public class RR6291CustomForm1Test extends TestBase {
 				String updatePageTab2_actual = (driver.findElement(By.xpath(updatePageTab2)).getText()).trim();
 
 				if (updatePageTab2_actual.equals(updatePageName2)) {
-
 					verificationFailedMessage("The second deleted page name is displayed.");
-
 				} else {
-
 					successMessage("The second deleted page name is not displayed.");
-
 				}
 			} catch (Throwable t) {
 				successMessage("The second deleted page name is not displayed.");
@@ -2179,8 +1877,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -2189,7 +1885,6 @@ public class RR6291CustomForm1Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// DELETE THE NEWLY CREATED CUSTOMER FORM
-
 		title("DELETE THE NEWLY CREATED CUSTOMER FORM");
 
 		try {
@@ -2199,26 +1894,18 @@ public class RR6291CustomForm1Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the custom form option
 			click("customform_option_XPATH");
-			System.out.println("Clicked on the custom form option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -2227,16 +1914,13 @@ public class RR6291CustomForm1Test extends TestBase {
 			String deleteIcon = "//td[text()='" + data.get("name")
 					+ "']//following-sibling::td[@class='pointer']//i[@data-target='#deleteCustomFormModal']";
 			driver.findElement(By.xpath(deleteIcon)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("click on the delete button of the newly created custom form.");
+			consoleMessage("Clicked on the delete button of the newly created custom form.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the delete button
 			click("customform_deletebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the delete button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -2244,8 +1928,6 @@ public class RR6291CustomForm1Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");

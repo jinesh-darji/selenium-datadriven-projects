@@ -29,10 +29,8 @@ public class RR6475CustomForm2Test extends TestBase {
 
 		// refresh the page
 		driver.navigate().refresh();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String name = RandomStringUtils.randomAlphabetic(8); // Name of the custom form
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8);
@@ -48,6 +46,7 @@ public class RR6475CustomForm2Test extends TestBase {
 		List<String> field2Detail_list = new ArrayList<String>();
 		List<String> pageField1Detail_list = new ArrayList<String>();
 		List<String> pageField2Detail_list = new ArrayList<String>();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		Random random = new Random();
 		int count = random.nextInt(5 - 3) + 3;
@@ -58,7 +57,7 @@ public class RR6475CustomForm2Test extends TestBase {
 		try {
 
 			// Wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
@@ -94,7 +93,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			click("customform_savebtn_XPATH");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// validate the Report Name details of the newly created report
 			try {
@@ -118,6 +117,9 @@ public class RR6475CustomForm2Test extends TestBase {
 			driver.findElement(By.xpath(nameTitle)).click();
 			consoleMessage("Clicked on the newly created custom record record.");
 
+			// scroll down to bottom
+			scrollBottom();
+
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
 
@@ -134,7 +136,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
@@ -143,7 +145,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			scrollBottom();
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// validate the newly created field
 			try {
@@ -160,7 +162,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			}
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
@@ -178,7 +180,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
@@ -190,7 +192,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			click("closetoastmsg_CSS");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// scrolldown to bottom
 			scrollBottom();
@@ -219,7 +221,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			type("customform_portfoliodashboard_pagenametxt_XPATH", pageName1);
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the add button
 			click("customform_portfoliodashboard_pagename_addbtn_XPATH");
@@ -265,7 +267,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
@@ -299,7 +301,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			}
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
@@ -320,7 +322,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
@@ -354,7 +356,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			}
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
@@ -384,7 +386,7 @@ public class RR6475CustomForm2Test extends TestBase {
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
@@ -415,7 +417,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			consoleMessage("Clicked on the custom form.");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			consoleMessage("The details in fields will entered " + count + " times.");
 
@@ -426,7 +428,7 @@ public class RR6475CustomForm2Test extends TestBase {
 				click("customform_portfoliodashboard_addbtn_XPATH");
 
 				// wait for the element
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 
 				// scroll to bottom
 				scrollBottom();
@@ -483,7 +485,7 @@ public class RR6475CustomForm2Test extends TestBase {
 				scrollBottom();
 
 				// wait for the element
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 
 				// validate the details of the first field
 				try {
@@ -565,13 +567,13 @@ public class RR6475CustomForm2Test extends TestBase {
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the side menu
 			click("menubtn_CSS");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the portfolio dashboard from side menu
 			click("sidemenu_portfoliosummary_XPATH");
@@ -606,18 +608,18 @@ public class RR6475CustomForm2Test extends TestBase {
 			// click on the pdf report option
 			click("customform_portfoliodashboard_actionicon_pdfreportoption_XPATH");
 
-			// ********** ADD THE LATEST FILE FETCH CODE **********
-
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			// fetch the latest downloaded file
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 
+			// validate the records in the PDF file
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 
 				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -654,7 +656,7 @@ public class RR6475CustomForm2Test extends TestBase {
 				}
 
 				driver.close();
-				
+
 				driver.switchTo().window(tabs2.get(0));
 
 			} catch (IOException e) {
@@ -676,20 +678,20 @@ public class RR6475CustomForm2Test extends TestBase {
 		// verify the property list
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
-		// VALIDATE THE DOWNLOADED PDF FILE OF THE DETAILS SCREEN OF THE CUSTOM
-		// FORM - PORTFOLIO SUMMARY DASHBOARD
-		title("VALIDATE THE DOWNLOADED PDF FILE OF THE DETAILS LISTING SCREEN OF THE CUSTOM FORM - PORTFOLIO SUMMARY DASHBOARD");
+		// VALIDATE THE DOWNLOADED PDF FILE OF THE INDIVIDUAL CUSTOM FORM DETAILS -
+		// PORTFOLIO SUMMARY DASHBOARD
+		title("VALIDATE THE DOWNLOADED PDF FILE OF THE INDIVIDUAL CUSTOM FORM DETAILS - PORTFOLIO SUMMARY DASHBOARD");
 
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the side menu
 			click("menubtn_CSS");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the portfolio dashboard from side menu
 			click("sidemenu_portfoliosummary_XPATH");
@@ -718,8 +720,14 @@ public class RR6475CustomForm2Test extends TestBase {
 			driver.findElement(By.xpath(customForm1)).click();
 			consoleMessage("Clicked on the custom form.");
 
-			// click on the property one
-			click("customform_portfoliodashboard_propertyname_XPATH");
+			// click on the first custom form details
+			String detail1 = "//td[text()='[DND] AAAA Risk Test Prop 01']//following-sibling::td[@ng-click='viewPropertyTab(property)']//span[text()='"
+					+ field1Detail_list.get(2) + "']";
+			driver.findElement(By.xpath(detail1)).click();
+			consoleMessage("Clicked on the first custom form details.");
+
+			// wait for the element
+			Thread.sleep(3000);
 
 			// click on the action icon
 			click("customform_portfoliodashboard_actionicon_XPATH");
@@ -727,18 +735,18 @@ public class RR6475CustomForm2Test extends TestBase {
 			// click on the pdf report option
 			click("customform_portfoliodashboard_propertylistactionicon_pdfreportoption_XPATH");
 
-			// ********** ADD THE LATEST FILE FETCH CODE **********
-
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			// fetch the latest downloaded file
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 
+			// validate the records in the PDF file
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 
 				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -751,7 +759,7 @@ public class RR6475CustomForm2Test extends TestBase {
 
 				int pageCount = fetchPageCount();
 
-				if (pageCount == count) {
+				if (pageCount == 1) {
 					successMessage("The count of the pages are displayed correctly.");
 				} else {
 					verificationFailedMessage("The count of the pages are not displayed correctly.");
@@ -762,20 +770,17 @@ public class RR6475CustomForm2Test extends TestBase {
 				Assert.assertTrue(pdfContent.contains(data.get("propertyname")));
 				consoleMessage(data.get("propertyname"));
 
-				for (int j = 0; j < count; j++) {
-					Assert.assertTrue(pdfContent.contains(fieldName1 + ": " + field1Detail_list.get(j)));
-					consoleMessage(fieldName1 + ": " + field1Detail_list.get(j));
-					Assert.assertTrue(pdfContent.contains(fieldName2 + ": " + field2Detail_list.get(j)));
-					consoleMessage(fieldName2 + ": " + field2Detail_list.get(j));
-					Assert.assertTrue(pdfContent.contains(pageFieldName1 + ": " + pageField1Detail_list.get(j)));
-					consoleMessage(pageFieldName1 + ": " + pageField1Detail_list.get(j));
-					Assert.assertTrue(pdfContent.contains(pageFieldName2 + ": " + pageField2Detail_list.get(j)));
-					consoleMessage(pageFieldName2 + ": " + pageField2Detail_list.get(j));
-
-				}
+				Assert.assertTrue(pdfContent.contains(fieldName1 + ": " + field1Detail_list.get(2)));
+				consoleMessage(fieldName1 + ": " + field1Detail_list.get(2));
+				Assert.assertTrue(pdfContent.contains(fieldName2 + ": " + field2Detail_list.get(2)));
+				consoleMessage(fieldName2 + ": " + field2Detail_list.get(2));
+				Assert.assertTrue(pdfContent.contains(pageFieldName1 + ": " + pageField1Detail_list.get(2)));
+				consoleMessage(pageFieldName1 + ": " + pageField1Detail_list.get(2));
+				Assert.assertTrue(pdfContent.contains(pageFieldName2 + ": " + pageField2Detail_list.get(2)));
+				consoleMessage(pageFieldName2 + ": " + pageField2Detail_list.get(2));
 
 				driver.close();
-				
+
 				driver.switchTo().window(tabs2.get(0));
 
 			} catch (IOException e) {
@@ -804,7 +809,7 @@ public class RR6475CustomForm2Test extends TestBase {
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
@@ -844,13 +849,13 @@ public class RR6475CustomForm2Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 
 				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -887,7 +892,7 @@ public class RR6475CustomForm2Test extends TestBase {
 				}
 
 				driver.close();
-				
+
 				driver.switchTo().window(tabs2.get(0));
 
 			} catch (IOException e) {
@@ -916,7 +921,7 @@ public class RR6475CustomForm2Test extends TestBase {
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
@@ -945,10 +950,13 @@ public class RR6475CustomForm2Test extends TestBase {
 			driver.findElement(By.xpath(customForm1)).click();
 			consoleMessage("Clicked on the custom form.");
 
-			// click on the record
-			String firstField11 = "//span[contains(text(),'" + field1Detail_list.get(1) + "')]";
-			driver.findElement(By.xpath(firstField11)).click();
-			consoleMessage("Clicked on the record.");
+			// click on the first custom form details
+			String detail1 = "//span[text()='" + field1Detail_list.get(2) + "']";
+			driver.findElement(By.xpath(detail1)).click();
+			consoleMessage("Clicked on the first custom form details.");
+
+			// wait for the element
+			Thread.sleep(3000);
 
 			// click on the action icon
 			click("customform_portfoliodashboard_actionicon_XPATH");
@@ -956,18 +964,18 @@ public class RR6475CustomForm2Test extends TestBase {
 			// click on the pdf report option
 			click("customform_portfoliodashboard_propertylistactionicon_pdfreportoption_XPATH");
 
-			// ********** ADD THE LATEST FILE FETCH CODE **********
-
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			// fetch the latest downloaded file
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 
+			// validate the downloaded PDF file
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 
 				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -980,7 +988,7 @@ public class RR6475CustomForm2Test extends TestBase {
 
 				int pageCount = fetchPageCount();
 
-				if (pageCount == count) {
+				if (pageCount == 1) {
 					successMessage("The count of the pages are displayed correctly.");
 				} else {
 					verificationFailedMessage("The count of the pages are not displayed correctly.");
@@ -991,20 +999,17 @@ public class RR6475CustomForm2Test extends TestBase {
 				Assert.assertTrue(pdfContent.contains(data.get("propertyname")));
 				consoleMessage(data.get("propertyname"));
 
-				for (int j = 0; j < count; j++) {
-					Assert.assertTrue(pdfContent.contains(fieldName1 + ": " + field1Detail_list.get(j)));
-					consoleMessage(fieldName1 + ": " + field1Detail_list.get(j));
-					Assert.assertTrue(pdfContent.contains(fieldName2 + ": " + field2Detail_list.get(j)));
-					consoleMessage(fieldName2 + ": " + field2Detail_list.get(j));
-					Assert.assertTrue(pdfContent.contains(pageFieldName1 + ": " + pageField1Detail_list.get(j)));
-					consoleMessage(pageFieldName1 + ": " + pageField1Detail_list.get(j));
-					Assert.assertTrue(pdfContent.contains(pageFieldName2 + ": " + pageField2Detail_list.get(j)));
-					consoleMessage(pageFieldName2 + ": " + pageField2Detail_list.get(j));
-
-				}
+				Assert.assertTrue(pdfContent.contains(fieldName1 + ": " + field1Detail_list.get(2)));
+				consoleMessage(fieldName1 + ": " + field1Detail_list.get(2));
+				Assert.assertTrue(pdfContent.contains(fieldName2 + ": " + field2Detail_list.get(2)));
+				consoleMessage(fieldName2 + ": " + field2Detail_list.get(2));
+				Assert.assertTrue(pdfContent.contains(pageFieldName1 + ": " + pageField1Detail_list.get(2)));
+				consoleMessage(pageFieldName1 + ": " + pageField1Detail_list.get(2));
+				Assert.assertTrue(pdfContent.contains(pageFieldName2 + ": " + pageField2Detail_list.get(2)));
+				consoleMessage(pageFieldName2 + ": " + pageField2Detail_list.get(2));
 
 				driver.close();
-				
+
 				driver.switchTo().window(tabs2.get(0));
 
 			} catch (IOException e) {
@@ -1032,7 +1037,7 @@ public class RR6475CustomForm2Test extends TestBase {
 		try {
 
 			// Wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
@@ -1050,7 +1055,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			click("customform_option_XPATH");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the delete button of the updated custom form
 			String deleteIcon = "//td[text()='" + name
@@ -1059,7 +1064,7 @@ public class RR6475CustomForm2Test extends TestBase {
 			consoleMessage("Clicked on the delete button of the updated custom form.");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the delete button
 			click("customform_deletebtn_XPATH");

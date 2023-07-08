@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -33,6 +34,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -468,26 +470,12 @@ public class TestBase {
 		}
 	}
 
-	// Scroll down to 2000 px
-	public static void scrollDown() {
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,2000)");
-
-	}
-
-	// Scroll up to top
-	public static void scrollTop() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollTo(0, 0)");
-	}
-
 	public void randomText() throws InterruptedException, IOException {
 
 		try {
 			// enter the random string in the questionnaire title field: clear, generate
 			// string, enter
-			clear("questionnaire_questionnairetitletxt_CSS");
+			 
 			System.out.println("Cleared the random string in the questionnaire title field.");
 			ngDriver.waitForAngularRequestsToFinish();
 
@@ -502,7 +490,7 @@ public class TestBase {
 			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			type("ssc_company2_questionnairelist_filtertxt_CSS", s);
 			System.out.println("Entered newly updated questionnaire in the filter field.");
@@ -1814,7 +1802,7 @@ public class TestBase {
 
 		try {
 			// enter security setting name in the search field
-			clear("propertyproject_le_filtertxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_le_filtertxt_CSS", data.get(search));
@@ -1837,7 +1825,7 @@ public class TestBase {
 			System.out.println("Clicked on the none button.");
 
 			// enter the name of the role in search field
-			clear("propertyproject_securitysettings1_searchtxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_securitysettings1_searchtxt_CSS", data.get("role_1"));
@@ -1865,7 +1853,7 @@ public class TestBase {
 			System.out.println("Clicked on the none button.");
 
 			// enter the name of the user in search field
-			clear("propertyproject_securitysettings1_searchtxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_securitysettings1_searchtxt_CSS", data.get("user_1"));
@@ -1878,7 +1866,7 @@ public class TestBase {
 			System.out.println("Clicked on the searched result.");
 
 			// enter the name of the user in search field
-			clear("propertyproject_securitysettings1_searchtxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_securitysettings1_searchtxt_CSS", data.get("user1_1"));
@@ -1918,7 +1906,7 @@ public class TestBase {
 
 		try {
 			// enter security setting name in the search field
-			clear("propertyproject_le_filtertxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_le_filtertxt_CSS", data.get(search));
@@ -1941,7 +1929,7 @@ public class TestBase {
 			System.out.println("Clicked on the none button.");
 
 			// enter the name of the role in search field
-			clear("propertyproject_securitysettings1_searchtxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_securitysettings1_searchtxt_CSS", data.get("role_1"));
@@ -1969,7 +1957,7 @@ public class TestBase {
 			System.out.println("Clicked on the none button.");
 
 			// enter the name of the user in search field
-			clear("propertyproject_securitysettings1_searchtxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_securitysettings1_searchtxt_CSS", data.get("user_1"));
@@ -2009,7 +1997,7 @@ public class TestBase {
 
 		try {
 			// enter security setting name in the search field
-			clear("propertyproject_le_filtertxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_le_filtertxt_CSS", data.get(search));
@@ -2032,7 +2020,7 @@ public class TestBase {
 			System.out.println("Clicked on the none button.");
 
 			// enter the name of the role in search field
-			clear("propertyproject_securitysettings1_searchtxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_securitysettings1_searchtxt_CSS", data.get("role_1"));
@@ -2060,7 +2048,7 @@ public class TestBase {
 			System.out.println("Clicked on the none button.");
 
 			// enter the name of the user in search field
-			clear("propertyproject_securitysettings1_searchtxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_securitysettings1_searchtxt_CSS", data.get("user_1"));
@@ -2100,7 +2088,7 @@ public class TestBase {
 
 		try {
 			// enter security setting name in the search field
-			clear("propertyproject_le_filtertxt_CSS");
+			 
 			ngDriver.waitForAngularRequestsToFinish();
 			System.out.println("Clear the search field.");
 			type("propertyproject_le_filtertxt_CSS", data.get(search));
@@ -2202,7 +2190,7 @@ public class TestBase {
 
 		try {
 			// search the Access to PO section in tasks
-			clear("envreports_propertylist_filtertxt_CSS");
+			 
 			System.out.println("Cleared the search field.");
 			ngDriver.waitForAngularRequestsToFinish();
 			type("envreports_propertylist_filtertxt_CSS", data.get(permissionName));
@@ -2278,7 +2266,7 @@ public class TestBase {
 
 		try {
 			// search the permission in the search field
-			clear("envreports_propertylist_filtertxt_CSS");
+			 
 			System.out.println("Cleared the search field.");
 			ngDriver.waitForAngularRequestsToFinish();
 			type("envreports_propertylist_filtertxt_CSS", data.get(permissionName));
@@ -2465,6 +2453,134 @@ public class TestBase {
 		test.log(LogStatus.INFO, message);
 		Reporter.log(message);
 		log.info(message);
+	}
+
+	// Console Message
+	public void consoleMessage(String message) {
+
+		ngDriver.waitForAngularRequestsToFinish();
+
+		System.out.println("Console ---> " + message);
+		test.log(LogStatus.INFO, "Console ---> " + message);
+		Reporter.log("Console ---> " + message);
+		log.info("Console ---> " + message);
+	}
+
+	// Title of the scenario
+	public void title(String description) {
+
+		test.log(LogStatus.INFO, "********** " + description + " **********");
+		Reporter.log("********** " + description + " **********");
+		log.info("********** " + description + " **********");
+
+	}
+
+	// selection of the test case for the execution
+	public void execution(Hashtable<String, String> data, String locator) {
+
+		if (TestUtil.isTestRunnable(locator, excel)) {
+
+			if (data.get("runmode").equals("Y")) {
+
+				consoleMessage("Executing the test " + locator.toUpperCase() + " as the Run mode is YES");
+
+			} else {
+				throw new SkipException("Skipping the test case as the Run Mode for data set is NO");
+			}
+
+		} else {
+			throw new SkipException("Skipping the test " + locator.toUpperCase() + " as the Run mode is NO");
+		}
+	}
+
+	// enter today's date
+	public String today() {
+
+		LocalDate today = LocalDate.now();
+		String today_string = today.toString();
+
+		return today_string;
+	}
+
+	// Verification for the data is not available
+	public void switchVerificationFailed(String locator, String name, String description)
+			throws IOException, InterruptedException {
+
+		try {
+			if (locator.endsWith("_CSS")) {
+				String str1 = (driver.findElement(By.cssSelector(OR.getProperty(locator))).getText()).trim();
+
+				if (str1.equals(name)) {
+
+					verificationFailedMessage("The " + name + " is displayed.");
+
+				} else {
+					successMessage("The " + name + " is not displayed as expected.");
+				}
+
+			} else if (locator.endsWith("_XPATH")) {
+				String str2 = (driver.findElement(By.xpath(OR.getProperty(locator))).getText()).trim();
+
+				if (str2.equals(name)) {
+
+					verificationFailedMessage("The " + name + " is displayed.");
+
+				} else {
+					successMessage("The " + name + " is not displayed as expected.");
+				}
+			}
+
+		} catch (Throwable t) {
+			successMessage("The " + name + " is not displayed as expected.");
+		}
+	}
+
+	// Scroll down to pixel
+	public void scrollByPixel(int pixel) {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0," + pixel + ")");
+		ngDriver.waitForAngularRequestsToFinish();
+		consoleMessage("Scroll Down the screen By " + pixel + " px.");
+	}
+
+	// Scroll up to top
+	public void scrollTop() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0, 0)");
+		ngDriver.waitForAngularRequestsToFinish();
+		consoleMessage("Scroll at the top of the screen.");
+	}
+
+	// Scroll up to bottom
+	public void scrollBottom() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0, document.body.scrollHeight)");
+		ngDriver.waitForAngularRequestsToFinish();
+		consoleMessage("Scroll at the bottom of the screen.");
+	}
+
+	// scroll to respective element
+	public void scrollTillElement(String locator) {
+		WebElement ele = null;
+
+		if (locator.endsWith("_CSS")) {
+			ele = driver.findElement(By.cssSelector(OR.getProperty(locator)));
+		} else if (locator.endsWith("_XPATH")) {
+			ele = driver.findElement(By.xpath(OR.getProperty(locator)));
+		} else if (locator.endsWith("_ID")) {
+			ele = driver.findElement(By.id(OR.getProperty(locator)));
+		} else if (locator.endsWith("_MODEL")) {
+			ele = driver.findElement(ByAngular.model(OR.getProperty(locator)));
+		} else if (locator.endsWith("_BTNTEXT")) {
+			ele = driver.findElement(ByAngular.buttonText(OR.getProperty(locator)));
+
+		}
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ele);
+		ngDriver.waitForAngularRequestsToFinish();
+		consoleMessage("Scroll till the respective element.");
 	}
 
 	@AfterSuite

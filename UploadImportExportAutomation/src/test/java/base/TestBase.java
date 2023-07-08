@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -27,7 +28,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -84,7 +84,7 @@ public class TestBase {
 			try {
 				config.load(fis);
 				log.info("Config file is loaded successfully!!!");
-				System.out.println("Config file is loaded successfully!!!");
+
 			} catch (IOException e) {
 
 				e.printStackTrace();
@@ -100,7 +100,7 @@ public class TestBase {
 			try {
 				OR.load(fis);
 				log.info("OR file is loaded successfully!!!");
-				System.out.println("OR file is loaded successfully!!!");
+
 			} catch (IOException e) {
 
 				e.printStackTrace();
@@ -126,7 +126,6 @@ public class TestBase {
 			jsDriver = (JavascriptExecutor) driver;
 			ngDriver = new NgWebDriver(jsDriver);
 			log.info("FireFox launched successfully!!!");
-			System.out.println("FireFox launched successfully!!!");
 
 		} else if (config.getProperty("browser").equals("chrome")) {
 
@@ -146,7 +145,7 @@ public class TestBase {
 //			jsDriver = (JavascriptExecutor) driver;
 //			ngDriver = new NgWebDriver(jsDriver);
 			log.info("Chrome launched successfully!!!");
-			System.out.println("Chrome launched successfully!!!");
+
 		}
 
 		// Initialize the Application URL
@@ -161,7 +160,7 @@ public class TestBase {
 
 		driver.manage().window().maximize();
 		log.info("The window maximize successfully!!!");
-		System.out.println("The window maximize successfully!!!");
+
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implecit.wait")),
 				TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 45);
@@ -553,7 +552,6 @@ public class TestBase {
 		test.log(LogStatus.FAIL, " The verification is failed : ");
 		test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
 
-		System.out.println("The verification is failed.");
 		log.info("The verification is failed.");
 
 	}
@@ -632,7 +630,6 @@ public class TestBase {
 	// Title of the scenario
 	public void title(String description) {
 
-		System.out.println("********** " + description + " **********");
 		test.log(LogStatus.INFO, "********** " + description + " **********");
 		Reporter.log("********** " + description + " **********");
 		log.info("********** " + description + " **********");
@@ -707,17 +704,17 @@ public class TestBase {
 		int pageCount = doc.getNumberOfPages();
 		return pageCount;
 	}
-	
+
 	// get the PDF file count of pages
-		public static int fetchPageCount() throws IOException {
-			
-			URL pdfUrl = new URL(driver.getCurrentUrl());
-			InputStream in = pdfUrl.openStream();
-			BufferedInputStream bf = new BufferedInputStream(in);
-			PDDocument doc = PDDocument.load(bf);
-			int pageCount = doc.getNumberOfPages();
-			return pageCount;
-		}
+	public static int fetchPageCount() throws IOException {
+
+		URL pdfUrl = new URL(driver.getCurrentUrl());
+		InputStream in = pdfUrl.openStream();
+		BufferedInputStream bf = new BufferedInputStream(in);
+		PDDocument doc = PDDocument.load(bf);
+		int pageCount = doc.getNumberOfPages();
+		return pageCount;
+	}
 
 	// fetch the latest downloaded file
 	public static File getLastModified(String directoryFilePath) {
@@ -738,15 +735,22 @@ public class TestBase {
 		return chosenFile;
 	}
 
+	// enter today's date
+	public String today() {
+
+		LocalDate today = LocalDate.now();
+		String today_string = today.toString();
+
+		return today_string;
+	}
+
 	@AfterSuite
 	public void tearDown() {
 
 		if (driver != null) {
 			driver.quit();
 		}
-
 		consoleMessage("Test execution completed!!!");
-
 	}
 
 }

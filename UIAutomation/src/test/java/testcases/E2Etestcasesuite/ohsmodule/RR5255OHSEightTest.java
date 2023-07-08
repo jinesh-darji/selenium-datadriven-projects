@@ -24,15 +24,7 @@ public class RR5255OHSEightTest extends TestBase {
 
 		// SECURITY SETTING CONTROLS TO MAKE SURE THE OHS PRIVATE INFORMATION CAN BE
 		// ONLY PERFORMED BY THE USER/ROLE WITH ACCESS TO IT.
-
-		System.out.println(
-				"SECURITY SETTING CONTROLS TO MAKE SURE THE OHS PRIVATE INFORMATION CAN BE ONLY PERFORMED BY THE USER/ROLE WITH ACCESS TO IT.");
-		test.log(LogStatus.INFO,
-				"SECURITY SETTING CONTROLS TO MAKE SURE THE OHS PRIVATE INFORMATION CAN BE ONLY PERFORMED BY THE USER/ROLE WITH ACCESS TO IT.");
-		Reporter.log(
-				"SECURITY SETTING CONTROLS TO MAKE SURE THE OHS PRIVATE INFORMATION CAN BE ONLY PERFORMED BY THE USER/ROLE WITH ACCESS TO IT.");
-		log.info(
-				"SECURITY SETTING CONTROLS TO MAKE SURE THE OHS PRIVATE INFORMATION CAN BE ONLY PERFORMED BY THE USER/ROLE WITH ACCESS TO IT.");
+		title("SECURITY SETTING CONTROLS TO MAKE SURE THE OHS PRIVATE INFORMATION CAN BE ONLY PERFORMED BY THE USER/ROLE WITH ACCESS TO IT.");
 
 		Helper helper = new Helper();
 
@@ -41,14 +33,8 @@ public class RR5255OHSEightTest extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// APPLY THE OHS PRIVATE INFORMATION PERMISSION
-
-		System.out.println("********** APPLY THE OHS PRIVATE INFORMATION PERMISSION **********");
-		test.log(LogStatus.INFO, "********** APPLY THE OHS PRIVATE INFORMATION PERMISSION **********");
-		Reporter.log("********** APPLY THE OHS PRIVATE INFORMATION PERMISSION **********");
-		log.info("********** APPLY THE OHS PRIVATE INFORMATION PERMISSION **********");
+		title("APPLY THE OHS PRIVATE INFORMATION PERMISSION");
 
 		try {
 			// wait for the element
@@ -56,26 +42,18 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the security tab
 			click("questionnaire_securitytab_XPATH");
-			System.out.println("Clicked on the security tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the security settings option
 			click("questionnaire_securotysettingsoption_XPATH");
-			System.out.println("Clicked on the security settings option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// APPLY THE ACCESS TO MODIFY EHS STATUS IN INCIDENT REPORT PERMISSION
 			helper.addPermissionOneUsersRole(data, "ohs_security_setting_1", "ohs_securitysettings8_XPATH");
@@ -85,8 +63,6 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the home icon
 			click("questionnaire_homeburgermenubtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the home icon.");
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -99,85 +75,48 @@ public class RR5255OHSEightTest extends TestBase {
 		}
 
 		// ADD THE NEWLY INCIDENT REPORT
-
-		System.out.println("********** ADD THE NEWLY INCIDENT REPORT **********");
-		test.log(LogStatus.INFO, "********** ADD THE NEWLY INCIDENT REPORT **********");
-		Reporter.log("********** ADD THE NEWLY INCIDENT REPORT **********");
-		log.info("********** ADD THE NEWLY INCIDENT REPORT **********");
+		title("ADD THE NEWLY INCIDENT REPORT");
 
 		try {
 
 			// click on the OHS icon from the property list page
 			click("ohsicon_CSS");
-			System.out.println("Clicked on the OHS icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the OHS screen of the perticular property.");
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_option_ohstab_incidentreports_XPATH");
 
 			// click on the incident reports
 			click("questionnaire_option_ohstab_incidentreports_XPATH");
-			System.out.println("Clicked on the incident reports option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// ADD DETAILS IN THE INCIDENT REPORT TAB
-
-			System.out.println("********** ADD DETAILS IN THE INCIDENT REPORT TAB **********");
-			test.log(LogStatus.INFO, "********** ADD DETAILS IN THE INCIDENT REPORT TAB **********");
-			Reporter.log("********** ADD DETAILS IN THE INCIDENT REPORT TAB **********");
-			log.info("********** ADD DETAILS IN THE DETAILS, CAUSES TAB **********");
+			title("ADD DETAILS IN THE INCIDENT REPORT TAB");
 
 			// click on the add button
 			click("ohs_incident_addbtn_CSS");
-			System.out.println("Clicked on the Add button.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the Add incident report Screen");
 
 			// enter the incident time - hours
-			clear("ohs_incident_hourstxt_CSS");
-			System.out.println("Cleared the hours field of incident time.");
-			ngDriver.waitForAngularRequestsToFinish();
 			type("ohs_incident_hourstxt_CSS", "11");
-			System.out.println("Entered the hours in the incident time.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter the incident time - minute
-			clear("ohs_incident_minutestxt_CSS");
-			System.out.println("Cleared the minute field of incident time.");
-			ngDriver.waitForAngularRequestsToFinish();
 			type("ohs_incident_minutestxt_CSS", "20");
-			System.out.println("Entered the minute in the incident time.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,500)");
+			scrollByPixel(500);
 
 			// enter the short description
 			type("ohs_incident_shortdescriptiontxt_CSS", data.get("describe_incident"));
-			System.out.println("Entered the short description");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the add event type button
 			click("ohs_incident_addeventtypebtn_CSS");
-			System.out.println("Clicked on the add event type button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the event type dropdown
 			select("ohs_incident_eventtypedd_CSS", data.get("event_type"));
-			System.out.println("Clicked on the event type dropdown.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the add button of the add event type record model
 			click("ohs_incident_eventty_addbtn_CSS");
-			System.out.println("Clicked on the add button of the add event type record model.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -187,41 +126,25 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the next button
 			click("ohs_incident_nextbtn_CSS");
-			System.out.println("Clicked on the next button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("ohs_incident_nextbtn_CSS");
-			System.out.println("Navigate to the Details, Cause Tab.");
-			test.log(LogStatus.INFO, "Navigate to the Details, Cause Tab..");
-			Reporter.log("Navigate to the Details, Cause Tab..");
-			log.info("Navigate to the Details, Cause Tab..");
+			consoleMessage("Navigate to the Details, Cause Tab.");
 
 			// ADD DETAILS IN THE DETAILS, CAUSES TAB
-
-			System.out.println("********** ADD DETAILS IN THE DETAILS, CAUSES TAB **********");
-			test.log(LogStatus.INFO, "********** ADD DETAILS IN THE DETAILS, CAUSES TAB **********");
-			Reporter.log("********** ADD DETAILS IN THE DETAILS, CAUSES TAB **********");
-			log.info("********** ADD DETAILS IN THE DETAILS, CAUSES TAB **********");
+			title("ADD DETAILS IN THE DETAILS, CAUSES TAB");
 
 			// Enter the data in the description incident field
 			type("ohs_incident_descriptionincidenttxt_CSS", data.get("describe_incident"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the data in the description incident field.");
 
 			// Enter the data in the Incident Cause field
 			type("ohs_incident_incidentcausetxt_CSS", data.get("incident_cause"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the data in the Incident Cause field.");
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,400)");
+			scrollByPixel(500);
 
 			// Enter the data in the Actions Taken field
 			type("ohs_incident_actionstakentxt_CSS", data.get("actions_taken"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the data in the Actions Taken field.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -231,92 +154,53 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the next button
 			click("ohs_incident_nextbtn_CSS");
-			System.out.println("Clicked on the next button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("ohs_incident_personsinvolved_addbtn_CSS");
-			System.out.println("Navigate to the Persons Involved Tab.");
-			test.log(LogStatus.INFO, "Navigate to the Persons Involved Tab.");
-			Reporter.log("Navigate to the Persons Involved Tab.");
-			log.info("Navigate to the Persons Involved Tab.");
+			consoleMessage("Navigate to the Persons Involved Tab.");
 
 			// ADD DETAILS IN THE PERSONS INVOLVED TAB
-
-			System.out.println("********** ADD DETAILS IN THE PERSONS INVOLVED TAB **********");
-			test.log(LogStatus.INFO, "********** ADD DETAILS IN THE PERSONS INVOLVED TAB **********");
-			Reporter.log("********** ADD DETAILS IN THE PERSONS INVOLVED TAB **********");
-			log.info("********** ADD DETAILS IN THE PERSONS INVOLVED TAB **********");
+			title("ADD DETAILS IN THE PERSONS INVOLVED TAB");
 
 			try {
 				// click on the add button
 				click("ohs_incident_personsinvolved_addbtn_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the add button");
 
 				// select an employee option from the type dropdown
 				select("ohs_incident_typedd_CSS", data.get("person_type"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Selected an employee option from the type dropdown.");
 
 				// enter data in the Insurance Company Name field
 				type("ohs_incident_insurancecompanynametxt_CSS", data.get("insurance_company_name"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered data in the Insurance Company Name field.");
 
 				// enter data in the Insurance Policy Number field
 				type("ohs_incident_insurancepolicynumbertxt_CSS", data.get("insurance_policy_number"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered data in the Insurance Policy Number field.");
 
 				// click on the Is this person injured? checkbox
 				click("ohs_incident_personinjuredckbx_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the Is this person injured? checkbox.");
 
 				// scroll down the screen
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,600)");
-
-//					// select the reported option from the injury status dropdown
-//					select("ohs_incident_injurystatusdd_CSS", data.get("injury_status"));
-//					ngDriver.waitForAngularRequestsToFinish();
-//					System.out.println("Selected the reported option from the injury status dropdown.");
+				scrollByPixel(500);
 
 				// enter data in the first name field
 				type("ohs_incident_personfirstnametxt_CSS", data.get("person_first_name"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered data in the first name field.");
 
 				// enter data in the last name field
 				type("ohs_incident_personlastnametxt_CSS", data.get("person_last_name"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered data in the last name field.");
 
 				// enter data in the job title
 				type("ohs_incident_personjobtitletxt_CSS", data.get("job_title"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("enter data in the job title");
 
 				// enter data in the email field
 				type("ohs_incident_personemailtxt_CSS", data.get("person_email"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered data in the email field.");
 
 				// enter data in the phone number field
 				type("ohs_incident_personphonenumbertxt_CSS", "9876543210");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered data in the phone number field.");
 
 				// enter data in the manager name field
 				type("ohs_incident_managernametxt_CSS", data.get("manager_name"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered data in the manager name field.");
 
 				// enter data in the manager email field
 				type("ohs_incident_manageremailtxt_CSS", data.get("manager_email"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered data in the manager email field.");
 
 			} catch (Throwable t) {
 				verificationFailed();
@@ -324,41 +208,26 @@ public class RR5255OHSEightTest extends TestBase {
 			}
 
 			// ADD DETAILS IN THE NATURE OF INJURY TAB
-
-			System.out.println("********** ADD DETAILS IN THE NATURE OF INJURY TAB **********");
-			test.log(LogStatus.INFO, "********** ADD DETAILS IN THE NATURE OF INJURY TAB **********");
-			Reporter.log("********** ADD DETAILS IN THE NATURE OF INJURY TAB **********");
-			log.info("********** ADD DETAILS IN THE NATURE OF INJURY TAB **********");
+			title("ADD DETAILS IN THE NATURE OF INJURY TAB");
 
 			try {
 				// scroll up the screen
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,-600)");
+				scrollByPixel(-500);
 
 				// click on the nature of injury tab
 				click("ohs_incident_natureofinjurytab_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the nature of injury tab.");
 
 				// click on the abdomen checkbox
 				click("ohs_incident_abdomenckbx_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the abdomen checkbox.");
 
 				// click on the left hand checkbox
 				click("ohs_incident_lefthandckbx_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the left hand checkbox.");
 
 				// click on the psychological checkbox
 				click("ohs_incident_psychologicalckbx_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the psychological checkbox.");
 
 				// click on the right shoulder checkbox
 				click("ohs_incident_rightshoulderckbx_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the right shoulder checkbox.");
 
 			} catch (Throwable t) {
 				verificationFailed();
@@ -366,17 +235,11 @@ public class RR5255OHSEightTest extends TestBase {
 			}
 
 			// ADD DETAILS IN THE CAUSE OF INJURY TAB
-
-			System.out.println("********** ADD DETAILS IN THE CAUSE OF INJURY TAB **********");
-			test.log(LogStatus.INFO, "********** ADD DETAILS IN THE CAUSE OF INJURY TAB **********");
-			Reporter.log("********** ADD DETAILS IN THE CAUSE OF INJURY TAB **********");
-			log.info("********** ADD DETAILS IN THE CAUSE OF INJURY TAB **********");
+			title("ADD DETAILS IN THE CAUSE OF INJURY TAB");
 
 			try {
 				// click on the causes of injury tab
 				click("ohs_incident_causeofinjurytab_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the causes of injury tab.");
 
 				try {
 
@@ -385,17 +248,12 @@ public class RR5255OHSEightTest extends TestBase {
 
 					// click on the first option of the causes of injury
 					click("ohs_incident_causeofinjury_animaloption_XPATH");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the first option of the causes of injury.");
 
 					// scroll down the screen
-					JavascriptExecutor js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,400)");
+					scrollByPixel(500);
 
 					// click on the save button
 					click("ohs_incident_causesofinjurytab_savebtn_CSS");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the save button.");
 
 					// verify added person involved details are displayed or not
 					switchVerification("ohs_incident_addedpersoninvolved1_XPATH", "Employee",
@@ -403,33 +261,14 @@ public class RR5255OHSEightTest extends TestBase {
 
 				} catch (Throwable t) {
 
-					TestUtil.captureScreenshot();
-
-					// ReportNG
-					Reporter.log("<br>" + "The checklists are not displayed in classic mode. : " + "<br>");
-					Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-							+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-					Reporter.log("<br>");
-					Reporter.log("<br>");
-
-					// Extent Report
-					test.log(LogStatus.FAIL, " The checklists are not displayed in classic mode. : ");
-					test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-					System.out.println("The checklists are not displayed in classic mode.");
-					log.info("The checklists are not displayed in classic mode.");
+					verificationFailedMessage("The checklists are not displayed in classic mode.");
 
 					// click on the cancel button
 					click("ohs_incident_causesofinjurytab_cancelbtn_XPATH");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the cancel button.");
-
 				}
-
 			} catch (Throwable t) {
 				verificationFailed();
 			}
-
 		} catch (Throwable t) {
 			verificationFailed();
 		}
@@ -438,67 +277,41 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the next button
 			click("ohs_incident_nextbtn_CSS");
-			System.out.println("Clicked on the next button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("ohs_incident_nextbtn_CSS");
-			System.out.println("Navigate to the Witnesses Tab.");
-			test.log(LogStatus.INFO, "Navigate to the Witnesses Tab.");
-			Reporter.log("Navigate to the Witnesses Tab.");
-			log.info("Navigate to the Witnesses Tab.");
+			consoleMessage("Navigate to the Witnesses Tab.");
 
 			// click on the next button
 			click("ohs_incident_nextbtn_CSS");
-			System.out.println("Clicked on the next button.");
-			ngDriver.waitForAngularRequestsToFinish();
-
-			explicitWait("ohs_incident_nextbtn_CSS");
-			System.out.println("Navigate to the emergency services Tab.");
-			test.log(LogStatus.INFO, "Navigate to the emergency services Tab.");
-			Reporter.log("Navigate to the emergency services Tab.");
-			log.info("Navigate to the emergency services Tab.");
-
-			// click on the next button
-			click("ohs_incident_nextbtn_CSS");
-			System.out.println("Clicked on the next button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("ohs_incident_nextbtn_CSS");
-			System.out.println("Navigate to the property damage Tab.");
-			test.log(LogStatus.INFO, "Navigate to the property damage Tab.");
-			Reporter.log("Navigate to the property damage Tab.");
-			log.info("Navigate to the property damage Tab.");
+			consoleMessage("Navigate to the emergency services Tab.");
 
 			// click on the next button
 			click("ohs_incident_nextbtn_CSS");
-			System.out.println("Clicked on the next button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// synchronization
 			explicitWait("ohs_incident_nextbtn_CSS");
-			System.out.println("Navigate to the insurance Tab.");
-			test.log(LogStatus.INFO, "Navigate to the insurance Tab.");
-			Reporter.log("Navigate to the insurance Tab.");
-			log.info("Navigate to the insurance Tab.");
+			consoleMessage("Navigate to the property damage Tab.");
 
 			// click on the next button
 			click("ohs_incident_nextbtn_CSS");
-			System.out.println("Clicked on the next button.");
-			ngDriver.waitForAngularRequestsToFinish();
+
+			// synchronization
+			explicitWait("ohs_incident_nextbtn_CSS");
+			consoleMessage("Navigate to the insurance Tab.");
+
+			// click on the next button
+			click("ohs_incident_nextbtn_CSS");
 
 			// synchronization
 			explicitWait("ohs_incident_updaterecordbtn_CSS");
-			System.out.println("Navigate to the attachments Tab.");
-			test.log(LogStatus.INFO, "Navigate to the attachments Tab.");
-			Reporter.log("Navigate to the attachments Tab.");
-			log.info("Navigate to the attachments Tab.");
+			consoleMessage("Navigate to the attachments Tab.");
 
 			// click on the update record button
 			click("ohs_incident_updaterecordbtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("The update record button clicked successfully");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -510,18 +323,12 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the clear button
 			click("ohs_incident_search_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter the newly created incident report in the search field
 			type("ohs_incident_searchtxt_CSS", data.get("describe_incident"));
-			System.out.println("Entered the newly created incident report in the search field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the search button
 			click("ohs_incident_search_searchbtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the search button.");
 
 			// verification of the incident report is added or not
 			switchVerification("ohs_incident_addedincidentreport88_XPATH",
@@ -534,8 +341,6 @@ public class RR5255OHSEightTest extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -553,75 +358,48 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// VERIFY THE PERSONAL INFORMATION IS ACCESS IN JINESH USER OR NOT
+			title("VERIFY THE PERSONAL INFORMATION IS ACCESS IN JINESH USER OR NOT");
 
-			System.out.println(
-					"**************** VERIFY THE PERSONAL INFORMATION IS ACCESS IN JINESH USER OR NOT ****************");
-			test.log(LogStatus.INFO,
-					"**************** VERIFY THE PERSONAL INFORMATION IS ACCESS IN JINESH USER OR NOT ****************");
-			Reporter.log(
-					"**************** VERIFY THE PERSONAL INFORMATION IS ACCESS IN JINESH USER OR NOT ****************");
-			log.info(
-					"**************** VERIFY THE PERSONAL INFORMATION IS ACCESS IN JINESH USER OR NOT ****************");
-
-			System.out.println("**************** LOGIN IN JINESH USER ****************");
-			test.log(LogStatus.INFO, "**************** LOGIN IN JINESH USER ****************");
-			Reporter.log("**************** LOGIN IN JINESH USER ****************");
-			log.info("**************** LOGIN IN JINESH USER ****************");
+			// LOGIN IN JINESH USER
+			title("LOGIN IN JINESH USER");
 
 			helper.loginAndUpdateSystemCompany(data, "username", "password", "system_company_1");
 
 			try {
 				// click on the OHS icon from the property list page
 				click("ohsicon_CSS");
-				System.out.println("Clicked on the OHS icon of the Property.");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Navigate to the OHS screen of the perticular property.");
 
 				// wait for the element
 				explicitWaitClickable("menubtn_CSS");
 
 				// click on the burger menu
 				click("menubtn_CSS");
-				System.out.println("Clicked on the burger menu button successfully!!!");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// wait for the element
 				explicitWaitClickable("questionnaire_option_ohstab_incidentreports_XPATH");
 
 				// click on the incident reports
 				click("questionnaire_option_ohstab_incidentreports_XPATH");
-				System.out.println("Clicked on the incident reports option.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// wait for the element
 				explicitWaitClickable("ohs_incident_search_clearbtn_XPATH");
 
 				// click on the clear button
 				click("ohs_incident_search_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter the newly created incident report in the search field
 				type("ohs_incident_searchtxt_CSS", data.get("describe_incident"));
-				System.out.println("Entered the newly created incident report in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the search button
 				click("ohs_incident_search_searchbtn_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the search button.");
 
 				// verification of the incident report is added or not
 				switchVerification("ohs_incident_addedincidentreport88_XPATH",
@@ -630,30 +408,21 @@ public class RR5255OHSEightTest extends TestBase {
 
 				// click on the incident report
 				click("ohs_incident_addedincidentreport88_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the incident report.");
 
 				// click on the update details button
 				click("ohs_incident_updatebtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the update button.");
 
 				// wait for the element
 				explicitWaitClickable("ohs_incident_personsinvolvedtab_CSS");
 
 				// click on persons involved tab
 				click("ohs_incident_personsinvolvedtab_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on persons involved tab");
 
 				// click on the added person involved
 				click("ohs_incident_addedpersoninvolved_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the added person involved.");
 
 				// scroll down the screen
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,400)");
+				scrollByPixel(500);
 
 				try {
 
@@ -666,46 +435,12 @@ public class RR5255OHSEightTest extends TestBase {
 							.isDisplayed();
 
 					if ((ss1 && ss2) == true) {
-
-						System.out.println("The first name and last name fields are display as expected.");
-						test.log(LogStatus.INFO, "The first name and last name fields are display as expected.");
-						Reporter.log("The first name and last name fields are display as expected.");
-						log.info("The first name and last name fields are display as expected.");
-
+						successMessage("The first name and last name fields are display as expected.");
 					} else {
-						TestUtil.captureScreenshot();
-
-						// ReportNG
-						Reporter.log("<br>" + " The first name and last name fields are not display : " + "<br>");
-						Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-								+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-						Reporter.log("<br>");
-						Reporter.log("<br>");
-
-						// Extent Report
-						test.log(LogStatus.FAIL, " The first name and last name fields are not display : ");
-						test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-						System.out.println("The first name and last name fields are not display.");
-						log.info("The first name and last name fields are not display.");
+						verificationFailedMessage("The first name and last name fields are not display.");
 					}
-
 				} catch (Throwable t) {
-					TestUtil.captureScreenshot();
-
-					// ReportNG
-					Reporter.log("<br>" + " The first name and last name fields are not display : " + "<br>");
-					Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-							+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-					Reporter.log("<br>");
-					Reporter.log("<br>");
-
-					// Extent Report
-					test.log(LogStatus.FAIL, " The first name and last name fields are not display : ");
-					test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-					System.out.println("The first name and last name fields are not display.");
-					log.info("The first name and last name fields are not display.");
+					verificationFailedMessage("The first name and last name fields are not display.");
 				}
 
 			} catch (Throwable t) {
@@ -715,8 +450,6 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -729,72 +462,45 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// VERIFY THE ADD, EDIT AND DELETE ACCESS IN THE CONTRACTOR ROLE
+			title("VERIFY THE ADD, EDIT AND DELETE ACCESS IN THE CONTRACTOR ROLE");
 
-			System.out.println(
-					"**************** VERIFY THE PERSONAL INFORMATION IS ACCESS IN THE CONTRACTOR ROLE ****************");
-			test.log(LogStatus.INFO,
-					"**************** VERIFY THE PERSONAL INFORMATION IS ACCESS IN THE CONTRACTOR ROLE ****************");
-			Reporter.log(
-					"**************** VERIFY THE PERSONAL INFORMATION IS ACCESS IN THE CONTRACTOR ROLE ****************");
-			log.info(
-					"**************** VERIFY THE PERSONAL INFORMATION IS ACCESS IN THE CONTRACTOR ROLE ****************");
-
-			System.out.println("**************** LOGIN IN JINESH CONTRACTOR USER ****************");
-			test.log(LogStatus.INFO, "**************** LOGIN IN JINESH CONTRACTOR USER ****************");
-			Reporter.log("**************** LOGIN IN JINESH CONTRACTOR USER ****************");
-			log.info("**************** LOGIN IN JINESH CONTRACTOR USER ****************");
+			// LOGIN IN JINESH CONTRACTOR USER
+			title("LOGIN IN JINESH CONTRACTOR USER");
 
 			helper.loginAndUpdateSystemCompany(data, "username_2", "password_2", "system_company_1");
 
 			try {
 				// click on the OHS icon from the property list page
 				click("ohsicon_CSS");
-				System.out.println("Clicked on the OHS icon of the Property.");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Navigate to the OHS screen of the perticular property.");
 
 				// click on the burger menu
 				click("menubtn_CSS");
-				System.out.println("Clicked on the burger menu button successfully!!!");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// wait for the element
 				explicitWaitClickable("questionnaire_option_ohstab_incidentreports_XPATH");
 
 				// click on the incident reports
 				click("questionnaire_option_ohstab_incidentreports_XPATH");
-				System.out.println("Clicked on the incident reports option.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// wait for the element
 				explicitWaitClickable("ohs_incident_search_clearbtn_XPATH");
 
 				// click on the clear button
 				click("ohs_incident_search_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter the newly created incident report in the search field
 				type("ohs_incident_searchtxt_CSS", data.get("describe_incident"));
-				System.out.println("Entered the newly created incident report in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the search button
 				click("ohs_incident_search_searchbtn_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the search button.");
 
 				// verification of the incident report is added or not
 				switchVerification("ohs_incident_addedincidentreport88_XPATH",
@@ -803,25 +509,18 @@ public class RR5255OHSEightTest extends TestBase {
 
 				// click on the incident report
 				click("ohs_incident_addedincidentreport88_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the incident report.");
 
 				// wait for the element
 				explicitWaitClickable("ohs_incident_personsinvolvedtab_CSS");
 
 				// click on persons involved tab
 				click("ohs_incident_personsinvolvedtab_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on persons involved tab");
 
 				// click on the added person involved
 				click("ohs_incident_addedpersoninvolved_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the added person involved.");
 
 				// scroll down the screen
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,400)");
+				scrollByPixel(500);
 
 				try {
 
@@ -834,57 +533,19 @@ public class RR5255OHSEightTest extends TestBase {
 							.isDisplayed();
 
 					if ((ss11 && ss22) == true) {
-
-						System.out.println("The first name and last name fields are display as expected.");
-						test.log(LogStatus.INFO, "The first name and last name fields are display as expected.");
-						Reporter.log("The first name and last name fields are display as expected.");
-						log.info("The first name and last name fields are display as expected.");
-
+						successMessage("The first name and last name fields are display as expected.");
 					} else {
-						TestUtil.captureScreenshot();
-
-						// ReportNG
-						Reporter.log("<br>" + " The first name and last name fields are not display : " + "<br>");
-						Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-								+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-						Reporter.log("<br>");
-						Reporter.log("<br>");
-
-						// Extent Report
-						test.log(LogStatus.FAIL, " The first name and last name fields are not display : ");
-						test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-						System.out.println("The first name and last name fields are not display.");
-						log.info("The first name and last name fields are not display.");
+						verificationFailedMessage("The first name and last name fields are not display.");
 					}
-
 				} catch (Throwable t) {
-					TestUtil.captureScreenshot();
-
-					// ReportNG
-					Reporter.log("<br>" + " The first name and last name fields are not display : " + "<br>");
-					Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-							+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-					Reporter.log("<br>");
-					Reporter.log("<br>");
-
-					// Extent Report
-					test.log(LogStatus.FAIL, " The first name and last name fields are not display : ");
-					test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-					System.out.println("The first name and last name fields are not display.");
-					log.info("The first name and last name fields are not display.");
+					verificationFailedMessage("The first name and last name fields are not display.");
 				}
-
 			} catch (Throwable t) {
-
 				verificationFailed();
 			}
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -897,70 +558,45 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// VERIFY THE Private Information ACCESS IN THE CONTRACTOR ROLE
+			title("VERIFY THE Private Information ACCESS IN THE CONTRACTOR ROLE");
 
-			System.out.println(
-					"**************** VERIFY THE Private Information ACCESS IN THE JINESH HR ****************");
-			test.log(LogStatus.INFO,
-					"**************** VERIFY THE Private Information ACCESS IN THE JINESH HR ****************");
-			Reporter.log("**************** VERIFY THE Private Information ACCESS IN THE JINESH HR ****************");
-			log.info("**************** VERIFY THE Private Information ACCESS IN THE JINESH HR ****************");
-
-			System.out.println("**************** LOGIN IN JINESH HR USER ****************");
-			test.log(LogStatus.INFO, "**************** LOGIN IN JINESH HR USER ****************");
-			Reporter.log("**************** LOGIN IN JINESH HR USER ****************");
-			log.info("**************** LOGIN IN JINESH HR USER ****************");
+			// LOGIN IN JINESH HR USER
+			title("LOGIN IN JINESH HR USER");
 
 			helper.loginAndUpdateSystemCompany(data, "username_3", "password_3", "system_company_1");
 
 			try {
 				// click on the OHS icon from the property list page
 				click("ohsicon_CSS");
-				System.out.println("Clicked on the OHS icon of the Property.");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Navigate to the OHS screen of the perticular property.");
 
 				// click on the burger menu
 				click("menubtn_CSS");
-				System.out.println("Clicked on the burger menu button successfully!!!");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// wait for the element
 				explicitWaitClickable("questionnaire_option_ohstab_incidentreports_XPATH");
 
 				// click on the incident reports
 				click("questionnaire_option_ohstab_incidentreports_XPATH");
-				System.out.println("Clicked on the incident reports option.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// wait for the element
 				explicitWaitClickable("ohs_incident_search_clearbtn_XPATH");
 
 				// click on the clear button
 				click("ohs_incident_search_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter the newly created incident report in the search field
 				type("ohs_incident_searchtxt_CSS", data.get("describe_incident"));
-				System.out.println("Entered the newly created incident report in the search field.");
-				ngDriver.waitForAngularRequestsToFinish();
 
 				// click on the search button
 				click("ohs_incident_search_searchbtn_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the search button.");
 
 				// verification of the incident report is added or not
 				switchVerification("ohs_incident_addedincidentreport88_XPATH",
@@ -969,16 +605,12 @@ public class RR5255OHSEightTest extends TestBase {
 
 				// click on the incident report
 				click("ohs_incident_addedincidentreport88_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the incident report.");
 
 				// wait for the element
 				explicitWaitClickable("ohs_incident_personsinvolvedtab_CSS");
 
 				// click on persons involved tab
 				click("ohs_incident_personsinvolvedtab_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on persons involved tab");
 
 				try {
 
@@ -987,47 +619,19 @@ public class RR5255OHSEightTest extends TestBase {
 							.isDisplayed();
 
 					if (ss111 == true) {
-
-						TestUtil.captureScreenshot();
-
-						// ReportNG
-						Reporter.log(
-								"<br>" + " The first name and last name fields display without permission: " + "<br>");
-						Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-								+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-						Reporter.log("<br>");
-						Reporter.log("<br>");
-
-						// Extent Report
-						test.log(LogStatus.FAIL, " The first name and last name fields display without permission: ");
-						test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-						System.out.println("The first name and last name fields display without permission.");
-						log.info("The HR Status field is display enabled without permission.");
-
+						verificationFailedMessage("The first name and last name fields display as expected.");
 					} else {
-						System.out.println("The first name and last name fields display as expected.");
-						test.log(LogStatus.INFO, "The first name and last name fields display as expected.");
-						Reporter.log("The first name and last name fields display as expected.");
-						log.info("The first name and last name fields display as expected.");
-
+						successMessage("The first name and last name fields display as expected.");
 					}
-
 				} catch (Throwable t) {
-					System.out.println("The first name and last name fields display as expected.");
-					test.log(LogStatus.INFO, "The first name and last name fields display as expected.");
-					Reporter.log("The first name and last name fields display as expected.");
-					log.info("The first name and last name fields display as expected.");
+					successMessage("The first name and last name fields display as expected.");
 				}
 
 				// click on the added person involved
 				click("ohs_incident_addedpersoninvolved1_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the added person involved.");
 
 				// scroll down the screen
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,400)");
+				scrollByPixel(500);
 
 				try {
 
@@ -1040,48 +644,19 @@ public class RR5255OHSEightTest extends TestBase {
 							.isDisplayed();
 
 					if ((ss1111 && ss2222) == true) {
-
-						TestUtil.captureScreenshot();
-
-						// ReportNG
-						Reporter.log(
-								"<br>" + " The first name and last name fields display without permission: " + "<br>");
-						Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-								+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-						Reporter.log("<br>");
-						Reporter.log("<br>");
-
-						// Extent Report
-						test.log(LogStatus.FAIL, " The first name and last name fields display without permission: ");
-						test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-						System.out.println("The first name and last name fields display without permission.");
-						log.info("The HR Status field is display enabled without permission.");
-
+						verificationFailedMessage("The first name and last name fields display without permission.");
 					} else {
-						System.out.println("The first name and last name fields display as expected.");
-						test.log(LogStatus.INFO, "The first name and last name fields display as expected.");
-						Reporter.log("The first name and last name fields display as expected.");
-						log.info("The first name and last name fields display as expected.");
-
+						successMessage("The first name and last name fields display as expected.");
 					}
-
 				} catch (Throwable t) {
-					System.out.println("The first name and last name fields display as expected.");
-					test.log(LogStatus.INFO, "The first name and last name fields display as expected.");
-					Reporter.log("The first name and last name fields display as expected.");
-					log.info("The first name and last name fields display as expected.");
+					successMessage("The first name and last name fields display as expected.");
 				}
-
 			} catch (Throwable t) {
-
 				verificationFailed();
 			}
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -1094,77 +669,49 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// DELETE THE CREATED MORTGAGE UNDERTAKING AND RESET THE GIVEN PERMISSIONS
+			title("DELETE THE CREATED MORTGAGE UNDERTAKING AND RESET THE GIVEN PERMISSIONS");
 
-			System.out.println(
-					"**************** DELETE THE CREATED INCIDENT REPORT AND RESET THE GIVEN PERMISSIONS ****************");
-			test.log(LogStatus.INFO,
-					"**************** DELETE THE CREATED INCIDENT REPORT AND RESET THE GIVEN PERMISSIONS ****************");
-			Reporter.log(
-					"**************** DELETE THE CREATED INCIDENT REPORT AND RESET THE GIVEN PERMISSIONS ****************");
-			log.info(
-					"**************** DELETE THE CREATED INCIDENT REPORT AND RESET THE GIVEN PERMISSIONS ****************");
-
-			System.out.println("**************** LOGIN IN AUTOMATION TESTER USER ****************");
-			test.log(LogStatus.INFO, "**************** LOGIN IN AUTOMATION TESTER USER ****************");
-			Reporter.log("**************** LOGIN IN AUTOMATION TESTER USER ****************");
-			log.info("**************** LOGIN IN AUTOMATION TESTER USER ****************");
+			// LOGIN IN AUTOMATION TESTER USER
+			title("LOGIN IN AUTOMATION TESTER USER");
 
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
-
 			helper.questionnaireNotDisplayLogout(data);
 		}
 
 		try {
 			// click on the OHS icon from the property list page
 			click("ohsicon_CSS");
-			System.out.println("Clicked on the OHS icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the OHS screen of the perticular property.");
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_option_ohstab_incidentreports_XPATH");
 
 			// click on the incident reports
 			click("questionnaire_option_ohstab_incidentreports_XPATH");
-			System.out.println("Clicked on the incident reports option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("ohs_incident_search_clearbtn_XPATH");
 
 			// click on the clear button
 			click("ohs_incident_search_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter the newly created incident report in the search field
 			type("ohs_incident_searchtxt_CSS", data.get("describe_incident"));
-			System.out.println("Entered the newly created incident report in the search field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the search button
 			click("ohs_incident_search_searchbtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the search button.");
 
 			// verification of the incident report is added or not
 			switchVerification("ohs_incident_addedincidentreport88_XPATH",
@@ -1173,42 +720,30 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the incident report
 			click("ohs_incident_addedincidentreport88_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the incident report.");
 
 			// wait for the element
 			explicitWaitClickable("ohs_incident_deletebtn_CSS");
 
 			// click on the delete button
 			click("ohs_incident_deletebtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the delete button.");
 
 			// wait for the element
 			explicitWaitClickable("ohs_incident_confirmdeletebtn_CSS");
 
 			// click on the delete button of confirmation popup
 			click("ohs_incident_confirmdeletebtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the delete button of confirmation popup.");
 
 			// wait for the element
 			explicitWaitClickable("ohs_incident_search_clearbtn_XPATH");
 
 			// click on the clear button
 			click("ohs_incident_search_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter the newly created incident report in the search field
 			type("ohs_incident_searchtxt_CSS", data.get("describe_incident"));
-			System.out.println("Entered the newly created incident report in the search field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the search button
 			click("ohs_incident_search_searchbtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the search button.");
 
 			// verify details are deleted or not
 			helper.deleteVerification("ohs_incident_addedincidentreport88_XPATH",
@@ -1220,8 +755,6 @@ public class RR5255OHSEightTest extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -1229,10 +762,8 @@ public class RR5255OHSEightTest extends TestBase {
 		// verify the property list
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
-		System.out.println("**************** RESET THE APPLIED PERMISSIONS ****************");
-		test.log(LogStatus.INFO, "**************** RESET THE APPLIED PERMISSIONS ****************");
-		Reporter.log("**************** RESET THE APPLIED PERMISSIONS ****************");
-		log.info("**************** RESET THE APPLIED PERMISSIONS ****************");
+		// RESET THE APPLIED PERMISSIONS
+		title("RESET THE APPLIED PERMISSIONS");
 
 		try {
 			// wait for the element
@@ -1240,26 +771,18 @@ public class RR5255OHSEightTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the security tab
 			click("questionnaire_securitytab_XPATH");
-			System.out.println("Clicked on the security tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the security settings option
 			click("questionnaire_securotysettingsoption_XPATH");
-			System.out.println("Clicked on the security settings option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// RESET THE ACCESS TO INSURANCE DATA IN INCIDENT REPORT PERMISSION
 			helper.resetPermission(data, "ohs_security_setting_1", "ohs_securitysettings8_XPATH");
@@ -1273,8 +796,6 @@ public class RR5255OHSEightTest extends TestBase {
 
 		// click on the home icon
 		click("questionnaire_homeburgermenubtn_CSS");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Clicked on the home icon.");
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");

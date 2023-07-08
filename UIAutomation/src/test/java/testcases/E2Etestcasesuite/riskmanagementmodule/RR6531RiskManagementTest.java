@@ -259,7 +259,6 @@ public class RR6531RiskManagementTest extends TestBase {
 
 				// scroll up to top
 				scrollTop();
-
 			}
 
 			// validate the count of the comments

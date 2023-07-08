@@ -35,8 +35,6 @@ public class RR3892SurveyChecklistSixTest extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// ADD NEW QUESTIONNIRE
 		title("ADD NEW QUESTIONNIRE");
 

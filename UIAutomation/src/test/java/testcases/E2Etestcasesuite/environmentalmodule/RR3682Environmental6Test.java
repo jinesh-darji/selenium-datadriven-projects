@@ -34,8 +34,6 @@ public class RR3682Environmental6Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		try {
 			// apply the filter 1 on the property list
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_filter1"));
@@ -200,8 +198,6 @@ public class RR3682Environmental6Test extends TestBase {
 			// click on the asbestos materials
 			click("envreports_asbestosmaterials_XPATH");
 
-			// verify the record is copied successfully or not AND DELETE IT
-
 			// enter the copied environmental record in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));
 
@@ -230,11 +226,10 @@ public class RR3682Environmental6Test extends TestBase {
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
 
-			// verification of the environmental report is deleted or not
-
 			// enter the newly created environmental report in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));
 
+			// verification of the environmental report is deleted or not
 			helper.deleteVerification("envreports_asbestosmaterials_addedrecord6_1_XPATH", "Test Detailed Location 6");
 
 		} catch (Throwable t) {
@@ -272,8 +267,6 @@ public class RR3682Environmental6Test extends TestBase {
 			// click on the asbestos materials
 			click("envreports_asbestosmaterials_XPATH");
 
-			// verify the record is copied successfully or not
-
 			// enter the copied environmental record in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));
 
@@ -302,11 +295,10 @@ public class RR3682Environmental6Test extends TestBase {
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
 
-			// verification of the environmental report is deleted or not
-
 			// enter the newly created environmental report in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));
 
+			// verification of the environmental report is deleted or not
 			helper.deleteVerification("envreports_asbestosmaterials_addedrecord6_1_XPATH", "Test Detailed Location 6");
 
 		} catch (Throwable t) {
@@ -362,8 +354,14 @@ public class RR3682Environmental6Test extends TestBase {
 			// enter the author
 			type("envreportauthortxt_CSS", data.get("author"));
 
+			// scroll down to bottom of the screen
+			scrollBottom();
+
 			// enter the description
 			type("envreportdescriptiontxt_CSS", data.get("description"));
+
+			// add the details in the label update field
+			type("envreport_labelupdatetxt_XPATH", data.get("label_update"));
 
 			// click on the Add report button
 			click("envreportsavebtn_CSS");
@@ -435,8 +433,6 @@ public class RR3682Environmental6Test extends TestBase {
 			// click on the environmental report
 			click("envreportoption_XPATH");
 
-			// verify the record is copied successfully or not
-
 			// wait for the element
 			explicitWait("task_listofchecklist_filterfield_CSS");
 
@@ -468,11 +464,10 @@ public class RR3682Environmental6Test extends TestBase {
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
 
-			// verification of the environmental report is deleted or not
-
 			// enter the newly created environmental report in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("title"));
 
+			// verification of the environmental report is deleted or not
 			helper.deleteVerification("envreportaddedrecord6_1_XPATH", "Test Title 6");
 
 		} catch (Throwable t) {
@@ -535,11 +530,10 @@ public class RR3682Environmental6Test extends TestBase {
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
 
-			// verification of the environmental report is deleted or not
-
 			// enter the newly created environmental report in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("title"));
 
+			// verification of the environmental report is deleted or not
 			helper.deleteVerification("envreportaddedrecord6_1_XPATH", "Test Title 6");
 
 		} catch (Throwable t) {

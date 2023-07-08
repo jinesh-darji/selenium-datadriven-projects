@@ -76,7 +76,7 @@ public class MonitoringMail
             // multipart.addBodyPart(attachment);
              message.setContent(multipart);
              Transport.send(message);
-             System.out.println("Sucessfully Sent mail to All Users");
+              
          	 bus.close();
     		
 		}

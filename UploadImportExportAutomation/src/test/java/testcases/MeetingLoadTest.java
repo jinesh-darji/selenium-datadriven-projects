@@ -60,7 +60,7 @@ public class MeetingLoadTest extends TestBase {
 			try {
 				config.load(fis);
 				log.info("Config file is loaded successfully!!!");
-				System.out.println("Config file is loaded successfully!!!");
+				 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -76,7 +76,7 @@ public class MeetingLoadTest extends TestBase {
 			try {
 				OR.load(fis);
 				log.info("OR file is loaded successfully!!!");
-				System.out.println("OR file is loaded successfully!!!");
+				 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -104,7 +104,7 @@ public class MeetingLoadTest extends TestBase {
 				driver = new ChromeDriver(options);
 				jsDriver = (JavascriptExecutor) driver;
 				ngDriver = new NgWebDriver(jsDriver);
-				System.out.println("Chrome launched successfully!!!");
+				 
 
 				String baseUrl = "https://rds.adobeconnect.com/_a205667947/r0ee546qvdrb/?proto=true&html-view=true";
 				driver.get(baseUrl);
@@ -112,29 +112,29 @@ public class MeetingLoadTest extends TestBase {
 				String s = RandomStringUtils.randomAlphabetic(8);
 				driver.findElement(By.cssSelector("input[id='guestName']")).sendKeys(s);
 				driver.findElement(By.cssSelector("input[id='login-guest']")).click();
-				ngDriver.waitForAngularRequestsToFinish();
+				 
 
-				System.out.println("User: " + i + " Logged in successfully with " + s + " Username.");
+				 
 
 				// wait for 25 second
 				Thread.sleep(25000);
-				System.out.println("Completed the 20 seconds of the wait.");
+				 
 
 				// refresh the page
 				driver.navigate().refresh();
-				System.out.println("Refreshed the page successfully.");
+				 
 
 				// wait for 30 second
 				Thread.sleep(30000);
-				System.out.println("Completed the 20 seconds of the wait.");
+				 
 
 				// navigates to the page consisting an iframe
 				driver.switchTo().frame(0);
-				System.out.println("Switched to the frame 1.");
+				 
 
 				// navigates to the second iframe
 				driver.switchTo().frame("syncConnector192");
-				System.out.println("Switched to the frame 2.");
+				 
 
 				// click on the random gesture
 				List<WebElement> links = driver.findElements(By.cssSelector("hands-up-button"));
@@ -147,13 +147,13 @@ public class MeetingLoadTest extends TestBase {
 
 				// wait for 5 second
 				Thread.sleep(5000);
-				System.out.println("Completed the 5 seconds of the wait.");
+				 
 
 				// switch from iframe to main content
 				driver.switchTo().defaultContent();
-				System.out.println("Switched from iframe to main content.");
+				 
 			} catch (Throwable t) {
-				System.out.println("Due to the page is not load successfully, We are moving to next user.");
+				 
 			}
 
 		}

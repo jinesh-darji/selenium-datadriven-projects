@@ -33,8 +33,6 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// ADD NEW QUESTIONNIRE
 		title("ADD NEW QUESTIONNIRE");
 
@@ -80,13 +78,13 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 
 //		// enter the questionnaire title in the Spanish language
 //		type("questionnaire_createtask_languagebtn_spanish_CSS", data.get("questionnaire_title_spanish"));
-//		System.out.println("Entered the questionnaire title in the Spanish language.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter the questionnaire title in the Chinese language
 //		type("questionnaire_createtask_languagebtn_chinese_CSS", data.get("questionnaire_title_chinese"));
-//		System.out.println("Entered the questionnaire title in the Chinese language.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 
 			// click on the save button questionnaire title
 			click("questionnaire_createtask_languagebtn_savebtn_CSS");
@@ -96,13 +94,13 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 
 //			// select the document/report type
 //			select("questionnaire_docreportdd_CSS", data.get("document_reporttype"));
-//			System.out.println("The data entered in the document/report type field.");
-//			ngDriver.waitForAngularRequestsToFinish();
+//			 
+//			 
 //
 //			// select the default task tag
 //			select("questionnaire_defaulttasktagdd_CSS", data.get("default_task_tag"));
-//			System.out.println("The data entered in the default task tag field.");
-//			ngDriver.waitForAngularRequestsToFinish();
+//			 
+//			 
 
 			// scrolldown the screen
 			scrollByPixel(400);
@@ -182,54 +180,54 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 
 //		// select the Spanish language from the language dropdown
 //		select("questionnaire_newcategory_languagedd_CSS", data.get("category_language_spanish"));
-//		System.out.println("Selected the Spanish language from the language dropdown.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the edit button of category one
 //		click("questionnaire_category_editbtn_CSS");
-//		System.out.println("Clicked on the edit button of category one");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter the spanish title
 //		type("questionnaire_newcategory_titletxt_CSS", data.get("category_title_spanish"));
-//		System.out.println("Entered the Spanish title.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the save button
 //		click("questionnaire_newcategory_multiplelanguage_savebtn_CSS");
-//		System.out.println("Click on the save button.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// verify newly added category title is displayed or not
 //		verifyTrue("questionnaire_newcategory_1_spanish_checklist_XPATH",
 //				"The newly added category title is displayed in the category list.");
-//		System.out.println("The newly added category title is displayed successfully.");
+//		 
 //		test.log(LogStatus.INFO, "The newly added category title is displayed successfully.");
 //
 //		// select the chinese language from the language dropdown
 //		select("questionnaire_newcategory_languagedd_CSS", data.get("category_language_chinese"));
-//		System.out.println("Selected the Chinese language from the language dropdown.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the edit button of category one
 //		click("questionnaire_category_editbtn_CSS");
-//		System.out.println("Clicked on the edit button of category one");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter the chinese title
 //		type("questionnaire_newcategory_titletxt_CSS", data.get("category_title_chinese"));
-//		System.out.println("Entered the Chinese title.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the save button
 //		click("questionnaire_newcategory_multiplelanguage_savebtn_CSS");
-//		System.out.println("Click on the save button.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// verify newly added category title is displayed or not
 //		verifyTrue("questionnaire_newcategory_1_chinese_checklist_XPATH",
 //				"The newly added category title is displayed in the category list.");
-//		System.out.println("The newly added category title is displayed successfully.");
+//		 
 //		test.log(LogStatus.INFO, "The newly added category title is displayed successfully.");
 
 			// ADD QUESTIONS INTO THE CATEGORY
@@ -278,52 +276,52 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 
 //		// select the Spanish language from the language dropdown
 //		select("questionnaire_newcategory_languagedd_CSS", data.get("question_language_spanish"));
-//		System.out.println("Selected the Spenish language from the language dropdown.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the edit question 1 button
 //		click("questionnaire_question_1_editbtn_CSS");
-//		System.out.println("Clicked on the edit button of the question 1.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter Spanish title in the question
 //		type("questionnaire_newcategory_titletxt_CSS", data.get("question_title_spanish"));
-//		System.out.println("Entered Spanish title in the question.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the save button
 //		click("questionnaire_saveallquestionbtn_CSS");
-//		System.out.println("Clicked on the save button.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// verify question one created or not
 //		verifyTrue("questionnaire_newquestion_spanish_checklist_1_XPATH", "The question is not created.");
-//		System.out.println("The new question created successfully.");
+//		 
 //		test.log(LogStatus.INFO, "The newly created question is displayed successfully.");
 //
 //		// select the Chinese language from the language dropdown
 //		select("questionnaire_newcategory_languagedd_CSS", data.get("question_language_chinese"));
-//		System.out.println("Selected the Spanish language from the language dropdown.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the edit question 1 button
 //		click("questionnaire_question_1_editbtn_CSS");
-//		System.out.println("Clicked on the edit button of the question 1.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter Spanish title in the question
 //		type("questionnaire_newcategory_titletxt_CSS", data.get("question_title_chinese"));
-//		System.out.println("Entered Chinese title in the question.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the save button
 //		click("questionnaire_saveallquestionbtn_CSS");
-//		System.out.println("Clicked on the save button.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// verify question one created or not
 //		verifyTrue("questionnaire_newquestion_chinese_checklist_1_XPATH", "The question is not created.");
-//		System.out.println("The new question created successfully.");
+//		 
 //		test.log(LogStatus.INFO, "The newly created question is displayed successfully.");
 
 			// click on the save button for save all question
@@ -382,43 +380,43 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 
 //		// select the Spanish language from the language dropdown
 //		select("questionnaire_newoption_languagedd_CSS", data.get("option_language_spanish"));
-//		System.out.println("Selected the Spanish language from the language dropdown.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the edit button
 //		click("questionnaire_question_1_editbtn_CSS");
-//		System.out.println("Clicked on the edit button");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter data in title of the option of the question 1
 //		type("questionnaire_newcategory_titletxt_CSS", data.get("title_option_1_question_1_spanish"));
-//		System.out.println("The title is entered successfully for create new option 1 of the question 1");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the save button for all options
 //		click("questionnaire_question_1_savealloptionbtn_CSS");
-//		System.out.println("Clicked on the save button for save the option list.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		
 //		// select the Chinese language from the language dropdown
 //		select("questionnaire_newoption_languagedd_CSS", data.get("option_language_chinese"));
-//		System.out.println("Selected the Chinese language from the language dropdown.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the edit button
 //		click("questionnaire_question_1_editbtn_CSS");
-//		System.out.println("Clicked on the edit button");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter data in title of the option of the question 1
 //		type("questionnaire_newcategory_titletxt_CSS", data.get("title_option_1_question_1_chinese"));
-//		System.out.println("The title is entered successfully for create new option 1 of the question 1");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the save button for all options
 //		click("questionnaire_question_1_savealloptionbtn_CSS");
-//		System.out.println("Clicked on the save button for save the option list.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 
 			// click on the back to questions button
 			click("questionnaire_question_1_option_backtoquestionsbtn_CSS");
@@ -489,9 +487,8 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 			select("users_preferedlanguagedd_CSS", data.get("category_language_french"));
 
 			// this will scroll down the page by 700 pixel vertical
-			JavascriptExecutor js = (JavascriptExecutor) driver;
 
-			js.executeScript("window.scrollBy(0,700)");
+			scrollByPixel(700);
 
 			// wait for the element
 			explicitWaitClickable("users_savedetailsbtn_CSS");
@@ -673,68 +670,68 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 //		
 //		// click on the settings icon from the top of the screen
 //		click("questionnaire_settingicon_CSS");
-//		System.out.println("Clicked on the settings icon.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
 //
 //		// click on the Administration option from the side menu
 //		click("questionnaire_administrationoption_XPATH");
-//		System.out.println("Clicked on the Administration option from the side menu.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the Security tab
 //		click("administration_securitytxt_XPATH");
-//		System.out.println("Clicked on the Security tab.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the user option
 //		click("administration_userstxt_XPATH");
-//		System.out.println("Clicked on the user option.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter the data in the filter
 //		type("users_filtertxt_CSS", data.get("username"));
-//		System.out.println("Entered the data in the filter.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the filtered result
 //		click("users_username_XPATH");
-//		System.out.println("Clicked on the filtered result.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// select the spanish language as a preferred language
 //		select("users_preferedlanguagedd_CSS", data.get("category_language_spanish"));
-//		System.out.println("Selected the spanish language as a preferred language.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// this  will scroll down the page by 700 pixel vertical		
-//        js.executeScript("window.scrollBy(0,700)");
+//        scrollByPixel(700);
 //		
 //		// wait for the 5 seconds
 //		Thread.sleep(5000);
 //		
 //        // click on the save button
 //        click("users_savedetailsbtn_CSS");
-//        System.out.println("Clicked on the save button.");
-//        ngDriver.waitForAngularRequestsToFinish();
+//         
+//         
 //		
 //		// wait for the 5 seconds
 //		Thread.sleep(5000);
 //
 //		// click on the settings icon from the top of the screen
 //		click("questionnaire_settingicon_userupdate_CSS");
-//		System.out.println("Clicked on the settings icon.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
 //
 //		// click on the logout option from the side menu
 //		click("sidemenu_logout_CSS");
-//		System.out.println("Clicked on the logout option from the side menu.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// login with valid credentials
 //
@@ -745,48 +742,48 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 //
 //		// click on the environmental icon from the property list page
 //		click("environmentalicon_CSS");
-//		System.out.println("Clicked on the environmental icon of the Property.");
-//		ngDriver.waitForAngularRequestsToFinish();
-//		System.out.println("Navigate to the environmental screen of the perticular property.");
+//		 
+//		 
+//		 
 //
 //		// click on the burger menu
 //		click("menubtn_CSS");
-//		System.out.println("Clicked on the burger menu button successfully!!!");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
 //
 //		// click on the checklist/inspection option from side menu
 //		click("checklist_sidemenu_XPATH");
-//		System.out.println("Clicked on the checklist/inspection option from side menu");
-//		ngDriver.waitForAngularRequestsToFinish();
-//		System.out.println("Navigate to the checklist/inspection screen");
+//		 
+//		 
+//		 
 //
 //		// CREATE THE CHECKLIST FIRST TIME
 //
 //		// click on the new checklist button
 //		click("checklist_newchecklistbtn_CSS");
-//		System.out.println("Clicked on the new checklist button.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 second to load the content
 //		Thread.sleep(3000);
 //
 //		// select the questionnaire option from the checklist type dropdown
 //		select("checklist_addchecklist_checklisttypedd_CSS", data.get("questionnaire_title_spanish"));
-//		System.out.println("The created questionaaire is selected from the checklist type dropdown.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter data in the checklist title field
 //		type("checklist_addchecklist_titletxt_CSS", data.get("questionnaire_title_spanish"));
-//		System.out.println("Entered the data in the checklist title field.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the save button
 //		click("checklist_addchecklist_savebtn_CSS");
-//		System.out.println("Clicked on the save button.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		// verify category is selected correctly or not
 //		switchVerification("questionnaire_categorytitle_spanishlanguage_checklist_XPATH", "Checklist Multiple Language Category One Spanish",
 //				"The Checklist Multiple Language Category One Spanish is not displayed.");
@@ -797,13 +794,13 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 //
 //		// click on the no checkbox of question 1
 //		click("survey_noanswerbtn_1_CSS");
-//		System.out.println("Clicked on the yes checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		
 //		// click on the yes checkbox of question 1
 //		click("survey_yesanswerbtn_1_CSS");
-//		System.out.println("Clicked on the no checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
@@ -814,24 +811,24 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 //
 //		// click on the no checkbox of question 1
 //		click("survey_noanswerbtn_1_CSS");
-//		System.out.println("Clicked on the no checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		
 //		// wait for 5 seconds
 //		Thread.sleep(5000);		
 //		
 //		// click on the settings icon from the top of the screen
 //		click("questionnaire_settingicon_userupdate_CSS");
-//		System.out.println("Clicked on the settings icon.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
 //
 //		// click on the logout option from the side menu
 //		click("sidemenu_logout_CSS");
-//		System.out.println("Clicked on the logout option from the side menu.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// login with valid credentials
 //
@@ -845,68 +842,68 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 //		
 //		// click on the settings icon from the top of the screen
 //		click("questionnaire_settingicon_CSS");
-//		System.out.println("Clicked on the settings icon.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
 //
 //		// click on the Administration option from the side menu
 //		click("questionnaire_administrationoption_XPATH");
-//		System.out.println("Clicked on the Administration option from the side menu.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the Security tab
 //		click("administration_securitytxt_XPATH");
-//		System.out.println("Clicked on the Security tab.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the user option
 //		click("administration_userstxt_XPATH");
-//		System.out.println("Clicked on the user option.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter the data in the filter
 //		type("users_filtertxt_CSS", data.get("username"));
-//		System.out.println("Entered the data in the filter.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the filtered result
 //		click("users_username_XPATH");
-//		System.out.println("Clicked on the filtered result.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// select the chinese language as a preferred language
 //		select("users_preferedlanguagedd_CSS", data.get("category_language_chinese"));
-//		System.out.println("Selected the chinese language as a preferred language.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// this  will scroll down the page by 700 pixel vertical		
-//        js.executeScript("window.scrollBy(0,700)");
+//        scrollByPixel(700);
 //		
 //		// wait for the 5 seconds
 //		Thread.sleep(5000);
 //		
 //        // click on the save button
 //        click("users_savedetailsbtn_CSS");
-//        System.out.println("Clicked on the save button.");
-//        ngDriver.waitForAngularRequestsToFinish();
+//         
+//         
 //		
 //		// wait for the 5 seconds
 //		Thread.sleep(5000);
 //
 //		// click on the settings icon from the top of the screen
 //		click("questionnaire_settingicon_userupdate_CSS");
-//		System.out.println("Clicked on the settings icon.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
 //
 //		// click on the logout option from the side menu
 //		click("sidemenu_logout_CSS");
-//		System.out.println("Clicked on the logout option from the side menu.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// login with valid credentials
 //
@@ -917,48 +914,48 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 //
 //		// click on the environmental icon from the property list page
 //		click("environmentalicon_CSS");
-//		System.out.println("Clicked on the environmental icon of the Property.");
-//		ngDriver.waitForAngularRequestsToFinish();
-//		System.out.println("Navigate to the environmental screen of the perticular property.");
+//		 
+//		 
+//		 
 //
 //		// click on the burger menu
 //		click("menubtn_CSS");
-//		System.out.println("Clicked on the burger menu button successfully!!!");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
 //
 //		// click on the checklist/inspection option from side menu
 //		click("checklist_sidemenu_XPATH");
-//		System.out.println("Clicked on the checklist/inspection option from side menu");
-//		ngDriver.waitForAngularRequestsToFinish();
-//		System.out.println("Navigate to the checklist/inspection screen");
+//		 
+//		 
+//		 
 //
 //		// CREATE THE CHECKLIST FIRST TIME
 //
 //		// click on the new checklist button
 //		click("checklist_newchecklistbtn_CSS");
-//		System.out.println("Clicked on the new checklist button.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 second to load the content
 //		Thread.sleep(3000);
 //
 //		// select the questionnaire option from the checklist type dropdown
 //		select("checklist_addchecklist_checklisttypedd_CSS", data.get("questionnaire_title_chinese"));
-//		System.out.println("The created questionaaire is selected from the checklist type dropdown.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter data in the checklist title field
 //		type("checklist_addchecklist_titletxt_CSS", data.get("questionnaire_title_chinese"));
-//		System.out.println("Entered the data in the checklist title field.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the save button
 //		click("checklist_addchecklist_savebtn_CSS");
-//		System.out.println("Clicked on the save button.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		// verify category is selected correctly or not
 //		switchVerification("questionnaire_categorytitle_chineselanguage_checklist_XPATH", "Checklist Multiple Language Category One Chinese",
 //				"The Checklist Multiple Language Category One chinese is not displayed.");
@@ -969,13 +966,13 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 //
 //		// click on the no checkbox of question 1
 //		click("survey_noanswerbtn_1_CSS");
-//		System.out.println("Clicked on the no checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		
 //		// click on the yes checkbox of question 1
 //		click("survey_yesanswerbtn_1_CSS");
-//		System.out.println("Clicked on the yes checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
@@ -986,24 +983,24 @@ public class RR3893SurveyChecklistTwoTest extends TestBase {
 //
 //		// click on the no checkbox of question 1
 //		click("survey_noanswerbtn_1_CSS");
-//		System.out.println("Clicked on the no checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		
 //		// wait for 5 seconds
 //		Thread.sleep(5000);		
 //		
 //		// click on the settings icon from the top of the screen
 //		click("questionnaire_settingicon_userupdate_CSS");
-//		System.out.println("Clicked on the settings icon.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for 3 seconds
 //		Thread.sleep(3000);
 //
 //		// click on the logout option from the side menu
 //		click("sidemenu_logout_CSS");
-//		System.out.println("Clicked on the logout option from the side menu.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// login with valid credentials
 //

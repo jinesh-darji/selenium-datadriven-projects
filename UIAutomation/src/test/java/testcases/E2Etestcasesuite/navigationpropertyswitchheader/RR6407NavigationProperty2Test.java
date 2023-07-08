@@ -66,8 +66,7 @@ public class RR6407NavigationProperty2Test extends TestBase {
 			type("ohs_incident_minutestxt_CSS", "20");
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,500)");
+			scrollByPixel(500);
 
 			// enter the short description
 			type("ohs_incident_shortdescriptiontxt_CSS", data.get("describe_incident"));

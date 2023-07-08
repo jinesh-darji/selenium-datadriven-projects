@@ -27,7 +27,6 @@ public class RR6479SurveyChecklist1Test extends TestBase {
 
 		// VALIDATE THE DOWNLOADED PDF REPORT OF THE INSPECTION WITH AUTO GENERATED TASK
 		// AND ATTACHMENTS
-
 		title("VALIDATE THE DOWNLOADED PDF REPORT OF THE INSPECTION WITH AUTO GENERATED TASK AND ATTACHMENTS");
 
 		// refresh the page
@@ -42,6 +41,7 @@ public class RR6479SurveyChecklist1Test extends TestBase {
 		String inspectionTitle = RandomStringUtils.randomAlphabetic(8);
 		LocalDate today = LocalDate.now();
 		String today_string = today.toString();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		try {
 			// wait for the element
@@ -828,14 +828,14 @@ public class RR6479SurveyChecklist1Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 			consoleMessage("Final path of the downloaded file: " + final_path);
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 				consoleMessage("New tab is opened successfully.");
 
@@ -1131,14 +1131,14 @@ public class RR6479SurveyChecklist1Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 			consoleMessage("Final path of the downloaded file: " + final_path);
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 				consoleMessage("New tab is opened successfully.");
 
@@ -1446,14 +1446,14 @@ public class RR6479SurveyChecklist1Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 			consoleMessage("Final path of the downloaded file: " + final_path);
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 				consoleMessage("New tab is opened successfully.");
 
@@ -1761,14 +1761,14 @@ public class RR6479SurveyChecklist1Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 			consoleMessage("Final path of the downloaded file: " + final_path);
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 				consoleMessage("New tab is opened successfully.");
 
@@ -2077,14 +2077,14 @@ public class RR6479SurveyChecklist1Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 			consoleMessage("Final path of the downloaded file: " + final_path);
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 				consoleMessage("New tab is opened successfully.");
 

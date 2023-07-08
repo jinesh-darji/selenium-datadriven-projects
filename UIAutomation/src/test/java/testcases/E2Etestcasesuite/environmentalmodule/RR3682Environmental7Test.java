@@ -22,7 +22,6 @@ public class RR3682Environmental7Test extends TestBase {
 		execution(data, "rR3682Environmental7Test");
 
 		// COPY ENVIRONMENTAL RECORD TO RECORD ON BUILDING AND FLOOR LEVEL
-
 		title("COPY ENVIRONMENTAL RECORD TO RECORD ON BUILDING AND FLOOR LEVEL");
 
 		Helper helper = new Helper();
@@ -31,8 +30,6 @@ public class RR3682Environmental7Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		try {
 			// apply the filter 1 on the property list
@@ -56,14 +53,14 @@ public class RR3682Environmental7Test extends TestBase {
 			// click on the asbestos materials
 			click("envreports_asbestosmaterials_XPATH");
 
-			// click on the add button
-			click("envreports_asbestosmaterials_addbtn_CSS");
-
 			// select the building level from the dropdown
 			select("survey_leveldropdown_CSS", data.get("building_leveldropdown"));
 
 			// select the floor level from the dropdown
 			select("survey_buildingleveldd_CSS", data.get("floor_leveldropdown"));
+
+			// click on the add button
+			click("envreports_asbestosmaterials_addbtn_CSS");
 
 			// select the material
 			select("envreports_asbestosmaterials_materialdd_CSS", data.get("material"));
@@ -243,11 +240,10 @@ public class RR3682Environmental7Test extends TestBase {
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
 
-			// verification of the environmental report is deleted or not
-
 			// enter the newly created environmental report in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));
 
+			// verification of the environmental report is deleted or not
 			helper.deleteVerification("envreports_asbestosmaterials_addedrecord7_1_XPATH", "Test Detailed Location 7");
 
 		} catch (Throwable t) {
@@ -315,11 +311,10 @@ public class RR3682Environmental7Test extends TestBase {
 			// wait for the element
 			explicitWait("task_listofchecklist_filterfield_CSS");
 
-			// verify the environmental report is deleted or not
-
 			// enter the newly created environmental report in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));
 
+			// verify the environmental report is deleted or not
 			helper.deleteVerification("envreports_asbestosmaterials_addedrecord7_1_XPATH", "Test Detailed Location 7");
 
 		} catch (Throwable t) {

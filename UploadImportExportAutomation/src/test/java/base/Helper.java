@@ -1505,7 +1505,7 @@ public class Helper extends TestBase {
 				successMessage("CORRECT SYSTEM COMPANY SELECTED");
 
 				// clear the search field
-				clear("ssc_company2_propertylist_filtertxt_CSS");
+				 
 
 				// wait for 5 seconds
 				Thread.sleep(5000);

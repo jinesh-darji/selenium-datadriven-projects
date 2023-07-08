@@ -22,7 +22,6 @@ public class RR3682Environmental5Test extends TestBase {
 		execution(data, "rR3682Environmental5Test");
 
 		// MOVE ENVIRONMENTAL RECORD FROM BUILDING LEVEL TO BUILDING LEVEL
-
 		title("MOVE ENVIRONMENTAL RECORD FROM BUILDING LEVEL TO BUILDING LEVEL");
 
 		Helper helper = new Helper();
@@ -31,8 +30,6 @@ public class RR3682Environmental5Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		try {
 			// wait for the element
@@ -59,17 +56,17 @@ public class RR3682Environmental5Test extends TestBase {
 			// click on the asbestos materials
 			click("envreports_asbestosmaterials_XPATH");
 
-			// click on the add button
-			click("envreports_asbestosmaterials_addbtn_CSS");
-
-			// wait for the element
-			Thread.sleep(3000);
-
 			// select the building level from the dropdown
 			select("survey_leveldropdown_CSS", data.get("building_leveldropdown"));
 
 			// select the floor level from the dropdown
 			select("survey_buildingleveldd_CSS", data.get("floor_leveldropdown"));
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// click on the add button
+			click("envreports_asbestosmaterials_addbtn_CSS");
 
 			// select the material
 			select("envreports_asbestosmaterials_materialdd_CSS", data.get("material"));
@@ -208,8 +205,6 @@ public class RR3682Environmental5Test extends TestBase {
 
 			// select property option from the dropdown
 			select("envreports_movereports_propertydd_CSS", data.get("propertydd1"));
-
-			// verify added material of the Asbestos Materials record is correct or not
 
 			// enter the newly created environmental record in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));

@@ -59,7 +59,7 @@ public class RR6572DashboardSceen1Test extends TestBase {
 			Thread.sleep(15000);
 
 			// fetch the record from the download file
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
 			System.out.println(path_string);
 			ExcelReader file = new ExcelReader(path_string);
@@ -721,7 +721,7 @@ public class RR6572DashboardSceen1Test extends TestBase {
 			Thread.sleep(15000);
 
 			// fetch the record from the download file
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
 			System.out.println(path_string);
 			ExcelReader file = new ExcelReader(path_string);

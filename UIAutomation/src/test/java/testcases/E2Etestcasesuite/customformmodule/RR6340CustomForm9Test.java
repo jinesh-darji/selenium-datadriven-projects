@@ -20,7 +20,6 @@ public class RR6340CustomForm9Test extends TestBase {
 
 		// VALIDATE THE 'USER TO EXTRACT FORM' AND 'ROLE TO EXTRACT FORM' PERMISSIONS OF
 		// THE CUSTOM FORMS - MULTIPLE TYPE.
-
 		title("VALIDATE THE 'USER TO EXTRACT FORM' AND 'ROLE TO EXTRACT FORM' PERMISSIONS OF THE CUSTOM FORMS - MULTIPLE TYPE.");
 
 		Helper helper = new Helper();
@@ -29,8 +28,6 @@ public class RR6340CustomForm9Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8); // Normal Field 1
 		String fieldDetail1 = RandomStringUtils.randomAlphabetic(8); // Normal Field Detail 1

@@ -22,7 +22,6 @@ public class RR3682Environmental4Test extends TestBase {
 		execution(data, "rR3682Environmental4Test");
 
 		// MOVE ENVIRONMENTAL RECORD FROM PROPERTY LEVEL TO BUILDING LEVEL
-
 		title("MOVE ENVIRONMENTAL RECORD FROM PROPERTY LEVEL TO BUILDING LEVEL");
 
 		Helper helper = new Helper();
@@ -31,8 +30,6 @@ public class RR3682Environmental4Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// CREATE NEW RECORD OF THE ENVIRONMENTAL RECORD
 		title("CREATE NEW RECORD OF THE ENVIRONMENTAL RECORD");
@@ -149,8 +146,6 @@ public class RR3682Environmental4Test extends TestBase {
 			// select property option from the dropdown
 			select("envreports_movereports_propertydd_CSS", data.get("propertydd1"));
 
-			// verify added material of the Asbestos Materials record is correct or not
-
 			// enter the newly created environmental record in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));
 
@@ -200,8 +195,6 @@ public class RR3682Environmental4Test extends TestBase {
 
 			// select property option from the dropdown
 			select("envreports_movereports_propertydd_CSS", data.get("propertydd1"));
-
-			// verify added material of the Asbestos Materials record is correct or not
 
 			// enter the newly created environmental record in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("detailed_location"));

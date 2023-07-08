@@ -26,7 +26,6 @@ public class RR3888SurveyChecklistTest extends TestBase {
 
 		// CREATE THE SURVEY IN PROPERTY AND BUILDING LEVELS AND VERIFY IN THE SURVEY
 		// MODULE
-
 		title("CREATE THE SURVEY IN PROPERTY AND BUILDING LEVELS AND VERIFY IN THE SURVEY MODULE");
 
 		Helper helper = new Helper();
@@ -35,8 +34,6 @@ public class RR3888SurveyChecklistTest extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// CREATE THE SURVEY IN THE PROPERTY LEVELS
 		title("CREATE THE SURVEY IN THE PROPERTY LEVELS");
@@ -211,9 +208,7 @@ public class RR3888SurveyChecklistTest extends TestBase {
 					"The Test Questionnaire Building Title record is not displayed in the questionnaire list.");
 
 		} catch (Throwable t) {
-
 			verificationFailedMessage("The newly created questionnaire is not displayed.");
-
 		}
 
 		// click on the home menu burger button
@@ -266,9 +261,7 @@ public class RR3888SurveyChecklistTest extends TestBase {
 					"The Test Category Title Two Two is not displayed.");
 
 		} catch (Throwable t) {
-
 			verificationFailedMessage("The newly created questionnaire is not displayed.");
-
 		}
 
 		// click on the home option from the side menu
@@ -341,9 +334,7 @@ public class RR3888SurveyChecklistTest extends TestBase {
 			helper.deleteVerification("questionnaire_record1_XPATH", "Test Questionnaire Property Title");
 
 		} catch (Throwable t) {
-
 			verificationFailedMessage("The newly created questionnaire is not displayed.");
-
 		}
 
 		// click on the home icon from the top of the screen
@@ -416,7 +407,6 @@ public class RR3888SurveyChecklistTest extends TestBase {
 			helper.deleteVerification("questionnaire_building_record1_XPATH", "Test Questionnaire Building Title");
 
 		} catch (Throwable t) {
-
 			verificationFailedMessage("The newly created questionnaire is not displayed.");
 		}
 

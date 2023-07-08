@@ -28,16 +28,7 @@ public class RR5595Morguard8Test extends TestBase {
 	@Test(dataProviderClass = TestUtil.class, dataProvider = "dp")
 	public void rR5595Morguard8Test(Hashtable<String, String> data) throws IOException, InterruptedException {
 
-		if (!(TestUtil.isTestRunnable("rR5595Morguard8Test", excel))) {
-
-			throw new SkipException(
-					"Skipping the test " + "rR5595Morguard8Test".toUpperCase() + "as the Run mode is NO");
-		}
-
-		if (!data.get("runmode").equals("Y")) {
-
-			throw new SkipException("Skipping the test case as the Run Mode for data set is NO");
-		}
+		execution(data, "rR5595Morguard8Test");
 
 		Helper helper = new Helper();
 
@@ -47,11 +38,7 @@ public class RR5595Morguard8Test extends TestBase {
 		driver.navigate().refresh();
 
 		// LOGIN WITH ADMIN USER
-
-		System.out.println("******************** LOGIN WITH ADMIN USER ********************");
-		test.log(LogStatus.INFO, "******************** LOGIN WITH ADMIN USER ********************");
-		Reporter.log("******************** LOGIN WITH ADMIN USER ********************");
-		log.info("******************** LOGIN WITH ADMIN USER ********************");
+		title("LOGIN WITH ADMIN USER");
 
 		try {
 			// wait for the element
@@ -59,18 +46,12 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// Enter the username
 			type("usernametxt_CSS", data.get("username_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the username.");
 
 			// Enter the password
 			type("passwordtxt_CSS", data.get("password_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the password.");
 
 			// Clicking on the "Sign In" button
 			click("signinbtn_BTNTEXT");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the sign in button.");
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -86,12 +67,7 @@ public class RR5595Morguard8Test extends TestBase {
 		}
 
 		// VERIFY THE QUESTIONNAIRE IS DISPLAYED LOCKED
-
-		System.out.println("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED LOCKED ********************");
-		test.log(LogStatus.INFO,
-				"******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED LOCKED ********************");
-		Reporter.log("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED LOCKED ********************");
-		log.info("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED LOCKED ********************");
+		title("VERIFY THE QUESTIONNAIRE IS DISPLAYED LOCKED");
 
 		try {
 
@@ -100,33 +76,22 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires tab
 			click("questionnaire_questionnairestab_XPATH");
-			System.out.println("Clicked on the Questionnaires tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires option
 			click("questionnaire_questionnairesoption_XPATH");
-			System.out.println("Clicked on the Questionnaires option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
+
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_title"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify newly created questionnaire for survey
 			switchVerification("questionnaire_activesurvey_XPATH", "MORGUARD - Climate Change Questionnaire",
@@ -142,27 +107,13 @@ public class RR5595Morguard8Test extends TestBase {
 
 					// click on the unlock icon
 					click("questionnaire_activesurvey_unlockicon_XPATH");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the unlock icon.");
 
-					System.out.println("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-					test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-					Reporter.log("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-					log.info("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
+					successMessage("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
 				} else {
-
-					System.out.println("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-					test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-					Reporter.log("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-					log.info("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-
+					successMessage("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
 				}
 			} catch (Throwable t) {
-
-				System.out.println("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-				test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-				Reporter.log("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
-				log.info("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
+				successMessage("THE QUESTIONNAIRE IS DISPLAYED LOCK AS EXPECTED.");
 			}
 
 		} catch (Throwable t) {
@@ -171,8 +122,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -182,28 +131,15 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// VERIFY LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION
 		// SECTION
-
-		System.out.println(
-				"******************** VERIFY LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION ********************");
-		test.log(LogStatus.INFO,
-				"******************** VERIFY LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION ********************");
-		Reporter.log(
-				"******************** VERIFY LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION ********************");
-		log.info(
-				"******************** VERIFY LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION ********************");
+		title("VERIFY LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION");
 
 		try {
 			// enter the property name in the search field
-			clear("envreports_propertylist_filtertxt_CSS");
+
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			try {
 				// verify locked questionnaire is displayed or not
@@ -213,34 +149,17 @@ public class RR5595Morguard8Test extends TestBase {
 						.isDisplayed();
 
 				if (lockedquestionnaire == true) {
-					System.out.println(
-							"THE LOCKED QUESTIONNAIRE IS NOT DISPLAYED IN THE ALERT AND NOTIFICATION SECTION AS EXPECTED.");
-					test.log(LogStatus.INFO,
-							"THE LOCKED QUESTIONNAIRE IS NOT DISPLAYED IN THE ALERT AND NOTIFICATION SECTION AS EXPECTED.");
-					Reporter.log(
-							"THE LOCKED QUESTIONNAIRE IS NOT DISPLAYED IN THE ALERT AND NOTIFICATION SECTION AS EXPECTED.");
-					log.info(
+					successMessage(
 							"THE LOCKED QUESTIONNAIRE IS NOT DISPLAYED IN THE ALERT AND NOTIFICATION SECTION AS EXPECTED.");
 				} else {
 
-					verificationFailed();
-
-					System.out.println("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-					test.log(LogStatus.INFO,
+					verificationFailedMessage(
 							"THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-					Reporter.log("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-					log.info("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-
 				}
 
 			} catch (Throwable t) {
-				verificationFailed();
-
-				System.out.println("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-				test.log(LogStatus.INFO,
+				verificationFailedMessage(
 						"THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-				Reporter.log("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-				log.info("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
 			}
 
 		} catch (Throwable t) {
@@ -249,8 +168,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -259,12 +176,7 @@ public class RR5595Morguard8Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED
-
-		System.out.println("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED ********************");
-		test.log(LogStatus.INFO,
-				"******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED ********************");
-		Reporter.log("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED ********************");
-		log.info("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED ********************");
+		title("VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED");
 
 		try {
 
@@ -273,33 +185,22 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires tab
 			click("questionnaire_questionnairestab_XPATH");
-			System.out.println("Clicked on the Questionnaires tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires option
 			click("questionnaire_questionnairesoption_XPATH");
-			System.out.println("Clicked on the Questionnaires option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
+
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_title"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify newly created questionnaire for survey
 			switchVerification("questionnaire_activesurvey_XPATH", "MORGUARD - Climate Change Questionnaire",
@@ -312,35 +213,20 @@ public class RR5595Morguard8Test extends TestBase {
 						.isDisplayed();
 
 				if (unlockicon == true) {
-
-					System.out.println("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					Reporter.log("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					log.info("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
+					successMessage("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
 				} else {
 
 					// click on the lock icon
 					click("questionnaire_activesurvey_lockicon_XPATH");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the unlock icon.");
 
-					System.out.println("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					Reporter.log("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					log.info("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-
+					successMessage("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
 				}
 			} catch (Throwable t) {
 
 				// click on the lock icon
 				click("questionnaire_activesurvey_lockicon_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the unlock icon.");
 
-				System.out.println("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-				test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-				Reporter.log("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-				log.info("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
+				successMessage("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
 			}
 
 		} catch (Throwable t) {
@@ -349,8 +235,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -360,28 +244,15 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// VERIFY UNLOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION
 		// SECTION
-
-		System.out.println(
-				"******************** VERIFY UNLOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION ********************");
-		test.log(LogStatus.INFO,
-				"******************** VERIFY UNLOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION ********************");
-		Reporter.log(
-				"******************** VERIFY UNLOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION ********************");
-		log.info(
-				"******************** VERIFY UNLOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION ********************");
+		title("VERIFY UNLOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION");
 
 		try {
 			// enter the property name in the search field
-			clear("envreports_propertylist_filtertxt_CSS");
+
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			try {
 				// verify unlocked questionnaire is displayed or not
@@ -391,34 +262,16 @@ public class RR5595Morguard8Test extends TestBase {
 						.isDisplayed();
 
 				if (unlockedquestionnaire == true) {
-					System.out.println(
-							"THE LOCKED QUESTIONNAIRE IS NOT DISPLAYED IN THE ALERT AND NOTIFICATION SECTION AS EXPECTED.");
-					test.log(LogStatus.INFO,
-							"THE LOCKED QUESTIONNAIRE IS NOT DISPLAYED IN THE ALERT AND NOTIFICATION SECTION AS EXPECTED.");
-					Reporter.log(
-							"THE LOCKED QUESTIONNAIRE IS NOT DISPLAYED IN THE ALERT AND NOTIFICATION SECTION AS EXPECTED.");
-					log.info(
+					successMessage(
 							"THE LOCKED QUESTIONNAIRE IS NOT DISPLAYED IN THE ALERT AND NOTIFICATION SECTION AS EXPECTED.");
 				} else {
-
-					verificationFailed();
-
-					System.out.println("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-					test.log(LogStatus.INFO,
+					verificationFailedMessage(
 							"THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-					Reporter.log("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-					log.info("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-
 				}
 
 			} catch (Throwable t) {
-				verificationFailed();
-
-				System.out.println("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-				test.log(LogStatus.INFO,
+				verificationFailedMessage(
 						"THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-				Reporter.log("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
-				log.info("THE LOCKED QUESTIONNAIRE IS DISPLAYED IN THE ALERT AND NOTIFICATION SECTION.");
 			}
 
 		} catch (Throwable t) {
@@ -427,8 +280,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -438,23 +289,10 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// COPY THE QUESTIONNAIRE WITHOUT AN ANSWER, WHERE ANSWERS ARE NOT ADDED WHILE
 		// PERFORMING THE SURVEY.
-
-		System.out.println(
-				"******************** COPY THE QUESTIONNAIRE WITHOUT AN ANSWER, WHERE ANSWERS ARE NOT ADDED WHILE PERFORMING THE SURVEY. ********************");
-		test.log(LogStatus.INFO,
-				"******************** COPY THE QUESTIONNAIRE WITHOUT AN ANSWER, WHERE ANSWERS ARE NOT ADDED WHILE PERFORMING THE SURVEY. ********************");
-		Reporter.log(
-				"******************** COPY THE QUESTIONNAIRE WITHOUT AN ANSWER, WHERE ANSWERS ARE NOT ADDED WHILE PERFORMING THE SURVEY. ********************");
-		log.info(
-				"******************** COPY THE QUESTIONNAIRE WITHOUT AN ANSWER, WHERE ANSWERS ARE NOT ADDED WHILE PERFORMING THE SURVEY. ********************");
+		title("COPY THE QUESTIONNAIRE WITHOUT AN ANSWER, WHERE ANSWERS ARE NOT ADDED WHILE PERFORMING THE SURVEY.");
 
 		// MAKE A COPY OF THE NEWLY CREATED QUESTIONNAIRE
-
-		System.out.println("******************** MAKE A COPY OF THE NEWLY CREATED QUESTIONNAIRE ********************");
-		test.log(LogStatus.INFO,
-				"******************** MAKE A COPY OF THE NEWLY CREATED QUESTIONNAIRE ********************");
-		Reporter.log("******************** MAKE A COPY OF THE NEWLY CREATED QUESTIONNAIRE ********************");
-		log.info("******************** MAKE A COPY OF THE NEWLY CREATED QUESTIONNAIRE ********************");
+		title("MAKE A COPY OF THE NEWLY CREATED QUESTIONNAIRE");
 
 		try {
 
@@ -463,33 +301,22 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires tab
 			click("questionnaire_questionnairestab_XPATH");
-			System.out.println("Clicked on the Questionnaires tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires option
 			click("questionnaire_questionnairesoption_XPATH");
-			System.out.println("Clicked on the Questionnaires option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
+
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_title_copy"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify newly created questionnaire for survey
 			switchVerification("questionnaire_activesurvey_copy_XPATH",
@@ -498,20 +325,13 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the copy icon
 			click("questionnaire_createdrecordcopy_copyicon_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the copy icon.");
 
 			// click on the copy button
 			click("questionnaire_createdrecordcopy_copybtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the copy button.");
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
+
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_title_copy"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify copied questionnaire is displayed or not
 			switchVerification("questionnaire_activesurvey_copiedrecord_XPATH", "November",
@@ -523,9 +343,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home menu burger button
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Click on the home burger menu icon.");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -534,42 +351,28 @@ public class RR5595Morguard8Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// VERIFY QUESTONNAIRES IN SURVEY MODULE
-
-		System.out.println("******************** VERIFY QUESTONNAIRES IN SURVEY MODULE ********************");
-		test.log(LogStatus.INFO, "******************** VERIFY QUESTONNAIRES IN SURVEY MODULE ********************");
-		Reporter.log("******************** VERIFY QUESTONNAIRES IN SURVEY MODULE ********************");
-		log.info("******************** VERIFY QUESTONNAIRES IN SURVEY MODULE ********************");
+		title("VERIFY QUESTONNAIRES IN SURVEY MODULE");
 
 		try {
 
 			// enter the property name in the search field
-			clear("envreports_propertylist_filtertxt_CSS");
+
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the survey option from side menu
 			click("surveyoption_XPATH");
-			System.out.println("Clicked on the survey option from side menu");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the survey screen");
 
 			// verify the questionnaires count displayed correct or not
 			WebElement drop_down = driver.findElement(By.cssSelector(OR.getProperty("survey_questionnairedd_CSS")));
@@ -577,7 +380,7 @@ public class RR5595Morguard8Test extends TestBase {
 			List<WebElement> options = se.getOptions();
 
 			int optionsize = options.size();
-			System.out.println("Count of the options : " + optionsize);
+			consoleMessage("Count of the options : " + optionsize);
 			int count = 0;
 
 			for (int i = 0; i < optionsize; i++) {
@@ -587,25 +390,13 @@ public class RR5595Morguard8Test extends TestBase {
 
 				if (stringOption.equals(data.get("questionnaire_title_copy"))) {
 					count = count + 1;
-
 				}
 			}
-
 			if (count == 2) {
-				System.out.println("THE QUESTIONNAIRE COUNT IS DISPLAYED CORRECTLY.");
-				test.log(LogStatus.INFO, "THE QUESTIONNAIRE COUNT IS DISPLAYED CORRECTLY.");
-				Reporter.log("THE QUESTIONNAIRE COUNT IS DISPLAYED CORRECTLY.");
-				log.info("THE QUESTIONNAIRE COUNT IS DISPLAYED CORRECTLY.");
-
+				successMessage("THE QUESTIONNAIRE COUNT IS DISPLAYED CORRECTLY.");
 			} else {
 
-				verificationFailed();
-
-				System.out.println("THE COPIED QUESTIONNAIRE IS NOT DISPLAYED IN THE PROPERTY LEVEL.");
-				test.log(LogStatus.INFO, "THE COPIED QUESTIONNAIRE IS NOT DISPLAYED IN THE PROPERTY LEVEL.");
-				Reporter.log("THE COPIED QUESTIONNAIRE IS NOT DISPLAYED IN THE PROPERTY LEVEL.");
-				log.info("THE COPIED QUESTIONNAIRE IS NOT DISPLAYED IN THE PROPERTY LEVEL.");
-
+				verificationFailedMessage("THE COPIED QUESTIONNAIRE IS NOT DISPLAYED IN THE PROPERTY LEVEL.");
 			}
 
 		} catch (Throwable t) {
@@ -614,9 +405,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the Home button
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home button.");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Navigate to the Home Screen i.e. property listing screen.");
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -625,11 +413,7 @@ public class RR5595Morguard8Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// DELETE THE COPIED QUESTIONNAIRE
-
-		System.out.println("******************** DELETE THE COPIED QUESTIONNAIRE ********************");
-		test.log(LogStatus.INFO, "******************** DELETE THE COPIED QUESTIONNAIRE ********************");
-		Reporter.log("******************** DELETE THE COPIED QUESTIONNAIRE ********************");
-		log.info("******************** DELETE THE COPIED QUESTIONNAIRE ********************");
+		title("DELETE THE COPIED QUESTIONNAIRE");
 
 		try {
 			// wait for the element
@@ -637,33 +421,22 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires tab
 			click("questionnaire_questionnairestab_XPATH");
-			System.out.println("Clicked on the Questionnaires tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires option
 			click("questionnaire_questionnairesoption_XPATH");
-			System.out.println("Clicked on the Questionnaires option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
+
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_title_copy"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify copied questionnaire is displayed or not
 			switchVerification("questionnaire_activesurvey_copiedrecord_XPATH", "November",
@@ -671,35 +444,25 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the newly created questionnaire on the property level
 			click("questionnaire_activesurvey_copiedrecord_XPATH");
-			System.out.println("Clicked on the newly created questionnaire on the property level.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// scroll till the delete button
-			WebElement element5 = driver.findElement(By.cssSelector(OR.getProperty("questionnaire_deletebtn_CSS")));
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", element5);
+			scrollTillElement("questionnaire_deletebtn_CSS");
 
 			// click on the delete button
 			click("questionnaire_deletebtn_CSS");
-			System.out.println("Clicked on the delete button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the delete button
 			explicitWaitClickable("questionnaire_modeldeletebtn_CSS");
 
 			// click on the delete button of the confirmation popup
 			click("questionnaire_modeldeletebtn_CSS");
-			System.out.println("Clicked on the delete button of the confirmation popup.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the search field
 			explicitWait("ssc_company2_questionnairelist_filtertxt_CSS");
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
+
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_title_copy"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify copied questionnaire is displayed or not
 			deleteVerification("questionnaire_activesurvey_copiedrecord_XPATH", "November");
@@ -710,9 +473,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home menu burger button
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Click on the home burger menu icon.");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -722,23 +482,10 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// THE SURVEY SHOULD BE COMPLETED WITH 100% IN PERCENTAGE BAR AND ABLE TO
 		// APPROVE THE SURVEY
-
-		System.out.println(
-				"******************** THE SURVEY SHOULD BE COMPLETED WITH 100% IN PERCENTAGE BAR AND ABLE TO APPROVE THE SURVEY ********************");
-		test.log(LogStatus.INFO,
-				"******************** THE SURVEY SHOULD BE COMPLETED WITH 100% IN PERCENTAGE BAR AND ABLE TO APPROVE THE SURVEY ********************");
-		Reporter.log(
-				"******************** THE SURVEY SHOULD BE COMPLETED WITH 100% IN PERCENTAGE BAR AND ABLE TO APPROVE THE SURVEY ********************");
-		log.info(
-				"******************** THE SURVEY SHOULD BE COMPLETED WITH 100% IN PERCENTAGE BAR AND ABLE TO APPROVE THE SURVEY ********************");
+		title("THE SURVEY SHOULD BE COMPLETED WITH 100% IN PERCENTAGE BAR AND ABLE TO APPROVE THE SURVEY");
 
 		// VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED
-
-		System.out.println("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED ********************");
-		test.log(LogStatus.INFO,
-				"******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED ********************");
-		Reporter.log("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED ********************");
-		log.info("******************** VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED ********************");
+		title("VERIFY THE QUESTIONNAIRE IS DISPLAYED UNLOCKED");
 
 		try {
 
@@ -747,33 +494,22 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires tab
 			click("questionnaire_questionnairestab_XPATH");
-			System.out.println("Clicked on the Questionnaires tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires option
 			click("questionnaire_questionnairesoption_XPATH");
-			System.out.println("Clicked on the Questionnaires option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
+
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_title"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify newly created questionnaire for survey
 			switchVerification("questionnaire_activesurvey_XPATH", "MORGUARD - Climate Change Questionnaire",
@@ -786,35 +522,20 @@ public class RR5595Morguard8Test extends TestBase {
 						.isDisplayed();
 
 				if (unlockicon == true) {
-
-					System.out.println("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					Reporter.log("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					log.info("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
+					successMessage("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
 				} else {
 
 					// click on the lock icon
 					click("questionnaire_activesurvey_lockicon_XPATH");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the unlock icon.");
 
-					System.out.println("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					Reporter.log("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-					log.info("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-
+					successMessage("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
 				}
 			} catch (Throwable t) {
 
 				// click on the lock icon
 				click("questionnaire_activesurvey_lockicon_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the unlock icon.");
 
-				System.out.println("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-				test.log(LogStatus.INFO, "THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-				Reporter.log("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
-				log.info("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
+				successMessage("THE QUESTIONNAIRE IS DISPLAYED UNLOCK AS EXPECTED.");
 			}
 
 		} catch (Throwable t) {
@@ -823,8 +544,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -833,48 +552,31 @@ public class RR5595Morguard8Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// GIVE ALL THE ANSWERS AND SUBMIT THE SURVEY
-
-		System.out.println("******************** GIVE ALL THE ANSWERS AND SUBMIT THE SURVEY ********************");
-		test.log(LogStatus.INFO,
-				"******************** GIVE ALL THE ANSWERS AND SUBMIT THE SURVEY ********************");
-		Reporter.log("******************** GIVE ALL THE ANSWERS AND SUBMIT THE SURVEY ********************");
-		log.info("******************** GIVE ALL THE ANSWERS AND SUBMIT THE SURVEY ********************");
+		title("GIVE ALL THE ANSWERS AND SUBMIT THE SURVEY");
 
 		try {
 
 			// enter the property name in the search field
-			clear("envreports_propertylist_filtertxt_CSS");
+
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the survey option from side menu
 			click("surveyoption_XPATH");
-			System.out.println("Clicked on the survey option from side menu");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the survey screen");
 
 			// select the respective questionnaire from the dropdown
 			select("survey_questionnairedd_CSS", data.get("questionnaire_title"));
-			System.out.println("The questionnaire selected successfully.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify questionnaire is selected correctly or not
 			switchVerification("questionnaire_questiontitle_morguard_XPATH",
@@ -1046,14 +748,10 @@ public class RR5595Morguard8Test extends TestBase {
 					"The 100% complete is not displayed.");
 
 			// scroll down the screen
-			WebElement ele14 = driver.findElement(By.xpath(OR.getProperty("survey_submitbtn_morguard_XPATH")));
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", ele14);
+			scrollTillElement("survey_submitbtn_morguard_XPATH");
 
 			// click on the submit button
 			click("survey_submitbtn_morguard_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the submit button.");
 
 			// wait for the text
 			explicitWait("survey_submittedtext_morguard_XPATH");
@@ -1068,8 +766,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -1078,49 +774,31 @@ public class RR5595Morguard8Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// UNSELECT ALL THE ANSWERS AND VERIFY SUBMIT BUTTON
-
-		System.out
-				.println("******************** UNSELECT ALL THE ANSWERS AND VERIFY SUBMIT BUTTON ********************");
-		test.log(LogStatus.INFO,
-				"******************** UNSELECT ALL THE ANSWERS AND VERIFY SUBMIT BUTTON ********************");
-		Reporter.log("******************** UNSELECT ALL THE ANSWERS AND VERIFY SUBMIT BUTTON ********************");
-		log.info("******************** UNSELECT ALL THE ANSWERS AND VERIFY SUBMIT BUTTON ********************");
+		title("UNSELECT ALL THE ANSWERS AND VERIFY SUBMIT BUTTON");
 
 		try {
 
 			// enter the property name in the search field
-			clear("envreports_propertylist_filtertxt_CSS");
+
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the survey option from side menu
 			click("surveyoption_XPATH");
-			System.out.println("Clicked on the survey option from side menu");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the survey screen");
 
 			// select the respective questionnaire from the dropdown
 			select("survey_questionnairedd_CSS", data.get("questionnaire_title"));
-			System.out.println("The questionnaire selected successfully.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify questionnaire is selected correctly or not
 			switchVerification("questionnaire_questiontitle_morguard_XPATH",
@@ -1129,13 +807,9 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the reopen button
 			click("survey_reopenbtn_morguard_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the reopen button.");
 
 			// click on the reopen button of the confirmation popup
 			click("survey_confirmationreopenbtn_morguard_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the reopen button of the confirmation popup.");
 
 			// click on the n/a checkbox of category 1 question 1
 			helper.verifyNAUncheckedCheckbox("survey_category_1_question_1_morguard_answered_XPATH");
@@ -1302,8 +976,8 @@ public class RR5595Morguard8Test extends TestBase {
 					"The 0% complete is not displayed.");
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,400)");
+
+			scrollByPixel(400);
 
 			// verify the submit button is displayed or not
 
@@ -1313,25 +987,12 @@ public class RR5595Morguard8Test extends TestBase {
 
 				if (submitbtn == true) {
 
-					verificationFailed();
-
-					System.out.println("THE SUBMIT BUTTON IS DISPLAYED.");
-					test.log(LogStatus.INFO, "THE SUBMIT BUTTON IS DISPLAYED.");
-					Reporter.log("THE SUBMIT BUTTON IS DISPLAYED.");
-					log.info("THE SUBMIT BUTTON IS DISPLAYED.");
+					verificationFailedMessage("THE SUBMIT BUTTON IS DISPLAYED.");
 				} else {
-
-					System.out.println("THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
-					test.log(LogStatus.INFO, "THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
-					Reporter.log("THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
-					log.info("THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
-
+					successMessage("THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
 				}
 			} catch (Throwable t) {
-				System.out.println("THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
-				test.log(LogStatus.INFO, "THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
-				Reporter.log("THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
-				log.info("THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
+				successMessage("THE SUBMIT BUTTON IS NOT DISPLAYED AS EXPECTED.");
 			}
 
 		} catch (Throwable t) {
@@ -1340,8 +1001,6 @@ public class RR5595Morguard8Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -1355,16 +1014,12 @@ public class RR5595Morguard8Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("signinbtn_BTNTEXT");

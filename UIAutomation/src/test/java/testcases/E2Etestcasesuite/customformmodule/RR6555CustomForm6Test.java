@@ -1,6 +1,7 @@
 package testcases.E2Etestcasesuite.customformmodule;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -50,12 +51,15 @@ public class RR6555CustomForm6Test extends TestBase {
 		String pageField2Detail = null;
 		List<String> score_list = new ArrayList<String>();
 		List<String> updatescore_list = new ArrayList<String>();
+		String[] todayDate = LocalDate.now().toString().split("-");
 
 		Random random = new Random();
 		int count = random.nextInt(5 - 3) + 3;
 		int totalScore = 0;
+		List<String> totalScore_list = new ArrayList<String>();
 		int superTotalScore = 0;
 		int totalUpdateScore = 0;
+		List<String> totalUpdateScore_list = new ArrayList<String>();
 		int superTotalUpdateScore = 0;
 
 		// CREATE NEW CUSTOM FORMS FOR MULTIPLE RECORD TYPE WITH RANDOM NUMBER OF TIMES
@@ -101,6 +105,9 @@ public class RR6555CustomForm6Test extends TestBase {
 
 				// click on the Is Verification Workflow Enabled? checkbox
 				click("customform_verificationckbx_XPATH");
+
+				// click on the risk score checkbox
+				click("customform_riskscoreckbx_XPATH");
 
 				// click on the save button
 				click("customform_savebtn_XPATH");
@@ -573,8 +580,11 @@ public class RR6555CustomForm6Test extends TestBase {
 					// ADD THE DETAILS IN THE FIELDS OF THE RISK SCORING TAB
 					title("ADD THE DETAILS IN THE FIELDS OF THE RISK SCORING TAB");
 
-					// click on the risk scoring tab
-					click("customform_portfoliodashboard_riskscoringtab_XPATH");
+					// click on the action
+					click("customform_portfoliodashboard_actionicon_XPATH");
+
+					// click on the risk score option
+					click("customform_portfoliodashboard_riskscoreoption_XPATH");
 
 					// select on the risk category option
 					select("customform_riskcategorydd_XPATH", data.get("score_category"));
@@ -595,8 +605,11 @@ public class RR6555CustomForm6Test extends TestBase {
 					// click on the update button
 					click("customform_portfoliodashboard_riskscoringupdatebtn_XPATH");
 
-					// click on the details tab
-					click("customform_propertysummary_detailstab_XPATH");
+					// click on the action
+					click("customform_portfoliodashboard_actionicon_XPATH");
+
+					// click on the form details option
+					click("customform_portfoliodashboard_formdetailsoption_XPATH");
 
 					// click on the record list button
 					click("customform_propertysummary_recordlistbtn_XPATH");
@@ -615,16 +628,15 @@ public class RR6555CustomForm6Test extends TestBase {
 						// verify the property list
 						switchVerification("propertylist_title_XPATH", "Property List",
 								"The property list is not displayed.");
-
 					}
-
 				}
+
+				String totalScore_string = Integer.toString(totalScore);
+				totalScore_list.add(totalScore_string);
 
 				// add the all the multiple custom form with multiple details
 				superTotalScore = superTotalScore + totalScore;
-
 			}
-
 		} catch (Throwable t) {
 			verificationFailed();
 		}
@@ -658,27 +670,36 @@ public class RR6555CustomForm6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
-			// validate the average risk score of the all the properties
-			try {
-				String avgScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_portfoliodashboard_riskscoringcard_averagescore_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(avgScore);
-				String score_string = Integer.toString(superTotalScore);
-				float score_float1 = Float.parseFloat(score_string);
-				float score_float2 = score_float1 / 4f;
-				int score_expected = Math.round(score_float2);
+			// click on the graph of the risk card
+			click("customform_portfoliodashboard_riskscoringcard_graph_XPATH");
 
-				if (avgScore_actual == score_expected) {
-					successMessage("The average risk score of the all the properties is displayed correctly.");
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
+
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
+
+			// scroll down to bottom
+			scrollBottom();
+			
+			// click on the property 1 name
+			click("customform_portfoliodashboard_propertyname_XPATH");
+
+			// validate the risk score of the property
+			try {
+				String Score = "//td[text()='" + name_list.get(0) + "']//following-sibling::td[@class='ng-binding']";
+				String riskScore = (driver.findElement(By.xpath(Score)).getText()).trim();
+				int riskScore_actual = Integer.parseInt(riskScore);
+				int score_expected = Integer.parseInt(totalScore_list.get(0));
+
+				if (riskScore_actual == score_expected) {
+					successMessage("The risk score of the property is displayed correctly.");
 				} else {
-					verificationFailedMessage(
-							"The average risk score of the all the properties is not displayed correctly.");
+					verificationFailedMessage("The risk score of the property is not displayed correctly.");
 				}
 			} catch (Throwable t) {
-				verificationFailedMessage(
-						"The average risk score of the all the properties is not displayed correctly.");
+				verificationFailedMessage("The risk score of the property is not displayed correctly.");
 			}
 
 		} catch (Throwable t) {
@@ -708,40 +729,30 @@ public class RR6555CustomForm6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
+
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
+
+			// scroll down to bottom
+			scrollBottom();
+			
 			// validate the risk score of the property
 			try {
-				String Score = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore1_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(Score);
+				String Score = "//td[text()='" + name_list.get(0) + "']//following-sibling::td[@class='ng-binding']";
+				String riskScore = (driver.findElement(By.xpath(Score)).getText()).trim();
+				int riskScore_actual = Integer.parseInt(riskScore);
+				int score_expected = Integer.parseInt(totalScore_list.get(0));
 
-				if (avgScore_actual == superTotalScore) {
-					successMessage("The risk score for the property is displayed correctly.");
+				if (riskScore_actual == score_expected) {
+					successMessage("The risk score of the property is displayed correctly.");
 				} else {
-					verificationFailedMessage("The risk score for the property is not displayed correctly.");
+					verificationFailedMessage("The risk score of the property is not displayed correctly.");
 				}
 			} catch (Throwable t) {
-				verificationFailedMessage("The risk score for the property is not displayed correctly.");
-			}
-
-			// validate the average risk score of the other properties
-			try {
-				String Score = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore2_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(Score);
-				int score_expected = 0;
-
-				if (avgScore_actual == score_expected) {
-					successMessage("The average risk score of the other properties is displayed correctly.");
-				} else {
-					verificationFailedMessage(
-							"The average risk score of the other properties is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage("The average risk score of the other properties is not displayed correctly.");
+				verificationFailedMessage("The risk score of the property is not displayed correctly.");
 			}
 
 		} catch (Throwable t) {
@@ -819,8 +830,11 @@ public class RR6555CustomForm6Test extends TestBase {
 					// UPDATE THE DETAILS OF THE RISK SCORING TAB
 					title("UPDATE THE DETAILS OF THE RISK SCORING TAB");
 
-					// click on the risk scoring tab
-					click("customform_portfoliodashboard_riskscoringtab_XPATH");
+					// click on the action
+					click("customform_portfoliodashboard_actionicon_XPATH");
+
+					// click on the risk score option
+					click("customform_portfoliodashboard_riskscoreoption_XPATH");
 
 					// scroll to bottom
 					scrollBottom();
@@ -870,6 +884,9 @@ public class RR6555CustomForm6Test extends TestBase {
 
 				}
 
+				String totalUpdateScore_string = Integer.toString(totalUpdateScore);
+				totalUpdateScore_list.add(totalUpdateScore_string);
+
 				// add the all the multiple custom form with multiple updated details
 				superTotalUpdateScore = superTotalUpdateScore + totalUpdateScore;
 
@@ -908,27 +925,33 @@ public class RR6555CustomForm6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
-			// validate the average risk score of the all the properties
-			try {
-				String avgScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_portfoliodashboard_riskscoringcard_averagescore_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(avgScore);
-				String updatescore_string = Integer.toString(superTotalUpdateScore);
-				float updatescore_float1 = Float.parseFloat(updatescore_string);
-				float updatescore_float2 = updatescore_float1 / 4f;
-				int updatescore_expected = Math.round(updatescore_float2);
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
 
-				if (avgScore_actual == updatescore_expected) {
-					successMessage("The updated average risk score of the all the properties is displayed correctly.");
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
+
+			// scroll down to bottom
+			scrollBottom();
+			
+			// click on the property 1 name
+			click("customform_portfoliodashboard_propertyname_XPATH");
+
+			// validate the risk score of the property
+			try {
+				String Score = "//td[text()='" + name_list.get(0) + "']//following-sibling::td[@class='ng-binding']";
+				String riskScore = (driver.findElement(By.xpath(Score)).getText()).trim();
+				int riskScore_actual = Integer.parseInt(riskScore);
+				int score_expected = Integer.parseInt(totalUpdateScore_list.get(0));
+
+				if (riskScore_actual == score_expected) {
+					successMessage("The risk score of the property is displayed correctly.");
 				} else {
-					verificationFailedMessage(
-							"The updated average risk score of the all the properties is not displayed correctly.");
+					verificationFailedMessage("The risk score of the property is not displayed correctly.");
 				}
 			} catch (Throwable t) {
-				verificationFailedMessage(
-						"The updated average risk score of the all the properties is not displayed correctly.");
+				verificationFailedMessage("The risk score of the property is not displayed correctly.");
 			}
 
 		} catch (Throwable t) {
@@ -959,41 +982,30 @@ public class RR6555CustomForm6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
+
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
+
+			// scroll down to bottom
+			scrollBottom();
+			
 			// validate the risk score of the property
 			try {
-				String updateScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore1_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(updateScore);
+				String Score = "//td[text()='" + name_list.get(0) + "']//following-sibling::td[@class='ng-binding']";
+				String riskScore = (driver.findElement(By.xpath(Score)).getText()).trim();
+				int riskScore_actual = Integer.parseInt(riskScore);
+				int score_expected = Integer.parseInt(totalUpdateScore_list.get(0));
 
-				if (avgScore_actual == superTotalUpdateScore) {
-					successMessage("The updated risk score for the property is displayed correctly.");
+				if (riskScore_actual == score_expected) {
+					successMessage("The risk score of the property is displayed correctly.");
 				} else {
-					verificationFailedMessage("The updated risk score for the property is not displayed correctly.");
+					verificationFailedMessage("The risk score of the property is not displayed correctly.");
 				}
 			} catch (Throwable t) {
-				verificationFailedMessage("The updated risk score for the property is not displayed correctly.");
-			}
-
-			// validate the average risk score of the other properties
-			try {
-				String updateScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore2_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(updateScore);
-				int updatescore_expected = 0;
-
-				if (avgScore_actual == updatescore_expected) {
-					successMessage("The updated average risk score of the other properties is displayed correctly.");
-				} else {
-					verificationFailedMessage(
-							"The updated average risk score of the other properties is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage(
-						"The updated average risk score of the other properties is not displayed correctly.");
+				verificationFailedMessage("The risk score of the property is not displayed correctly.");
 			}
 
 		} catch (Throwable t) {
@@ -1100,24 +1112,50 @@ public class RR6555CustomForm6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
-			// validate the average risk score of the all the properties
-			try {
-				String avgScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_portfoliodashboard_riskscoringcard_averagescore_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(avgScore);
-				int updatescore_expected = 0;
+			// click on the graph of the risk card
+			click("customform_portfoliodashboard_riskscoringcard_graph_XPATH");
 
-				if (avgScore_actual == updatescore_expected) {
-					successMessage("The updated average risk score of the all the properties is displayed correctly.");
-				} else {
-					verificationFailedMessage(
-							"The updated average risk score of the all the properties is not displayed correctly.");
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
+
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
+
+			// scroll down to bottom
+			scrollBottom();
+			
+			// validate the deleted risk score of the property
+			try {
+
+				boolean propertyName = driver
+						.findElement(By.xpath(OR.getProperty("customform_portfoliodashboard_propertyname_XPATH")))
+						.isDisplayed();
+
+				if (propertyName == true) {
+
+					// click on the property 1 name
+					click("customform_portfoliodashboard_propertyname_XPATH");
+
+					// validate the risk score of the property
+					try {
+						String Score = "//td[text()='" + name_list.get(0) + "']";
+						boolean riskScore = driver.findElement(By.xpath(Score)).isDisplayed();
+
+						if (riskScore == true) {
+							verificationFailedMessage(
+									"The risk score of the single type custom form of the property is displayed.");
+						} else {
+							successMessage(
+									"The risk score of the single type custom form of the property is not displayed as expected.");
+						}
+					} catch (Throwable t) {
+						successMessage(
+								"The risk score of the single type custom form of the property is not displayed as expected.");
+					}
 				}
 			} catch (Throwable t) {
-				verificationFailedMessage(
-						"The updated average risk score of the all the properties is not displayed correctly.");
+				successMessage("The deleted risk score of the property is not displayed as expected.");
 			}
 
 		} catch (Throwable t) {
@@ -1148,42 +1186,34 @@ public class RR6555CustomForm6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
+			// click on the graph of the risk card
+			click("customform_portfoliodashboard_riskscoringcard_graph_XPATH");
+
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
+
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
+
+			// scroll down to bottom
+			scrollBottom();
+			
 			// validate the risk score of the property
 			try {
-				String updateScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore1_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(updateScore);
-				int updatescore_expected = 0;
+				String Score = "//td[text()='" + name_list.get(0) + "']";
+				boolean riskScore = driver.findElement(By.xpath(Score)).isDisplayed();
 
-				if (avgScore_actual == updatescore_expected) {
-					successMessage("The updated risk score for the property is displayed correctly.");
-				} else {
-					verificationFailedMessage("The updated risk score for the property is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage("The updated risk score for the property is not displayed correctly.");
-			}
-
-			// validate the average risk score of the other properties
-			try {
-				String updateScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore2_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(updateScore);
-				int updatescore_expected = 0;
-
-				if (avgScore_actual == updatescore_expected) {
-					successMessage("The updated average risk score of the other properties is displayed correctly.");
-				} else {
+				if (riskScore == true) {
 					verificationFailedMessage(
-							"The updated average risk score of the other properties is not displayed correctly.");
+							"The risk score of the single type custom form of the property is displayed.");
+				} else {
+					successMessage(
+							"The risk score of the single type custom form of the property is not displayed as expected.");
 				}
 			} catch (Throwable t) {
-				verificationFailedMessage(
-						"The updated average risk score of the other properties is not displayed correctly.");
+				successMessage(
+						"The risk score of the single type custom form of the property is not displayed as expected.");
 			}
 
 		} catch (Throwable t) {

@@ -19,7 +19,6 @@ public class RR6291CustomForm6Test extends TestBase {
 		execution(data, "rR6291CustomForm6Test");
 
 		// VALIDATE THE 'USER' AND 'ROLE' PERMISSIONS OF THE FIELDS OF THE CUSTOM FORMS.
-
 		title("VALIDATE THE 'USER' AND 'ROLE' PERMISSIONS OF THE FIELDS OF THE CUSTOM FORMS.");
 
 		Helper helper = new Helper();
@@ -28,8 +27,6 @@ public class RR6291CustomForm6Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String fieldName1 = RandomStringUtils.randomAlphanumeric(8); // Normal Field 1
 		String fieldName2 = RandomStringUtils.randomAlphanumeric(8); // Normal Field 2
@@ -43,7 +40,6 @@ public class RR6291CustomForm6Test extends TestBase {
 		// CREATE NEW CUSTOM FORMS FOR SINGLE RECORD TYPE (ADD THE FIELD SECURITY FOR
 		// THE FIRST GENERAL FIELD, FIRST FIELD OF PAGE ONE, SECOND FIELD OF PAGE TWO
 		// AND SECURITY ADDED FOR THE JINESH USER)
-
 		title("CREATE NEW CUSTOM FORMS FOR SINGLE RECORD TYPE (ADD THE FIELD SECURITY FOR THE FIRST GENERAL FIELD, FIRST FIELD OF PAGE ONE, SECOND FIELD OF PAGE TWO AND SECURITY ADDED FOR THE JINESH USER)");
 
 		try {

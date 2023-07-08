@@ -37,34 +37,6 @@
 		</classes>
 	</test> <!-- Test -->
 
-	<test thread-count="5" name="RR4379 Survey Checklist One Test">
-		<classes>
-			<class
-				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4379SurveyChecklistOneTest" />
-		</classes>
-	</test> <!-- Test -->
-
-	<test thread-count="5" name="RR4379 Survey Checklist Two Test">
-		<classes>
-			<class
-				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4379SurveyChecklistTwoTest" />
-		</classes>
-	</test> <!-- Test -->
-
-	<test thread-count="5" name="RR4379 Survey Checklist Three Test">
-		<classes>
-			<class
-				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4379SurveyChecklistThreeTest" />
-		</classes>
-	</test> <!-- Test -->
-
-	<test thread-count="5" name="RR4379 Survey Checklist Four Test">
-		<classes>
-			<class
-				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4379SurveyChecklistFourTest" />
-		</classes>
-	</test> <!-- Test -->
-
 	<test thread-count="5" name="RR4682 Survey Checklist Test">
 		<classes>
 			<class

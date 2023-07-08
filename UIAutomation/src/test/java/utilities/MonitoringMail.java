@@ -36,7 +36,6 @@ public class MonitoringMail
 	     props.setProperty("mail.smtp.socketFactory.fallback", "false");   
 	     props.setProperty("mail.smtp.port", "465");   
 	     props.setProperty("mail.smtp.socketFactory.port", "465"); 
-
 		
 		  Authenticator auth = new SMTPAuthenticator();
 		    Session session = Session.getDefaultInstance(props, auth);
@@ -76,7 +75,7 @@ public class MonitoringMail
             // multipart.addBodyPart(attachment);
              message.setContent(multipart);
              Transport.send(message);
-             System.out.println("Sucessfully Sent mail to All Users");
+              
          	 bus.close();
     		
 		}

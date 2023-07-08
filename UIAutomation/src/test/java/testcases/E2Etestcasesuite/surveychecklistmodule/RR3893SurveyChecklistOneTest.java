@@ -33,8 +33,6 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// ADD NEW QUESTIONNIRE
 		title("ADD NEW QUESTIONNIRE");
 
@@ -80,13 +78,13 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 
 //		// enter the questionnaire title in the Spanish language
 //		type("questionnaire_createtask_languagebtn_spanish_CSS", data.get("questionnaire_title_spanish"));
-//		System.out.println("Entered the questionnaire title in the Spanish language.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter the questionnaire title in the Chinese language
 //		type("questionnaire_createtask_languagebtn_chinese_CSS", data.get("questionnaire_title_chinese"));
-//		System.out.println("Entered the questionnaire title in the Chinese language.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 
 			// click on the save button questionnaire title
 			click("questionnaire_createtask_languagebtn_savebtn_CSS");
@@ -96,13 +94,13 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 
 //			// select the document/report type
 //			select("questionnaire_docreportdd_CSS", data.get("document_reporttype"));
-//			System.out.println("The data entered in the document/report type field.");
-//			ngDriver.waitForAngularRequestsToFinish();
+//			 
+//			 
 //
 //			// select the default task tag
 //			select("questionnaire_defaulttasktagdd_CSS", data.get("default_task_tag"));
-//			System.out.println("The data entered in the default task tag field.");
-//			ngDriver.waitForAngularRequestsToFinish();
+//			 
+//			 
 
 			// select the frequency
 			select("questionnaire_frequencydd_CSS", data.get("frequency"));
@@ -650,7 +648,7 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //		select("users_preferedlanguagedd_CSS", data.get("category_language_spanish"));
 //
 //		// this  will scroll down the page by 700 pixel vertical		
-//        js.executeScript("window.scrollBy(0,700)");
+//        scrollByPixel(700);
 //		
 //		// wait for the element
 //			explicitWaitClickable("users_savedetailsbtn_CSS");
@@ -749,31 +747,31 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //
 //		// click on the Security tab
 //		click("administration_securitytxt_XPATH");
-//		System.out.println("Clicked on the Security tab.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the user option
 //		click("administration_userstxt_XPATH");
-//		System.out.println("Clicked on the user option.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// enter the data in the filter
 //		type("users_filtertxt_CSS", data.get("username"));
-//		System.out.println("Entered the data in the filter.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// click on the filtered result
 //		click("users_username_XPATH");
-//		System.out.println("Clicked on the filtered result.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// select the chinese language as a preferred language
 //		select("users_preferedlanguagedd_CSS", data.get("category_language_chinese"));
-//		System.out.println("Selected the chinese language as a preferred language.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// this  will scroll down the page by 700 pixel vertical		
-//        js.executeScript("window.scrollBy(0,700)");
+//        scrollByPixel(700);
 //		
 //		// wait for the element
 //			explicitWaitClickable("users_savedetailsbtn_CSS");
@@ -781,8 +779,8 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //		
 //        // click on the save button
 //        click("users_savedetailsbtn_CSS");
-//        System.out.println("Clicked on the save button.");
-//        ngDriver.waitForAngularRequestsToFinish();
+//         
+//         
 //		
 //		// wait for the element
 //			explicitWaitClickable("questionnaire_settingicon_userupdate_CSS");
@@ -790,8 +788,8 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //
 //		// click on the settings icon from the top of the screen
 //		click("questionnaire_settingicon_userupdate_CSS");
-//		System.out.println("Clicked on the settings icon.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for the element
 //		explicitWaitClickable("sidemenu_logout_CSS");
@@ -799,8 +797,8 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //
 //		// click on the logout option from the side menu
 //		click("sidemenu_logout_CSS");
-//		System.out.println("Clicked on the logout option from the side menu.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// login with valid credentials
 //
@@ -808,14 +806,14 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //
 //		// click on the environmental icon from the property list page
 //		click("environmentalicon_CSS");
-//		System.out.println("Clicked on the environmental icon of the Property.");
-//		ngDriver.waitForAngularRequestsToFinish();
-//		System.out.println("Navigate to the environmental screen of the perticular property.");
+//		 
+//		 
+//		 
 //
 //		// click on the burger menu
 //		click("menubtn_CSS");
-//		System.out.println("Clicked on the burger menu button successfully!!!");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //			// wait for the element
 //			explicitWaitClickable("surveyoption_XPATH");
@@ -823,14 +821,14 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //
 //		// click on the survey option from side menu
 //		click("surveyoption_XPATH");
-//		System.out.println("Clicked on the survey option from side menu");
-//		ngDriver.waitForAngularRequestsToFinish();
-//		System.out.println("Navigate to the survey screen");
+//		 
+//		 
+//		 
 //
 //		// select the respective questionnaire from the dropdown
 //		select("survey_questionnairedd_CSS", data.get("questionnaire_title_chinese"));
-//		System.out.println("The questionnaire selected successfully.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// verify category is selected correctly or not
 //		switchVerification("questionnaire_categorytitle_chineselanguage_XPATH", "Multiple Language Category One Chinese",
@@ -842,13 +840,13 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //
 //		// click on the no checkbox of question 1
 //		click("survey_noanswerbtn_1_CSS");
-//		System.out.println("Clicked on the no checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		
 //		// click on the yes checkbox of question 1
 //		click("survey_yesanswerbtn_1_CSS");
-//		System.out.println("Clicked on the yes checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //			// wait for the element
 //			explicitWait("questionnaire_optiontitle_chineselanguage_XPATH");
@@ -860,8 +858,8 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //
 //		// click on the no checkbox of question 1
 //		click("survey_noanswerbtn_1_CSS");
-//		System.out.println("Clicked on the no checkbox.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //		
 //			// wait for the element
 //			explicitWaitClickable("questionnaire_settingicon_userupdate_CSS");
@@ -869,8 +867,8 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //		
 //		// click on the settings icon from the top of the screen
 //		click("questionnaire_settingicon_userupdate_CSS");
-//		System.out.println("Clicked on the settings icon.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// wait for the element
 //			explicitWaitClickable("sidemenu_logout_CSS");
@@ -878,8 +876,8 @@ public class RR3893SurveyChecklistOneTest extends TestBase {
 //
 //		// click on the logout option from the side menu
 //		click("sidemenu_logout_CSS");
-//		System.out.println("Clicked on the logout option from the side menu.");
-//		ngDriver.waitForAngularRequestsToFinish();
+//		 
+//		 
 //
 //		// login with valid credentials
 //

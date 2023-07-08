@@ -26,10 +26,9 @@ public class RR5957Sustainability0Test extends TestBase {
 		explicitWait("sustainabilityicon_CSS");
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		// RUN THE BATCH FOR THE ELECRICITY UTILITY
-
 		title("RUN THE BATCH FOR THE ELECRICITY UTILITY");
 
 		try {
@@ -39,55 +38,39 @@ public class RR5957Sustainability0Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Batch Processes option
 			click("questionnaire_batchprocesssoption_XPATH");
-			System.out.println("Clicked on the Batch Processes option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter the batch name in the search name
 			type("sustainability_searchtxt_XPATH", data.get("batch"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the batch name in the search name.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the play button of the searched batch process
 			click("sustainability_utilitybills_batchprocess_playbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the play button of the searched batch process.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the run button
 			click("sustainability_utilitybills_batchprocess_runbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the run button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -95,8 +78,6 @@ public class RR5957Sustainability0Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -105,52 +86,38 @@ public class RR5957Sustainability0Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// MAKE UTILITY BILL AS A UNVERIFIED FROM THE PERFORMANCE DATA VALIDATION MODULE
-
 		title("MAKE UTILITY BILL AS A UNVERIFIED FROM THE PERFORMANCE DATA VALIDATION MODULE");
 
 		try {
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the Sustainability icon
 			click("sustainabilityicon_CSS");
-			System.out.println("Clicked on the Sustainability icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the side menu
 			click("ssc_leftsidemenubtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the side menu.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("document.getElementById('leftSideNav').scrollTop -= 200", "");
 
 			// click on the building performance data
 			click("sustainability_utilitybills_buildingperformancedataoption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the building performance data.");
 
 			// scroll down the screen
 			js.executeScript("document.getElementById('leftSideNav').scrollTop -= 500", "");
 
 			// click on the performance data validation
 			click("sustainability_utilitybills_performancedatavalidationoption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the performance data validation.");
 
 			// click on the clear all button
 			click("sustainability_utilitybills_datavalidation_clearall_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear all button.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -161,8 +128,6 @@ public class RR5957Sustainability0Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");

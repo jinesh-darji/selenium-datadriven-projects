@@ -323,7 +323,7 @@ public class RR6533RiskManagementTest extends TestBase {
 			try {
 				String incidentEventType_actual = (driver
 						.findElement(By.xpath(OR.getProperty("ohs_incident_incidenteventtype_XPATH"))).getText())
-								.trim();
+						.trim();
 
 				if (incidentEventType_actual.equals(data.get("event_type"))) {
 

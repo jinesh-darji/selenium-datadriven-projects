@@ -1,6 +1,7 @@
 package base;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -14,7 +15,6 @@ public class Helper extends TestBase {
 			throws IOException, InterruptedException {
 
 		// RUN THE BATCH FOR THE ELECRICITY UTILITY
-
 		title("RUN THE BATCH FOR THE ELECRICITY UTILITY");
 
 		try {
@@ -279,7 +279,6 @@ public class Helper extends TestBase {
 					"The Test Category Title One is not displayed.");
 
 			// ADD CATEGORY 2 INTO THE QUESTIONNAIRE
-
 			title("ADD CATEGORY 2 INTO THE QUESTIONNAIRE");
 
 			// wait for the element
@@ -576,6 +575,9 @@ public class Helper extends TestBase {
 			// click on the task icon of the no option
 			click("questionnaire_question_1_notaskicon_CSS");
 
+			// wait for the element
+			Thread.sleep(3000);
+
 			// click on the non-compliant checkbox
 			click("questionnaire_createtask_noncompliantbtn_CSS");
 
@@ -758,11 +760,17 @@ public class Helper extends TestBase {
 			// click on the save button of the questions
 			click("questionnaire_saveallquestionbtn_CSS");
 
+			// wait for the element
+			Thread.sleep(3000);
+
 			// CREATE THE AUTO GENERATE TASK
 			title("CREATE THE AUTO GENERATE TASK");
 
 			// click on the edit question 2 button
 			click("questionnaire_question_2_editbtn_CSS");
+
+			// wait for the element
+			Thread.sleep(3000);
 
 			// click on the task icon of the no option
 			click("questionnaire_question_2_notaskicon_CSS");
@@ -903,6 +911,50 @@ public class Helper extends TestBase {
 
 			// enter the year
 			type("questionnaire_yeartxt_CSS", "2020");
+
+			// select the month
+			select("questionnaire_monthtxt_CSS", data.get("month"));
+
+			// enter the description
+			type("questionnaire_descriptiontxt_CSS", data.get("description"));
+
+			// click on the save button
+			click("questionnaire_savebtn_BTNTEXT");
+
+		} catch (Throwable t) {
+			verificationFailed();
+		}
+	}
+
+	public void createSurveyQuestionnaireRandomTitle(Hashtable<String, String> data, String questionnairetitle)
+			throws IOException, InterruptedException {
+
+		try {
+			// click on the new questionnaire
+			click("questionnaire_newquestionnairebtn_CSS");
+
+			// Select the type of the questionnaire
+			click("questionnaire_type_propertybtn_CSS");
+
+			// Select the level of the questionnaire
+			click("questionnaire_level_propertybtn_CSS");
+
+			// enter the group title
+			type("questionnaire_grouptitletxt_CSS", data.get("group_title"));
+
+			// enter the questionnaire title
+			type("questionnaire_questionnairetitletxt_CSS", questionnairetitle);
+
+			// select the model
+			select("questionnaire_modeldd_CSS", data.get("model"));
+
+			// select the frequency
+			select("questionnaire_frequencydd_CSS", data.get("frequency"));
+
+			// enter the year
+			String[] today_arr = today().split("-");
+			String year = today_arr[0];
+			type("questionnaire_yeartxt_CSS", year);
 
 			// select the month
 			select("questionnaire_monthtxt_CSS", data.get("month"));
@@ -1474,9 +1526,6 @@ public class Helper extends TestBase {
 
 			// wait for the element
 			Thread.sleep(10000);
-
-			// wait for the element
-			explicitWait("propertylist_title_XPATH");
 
 			// verify the property list
 			switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");

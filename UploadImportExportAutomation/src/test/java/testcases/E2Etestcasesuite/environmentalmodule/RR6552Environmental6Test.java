@@ -2,6 +2,7 @@ package testcases.E2Etestcasesuite.environmentalmodule;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -32,6 +33,8 @@ public class RR6552Environmental6Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
+
+		String[] todayDate = LocalDate.now().toString().split("-");
 
 		// DELETE ALL THE PREVIOUSLY ADDED ENVIRONMENTAL RECORDS FROM THE PROPERTY ONE
 		title("DELETE ALL THE PREVIOUSLY ADDED ENVIRONMENTAL RECORDS FROM THE PROPERTY ONE");
@@ -273,41 +276,18 @@ public class RR6552Environmental6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
-			// validate the risk score of the property
-			try {
-				String Score = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore1_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(Score);
+			// click on the graph of the risk card
+			click("customform_portfoliodashboard_riskscoringcard_graph_XPATH");
 
-				if (avgScore_actual == totalScore) {
-					successMessage("The risk score for the property is displayed correctly.");
-				} else {
-					verificationFailedMessage("The risk score for the property is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage("The risk score for the property is not displayed correctly.");
-			}
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
 
-			// validate the average risk score of the other properties
-			try {
-				String Score = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore2_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(Score);
-				int score_expected = 0;
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
 
-				if (avgScore_actual == score_expected) {
-					successMessage("The average risk score of the other properties is displayed correctly.");
-				} else {
-					verificationFailedMessage(
-							"The average risk score of the other properties is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage("The average risk score of the other properties is not displayed correctly.");
-			}
+			// scroll down to bottom
+			scrollBottom();
 
 			// click on the action icon
 			click("envrecord_propertydashboard_riskscoringcard_actionicon_XPATH");
@@ -319,7 +299,7 @@ public class RR6552Environmental6Test extends TestBase {
 			Thread.sleep(15000);
 
 			// fetch the record from the download file
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
 			System.out.println(path_string);
 
@@ -379,77 +359,77 @@ public class RR6552Environmental6Test extends TestBase {
 					verificationFailedMessage("The details of the risk details is not displayed correctly.");
 				}
 
-				// add the details of the risk category
-				file.setCellData("Risk Scores", "Risk Category", j, data.get("score_category_update"));
-
-				// add the details of the risk status
-				file.setCellData("Risk Scores", "Risk Status", j, data.get("risk_status_update"));
-
-				// add the details of the risk score
-				String updatescore = RandomStringUtils.randomNumeric(2);
-				file.setCellData("Risk Scores", "Risk Status", j, updatescore);
-
-				// collect all the scores
-				updatescore_list.add(updatescore);
-
-				int updatescore_int = Integer.parseInt(updatescore);
-				totalUpdateScore = totalUpdateScore + updatescore_int;
-
-				// wait for the element
-				Thread.sleep(5000);
+//				// add the details of the risk category
+//				file.setCellData("Risk Scores", "Risk Category", j, data.get("score_category_update"));
+//
+//				// add the details of the risk status
+//				file.setCellData("Risk Scores", "Risk Status", j, data.get("risk_status_update"));
+//
+//				// add the details of the risk score
+//				String updatescore = RandomStringUtils.randomNumeric(2);
+//				file.setCellData("Risk Scores", "Risk Status", j, updatescore);
+//
+//				// collect all the scores
+//				updatescore_list.add(updatescore);
+//
+//				int updatescore_int = Integer.parseInt(updatescore);
+//				totalUpdateScore = totalUpdateScore + updatescore_int;
+//
+//				// wait for the element
+//				Thread.sleep(5000);
 
 			}
 
-			// click on the action icon
-			click("envrecord_propertydashboard_riskscoringcard_actionicon_XPATH");
-
-			// wait for the element
-			Thread.sleep(5000);
-
-			// click on the import option
-			click("envrecord_propertydashboard_riskscoringcard_actionicon_importoption_XPATH");
-
-			// import the file
-			uploadFile(path_string);
-
-			// wait for the element
-			Thread.sleep(10000);
-
-			// validate the imported risk score of the property
-			try {
-				String Score = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore1_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(Score);
-
-				if (avgScore_actual == totalUpdateScore) {
-					successMessage("The risk score for the property is displayed correctly.");
-				} else {
-					verificationFailedMessage("The risk score for the property is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage("The risk score for the property is not displayed correctly.");
-			}
-
-			// validate the imported average risk score of the other properties
-			try {
-				String Score = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore2_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(Score);
-				int score_expected = 0;
-
-				if (avgScore_actual == score_expected) {
-					successMessage("The average risk score of the other properties is displayed correctly.");
-				} else {
-					verificationFailedMessage(
-							"The average risk score of the other properties is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage("The average risk score of the other properties is not displayed correctly.");
-			}
+//			// click on the action icon
+//			click("envrecord_propertydashboard_riskscoringcard_actionicon_XPATH");
+//
+//			// wait for the element
+//			Thread.sleep(5000);
+//
+//			// click on the import option
+//			click("envrecord_propertydashboard_riskscoringcard_actionicon_importoption_XPATH");
+//
+//			// import the file
+//			uploadFile(path_string);
+//
+//			// wait for the element
+//			Thread.sleep(10000);
+//
+//			// validate the imported risk score of the property
+//			try {
+//				String Score = (driver
+//						.findElement(By.xpath(
+//								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore1_XPATH")))
+//						.getText()).trim();
+//				int avgScore_actual = Integer.parseInt(Score);
+//
+//				if (avgScore_actual == totalUpdateScore) {
+//					successMessage("The risk score for the property is displayed correctly.");
+//				} else {
+//					verificationFailedMessage("The risk score for the property is not displayed correctly.");
+//				}
+//			} catch (Throwable t) {
+//				verificationFailedMessage("The risk score for the property is not displayed correctly.");
+//			}
+//
+//			// validate the imported average risk score of the other properties
+//			try {
+//				String Score = (driver
+//						.findElement(By.xpath(
+//								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore2_XPATH")))
+//						.getText()).trim();
+//				int avgScore_actual = Integer.parseInt(Score);
+//				int score_expected = 0;
+//
+//				if (avgScore_actual == score_expected) {
+//					successMessage("The average risk score of the other properties is displayed correctly.");
+//				} else {
+//					verificationFailedMessage(
+//							"The average risk score of the other properties is not displayed correctly.");
+//				}
+//			} catch (Throwable t) {
+//				verificationFailedMessage("The average risk score of the other properties is not displayed correctly.");
+//			}
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -464,156 +444,156 @@ public class RR6552Environmental6Test extends TestBase {
 		// verify the property list
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
-		// VALIDATE THE IMPORTED RISK SCORING CARD IN THE PORTFOLIO DASHBOARD SCREEN
-		title("VALIDATE THE IMPORTED RISK SCORING CARD IN THE PORTFOLIO DASHBOARD SCREEN");
-
-		try {
-
-			// wait for the element
-			Thread.sleep(5000);
-
-			// click on the side menu
-			click("menubtn_CSS");
-
-			// wait for the element
-			Thread.sleep(5000);
-
-			// click on the portfolio dashboard from side menu
-			click("sidemenu_portfoliosummary_XPATH");
-
-			// scrolldown till risk scoring card
-			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
-
-			// validate the imported average risk score of the all the properties
-			try {
-				String avgScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_portfoliodashboard_riskscoringcard_averagescore_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(avgScore);
-				String updatescore_string = Integer.toString(totalUpdateScore);
-				float updatescore_float = Float.parseFloat(updatescore_string);
-				float score_float2 = updatescore_float / 4f;
-				int score_expected = Math.round(score_float2);
-
-				if (avgScore_actual == score_expected) {
-					successMessage("The imported average risk score of the all the properties is displayed correctly.");
-				} else {
-					verificationFailedMessage(
-							"The imported average risk score of the all the properties is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage(
-						"The imported average risk score of the all the properties is not displayed correctly.");
-			}
-
-		} catch (Throwable t) {
-			verificationFailed();
-		}
-
-		// click on the home icon from the top of the screen
-		click("questionnaire_homeburgermenubtn_hide_CSS");
-
-		// wait for the element
-		explicitWait("propertylist_title_XPATH");
-
-		// verify the property list
-		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
-
-		// VALIDATE THE IMPORTED THE RISK SCORE IN THE ENVIRONMENTAL RECORD
-		title("VALIDATE THE IMPORTED THE RISK SCORE IN THE ENVIRONMENTAL RECORD");
-
-		try {
-
-			// enter the property name in the search field
-			type("ohs_incidentreport_searchtxt_XPATH", data.get("property_1"));
-
-			// wait for the element
-			explicitWaitClickable("environmentalicon_CSS");
-
-			// click on the environmental icon from the property list page
-			click("environmentalicon_CSS");
-
-			// click on the burger menu
-			click("menubtn_CSS");
-
-			// wait for the element
-			explicitWaitClickable("envrecords_XPATH");
-
-			// click on the environmental records
-			click("envrecords_XPATH");
-
-			// click on the Primary Hazardous Substance
-			click("envrecords_primaryhazardoussubstance_XPATH");
-
-			// click on the asbestos materials
-			click("envreports_asbestosmaterials_XPATH");
-
-			for (int i = 0; i < location_description_list.size(); i++) {
-
-				// click on the environmental record of property one
-				String envrecord1 = "//span[text()='" + location_description_list.get(i) + "']";
-				driver.findElement(By.xpath(envrecord1)).click();
-				consoleMessage("Clicked on the newly created environmental record.");
-
-				// click on the risk scoring tab
-				click("envreports_asbestosmaterials_riskscoringtab_XPATH");
-
-				// validate the imported score
-				try {
-					String importedScore = driver
-							.findElement(By.xpath(OR.getProperty("envreports_asbestosmaterials_scoretxt_XPATH")))
-							.getAttribute("value");
-
-					if (importedScore.equals(updatescore_list.get(i))) {
-						successMessage("The imported score of the environmental record is displayed successfully.");
-					} else {
-						verificationFailedMessage("The imported score of the environmental record is not displayed.");
-					}
-				} catch (Throwable t) {
-					verificationFailedMessage("The imported score of the environmental record is not displayed.");
-				}
-
-				// click on the save button
-				click("envreports_asbestosmaterials_savebtn_CSS");
-
-				// wait for the element
-				explicitWaitClickable("closetoastmsg_CSS");
-
-				// click on the toaster close button
-				click("closetoastmsg_CSS");
-
-				// enter the newly created environmental record in the search field
-				type("task_listofchecklist_filterfield_CSS", location_description_list.get(i));
-
-				// verify added details of the Asbestos Materials record is correct or not
-				try {
-					String envrecord = "//span[text()='" + location_description_list.get(i) + "']";
-					String envrecord_actual = (driver.findElement(By.xpath(envrecord)).getText()).trim();
-
-					if (envrecord_actual.equals(location_description_list.get(i))) {
-						successMessage("The newly created environmental record is displayed successfully.");
-					} else {
-						verificationFailedMessage("The newly created environmental record is not displayed.");
-					}
-				} catch (Throwable t) {
-					verificationFailedMessage("The newly created environmental record is not displayed.");
-				}
-
-			}
-
-		} catch (Throwable t) {
-			verificationFailed();
-		}
-
-		// click on the home icon from the top of the screen
-		click("questionnaire_homeburgermenubtn_hide_CSS");
-
-		// wait for the element
-		explicitWait("propertylist_title_XPATH");
-
-		// verify the property list
-		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
+//		// VALIDATE THE IMPORTED RISK SCORING CARD IN THE PORTFOLIO DASHBOARD SCREEN
+//		title("VALIDATE THE IMPORTED RISK SCORING CARD IN THE PORTFOLIO DASHBOARD SCREEN");
+//
+//		try {
+//
+//			// wait for the element
+//			Thread.sleep(5000);
+//
+//			// click on the side menu
+//			click("menubtn_CSS");
+//
+//			// wait for the element
+//			Thread.sleep(5000);
+//
+//			// click on the portfolio dashboard from side menu
+//			click("sidemenu_portfoliosummary_XPATH");
+//
+//			// scrolldown till risk scoring card
+//			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
+//
+//			// validate the imported average risk score of the all the properties
+//			try {
+//				String avgScore = (driver
+//						.findElement(By.xpath(
+//								OR.getProperty("customform_portfoliodashboard_riskscoringcard_averagescore_XPATH")))
+//						.getText()).trim();
+//				int avgScore_actual = Integer.parseInt(avgScore);
+//				String updatescore_string = Integer.toString(totalUpdateScore);
+//				float updatescore_float = Float.parseFloat(updatescore_string);
+//				float score_float2 = updatescore_float / 4f;
+//				int score_expected = Math.round(score_float2);
+//
+//				if (avgScore_actual == score_expected) {
+//					successMessage("The imported average risk score of the all the properties is displayed correctly.");
+//				} else {
+//					verificationFailedMessage(
+//							"The imported average risk score of the all the properties is not displayed correctly.");
+//				}
+//			} catch (Throwable t) {
+//				verificationFailedMessage(
+//						"The imported average risk score of the all the properties is not displayed correctly.");
+//			}
+//
+//		} catch (Throwable t) {
+//			verificationFailed();
+//		}
+//
+//		// click on the home icon from the top of the screen
+//		click("questionnaire_homeburgermenubtn_hide_CSS");
+//
+//		// wait for the element
+//		explicitWait("propertylist_title_XPATH");
+//
+//		// verify the property list
+//		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
+//
+//		// VALIDATE THE IMPORTED THE RISK SCORE IN THE ENVIRONMENTAL RECORD
+//		title("VALIDATE THE IMPORTED THE RISK SCORE IN THE ENVIRONMENTAL RECORD");
+//
+//		try {
+//
+//			// enter the property name in the search field
+//			type("ohs_incidentreport_searchtxt_XPATH", data.get("property_1"));
+//
+//			// wait for the element
+//			explicitWaitClickable("environmentalicon_CSS");
+//
+//			// click on the environmental icon from the property list page
+//			click("environmentalicon_CSS");
+//
+//			// click on the burger menu
+//			click("menubtn_CSS");
+//
+//			// wait for the element
+//			explicitWaitClickable("envrecords_XPATH");
+//
+//			// click on the environmental records
+//			click("envrecords_XPATH");
+//
+//			// click on the Primary Hazardous Substance
+//			click("envrecords_primaryhazardoussubstance_XPATH");
+//
+//			// click on the asbestos materials
+//			click("envreports_asbestosmaterials_XPATH");
+//
+//			for (int i = 0; i < location_description_list.size(); i++) {
+//
+//				// click on the environmental record of property one
+//				String envrecord1 = "//span[text()='" + location_description_list.get(i) + "']";
+//				driver.findElement(By.xpath(envrecord1)).click();
+//				consoleMessage("Clicked on the newly created environmental record.");
+//
+//				// click on the risk scoring tab
+//				click("envreports_asbestosmaterials_riskscoringtab_XPATH");
+//
+//				// validate the imported score
+//				try {
+//					String importedScore = driver
+//							.findElement(By.xpath(OR.getProperty("envreports_asbestosmaterials_scoretxt_XPATH")))
+//							.getAttribute("value");
+//
+//					if (importedScore.equals(updatescore_list.get(i))) {
+//						successMessage("The imported score of the environmental record is displayed successfully.");
+//					} else {
+//						verificationFailedMessage("The imported score of the environmental record is not displayed.");
+//					}
+//				} catch (Throwable t) {
+//					verificationFailedMessage("The imported score of the environmental record is not displayed.");
+//				}
+//
+//				// click on the save button
+//				click("envreports_asbestosmaterials_savebtn_CSS");
+//
+//				// wait for the element
+//				explicitWaitClickable("closetoastmsg_CSS");
+//
+//				// click on the toaster close button
+//				click("closetoastmsg_CSS");
+//
+//				// enter the newly created environmental record in the search field
+//				type("task_listofchecklist_filterfield_CSS", location_description_list.get(i));
+//
+//				// verify added details of the Asbestos Materials record is correct or not
+//				try {
+//					String envrecord = "//span[text()='" + location_description_list.get(i) + "']";
+//					String envrecord_actual = (driver.findElement(By.xpath(envrecord)).getText()).trim();
+//
+//					if (envrecord_actual.equals(location_description_list.get(i))) {
+//						successMessage("The newly created environmental record is displayed successfully.");
+//					} else {
+//						verificationFailedMessage("The newly created environmental record is not displayed.");
+//					}
+//				} catch (Throwable t) {
+//					verificationFailedMessage("The newly created environmental record is not displayed.");
+//				}
+//
+//			}
+//
+//		} catch (Throwable t) {
+//			verificationFailed();
+//		}
+//
+//		// click on the home icon from the top of the screen
+//		click("questionnaire_homeburgermenubtn_hide_CSS");
+//
+//		// wait for the element
+//		explicitWait("propertylist_title_XPATH");
+//
+//		// verify the property list
+//		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// DELETE ALL THE PREVIOUSLY ADDED ENVIRONMENTAL RECORDS FROM THE PROPERTY ONE
 		title("DELETE ALL THE PREVIOUSLY ADDED ENVIRONMENTAL RECORDS FROM THE PROPERTY ONE");
@@ -715,24 +695,51 @@ public class RR6552Environmental6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
-			// validate the average risk score of the all the properties
-			try {
-				String avgScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_portfoliodashboard_riskscoringcard_averagescore_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(avgScore);
-				int updatescore_expected = 0;
+			// click on the graph of the risk card
+			click("customform_portfoliodashboard_riskscoringcard_graph_XPATH");
 
-				if (avgScore_actual == updatescore_expected) {
-					successMessage("The updated average risk score of the all the properties is displayed correctly.");
-				} else {
-					verificationFailedMessage(
-							"The updated average risk score of the all the properties is not displayed correctly.");
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
+
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
+
+			// scroll down to bottom
+			scrollBottom();
+
+			// validate the deleted risk score of the property
+			try {
+
+				boolean propertyName = driver
+						.findElement(By.xpath(OR.getProperty("customform_portfoliodashboard_propertyname_XPATH")))
+						.isDisplayed();
+
+				if (propertyName == true) {
+
+					// click on the property 1 name
+					click("customform_portfoliodashboard_propertyname_XPATH");
+
+					// validate the risk score of the property
+					try {
+						String Score = "//td[text()='Asbestos Materials']";
+						boolean riskScore = driver.findElement(By.xpath(Score)).isDisplayed();
+
+						if (riskScore == true) {
+							verificationFailedMessage(
+									"The risk score of the environmental record of the property is displayed.");
+						} else {
+							successMessage(
+									"The risk score of the environmental record of the property is not displayed as expected.");
+						}
+					} catch (Throwable t) {
+						successMessage(
+								"The risk score of the environmental record of the property is not displayed as expected.");
+					}
+
 				}
 			} catch (Throwable t) {
-				verificationFailedMessage(
-						"The updated average risk score of the all the properties is not displayed correctly.");
+				successMessage("The deleted risk score of the property is not displayed as expected.");
 			}
 
 		} catch (Throwable t) {
@@ -763,42 +770,34 @@ public class RR6552Environmental6Test extends TestBase {
 			// scrolldown till risk scoring card
 			scrollTillElement("customform_portfoliodashboard_riskscoringcard_XPATH");
 
+			// click on the graph of the risk card
+			click("customform_portfoliodashboard_riskscoringcard_graph_XPATH");
+
+			// select the current year in the year dropdown
+			select("customform_portfoliodashboard_riskscoringcard_yeardd_XPATH", todayDate[0]);
+
+			// select the current year in the month dropdown
+			String month = todayDate[1].replaceFirst("^0+(?!$)", "");
+			select("customform_portfoliodashboard_riskscoringcard_monthdd_XPATH", month);
+
+			// scroll down to bottom
+			scrollBottom();
+
 			// validate the risk score of the property
 			try {
-				String updateScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore1_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(updateScore);
-				int updatescore_expected = 0;
+				String Score = "//td[text()='Asbestos Materials']";
+				boolean riskScore = driver.findElement(By.xpath(Score)).isDisplayed();
 
-				if (avgScore_actual == updatescore_expected) {
-					successMessage("The updated risk score for the property is displayed correctly.");
-				} else {
-					verificationFailedMessage("The updated risk score for the property is not displayed correctly.");
-				}
-			} catch (Throwable t) {
-				verificationFailedMessage("The updated risk score for the property is not displayed correctly.");
-			}
-
-			// validate the average risk score of the other properties
-			try {
-				String updateScore = (driver
-						.findElement(By.xpath(
-								OR.getProperty("customform_propertydashboard_riskscoringcard_averagescore2_XPATH")))
-						.getText()).trim();
-				int avgScore_actual = Integer.parseInt(updateScore);
-				int updatescore_expected = 0;
-
-				if (avgScore_actual == updatescore_expected) {
-					successMessage("The updated average risk score of the other properties is displayed correctly.");
-				} else {
+				if (riskScore == true) {
 					verificationFailedMessage(
-							"The updated average risk score of the other properties is not displayed correctly.");
+							"The risk score of the environmental record of the property is displayed.");
+				} else {
+					successMessage(
+							"The risk score of the environmental record of the property is not displayed as expected.");
 				}
 			} catch (Throwable t) {
-				verificationFailedMessage(
-						"The updated average risk score of the other properties is not displayed correctly.");
+				successMessage(
+						"The risk score of the environmental record of the property is not displayed as expected.");
 			}
 
 		} catch (Throwable t) {

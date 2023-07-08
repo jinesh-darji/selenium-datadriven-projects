@@ -1,11 +1,11 @@
 package testcases.E2Etestcasesuite.surveychecklistmodule;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Hashtable;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.Helper;
@@ -30,12 +30,12 @@ public class RR6571SurveyChecklist1Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// CREATE THE SURVEY IN THE PROPERTY LEVELS
 		title("CREATE THE SURVEY IN THE PROPERTY LEVELS");
 
 		String questionnaire_property = RandomStringUtils.randomAlphabetic(8);
+		LocalDate today = LocalDate.now();
+		String today_string = today.toString();
 
 		try {
 
@@ -79,7 +79,8 @@ public class RR6571SurveyChecklist1Test extends TestBase {
 			select("questionnaire_frequencydd_CSS", data.get("frequency"));
 
 			// enter the year
-			type("questionnaire_yeartxt_CSS", "2020");
+			String[] today_arr = today_string.split("-");
+			type("questionnaire_yeartxt_CSS", today_arr[0]);
 
 			// select the month
 			select("questionnaire_monthtxt_CSS", data.get("month"));
@@ -198,7 +199,8 @@ public class RR6571SurveyChecklist1Test extends TestBase {
 			select("questionnaire_frequencydd_CSS", data.get("frequency"));
 
 			// enter the year
-			type("questionnaire_yeartxt_CSS", "2020");
+			String[] today_arr = today_string.split("-");
+			type("questionnaire_yeartxt_CSS", today_arr[0]);
 
 			// select the month
 			select("questionnaire_monthtxt_CSS", data.get("month"));
@@ -259,7 +261,7 @@ public class RR6571SurveyChecklist1Test extends TestBase {
 			}
 
 		} catch (Throwable t) {
-			verificationFailedMessage("The newly created questionnaire is not displayed.");
+			verificationFailed();
 		}
 
 		// click on the home menu burger button
@@ -271,11 +273,175 @@ public class RR6571SurveyChecklist1Test extends TestBase {
 		// verify the property list
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
-		// VALIDATE THE COMPLIANCE CARD BEFORE THE CREATING THE SURVEY
-		title("VALIDATE THE COMPLIANCE CARD BEFORE THE CREATING THE SURVEY");
-		
-		
-		
-		
+		// VALIDATE THE COMPLIANCE CARD BEFORE THE CREATING THE SURVEY ON THE PORTFOLIO
+		// DASHBOARD
+		title("VALIDATE THE COMPLIANCE CARD BEFORE THE CREATING THE SURVEY ON THE PORTFOLIO DASHBOARD");
+
+		try {
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// click on the side menu
+			click("menubtn_CSS");
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// click on the portfolio summary option
+			click("sidemenu_portfoliosummary_XPATH");
+
+			// scroll till the compliance card
+			scrollTillElement("portfoliodashboard_compliancecard_XPATH");
+
+			// click on the graph of the compliance card
+			click("portfoliodashboard_compliancecard_graph_XPATH");
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// select the current year in the year dropdown
+			String[] date = today_string.split("-");
+			select("portfoliodashboard_compliancecard_filteryeardd_XPATH", date[0]);
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// select the current year in the month dropdown
+			select("portfoliodashboard_compliancecard_filtermonthdd_XPATH", date[1]);
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// validate the percentage of property 1
+			try {
+
+				String percentage1 = (driver
+						.findElement(By
+								.xpath(OR.getProperty("portfoliodashboard_compliancecard_percentage_property1_XPATH")))
+						.getText()).trim();
+
+				if (percentage1.equals("0") || percentage1.equals("")) {
+					successMessage("The percentage of the property 1 is not displayed as expected");
+				} else {
+					verificationFailedMessage("The percentage of the property 1 is displayed incorrect.");
+				}
+
+			} catch (Throwable t) {
+				verificationFailedMessage("The percentage of the property 1 is displayed incorrect.");
+			}
+
+			// validate the percentage of property 2
+			try {
+
+				String percentage2 = (driver
+						.findElement(By
+								.xpath(OR.getProperty("portfoliodashboard_compliancecard_percentage_property2_XPATH")))
+						.getText()).trim();
+
+				if (percentage2.equals("0") || percentage2.equals("")) {
+					successMessage("The percentage of the property 2 is not displayed as expected");
+				} else {
+					verificationFailedMessage("The percentage of the property 2 is displayed incorrect.");
+				}
+
+			} catch (Throwable t) {
+				verificationFailedMessage("The percentage of the property 2 is displayed incorrect.");
+			}
+
+			// validate the percentage of property 3
+			try {
+
+				String percentage3 = (driver
+						.findElement(By
+								.xpath(OR.getProperty("portfoliodashboard_compliancecard_percentage_property3_XPATH")))
+						.getText()).trim();
+
+				if (percentage3.equals("0") || percentage3.equals("")) {
+					successMessage("The percentage of the property 3 is not displayed as expected");
+				} else {
+					verificationFailedMessage("The percentage of the property 3 is displayed incorrect.");
+				}
+
+			} catch (Throwable t) {
+				verificationFailedMessage("The percentage of the property 3 is displayed incorrect.");
+			}
+
+			// validate the percentage of property 4
+			try {
+
+				String percentage4 = (driver
+						.findElement(By
+								.xpath(OR.getProperty("portfoliodashboard_compliancecard_percentage_property4_XPATH")))
+						.getText()).trim();
+
+				if (percentage4.equals("0") || percentage4.equals("")) {
+					successMessage("The percentage of the property 4 is not displayed as expected");
+				} else {
+					verificationFailedMessage("The percentage of the property 4 is displayed incorrect.");
+				}
+
+			} catch (Throwable t) {
+				verificationFailedMessage("The percentage of the property 4 is displayed incorrect.");
+			}
+
+		} catch (Throwable t) {
+			verificationFailed();
+		}
+
+		// click on the home menu burger button
+		click("questionnaire_homeburgermenubtn_CSS");
+
+		// wait for the element
+		explicitWait("propertylist_title_XPATH");
+
+		// verify the property list
+		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
+
+		// VALIDATE THE COMPLIANCE CARD BEFORE THE CREATING THE SURVEY ON THE PROPERTY
+		// SUMMARY DASHBOARD
+		title("VALIDATE THE COMPLIANCE CARD BEFORE THE CREATING THE SURVEY ON THE PROPERTY SUMMARY DASHBOARD");
+
+		try {
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// click on the property
+			click("propertysummary_property1_XPATH");
+
+			// scroll till the compliance card
+			scrollTillElement("portfoliodashboard_compliancecard_XPATH");
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// click on the operation label
+			click("propertydashboard_compliancecard_operationlbl_XPATH");
+
+			// select the all option in the type dropdiwn
+			select("propertydashboard_compliancecard_typedd_XPATH", "All");
+
+			// select the current year in the year dropdown
+			String[] date = today_string.split("-");
+			select("portfoliodashboard_compliancecard_filteryeardd_XPATH", date[0]);
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// select the current year in the month dropdown
+			select("portfoliodashboard_compliancecard_filtermonthdd_XPATH", date[1]);
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// validate the percentage of property 1
+			switchVerificationFailed("portfoliodashboard_compliancecard_percentage_property1_XPATH", "0",
+					"The percentage of property 1 is not displayed correctly.");
+
+		} catch (Throwable t) {
+			verificationFailed();
+		}
+
 	}
 }

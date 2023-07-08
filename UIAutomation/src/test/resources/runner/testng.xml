@@ -135,6 +135,13 @@
 		</classes>
 	</test> <!-- Test -->
 
+	<test thread-count="5" name="RR6552 Environmental 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.environmentalmodule.RR6552Environmental4Test" />
+		</classes>
+	</test> <!-- Test -->
+
 	<test thread-count="5" name="RR3888 Survey Checklist Test">
 		<classes>
 			<class
@@ -713,6 +720,112 @@
 		<classes>
 			<class
 				name="testcases.E2Etestcasesuite.taskmodule.RR4787TaskTwoTest" />
+		</classes>
+	</test> <!-- Test -->
+
+
+	<test thread-count="5" name="RR6633 Task 1 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 2 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 3 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 5 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 6 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task6Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 7 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task7Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 8 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task8Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 9 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task9Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 10 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task10Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 11 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task11Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 12 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task12Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 13 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task13Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 14 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task14Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6633 Task 15 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6633Task15Test" />
 		</classes>
 	</test> <!-- Test -->
 
@@ -1682,6 +1795,41 @@
 		</classes>
 	</test> <!-- Test -->
 
+	<test thread-count="5" name="RR6555 Custom Form 10 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm10Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6555 Custom Form 11 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm11Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6555 Custom Form 12 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm12Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6555 Custom Form 13 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm13Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6555 Custom Form 14 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm14Test" />
+		</classes>
+	</test> <!-- Test -->
+
 	<test thread-count="5" name="RR6569 CustomForm 1 Test">
 		<classes>
 			<class
@@ -1861,6 +2009,27 @@
 		<classes>
 			<class
 				name="testcases.E2Etestcasesuite.riskmanagementmodule.RR6531RiskManagementTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6576 Risk Management 1 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.riskmanagementmodule.RR6576RiskManagement1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6576 Risk Management 2 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.riskmanagementmodule.RR6576RiskManagement2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6576 Risk Management 3 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.riskmanagementmodule.RR6576RiskManagement3Test" />
 		</classes>
 	</test> <!-- Test -->
 

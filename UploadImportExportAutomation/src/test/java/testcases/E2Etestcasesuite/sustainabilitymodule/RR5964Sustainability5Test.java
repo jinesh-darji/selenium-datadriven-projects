@@ -32,89 +32,56 @@ public class RR5964Sustainability5Test extends TestBase {
 		execution(data, "rR5964Sustainability5Test");
 
 		// VERIFY THE EXTRACT AND IMPORT FEATURE OF THE UTILITY BILLS MODULE
-
-		System.out.println("VERIFY THE EXTRACT AND IMPORT FEATURE OF THE UTILITY BILLS MODULE");
-		test.log(LogStatus.INFO, "VERIFY THE EXTRACT AND IMPORT FEATURE OF THE UTILITY BILLS MODULE");
-		Reporter.log("VERIFY THE EXTRACT AND IMPORT FEATURE OF THE UTILITY BILLS MODULE");
-		log.info("VERIFY THE EXTRACT AND IMPORT FEATURE OF THE UTILITY BILLS MODULE");
+		title("VERIFY THE EXTRACT AND IMPORT FEATURE OF THE UTILITY BILLS MODULE");
 
 		// refresh the page
 		driver.navigate().refresh();
 		explicitWait("sustainabilityicon_CSS");
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// DELETE ALL THE PREVIOUSLY CREATED UTILITY BILLS RECORD
-
-		System.out
-				.println("***************** DELETE ALL THE PREVIOUSLY CREATED UTILITY BILLS RECORD *****************");
-		test.log(LogStatus.INFO,
-				"***************** DELETE ALL THE PREVIOUSLY CREATED UTILITY BILLS RECORD *****************");
-		Reporter.log("***************** DELETE ALL THE PREVIOUSLY CREATED UTILITY BILLS RECORD *****************");
-		log.info("***************** DELETE ALL THE PREVIOUSLY CREATED UTILITY BILLS RECORD *****************");
+		title("DELETE ALL THE PREVIOUSLY CREATED UTILITY BILLS RECORD");
 
 		try {
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the Sustainability icon
 			click("sustainabilityicon_CSS");
-			System.out.println("Clicked on the Sustainability icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the side menu
 			click("ssc_leftsidemenubtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the side menu.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the utility bills option
 			click("sustainability_sidemenu_utilitybillsoption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the utility bills option.");
 
 			// ========= TEMPORARY CODE - BELOW =========
 
 			// click on the utility filter
 			click("sustainability_utilitybills_filter_utilitybtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the utility filter.");
 
 			// click on the clear button
 			click("sustainability_utilitybills_filter_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter utility in the search field
-			clear("sustainability_utilitybills_filter_searchtxt_XPATH");
 			type("sustainability_utilitybills_filter_searchtxt_XPATH", "Electricity");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter utility in the search field");
 
 			// click on the searched result
 			click("sustainability_utilitybills_filter_searchedresult_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// select the all option from the meter filter
 			select("sustainability_utilitybills_meterfilter_XPATH", "All");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the all option from the meter filter.");
 
 			// ========= TEMPORARY CODE - ABOVE =========
 
 			// click on the refresh button
 			click("sustainability_utilitybills_refreshbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the refresh button.");
 
 			try {
 
@@ -135,65 +102,44 @@ public class RR5964Sustainability5Test extends TestBase {
 
 						// click on the utility filter
 						click("sustainability_utilitybills_filter_utilitybtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the utility filter.");
 
 						// click on the clear button
 						click("sustainability_utilitybills_filter_clearbtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the clear button.");
 
 						// enter utility in the search field
-						clear("sustainability_utilitybills_filter_searchtxt_XPATH");
 						type("sustainability_utilitybills_filter_searchtxt_XPATH", "Electricity");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("enter utility in the search field");
 
 						// click on the searched result
 						click("sustainability_utilitybills_filter_searchedresult_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the searched result.");
 
 						// select the all option from the meter filter
 						select("sustainability_utilitybills_meterfilter_XPATH", "All");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Selected the all option from the meter filter.");
 
 						// ========= TEMPORARY CODE - ABOVE =========
 
 						// click on the refresh button
 						click("sustainability_utilitybills_refreshbtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the refresh button.");
 
 						// click on the first record of the utility bill
 						click("sustainability_utilitybills_firstrecord_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the first record of the utility bill.");
 
 						// wait for the element
 						explicitWaitClickable("sustainability_utilitybills_deletebtn_XPATH");
 
 						// click on the delete button
 						click("sustainability_utilitybills_deletebtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the delete button.");
 
 						// wait for the element
 						explicitWaitClickable("sustainability_utilitybills_deletebtn_confirmation_XPATH");
 
 						// click on the delete button of the confirmation popup
 						click("sustainability_utilitybills_deletebtn_confirmation_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the delete button of the confirmation popup.");
 
 						// wait for the element
 						explicitWaitClickable("closetoastmsg_CSS");
 
 						// click on the toaster close button
 						click("closetoastmsg_CSS");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the toaster close button.");
 
 					}
 				}
@@ -207,8 +153,6 @@ public class RR5964Sustainability5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -217,15 +161,7 @@ public class RR5964Sustainability5Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// CREATE RANDOM NUMBER OF NEW UTILITY BILLS RECORD - AT PROPERTY LEVEL
-
-		System.out.println(
-				"***************** CREATE RANDOM NUMBER OF NEW UTILITY BILLS RECORD - AT PROPERTY LEVEL *****************");
-		test.log(LogStatus.INFO,
-				"***************** CREATE RANDOM NUMBER OF NEW UTILITY BILLS RECORD - AT PROPERTY LEVEL *****************");
-		Reporter.log(
-				"***************** CREATE RANDOM NUMBER OF NEW UTILITY BILLS RECORD - AT PROPERTY LEVEL *****************");
-		log.info(
-				"***************** CREATE RANDOM NUMBER OF NEW UTILITY BILLS RECORD - AT PROPERTY LEVEL *****************");
+		title("CREATE RANDOM NUMBER OF NEW UTILITY BILLS RECORD - AT PROPERTY LEVEL");
 
 		String utilityBills = RandomStringUtils.randomNumeric(8);
 		String updateUtilityMeter1 = RandomStringUtils.randomAlphanumeric(8);
@@ -260,237 +196,142 @@ public class RR5964Sustainability5Test extends TestBase {
 		try {
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the Sustainability icon
 			click("sustainabilityicon_CSS");
-			System.out.println("Clicked on the Sustainability icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the side menu
 			click("ssc_leftsidemenubtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the side menu.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the utility bills option
 			click("sustainability_sidemenu_utilitybillsoption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the utility bills option.");
 
 			for (int i = 0; i < billCount; i++) {
 
 				// click on the add button
 				click("sustainability_utilitybills_addbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the add button.");
 
 				// click on the yes button of the tenant paid field
 				click("sustainability_utilitybills_tenantpaidyes_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the yes button of the tenant paid field.");
 
 				// click on the yes button of the Estimated field
 				click("sustainability_utilitybills_estimatedyes_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the yes button of the Estimated field.");
 
 				// enter the details in the Period From field
 				LocalDate addDate1 = LocalDate.now().minusMonths(1);
 				String addDate1_String = addDate1.toString();
-				clear("sustainability_utilitybills_periodfrom_XPATH");
 				type("sustainability_utilitybills_periodfrom_XPATH", addDate1_String);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered the details in the Period From field.");
 
 				// enter the details in the Period To field
 				LocalDate addDate2 = LocalDate.now().plusMonths(1);
 				String addDate2_String = addDate2.toString();
-				clear("sustainability_utilitybills_periodto_XPATH");
 				type("sustainability_utilitybills_periodto_XPATH", addDate2_String);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered the details in the Period To field.");
 
 				// enter details in the Number of Billing Days field
-				clear("sustainability_utilitybills_numberofbillingdays_XPATH");
 				type("sustainability_utilitybills_numberofbillingdays_XPATH", "365");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Number of Billing Days field.");
 
 				// enter the details in the reading date field
 				LocalDate addDate3 = LocalDate.now();
 				String addDate3_String = addDate3.toString();
-				clear("sustainability_utilitybills_readingdate_XPATH");
 				type("sustainability_utilitybills_readingdate_XPATH", addDate3_String);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered the details in the reading date field.");
 
 				// enter details in the Current Meter Reading field
-				clear("sustainability_utilitybills_currentmeterreading_XPATH");
 				type("sustainability_utilitybills_currentmeterreading_XPATH", "150");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Current Meter Reading field.");
 
 				// enter details in the Last Meter Reading field
-				clear("sustainability_utilitybills_lastmeterreading_XPATH");
 				type("sustainability_utilitybills_lastmeterreading_XPATH", "120");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Last Meter Reading field.");
 
 				// enter details in the Meter Number field
-				clear("sustainability_utilitybills_meternumber_XPATH");
 				type("sustainability_utilitybills_meternumber_XPATH", utilityBills + i);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Meter Number field.");
 
 				// enter the details in the Billing Date field
 				LocalDate addDate4 = LocalDate.now().plusDays(5);
 				String addDate4_String = addDate4.toString();
-				clear("sustainability_utilitybills_billingdate_XPATH");
 				type("sustainability_utilitybills_billingdate_XPATH", addDate4_String);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered the details in the Billing Date field.");
 
 				// enter details in the Consumption field
 				String random2 = RandomStringUtils.randomNumeric(6);
-				clear("sustainability_utilitybills_consumption_XPATH");
 				type("sustainability_utilitybills_consumption_XPATH", random2);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Consumption field.");
 
 				// enter details in the Adjusted Consumption field
-				clear("sustainability_utilitybills_adjustedconsumption_XPATH");
 				type("sustainability_utilitybills_adjustedconsumption_XPATH", "0");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Adjusted Consumption field.");
 
 				// select the Unit of Measure option from the dropdown
 				select("sustainability_utilitybills_unitofmeasure_XPATH", data.get("unit"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Selected the Unit of Measure option from the dropdown.");
 
 				// enter details in the Peak Demand field
-				clear("sustainability_utilitybills_peakdemand_XPATH");
 				type("sustainability_utilitybills_peakdemand_XPATH", "10");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Peak Demand field.");
 
 				// select the Peak Demand Unit of Measure option from the dropdown
 				select("sustainability_utilitybills_peakdemandunitofmeasure_XPATH", data.get("unit"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Selected the Peak Demand Unit of Measure option from the dropdown.");
 
 				// enter details in the Total Cost field
 				String random3 = RandomStringUtils.randomNumeric(6);
-				clear("sustainability_utilitybills_totalcost_XPATH");
 				type("sustainability_utilitybills_totalcost_XPATH", random3);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Total Cost field.");
 
 				// enter details in the Reference Number field
 				String random4 = RandomStringUtils.randomNumeric(8);
-				clear("sustainability_utilitybills_referencenumber_XPATH");
 				type("sustainability_utilitybills_referencenumber_XPATH", random4);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Reference Number field.");
 
 				// enter details in the Control Number field
 				String random5 = RandomStringUtils.randomNumeric(8);
-				clear("sustainability_utilitybills_controlnumber_XPATH");
 				type("sustainability_utilitybills_controlnumber_XPATH", random5);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Control Number field.");
 
 				// enter details in the Multiplier field
 				String random6 = RandomStringUtils.randomNumeric(2);
-				clear("sustainability_utilitybills_multiplier_XPATH");
 				type("sustainability_utilitybills_multiplier_XPATH", random6);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Multiplier field.");
 
 				// enter details in the Description field
-				clear("sustainability_utilitybills_description_XPATH");
 				type("sustainability_utilitybills_description_XPATH", data.get("description"));
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered details in the Description field.");
 
 				// click on the save button
 				click("sustainability_utilitybills_saverecordbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the save button.");
 
 				// wait for the element
 				explicitWaitClickable("closetoastmsg_CSS");
 
 				// click on the toaster close button
 				click("closetoastmsg_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the toaster close button.");
 
 				// ========= TEMPORARY CODE - BELOW =========
 
 				// click on the utility filter
 				click("sustainability_utilitybills_filter_utilitybtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the utility filter.");
 
 				// click on the clear button
 				click("sustainability_utilitybills_filter_clearbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the clear button.");
 
 				// enter utility in the search field
-				clear("sustainability_utilitybills_filter_searchtxt_XPATH");
 				type("sustainability_utilitybills_filter_searchtxt_XPATH", "Electricity");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("enter utility in the search field");
 
 				// click on the searched result
 				click("sustainability_utilitybills_filter_searchedresult_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the searched result.");
 
 				// select the all option from the meter filter
 				select("sustainability_utilitybills_meterfilter_XPATH", "All");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Selected the all option from the meter filter.");
 
 				// ========= TEMPORARY CODE - ABOVE =========
 
 				// click on the refresh button
 				click("sustainability_utilitybills_refreshbtn_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the refresh button.");
 
 				// enter the newly created certification record in the search field
-				clear("sustainability_searchtxt_XPATH");
 				type("sustainability_searchtxt_XPATH", utilityBills + i);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered the newly created certification record in the search field.");
 
 				// verify the newly created utility meter record
 				try {
 					String UtilityBills = "//td[contains(text(),'" + utilityBills + i + "')]";
 					String addedUtilityBills = (driver.findElement(By.xpath(UtilityBills)).getText()).trim();
 					if (addedUtilityBills.equals(utilityBills + i)) {
-
-						System.out.println("The utility bills is verified successfully.");
-						test.log(LogStatus.INFO, "The utility bills is verified successfully.");
-						Reporter.log("The utility bills is verified successfully.");
-						log.info("The utility bills is verified successfully.");
+						successMessage("The utility bills is verified successfully.");
 					} else {
-						verificationFailed();
-
-						System.out.println("The utility bills is not verified.");
-						test.log(LogStatus.INFO, "The utility bills is not verified.");
-						Reporter.log("The utility bills is not verified.");
-						log.info("The utility bills is not verified.");
+						verificationFailedMessage("The utility bills is not verified.");
 					}
 				} catch (Throwable t) {
 					verificationFailed();
@@ -504,8 +345,6 @@ public class RR5964Sustainability5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -514,104 +353,71 @@ public class RR5964Sustainability5Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// EXTRACT AND IMPORT THE NEWLY CREATED UTILITY BILLS
-
-		System.out.println("***************** EXTRACT AND IMPORT THE NEWLY CREATED UTILITY BILLS *****************");
-		test.log(LogStatus.INFO,
-				"***************** EXTRACT AND IMPORT THE NEWLY CREATED UTILITY BILLS *****************");
-		Reporter.log("***************** EXTRACT AND IMPORT THE NEWLY CREATED UTILITY BILLS *****************");
-		log.info("***************** EXTRACT AND IMPORT THE NEWLY CREATED UTILITY BILLS *****************");
+		title("EXTRACT AND IMPORT THE NEWLY CREATED UTILITY BILLS");
 
 		try {
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the Sustainability icon
 			click("sustainabilityicon_CSS");
-			System.out.println("Clicked on the Sustainability icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the side menu
 			click("ssc_leftsidemenubtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the side menu.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the utility bills option
 			click("sustainability_sidemenu_utilitybillsoption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the utility bills option.");
 
 			// ========= TEMPORARY CODE - BELOW =========
 
 			// click on the utility filter
 			click("sustainability_utilitybills_filter_utilitybtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the utility filter.");
 
 			// click on the clear button
 			click("sustainability_utilitybills_filter_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter utility in the search field
-			clear("sustainability_utilitybills_filter_searchtxt_XPATH");
 			type("sustainability_utilitybills_filter_searchtxt_XPATH", "Electricity");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter utility in the search field");
 
 			// click on the searched result
 			click("sustainability_utilitybills_filter_searchedresult_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// select the all option from the meter filter
 			select("sustainability_utilitybills_meterfilter_XPATH", "All");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the all option from the meter filter.");
 
 			// ========= TEMPORARY CODE - ABOVE =========
 
 			// click on the refresh button
 			click("sustainability_utilitybills_refreshbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the refresh button.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the action icon
 			click("sustainability_utilitybills_actionicon_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the action icon.");
 
 			// click on the extraction consumption option
 			click("sustainability_utilitybills_extractconsumption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the extraction consumption option.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the extraction button
 			click("sustainability_utilitybills_extractbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the extraction button.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// fetch the record from the download file
-
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 
 			ExcelReader file = new ExcelReader(path_string);
 
@@ -680,33 +486,29 @@ public class RR5964Sustainability5Test extends TestBase {
 			// wait for the element
 			Thread.sleep(5000);
 
-			System.out.println("fetch1:::::::::::::::" + fetch1);
-			System.out.println("fetch2:::::::::::::::" + fetch2);
-			System.out.println("fetch3:::::::::::::::" + fetch3);
-			System.out.println("fetch4:::::::::::::::" + fetch4);
-			System.out.println("fetch5:::::::::::::::" + fetch5);
-			System.out.println("fetch6:::::::::::::::" + fetch6);
-			System.out.println("fetch7:::::::::::::::" + fetch7);
-			System.out.println("fetch8:::::::::::::::" + fetch8);
-			System.out.println("fetch9:::::::::::::::" + fetch9);
-			System.out.println("fetch10:::::::::::::::" + fetch10);
-			System.out.println("fetch11:::::::::::::::" + fetch11);
-			System.out.println("fetch12:::::::::::::::" + fetch12);
-			System.out.println("fetch13:::::::::::::::" + fetch13);
-			System.out.println("fetch14:::::::::::::::" + fetch14);
+			consoleMessage("fetch1:::::::::::::::" + fetch1);
+			consoleMessage("fetch2:::::::::::::::" + fetch2);
+			consoleMessage("fetch3:::::::::::::::" + fetch3);
+			consoleMessage("fetch4:::::::::::::::" + fetch4);
+			consoleMessage("fetch5:::::::::::::::" + fetch5);
+			consoleMessage("fetch6:::::::::::::::" + fetch6);
+			consoleMessage("fetch7:::::::::::::::" + fetch7);
+			consoleMessage("fetch8:::::::::::::::" + fetch8);
+			consoleMessage("fetch9:::::::::::::::" + fetch9);
+			consoleMessage("fetch10:::::::::::::::" + fetch10);
+			consoleMessage("fetch11:::::::::::::::" + fetch11);
+			consoleMessage("fetch12:::::::::::::::" + fetch12);
+			consoleMessage("fetch13:::::::::::::::" + fetch13);
+			consoleMessage("fetch14:::::::::::::::" + fetch14);
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the action icon
 			click("sustainability_utilitybills_actionicon_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the action icon.");
 
 			// click on the import consumption option
 			click("sustainability_utilitybills_import_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the import consumption option.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -719,10 +521,8 @@ public class RR5964Sustainability5Test extends TestBase {
 
 			try {
 				// enter the updated meter number 1 in search field
-				clear("sustainability_searchtxt_XPATH");
+
 				type("sustainability_searchtxt_XPATH", fetch3);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered the updated meter number 1 in search field.");
 
 				// verify imported record of the meter number 1 is displayed with updated
 				// details
@@ -776,10 +576,7 @@ public class RR5964Sustainability5Test extends TestBase {
 
 			try {
 				// enter the updated meter number 2 in search field
-				clear("sustainability_searchtxt_XPATH");
 				type("sustainability_searchtxt_XPATH", fetch10);
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Entered the updated meter number 2 in search field.");
 
 				// verify imported record of the meter number 2 is displayed with updated
 				// details
@@ -837,8 +634,6 @@ public class RR5964Sustainability5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -847,74 +642,48 @@ public class RR5964Sustainability5Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// DELETE ALL THE NEWLY CREATED UTILITY BILLS RECORD
-
-		System.out.println("***************** DELETE ALL THE NEWLY CREATED UTILITY BILLS RECORD *****************");
-		test.log(LogStatus.INFO,
-				"***************** DELETE ALL THE NEWLY CREATED UTILITY BILLS RECORD *****************");
-		Reporter.log("***************** DELETE ALL THE NEWLY CREATED UTILITY BILLS RECORD *****************");
-		log.info("***************** DELETE ALL THE NEWLY CREATED UTILITY BILLS RECORD *****************");
+		title("DELETE ALL THE NEWLY CREATED UTILITY BILLS RECORD");
 
 		try {
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the Sustainability icon
 			click("sustainabilityicon_CSS");
-			System.out.println("Clicked on the Sustainability icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the side menu
 			click("ssc_leftsidemenubtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the side menu.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the utility bills option
 			click("sustainability_sidemenu_utilitybillsoption_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the utility bills option.");
 
 			// ========= TEMPORARY CODE - BELOW =========
 
 			// click on the utility filter
 			click("sustainability_utilitybills_filter_utilitybtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the utility filter.");
 
 			// click on the clear button
 			click("sustainability_utilitybills_filter_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter utility in the search field
-			clear("sustainability_utilitybills_filter_searchtxt_XPATH");
 			type("sustainability_utilitybills_filter_searchtxt_XPATH", "Electricity");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter utility in the search field");
 
 			// click on the searched result
 			click("sustainability_utilitybills_filter_searchedresult_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// select the all option from the meter filter
 			select("sustainability_utilitybills_meterfilter_XPATH", "All");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the all option from the meter filter.");
 
 			// ========= TEMPORARY CODE - ABOVE =========
 
 			// click on the refresh button
 			click("sustainability_utilitybills_refreshbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the refresh button.");
 
 			try {
 
@@ -935,65 +704,44 @@ public class RR5964Sustainability5Test extends TestBase {
 
 						// click on the utility filter
 						click("sustainability_utilitybills_filter_utilitybtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the utility filter.");
 
 						// click on the clear button
 						click("sustainability_utilitybills_filter_clearbtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the clear button.");
 
 						// enter utility in the search field
-						clear("sustainability_utilitybills_filter_searchtxt_XPATH");
 						type("sustainability_utilitybills_filter_searchtxt_XPATH", "Electricity");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("enter utility in the search field");
 
 						// click on the searched result
 						click("sustainability_utilitybills_filter_searchedresult_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the searched result.");
 
 						// select the all option from the meter filter
 						select("sustainability_utilitybills_meterfilter_XPATH", "All");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Selected the all option from the meter filter.");
 
 						// ========= TEMPORARY CODE - ABOVE =========
 
 						// click on the refresh button
 						click("sustainability_utilitybills_refreshbtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the refresh button.");
 
 						// click on the first record of the utility bill
 						click("sustainability_utilitybills_firstrecord_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the first record of the utility bill.");
 
 						// wait for the element
 						explicitWaitClickable("sustainability_utilitybills_deletebtn_XPATH");
 
 						// click on the delete button
 						click("sustainability_utilitybills_deletebtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the delete button.");
 
 						// wait for the element
 						explicitWaitClickable("sustainability_utilitybills_deletebtn_confirmation_XPATH");
 
 						// click on the delete button of the confirmation popup
 						click("sustainability_utilitybills_deletebtn_confirmation_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the delete button of the confirmation popup.");
 
 						// wait for the element
 						explicitWaitClickable("closetoastmsg_CSS");
 
 						// click on the toaster close button
 						click("closetoastmsg_CSS");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the toaster close button.");
 
 					}
 				}
@@ -1008,8 +756,6 @@ public class RR5964Sustainability5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");

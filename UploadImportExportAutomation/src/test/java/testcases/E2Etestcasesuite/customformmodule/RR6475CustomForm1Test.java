@@ -27,7 +27,7 @@ public class RR6475CustomForm1Test extends TestBase {
 
 		// refresh the page
 		driver.navigate().refresh();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		driver.navigate().refresh();
 
 		String name = RandomStringUtils.randomAlphabetic(8); // Name of the custom form
@@ -39,6 +39,7 @@ public class RR6475CustomForm1Test extends TestBase {
 		String pageFieldName2 = RandomStringUtils.randomAlphabetic(8); // Page Name 1 - Field 2
 		String pageFieldName3 = RandomStringUtils.randomAlphabetic(8); // Page Name 2 - Field 1
 		String pageFieldName4 = RandomStringUtils.randomAlphabetic(8); // Page Name 2 - Field 2
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		// CREATE NEW CUSTOM FORMS FOR SINGLE RECORD TYPE
 		title("CREATE NEW CUSTOM FORMS FOR SINGLE RECORD TYPE");
@@ -46,7 +47,7 @@ public class RR6475CustomForm1Test extends TestBase {
 		try {
 
 			// Wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
@@ -82,7 +83,7 @@ public class RR6475CustomForm1Test extends TestBase {
 			click("customform_savebtn_XPATH");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// validate the Report Name details of the newly created report
 			try {
@@ -498,19 +499,20 @@ public class RR6475CustomForm1Test extends TestBase {
 		// verify the property list
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
-		// ADD THE DETAILS IN THE FIELDS OF NEWLY CUSTOM FORM
-		title("ADD THE DETAILS IN THE FIELDS OF NEWLY CUSTOM FORM");
+		// ADD THE DETAILS IN THE FIELDS OF NEWLY CUSTOM FORM FROM THE PORTFOLIO
+		// DASHBOARD
+		title("ADD THE DETAILS IN THE FIELDS OF NEWLY CUSTOM FORM FROM THE PORTFOLIO DASHBOARD");
 
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the side menu
 			click("menubtn_CSS");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the portfolio dashboard from side menu
 			click("sidemenu_portfoliosummary_XPATH");
@@ -568,7 +570,7 @@ public class RR6475CustomForm1Test extends TestBase {
 			scrollBottom();
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// validate the details of the first field
 			try {
@@ -629,7 +631,7 @@ public class RR6475CustomForm1Test extends TestBase {
 			scrollBottom();
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// validate the details of the first field of the first page
 			try {
@@ -690,7 +692,7 @@ public class RR6475CustomForm1Test extends TestBase {
 			scrollBottom();
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// validate the details of the first field of the second page
 			try {
@@ -720,6 +722,187 @@ public class RR6475CustomForm1Test extends TestBase {
 				verificationFailedMessage("The details of the second field is of the second page not displayed.");
 			}
 
+			// click on the property two
+			click("customform_portfoliodashboard_propertyname2_XPATH");
+
+			// ADD THE DETAILS IN THE FIELDS OF THE DETAILS TAB
+			title("ADD THE DETAILS IN THE FIELDS OF THE DETAILS TAB");
+
+			// scroll down to bottom
+			scrollBottom();
+
+			// click on the edit field button
+			click("customform_portfoliodashboard_editfieldbtn_XPATH");
+
+			// enter the details in the first field
+			String first2Field = "//input[@id='" + fieldName1 + "TEXT']";
+			driver.findElement(By.xpath(first2Field)).sendKeys(data.get("first_field"));
+			consoleMessage("Entered the details in the first field.");
+
+			// enter the details in the second field
+			String second2Field = "//input[@id='" + fieldName2 + "NUMBER']";
+			driver.findElement(By.xpath(second2Field)).sendKeys("111");
+			consoleMessage("Entered the details in the second field.");
+
+			// click on the save button
+			click("customform_portfoliodashboard_fields_savebtn_XPATH");
+
+			// scroll to bottom
+			scrollBottom();
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// validate the details of the first field
+			try {
+				String first2Field1 = "//span[contains(text(),'" + data.get("first_field") + "')]";
+				String first2Field1_actual = (driver.findElement(By.xpath(first2Field1)).getText()).trim();
+
+				if (first2Field1_actual.equals(data.get("first_field"))) {
+					successMessage("The details of the first field is displayed successfully.");
+				} else {
+					verificationFailedMessage("The details of the first field is not displayed.");
+				}
+			} catch (Throwable t) {
+				verificationFailedMessage("The details of the first field is not displayed.");
+			}
+
+			// validate the details of the second field
+			try {
+				String second2Field1 = "//span[contains(text(),'" + "111" + "')]";
+				String second2Field1_actual = (driver.findElement(By.xpath(second2Field1)).getText()).trim();
+
+				if (second2Field1_actual.equals("123")) {
+					successMessage("The details of the second field is displayed successfully.");
+				} else {
+					verificationFailedMessage("The details of the second field is not displayed.");
+				}
+			} catch (Throwable t) {
+				verificationFailedMessage("The details of the second field is not displayed.");
+			}
+
+			// click on the first page name tab
+			String page2Tab1 = "//span[text()='" + pageName1 + "']";
+			driver.findElement(By.xpath(page2Tab1)).click();
+			consoleMessage("Clicked on the first page name tab.");
+
+			// ADD THE DETAILS IN THE FIELDS OF THE FIRST PAGE TAB
+			title("ADD THE DETAILS IN THE FIELDS OF THE FIRST PAGE TAB");
+
+			// scroll to bottom
+			scrollBottom();
+
+			// click on the edit field button
+			click("customform_portfoliodashboard_editfieldbtn_XPATH");
+
+			// enter the details in the first field
+			String firstPage2Field = "//input[@id='" + pageFieldName1 + "TEXT']";
+			driver.findElement(By.xpath(firstPage2Field)).sendKeys(data.get("first_page_field1"));
+			consoleMessage("Entered the details in the first field.");
+
+			// enter the details in the second field
+			String secondPage2Field = "//input[@id='" + pageFieldName2 + "NUMBER']";
+			driver.findElement(By.xpath(secondPage2Field)).sendKeys("222");
+			consoleMessage("Entered the details in the second field.");
+
+			// click on the save button
+			click("customform_portfoliodashboard_fields_savebtn_XPATH");
+
+			// scroll to bottom
+			scrollBottom();
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// validate the details of the first field of the first page
+			try {
+				String first2Field1 = "//span[contains(text(),'" + data.get("first_page_field1") + "')]";
+				String first2Field1_actual = (driver.findElement(By.xpath(first2Field1)).getText()).trim();
+
+				if (first2Field1_actual.equals(data.get("first_page_field1"))) {
+					successMessage("The details of the first field of the first page is displayed successfully.");
+				} else {
+					verificationFailedMessage("The details of the first field of the first page is not displayed.");
+				}
+			} catch (Throwable t) {
+				verificationFailedMessage("The details of the first field of the first page is not displayed.");
+			}
+
+			// validate the details of the second field of the first page
+			try {
+				String second2Field1 = "//span[contains(text(),'" + "222" + "')]";
+				String second2Field1_actual = (driver.findElement(By.xpath(second2Field1)).getText()).trim();
+
+				if (second2Field1_actual.equals("456")) {
+					successMessage("The details of the second field of the first page is displayed successfully.");
+				} else {
+					verificationFailedMessage("The details of the second field of the first page is not displayed.");
+				}
+			} catch (Throwable t) {
+				verificationFailedMessage("The details of the second field is of the first page not displayed.");
+			}
+
+			// click on the second page name tab
+			String page2Tab2 = "//span[text()='" + pageName2 + "']";
+			driver.findElement(By.xpath(page2Tab2)).click();
+			consoleMessage("Clicked on the second page name tab.");
+
+			// ADD THE DETAILS IN THE FIELDS OF THE SECOND PAGE TAB
+			title("ADD THE DETAILS IN THE FIELDS OF THE SECOND PAGE TAB");
+
+			// scroll to bottom
+			scrollBottom();
+
+			// click on the edit field button
+			click("customform_portfoliodashboard_editfieldbtn_XPATH");
+
+			// enter the details in the first field
+			String thirdPage2Field = "//input[@id='" + pageFieldName3 + "TEXT']";
+			driver.findElement(By.xpath(thirdPage2Field)).sendKeys(data.get("second_page_field1"));
+			consoleMessage("Entered the details in the first field.");
+
+			// enter the details in the second field
+			String fourthPage2Field = "//input[@id='" + pageFieldName4 + "NUMBER']";
+			driver.findElement(By.xpath(fourthPage2Field)).sendKeys("333");
+			consoleMessage("Entered the details in the second field.");
+
+			// click on the save button
+			click("customform_portfoliodashboard_fields_savebtn_XPATH");
+
+			// scroll to bottom
+			scrollBottom();
+
+			// wait for the element
+			Thread.sleep(3000);
+
+			// validate the details of the first field of the second page
+			try {
+				String first2Field1 = "//span[contains(text(),'" + data.get("second_page_field1") + "')]";
+				String first2Field1_actual = (driver.findElement(By.xpath(first2Field1)).getText()).trim();
+
+				if (first2Field1_actual.equals(data.get("second_page_field1"))) {
+					successMessage("The details of the first field of the second page is displayed successfully.");
+				} else {
+					verificationFailedMessage("The details of the first field of the second page is not displayed.");
+				}
+			} catch (Throwable t) {
+				verificationFailedMessage("The details of the first field of the second page is not displayed.");
+			}
+
+			// validate the details of the second field of the second page
+			try {
+				String second2Field1 = "//span[contains(text(),'" + "333" + "')]";
+				String second2Field1_actual = (driver.findElement(By.xpath(second2Field1)).getText()).trim();
+
+				if (second2Field1_actual.equals("789")) {
+					successMessage("The details of the second field of the second page is displayed successfully.");
+				} else {
+					verificationFailedMessage("The details of the second field of the second page is not displayed.");
+				}
+			} catch (Throwable t) {
+				verificationFailedMessage("The details of the second field is of the second page not displayed.");
+			}
+
 		} catch (Throwable t) {
 			verificationFailed();
 		}
@@ -740,13 +923,13 @@ public class RR6475CustomForm1Test extends TestBase {
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the side menu
 			click("menubtn_CSS");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the portfolio dashboard from side menu
 			click("sidemenu_portfoliosummary_XPATH");
@@ -781,18 +964,15 @@ public class RR6475CustomForm1Test extends TestBase {
 			// click on the pdf report option
 			click("customform_portfoliodashboard_actionicon_pdfreportoption_XPATH");
 
-			// ********** ADD THE LATEST FILE FETCH CODE **********
-
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("window.open('about:blank','_blank');");
 
 				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -803,12 +983,18 @@ public class RR6475CustomForm1Test extends TestBase {
 				String pdfContent = readPdfContent(final_path);
 				Thread.sleep(10000);
 
-				Assert.assertTrue(pdfContent.contains(name));
-				consoleMessage(name);
+				int pageCount = fetchPageCount();
+
+				if (pageCount == 2) {
+					successMessage("The count of the pages are displayed correctly.");
+				} else {
+					verificationFailedMessage("The count of the pages are not displayed correctly.");
+				}
+
+				// validate property 1 details
 				Assert.assertTrue(pdfContent.contains(data.get("propertyname")));
 				consoleMessage(data.get("propertyname"));
-				Assert.assertTrue(pdfContent.contains(data.get("propertyname")));
-				consoleMessage(data.get("propertyname"));
+
 				Assert.assertTrue(pdfContent.contains(fieldName1 + ": " + data.get("first_field")));
 				consoleMessage(fieldName1 + ": " + data.get("first_field"));
 				Assert.assertTrue(pdfContent.contains(fieldName2 + ": " + "123"));
@@ -821,6 +1007,23 @@ public class RR6475CustomForm1Test extends TestBase {
 				consoleMessage(pageFieldName3 + ": " + data.get("second_page_field1"));
 				Assert.assertTrue(pdfContent.contains(pageFieldName4 + ": " + "789"));
 				consoleMessage(pageFieldName4 + ": " + "789");
+
+				// validate property 2 details
+				Assert.assertTrue(pdfContent.contains(data.get("propertyname2")));
+				consoleMessage(data.get("propertyname2"));
+
+				Assert.assertTrue(pdfContent.contains(fieldName1 + ": " + data.get("first2_field")));
+				consoleMessage(fieldName1 + ": " + data.get("first2_field"));
+				Assert.assertTrue(pdfContent.contains(fieldName2 + ": " + "111"));
+				consoleMessage(fieldName2 + ": " + "111");
+				Assert.assertTrue(pdfContent.contains(pageFieldName1 + ": " + data.get("first2_page_field1")));
+				consoleMessage(pageFieldName1 + ": " + data.get("first2_page_field1"));
+				Assert.assertTrue(pdfContent.contains(pageFieldName2 + ": " + "222"));
+				consoleMessage(pageFieldName2 + ": " + "222");
+				Assert.assertTrue(pdfContent.contains(pageFieldName3 + ": " + data.get("second2_page_field1")));
+				consoleMessage(pageFieldName3 + ": " + data.get("second2_page_field1"));
+				Assert.assertTrue(pdfContent.contains(pageFieldName4 + ": " + "333"));
+				consoleMessage(pageFieldName4 + ": " + "333");
 
 				driver.close();
 
@@ -853,13 +1056,13 @@ public class RR6475CustomForm1Test extends TestBase {
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the side menu
 			click("menubtn_CSS");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the portfolio dashboard from side menu
 			click("sidemenu_portfoliosummary_XPATH");
@@ -888,8 +1091,8 @@ public class RR6475CustomForm1Test extends TestBase {
 			driver.findElement(By.xpath(customForm1)).click();
 			consoleMessage("Clicked on the custom form.");
 
-			// click on the property one
-			click("customform_portfoliodashboard_propertyname_XPATH");
+			// click on the property two
+			click("customform_portfoliodashboard_propertyname2_XPATH");
 
 			// scroll down
 			scrollBottom();
@@ -900,18 +1103,16 @@ public class RR6475CustomForm1Test extends TestBase {
 			// click on the pdf report option
 			click("customform_portfoliodashboard_propertylistactionicon_pdfreportoption_XPATH");
 
-			// ********** ADD THE LATEST FILE FETCH CODE **********
-
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 
 				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -922,28 +1123,35 @@ public class RR6475CustomForm1Test extends TestBase {
 				String pdfContent = readPdfContent(final_path);
 				Thread.sleep(10000);
 
+				int pageCount = fetchPageCount();
+
+				if (pageCount == 1) {
+					successMessage("The count of the pages are displayed correctly.");
+				} else {
+					verificationFailedMessage("The count of the pages are not displayed correctly.");
+				}
+
+				// validate property 1 details
 				Assert.assertTrue(pdfContent.contains(name));
 				consoleMessage(name);
-				Assert.assertTrue(pdfContent.contains(data.get("propertyname")));
-				consoleMessage(data.get("propertyname"));
+				Assert.assertTrue(pdfContent.contains(data.get("propertyname2")));
+				consoleMessage(data.get("propertyname2"));
 
-				Assert.assertTrue(pdfContent.contains(data.get("propertyname")));
-				consoleMessage(data.get("propertyname"));
-				Assert.assertTrue(pdfContent.contains(fieldName1 + ": " + data.get("first_field")));
-				consoleMessage(fieldName1 + ": " + data.get("first_field"));
-				Assert.assertTrue(pdfContent.contains(fieldName2 + ": " + "123"));
-				consoleMessage(fieldName2 + ": " + "123");
-				Assert.assertTrue(pdfContent.contains(pageFieldName1 + ": " + data.get("first_page_field1")));
-				consoleMessage(pageFieldName1 + ": " + data.get("first_page_field1"));
-				Assert.assertTrue(pdfContent.contains(pageFieldName2 + ": " + "456"));
-				consoleMessage(pageFieldName2 + ": " + "456");
-				Assert.assertTrue(pdfContent.contains(pageFieldName3 + ": " + data.get("second_page_field1")));
-				consoleMessage(pageFieldName3 + ": " + data.get("second_page_field1"));
-				Assert.assertTrue(pdfContent.contains(pageFieldName4 + ": " + "789"));
-				consoleMessage(pageFieldName4 + ": " + "789");
+				Assert.assertTrue(pdfContent.contains(fieldName1 + ": " + data.get("first2_field")));
+				consoleMessage(fieldName1 + ": " + data.get("first2_field"));
+				Assert.assertTrue(pdfContent.contains(fieldName2 + ": " + "111"));
+				consoleMessage(fieldName2 + ": " + "111");
+				Assert.assertTrue(pdfContent.contains(pageFieldName1 + ": " + data.get("first2_page_field1")));
+				consoleMessage(pageFieldName1 + ": " + data.get("first2_page_field1"));
+				Assert.assertTrue(pdfContent.contains(pageFieldName2 + ": " + "222"));
+				consoleMessage(pageFieldName2 + ": " + "222");
+				Assert.assertTrue(pdfContent.contains(pageFieldName3 + ": " + data.get("second2_page_field1")));
+				consoleMessage(pageFieldName3 + ": " + data.get("second2_page_field1"));
+				Assert.assertTrue(pdfContent.contains(pageFieldName4 + ": " + "333"));
+				consoleMessage(pageFieldName4 + ": " + "333");
 
 				driver.close();
-				
+
 				driver.switchTo().window(tabs2.get(0));
 
 			} catch (IOException e) {
@@ -973,7 +1181,7 @@ public class RR6475CustomForm1Test extends TestBase {
 		try {
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
@@ -1008,18 +1216,16 @@ public class RR6475CustomForm1Test extends TestBase {
 			// click on the pdf report option
 			click("customform_portfoliodashboard_propertylistactionicon_pdfreportoption_XPATH");
 
-			// ********** ADD THE LATEST FILE FETCH CODE **********
-
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			String final_path = "file:///" + path_string;
 
 			try {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+
 				js.executeScript("window.open('about:blank','_blank');");
 
 				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -1051,7 +1257,7 @@ public class RR6475CustomForm1Test extends TestBase {
 				consoleMessage(pageFieldName4 + ": " + "789");
 
 				driver.close();
-				
+
 				driver.switchTo().window(tabs2.get(0));
 
 			} catch (IOException e) {
@@ -1080,7 +1286,7 @@ public class RR6475CustomForm1Test extends TestBase {
 		try {
 
 			// Wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
@@ -1098,7 +1304,7 @@ public class RR6475CustomForm1Test extends TestBase {
 			click("customform_option_XPATH");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the delete button of the newly created custom form
 			String deleteIcon = "//td[text()='" + name
@@ -1107,7 +1313,7 @@ public class RR6475CustomForm1Test extends TestBase {
 			consoleMessage("click on the delete button of the newly created custom form.");
 
 			// wait for the element
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 
 			// click on the delete button
 			click("customform_deletebtn_XPATH");

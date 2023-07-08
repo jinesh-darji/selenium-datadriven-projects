@@ -26,7 +26,6 @@ public class RR3892SurveyChecklist15Test extends TestBase {
 		// AS A PROPERTY MANAGER: ALL TASKS REGARDLESS OF THE TASK STATUS "Approved"
 		// SHOULD GET DELETED ON THE PARENT QUESTION-ANSWER SWITCH - The "Approved" task
 		// consider as a Active task so it should Deleted.
-
 		title("AS A PROPERTY MANAGER: TASKS ASSOCIATED WITH THE DEPENDENT QUESTION SHOULD BE DELETED WHEN ITS PARENT QUESTION IS SWITCHED - The \\\"Approved\\\" task consider as a Active task so it should Delete.");
 
 		Helper helper = new Helper();
@@ -35,8 +34,6 @@ public class RR3892SurveyChecklist15Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(15000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// ADD NEW QUESTIONNIRE
 		title("ADD NEW QUESTIONNIRE");

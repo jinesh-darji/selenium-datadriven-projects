@@ -25,7 +25,6 @@ public class RR3892SurveyChecklist14Test extends TestBase {
 		// AS A SITE MANAGER: ALL TASKS REGARDLESS OF THE TASK STATUS "CANCEL" SHOULD
 		// GET DELETED ON THE PARENT QUESTION-ANSWER SWITCH - The "Cancelled" task
 		// consider as a Inactive task so it should be Deleted.
-
 		title("AS A PROPERTY MANAGER: ALL TASKS REGARDLESS OF THE TASK STATUS \"CANCELLED\" SHOULD GET DELETED ON THE PARENT QUESTION-ANSWER SWITCH - The \"CANCELLED\" task consider as a Inactive task so it should be Deleted.");
 
 		Helper helper = new Helper();
@@ -34,8 +33,6 @@ public class RR3892SurveyChecklist14Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(15000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// ADD NEW QUESTIONNIRE
 		title("ADD NEW QUESTIONNIRE");
@@ -308,19 +305,14 @@ public class RR3892SurveyChecklist14Test extends TestBase {
 				try {
 					String str1 = driver.findElement(By.xpath(OR.getProperty("task_cancelbtn_filtered_XPATH")))
 							.getText();
-					ngDriver.waitForAngularRequestsToFinish();
+
 					if (str1.equals("Cancelled")) {
-
 						verificationFailedMessage("The cancelled task is not deleted from the cancelled task list.");
-
 					} else {
 						successMessage("The cancelled task is deleted and verified successfully.");
-
 					}
 				} catch (Throwable t) {
-
 					successMessage("The cancelled task is deleted and verified successfully.");
-
 				}
 
 			} catch (Throwable t) {
@@ -352,9 +344,7 @@ public class RR3892SurveyChecklist14Test extends TestBase {
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
-
 			helper.questionnaireNotDisplayLogout(data);
-
 		}
 
 		// UPDATE THE QUESTIONNAIRE TITLE WITH RANDOM TEXT

@@ -20,7 +20,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// VALIDATE THE 'USER TO EDIT FORM', 'ROLE TO EDIT FORM', 'USER TO EXTRACT FORM
 		// DETAILS', AND 'ROLE TO EXTRACT FORM DETAILS' PERMISSIONS OF THE CUSTOM FORMS.
-
 		title("VALIDATE THE 'USER TO EDIT FORM', 'ROLE TO EDIT FORM', 'USER TO EXTRACT FORM DETAILS', AND 'ROLE TO EXTRACT FORM DETAILS' PERMISSIONS OF THE CUSTOM FORMS.");
 
 		Helper helper = new Helper();
@@ -30,14 +29,11 @@ public class RR6291CustomForm5Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8); // Normal Field 1
 		String pageName1 = RandomStringUtils.randomAlphabetic(8); // Page Name 1
 		String pageFieldName1 = RandomStringUtils.randomAlphabetic(8); // Page Name 1 - Field 1
 
 		// CREATE NEW CUSTOM FORMS FOR SINGLE RECORD TYPE
-
 		title("CREATE NEW CUSTOM FORMS FOR SINGLE RECORD TYPE");
 
 		try {
@@ -47,56 +43,36 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the custom form option
 			click("customform_option_XPATH");
-			System.out.println("Clicked on the custom form option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the add button
 			click("customform_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// enter name of the form in the name field
 			type("customform_nametxt_XPATH", data.get("name"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered name of the form in the name field.");
 
 			// select the single report type from the drop down
 			select("customform_recordtypedd_XPATH", data.get("type_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the single report type from the drop down.");
 
 			// click on the date sensitive checkbox
 			click("customform_datesensitiveckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the date sensitive checkbox.");
 
 			// click on the Is Verification Workflow Enabled? checkbox
 			click("customform_verificationckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Is Verification Workflow Enabled? checkbox.");
 
 			// click on the save button
 			click("customform_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the save button.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -118,49 +94,34 @@ public class RR6291CustomForm5Test extends TestBase {
 				verificationFailedMessage("The Report Name detail is displayed correctly.");
 			}
 
-			// click on the newly created custom record record
+			// click on the newly created custom record
 			String nameTitle = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(nameTitle)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the newly created custom record record.");
+			consoleMessage("Clicked on the newly created custom record.");
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add field button.");
 
 			// enter field name
 			type("customform_addfield_nametxt_XPATH", fieldName1);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
 
 			// select the option from the type dropdown
 			select("customform_addfield_typedd_XPATH", data.get("fieldtype_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
 
 			// click on the display on list checkbox
 			click("customform_addfield_displayonlistckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// validate the newly created field
 			try {
@@ -178,19 +139,12 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the add new page icon
 			click("customform_portfoliodashboard_addnewpagebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add new page icon.");
 
 			// enter the first page name name in the page name field
-			clear("customform_portfoliodashboard_pagenametxt_XPATH");
 			type("customform_portfoliodashboard_pagenametxt_XPATH", pageName1);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the first page name name in the page name field.");
 
 			// click on the add button
 			click("customform_portfoliodashboard_pagename_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// validate the newly added page
 			try {
@@ -208,70 +162,49 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// ADD FIELD IN THE PAGE
-
 			title("ADD FIELD IN THE PAGE");
 
 			// click on the first page name tab
 			String page1 = "//span[contains(text(),'" + pageName1 + "')]";
 			driver.findElement(By.xpath(page1)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// click on the add field button
 			click("customform_addfieldbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add field button.");
 
 			// enter field name
 			type("customform_addfield_nametxt_XPATH", pageFieldName1);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered field name.");
 
 			// select the option from the type dropdown
 			select("customform_addfield_typedd_XPATH", data.get("fieldtype_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the option from the type dropdown.");
 
 			// click on the display on list checkbox
 			click("customform_addfield_displayonlistckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the display on list checkbox.");
 
 			// click on the unique identifier checkbox
 			click("customform_addfield_uniqueidentifierckbx_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the unique identifier checkbox.");
 
 			// click on the add button
 			click("customform_addfield_addbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the add button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// click on the first page name tab
 			String page11 = "//span[contains(text(),'" + pageName1 + "')]";
 			driver.findElement(By.xpath(page11)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the first page name tab.");
+			consoleMessage("Clicked on the first page name tab.");
 
 			// validate the newly created field
 			try {
@@ -289,91 +222,58 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 			// ADD THE SECURITY PERMISSION OF EDIT AND EXPORT CUSTOMER FORM FOR THE JINESH
-			// (PROPERTY
-			// MANAGER)
+			// (PROPERTY MANAGER)
 			title("ADD THE SECURITY PERMISSION OF EDIT AND EXPORT CUSTOMER FORM FOR THE JINESH (PROPERTY MANAGER)");
 
 			// click on the security tab
 			click("customform_securitytab_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the security tab.");
 
 			// click on the User to Edit form field
 			click("customform_securitytab_security3_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Edit form field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// enter the user name in the search field
-			clear("customform_securitytab_searchtxt_XPATH");
 			type("customform_securitytab_searchtxt_XPATH", data.get("user1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter the user name in the search field");
 
 			// click on the searched result
 			click("customform_securitytab_searchedresult1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// click on the User to Edit form field
 			click("customform_securitytab_security3_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Edit form field.");
 
 			// click on the User to Extract form details field
 			click("customform_securitytab_security5_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Extract form details field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// enter the user name in the search field
-			clear("customform_securitytab_searchtxt_XPATH");
 			type("customform_securitytab_searchtxt_XPATH", data.get("user1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter the user name in the search field");
 
 			// click on the searched result
 			click("customform_securitytab_searchedresult1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// click on the User to Extract form details field
 			click("customform_securitytab_security5_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Extract form details field.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -381,8 +281,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -401,8 +299,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property.");
 
 			// scrolldown till Property Information section
 			scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -418,8 +314,7 @@ public class RR6291CustomForm5Test extends TestBase {
 					// click on the newly created custom form
 					String customFormName = "//td[text()='" + data.get("name") + "']";
 					driver.findElement(By.xpath(customFormName)).click();
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the newly created custom form.");
+					consoleMessage("Clicked on the newly created custom form.");
 
 					// scroll down the screen
 					scrollBottom();
@@ -443,8 +338,7 @@ public class RR6291CustomForm5Test extends TestBase {
 					// click on the first page name tab
 					String pageTab1 = "//span[text()='" + pageName1 + "']";
 					driver.findElement(By.xpath(pageTab1)).click();
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the first page name tab.");
+					consoleMessage("Clicked on the first page name tab.");
 
 					// scroll down the screen
 					scrollBottom();
@@ -468,8 +362,6 @@ public class RR6291CustomForm5Test extends TestBase {
 					try {
 						// click on the action icon
 						click("customform_portfoliodashboard_actionicon_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the action icon.");
 
 						// validate the export option is displayed in general tab
 						boolean export2 = driver
@@ -500,8 +392,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -511,7 +401,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO PROPERTY MANAGER -
 		// JINESH
-
 		title("LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO PROPERTY MANAGER - JINESH");
 
 		try {
@@ -520,25 +409,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_userupdate_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username", "password", "system_company_1");
 
 			// VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY
-			// DASHBOARD
-			// - PROPERTY MANAGER USER - JINESH
-
+			// DASHBOARD - PROPERTY MANAGER USER - JINESH
 			title("VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY DASHBOARD - PROPERTY MANAGER USER - JINESH");
 
 			try {
@@ -548,8 +430,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 				// click on the property
 				click("propertysummary_property1_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the property.");
 
 				// scrolldown till Property Information section
 				scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -565,8 +445,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the newly created custom form
 						String customFormName = "//td[text()='" + data.get("name") + "']";
 						driver.findElement(By.xpath(customFormName)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the newly created custom form.");
+						consoleMessage("Clicked on the newly created custom form.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -580,7 +459,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 							if (editbtn3 == true) {
 								successMessage("The edit button is displayed as expected.");
-
 							} else {
 								verificationFailedMessage(
 										"The edit button is not displayed, However the permission is given.");
@@ -593,8 +471,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the first page name tab
 						String pageTab1 = "//span[text()='" + pageName1 + "']";
 						driver.findElement(By.xpath(pageTab1)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the first page name tab.");
+						consoleMessage("Clicked on the first page name tab.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -607,7 +484,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 							if (editbtn4 == true) {
 								successMessage("The edit button is displayed as expected.");
-
 							} else {
 								verificationFailedMessage(
 										"The edit button is not displayed, However the permission is given.");
@@ -619,8 +495,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 						// click on the action icon
 						click("customform_portfoliodashboard_actionicon_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the action icon.");
 
 						// validate the export option is displayed in general tab
 						try {
@@ -652,8 +526,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -663,7 +535,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// LOGOUT THE SESSION FROM THE PROPERTY MANAGER - JINESH USER AND LOGIN TO ADMIN
 			// USER
-
 			title("LOGOUT THE SESSION FROM THE PROPERTY MANAGER - JINESH USER AND LOGIN TO ADMIN USER");
 
 			// wait for the element
@@ -671,19 +542,14 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
@@ -691,7 +557,6 @@ public class RR6291CustomForm5Test extends TestBase {
 		}
 
 		// UPDATE THE SECURITY PERMISSION OF CUSTOMER FORM FOR THE CONTRACTOR
-
 		title("UPDATE THE SECURITY PERMISSION OF CUSTOMER FORM FOR THE CONTRACTOR");
 
 		try {
@@ -701,26 +566,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the custom form option
 			click("customform_option_XPATH");
-			System.out.println("Clicked on the custom form option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -728,108 +585,67 @@ public class RR6291CustomForm5Test extends TestBase {
 			// click on the newly created custom record record
 			String nameTitle = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(nameTitle)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the newly created custom record record.");
+			consoleMessage("Clicked on the newly created custom record.");
 
 			// click on the security tab
 			click("customform_securitytab_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the security tab.");
 
 			// click on the User to Edit form field
 			click("customform_securitytab_security3_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Edit form field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// click on the User to Edit form field
 			click("customform_securitytab_security3_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Edit form field.");
 
 			// click on the Role to Edit form field
 			click("customform_securitytab_security4_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Role to Edit form field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// enter the user name in the search field
-			clear("customform_securitytab_searchtxt_XPATH");
 			type("customform_securitytab_searchtxt_XPATH", data.get("role1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter the user name in the search field");
 
 			// click on the searched result
 			click("customform_securitytab_searchedresult2_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// click on the Role to Edit form field
 			click("customform_securitytab_security4_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Role to Edit form field.");
 
 			// click on the User to Extract form details field
 			click("customform_securitytab_security5_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Extract form details field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// click on the User to Extract form details field
 			click("customform_securitytab_security5_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Extract form details field.");
 
 			// click on the Role to Extract form details field
 			click("customform_securitytab_security6_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Role to Extract form details field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// enter the user name in the search field
-			clear("customform_securitytab_searchtxt_XPATH");
 			type("customform_securitytab_searchtxt_XPATH", data.get("role1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter the user name in the search field");
 
 			// click on the searched result
 			click("customform_securitytab_searchedresult2_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// click on the Role to Extract form details field
 			click("customform_securitytab_security6_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Role to Extract form details field.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -837,8 +653,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -848,7 +662,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY
 		// DASHBOARD - ADMIN USER
-
 		title("VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY DASHBOARD - ADMIN USER");
 
 		try {
@@ -858,8 +671,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property.");
 
 			// scrolldown till Property Information section
 			scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -875,8 +686,7 @@ public class RR6291CustomForm5Test extends TestBase {
 					// click on the newly created custom form
 					String customFormName = "//td[text()='" + data.get("name") + "']";
 					driver.findElement(By.xpath(customFormName)).click();
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the newly created custom form.");
+					consoleMessage("Clicked on the newly created custom form.");
 
 					// scroll down the screen
 					scrollBottom();
@@ -899,8 +709,7 @@ public class RR6291CustomForm5Test extends TestBase {
 					// click on the first page name tab
 					String pageTab1 = "//span[text()='" + pageName1 + "']";
 					driver.findElement(By.xpath(pageTab1)).click();
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the first page name tab.");
+					consoleMessage("Clicked on the first page name tab.");
 
 					// scroll down the screen
 					scrollBottom();
@@ -923,8 +732,6 @@ public class RR6291CustomForm5Test extends TestBase {
 					try {
 						// click on the action icon
 						click("customform_portfoliodashboard_actionicon_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the action icon.");
 
 						// validate the export option is displayed in general tab
 
@@ -956,8 +763,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -967,7 +772,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO PROPERTY MANAGER -
 		// JINESH
-
 		title("LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO PROPERTY MANAGER - JINESH");
 
 		try {
@@ -976,25 +780,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_userupdate_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username", "password", "system_company_1");
 
 			// VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY
-			// DASHBOARD
-			// - PROPERTY MANAGER USER - JINESH
-
+			// DASHBOARD - PROPERTY MANAGER USER - JINESH
 			title("VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY DASHBOARD - PROPERTY MANAGER USER - JINESH");
 
 			try {
@@ -1004,8 +801,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 				// click on the property
 				click("propertysummary_property1_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the property.");
 
 				// scrolldown till Property Information section
 				scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -1021,8 +816,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the newly created custom form
 						String customFormName = "//td[text()='" + data.get("name") + "']";
 						driver.findElement(By.xpath(customFormName)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the newly created custom form.");
+						consoleMessage("Clicked on the newly created custom form.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -1045,8 +839,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the first page name tab
 						String pageTab1 = "//span[text()='" + pageName1 + "']";
 						driver.findElement(By.xpath(pageTab1)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the first page name tab.");
+						consoleMessage("Clicked on the first page name tab.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -1069,8 +862,6 @@ public class RR6291CustomForm5Test extends TestBase {
 						try {
 							// click on the action icon
 							click("customform_portfoliodashboard_actionicon_XPATH");
-							ngDriver.waitForAngularRequestsToFinish();
-							System.out.println("Clicked on the action icon.");
 
 							// validate the export option is displayed in general tab
 							boolean export2 = driver
@@ -1101,8 +892,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -1112,7 +901,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// LOGOUT THE SESSION FROM THE PROPERTY MANAGER - JINESH USER AND LOGIN TO ADMIN
 			// USER
-
 			title("LOGOUT THE SESSION FROM THE PROPERTY MANAGER - JINESH USER AND LOGIN TO ADMIN USER");
 
 			// wait for the element
@@ -1120,19 +908,14 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
@@ -1141,7 +924,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO CONTRACTOR -
 		// JINESH CONTRACTOR
-
 		title("LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO CONTRACTOR - JINESH CONTRACTOR");
 
 		try {
@@ -1150,25 +932,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_userupdate_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_2", "password_2", "system_company_1");
 
 			// VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY
-			// DASHBOARD
-			// - CONTRACTOR USER - JINESH CONTRACTOR
-
+			// DASHBOARD - CONTRACTOR USER - JINESH CONTRACTOR
 			title("VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY DASHBOARD - CONTRACTOR USER - JINESH CONTRACTOR");
 
 			try {
@@ -1178,8 +953,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 				// click on the property
 				click("propertysummary_property1_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the property.");
 
 				// scrolldown till Property Information section
 				scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -1195,8 +968,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the newly created custom form
 						String customFormName = "//td[text()='" + data.get("name") + "']";
 						driver.findElement(By.xpath(customFormName)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the newly created custom form.");
+						consoleMessage("Clicked on the newly created custom form.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -1222,8 +994,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the first page name tab
 						String pageTab1 = "//span[text()='" + pageName1 + "']";
 						driver.findElement(By.xpath(pageTab1)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the first page name tab.");
+						consoleMessage("Clicked on the first page name tab.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -1249,8 +1020,6 @@ public class RR6291CustomForm5Test extends TestBase {
 						try {
 							// click on the action icon
 							click("customform_portfoliodashboard_actionicon_XPATH");
-							ngDriver.waitForAngularRequestsToFinish();
-							System.out.println("Clicked on the action icon.");
 
 							// validate the export option is displayed in general tab
 							boolean export2 = driver
@@ -1281,8 +1050,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -1292,7 +1059,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// LOGOUT THE SESSION FROM THE CONTRACTOR - JINESH CONTRACTOR USER AND LOGIN TO
 			// ADMIN USER
-
 			title("LOGOUT THE SESSION FROM THE CONTRACTOR - JINESH CONTRACTOR USER AND LOGIN TO ADMIN USER");
 
 			// wait for the element
@@ -1300,19 +1066,14 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
@@ -1321,7 +1082,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// UPDATE THE SECURITY PERMISSION OF CUSTOMER FORM FOR THE JINESH (PROPERTY
 		// MANAGER) AND CONTRACTOR
-
 		title("UPDATE THE SECURITY PERMISSION OF CUSTOMER FORM FOR THE JINESH (PROPERTY MANAGER) AND CONTRACTOR");
 
 		try {
@@ -1331,26 +1091,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the custom form option
 			click("customform_option_XPATH");
-			System.out.println("Clicked on the custom form option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -1358,130 +1110,79 @@ public class RR6291CustomForm5Test extends TestBase {
 			// click on the newly created custom record record
 			String nameTitle = "//td[text()='" + data.get("name") + "']";
 			driver.findElement(By.xpath(nameTitle)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the newly created custom record record.");
+			consoleMessage("Clicked on the newly created custom record.");
 
 			// click on the security tab
 			click("customform_securitytab_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the security tab.");
 
 			// click on the User to Edit form field
 			click("customform_securitytab_security3_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Edit form field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// enter the user name in the search field
-			clear("customform_securitytab_searchtxt_XPATH");
 			type("customform_securitytab_searchtxt_XPATH", data.get("user1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter the user name in the search field");
 
 			// click on the searched result
 			click("customform_securitytab_searchedresult1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// click on the User to Edit form field
 			click("customform_securitytab_security3_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Edit form field.");
 
 			// click on the Role to Edit form field
 			click("customform_securitytab_security4_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Role to Edit form field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// enter the user name in the search field
-			clear("customform_securitytab_searchtxt_XPATH");
 			type("customform_securitytab_searchtxt_XPATH", data.get("role1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter the user name in the search field");
 
 			// click on the searched result
 			click("customform_securitytab_searchedresult2_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// click on the Role to Edit form field
 			click("customform_securitytab_security4_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Role to Edit form field.");
 
 			// click on the User to Extract form details field
 			click("customform_securitytab_security5_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Extract form details field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// enter the user name in the search field
-			clear("customform_securitytab_searchtxt_XPATH");
 			type("customform_securitytab_searchtxt_XPATH", data.get("user1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter the user name in the search field");
 
 			// click on the searched result
 			click("customform_securitytab_searchedresult1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// click on the User to Extract form details field
 			click("customform_securitytab_security5_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the User to Extract form details field.");
 
 			// click on the Role to Extract form details field
 			click("customform_securitytab_security6_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Role to Extract form details field.");
 
 			// click on the none button
 			click("customform_securitytab_nonebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the none button.");
 
 			// enter the user name in the search field
-			clear("customform_securitytab_searchtxt_XPATH");
 			type("customform_securitytab_searchtxt_XPATH", data.get("role1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter the user name in the search field");
 
 			// click on the searched result
 			click("customform_securitytab_searchedresult2_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched result.");
 
 			// click on the Role to Extract form details field
 			click("customform_securitytab_security6_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Role to Extract form details field.");
 
 			// click on the update button
 			click("customform_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
 
 		} catch (Throwable t) {
 			verificationFailed();
@@ -1489,8 +1190,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -1499,9 +1198,7 @@ public class RR6291CustomForm5Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY
-		// DASHBOARD
-		// - ADMIN USER
-
+		// DASHBOARD - ADMIN USER
 		title("VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY DASHBOARD - ADMIN USER");
 
 		try {
@@ -1511,8 +1208,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the property
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property.");
 
 			// scrolldown till Property Information section
 			scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -1528,8 +1223,7 @@ public class RR6291CustomForm5Test extends TestBase {
 					// click on the newly created custom form
 					String customFormName = "//td[text()='" + data.get("name") + "']";
 					driver.findElement(By.xpath(customFormName)).click();
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the newly created custom form.");
+					consoleMessage("Clicked on the newly created custom form.");
 
 					// scroll down the screen
 					scrollBottom();
@@ -1552,8 +1246,7 @@ public class RR6291CustomForm5Test extends TestBase {
 					// click on the first page name tab
 					String pageTab1 = "//span[text()='" + pageName1 + "']";
 					driver.findElement(By.xpath(pageTab1)).click();
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the first page name tab.");
+					consoleMessage("Clicked on the first page name tab.");
 
 					// scroll down the screen
 					scrollBottom();
@@ -1576,8 +1269,6 @@ public class RR6291CustomForm5Test extends TestBase {
 					try {
 						// click on the action icon
 						click("customform_portfoliodashboard_actionicon_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the action icon.");
 
 						// validate the export option is displayed in general tab
 						boolean export2 = driver
@@ -1608,8 +1299,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -1619,7 +1308,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO PROPERTY MANAGER -
 		// JINESH
-
 		title("LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO PROPERTY MANAGER - JINESH");
 
 		try {
@@ -1628,25 +1316,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_userupdate_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username", "password", "system_company_1");
 
 			// VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY
-			// DASHBOARD
-			// - PROPERTY MANAGER USER - JINESH
-
+			// DASHBOARD - PROPERTY MANAGER USER - JINESH
 			title("VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY DASHBOARD - PROPERTY MANAGER USER - JINESH");
 
 			try {
@@ -1656,8 +1337,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 				// click on the property
 				click("propertysummary_property1_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the property.");
 
 				// scrolldown till Property Information section
 				scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -1673,8 +1352,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the newly created custom form
 						String customFormName = "//td[text()='" + data.get("name") + "']";
 						driver.findElement(By.xpath(customFormName)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the newly created custom form.");
+						consoleMessage("Clicked on the newly created custom form.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -1700,8 +1378,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the first page name tab
 						String pageTab1 = "//span[text()='" + pageName1 + "']";
 						driver.findElement(By.xpath(pageTab1)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the first page name tab.");
+						consoleMessage("Clicked on the first page name tab.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -1727,8 +1404,6 @@ public class RR6291CustomForm5Test extends TestBase {
 						try {
 							// click on the action icon
 							click("customform_portfoliodashboard_actionicon_XPATH");
-							ngDriver.waitForAngularRequestsToFinish();
-							System.out.println("Clicked on the action icon.");
 
 							// validate the export option is displayed in general tab
 							boolean export2 = driver
@@ -1759,8 +1434,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -1770,7 +1443,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// LOGOUT THE SESSION FROM THE PROPERTY MANAGER - JINESH USER AND LOGIN TO ADMIN
 			// USER
-
 			title("LOGOUT THE SESSION FROM THE PROPERTY MANAGER - JINESH USER AND LOGIN TO ADMIN USER");
 
 			// wait for the element
@@ -1778,19 +1450,14 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
@@ -1799,7 +1466,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO CONTRACTOR -
 		// JINESH CONTRACTOR
-
 		title("LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO CONTRACTOR - JINESH CONTRACTOR");
 
 		try {
@@ -1808,25 +1474,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_userupdate_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_2", "password_2", "system_company_1");
 
 			// VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY
-			// DASHBOARD
-			// - CONTRACTOR USER - JINESH CONTRACTOR
-
+			// DASHBOARD - CONTRACTOR USER - JINESH CONTRACTOR
 			title("VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY DASHBOARD - CONTRACTOR USER - JINESH CONTRACTOR");
 
 			try {
@@ -1836,8 +1495,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 				// click on the property
 				click("propertysummary_property1_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the property.");
 
 				// scrolldown till Property Information section
 				scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -1853,8 +1510,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the newly created custom form
 						String customFormName = "//td[text()='" + data.get("name") + "']";
 						driver.findElement(By.xpath(customFormName)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the newly created custom form.");
+						consoleMessage("Clicked on the newly created custom form.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -1880,8 +1536,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the first page name tab
 						String pageTab1 = "//span[text()='" + pageName1 + "']";
 						driver.findElement(By.xpath(pageTab1)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the first page name tab.");
+						consoleMessage("Clicked on the first page name tab.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -1907,8 +1562,6 @@ public class RR6291CustomForm5Test extends TestBase {
 						try {
 							// click on the action icon
 							click("customform_portfoliodashboard_actionicon_XPATH");
-							ngDriver.waitForAngularRequestsToFinish();
-							System.out.println("Clicked on the action icon.");
 
 							// validate the export option is displayed in general tab
 							boolean export2 = driver
@@ -1939,8 +1592,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -1950,7 +1601,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// LOGOUT THE SESSION FROM THE CONTRACTOR - JINESH CONTRACTOR USER AND LOGIN TO
 			// ADMIN USER
-
 			title("LOGOUT THE SESSION FROM THE CONTRACTOR - JINESH CONTRACTOR USER AND LOGIN TO ADMIN USER");
 
 			// wait for the element
@@ -1958,19 +1608,14 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
@@ -1978,7 +1623,6 @@ public class RR6291CustomForm5Test extends TestBase {
 		}
 
 		// LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO HR - JINESH HR
-
 		title("LOGOUT THE SESSION FROM THE ADMIN USER AND LOGIN TO HR - JINESH HR");
 
 		try {
@@ -1987,25 +1631,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_userupdate_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_3", "password_3", "system_company_1");
 
 			// VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY
-			// DASHBOARD
-			// - HR USER - JINESH HR
-
+			// DASHBOARD - HR USER - JINESH HR
 			title("VALIDATE THE EDIT BUTTON OF THE CUSTOM REPORT IN THE PROPERTY SUMMARY DASHBOARD - HR USER - JINESH HR");
 
 			try {
@@ -2015,8 +1652,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 				// click on the property
 				click("propertysummary_property1_XPATH");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the property.");
 
 				// scrolldown till Property Information section
 				scrollTillElement("customform_portfoliodashboard_propertyinformationtitle_XPATH");
@@ -2032,8 +1667,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the newly created custom form
 						String customFormName = "//td[text()='" + data.get("name") + "']";
 						driver.findElement(By.xpath(customFormName)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the newly created custom form.");
+						consoleMessage("Clicked on the newly created custom form.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -2056,8 +1690,7 @@ public class RR6291CustomForm5Test extends TestBase {
 						// click on the first page name tab
 						String pageTab1 = "//span[text()='" + pageName1 + "']";
 						driver.findElement(By.xpath(pageTab1)).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the first page name tab.");
+						consoleMessage("Clicked on the first page name tab.");
 
 						// scroll down the screen
 						scrollBottom();
@@ -2080,8 +1713,6 @@ public class RR6291CustomForm5Test extends TestBase {
 						try {
 							// click on the action icon
 							click("customform_portfoliodashboard_actionicon_XPATH");
-							ngDriver.waitForAngularRequestsToFinish();
-							System.out.println("Clicked on the action icon.");
 
 							// validate the export option is displayed in general tab
 							boolean export2 = driver
@@ -2113,8 +1744,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the home icon from the top of the screen
 			click("questionnaire_homeburgermenubtn_hide_CSS");
-			System.out.println("Clicked on the home icon from the top of the screen.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -2124,7 +1753,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// LOGOUT THE SESSION FROM THE HR USER - JINESH HR AND LOGIN TO
 			// ADMIN USER
-
 			title("LOGOUT THE SESSION FROM THE HR USER - JINESH HR AND LOGIN TO ADMIN USER");
 
 			// wait for the element
@@ -2132,19 +1760,14 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
-
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
@@ -2152,7 +1775,6 @@ public class RR6291CustomForm5Test extends TestBase {
 		}
 
 		// DELETE THE NEWLY CREATED CUSTOMER FORM
-
 		title("DELETE THE NEWLY CREATED CUSTOMER FORM");
 
 		try {
@@ -2162,26 +1784,18 @@ public class RR6291CustomForm5Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the system tab
 			click("questionnaire_systemtab_XPATH");
-			System.out.println("Clicked on the system tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the custom form option
 			click("customform_option_XPATH");
-			System.out.println("Clicked on the custom form option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -2190,16 +1804,13 @@ public class RR6291CustomForm5Test extends TestBase {
 			String deleteIcon = "//td[text()='" + data.get("name")
 					+ "']//following-sibling::td[@class='pointer']//i[@data-target='#deleteCustomFormModal']";
 			driver.findElement(By.xpath(deleteIcon)).click();
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("click on the delete button of the newly created custom form.");
+			consoleMessage("Clicked on the delete button of the newly created custom form.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the delete button
 			click("customform_deletebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the delete button.");
 
 			// validate the respective record is deleted or not
 			try {
@@ -2222,8 +1833,6 @@ public class RR6291CustomForm5Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");

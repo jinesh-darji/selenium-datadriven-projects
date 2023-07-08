@@ -19,15 +19,12 @@ public class RR6462CustomForm2Test extends TestBase {
 
 		// ADD THE NEW FIELDS AND NEW PAGES IN THE CUSTOM RECORDS AND VALIDATE IN THE
 		// PORTFOLIO DASHBOARD AND PROPERTY SUMMARY DASHBOARD - CORPORATE LEVEL
-
 		title("ADD THE NEW FIELDS AND NEW PAGES IN THE CUSTOM RECORDS AND VALIDATE IN THE PORTFOLIO DASHBOARD AND PROPERTY SUMMARY DASHBOARD - CORPORATE LEVEL");
 
 		// refresh the page
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String name = RandomStringUtils.randomAlphabetic(8); // Custom Form Name
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8); // Field Name 1

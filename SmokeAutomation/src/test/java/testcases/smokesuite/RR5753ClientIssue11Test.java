@@ -26,16 +26,7 @@ public class RR5753ClientIssue11Test extends TestBase {
 	@Test(dataProviderClass = TestUtil.class, dataProvider = "dp")
 	public void rR5753ClientIssue11Test(Hashtable<String, String> data) throws IOException, InterruptedException {
 
-		if (!(TestUtil.isTestRunnable("rR5753ClientIssue11Test", excel))) {
-
-			throw new SkipException(
-					"Skipping the test " + "rR5753ClientIssue11Test".toUpperCase() + "as the Run mode is NO");
-		}
-
-		if (!data.get("runmode").equals("Y")) {
-
-			throw new SkipException("Skipping the test case as the Run Mode for data set is NO");
-		}
+		execution(data, "rR5753ClientIssue11Test");
 
 		// refresh the page
 		driver.navigate().refresh();
@@ -43,24 +34,11 @@ public class RR5753ClientIssue11Test extends TestBase {
 		driver.navigate().refresh();
 
 		// UPDATE THE AUTO-TASK DETAILS FROM THE INSPECTION AND VALIDATE IN THE TASK
-		// MODULE
-		// - RR-5906
-
-		System.out.println(
-				"******************** UPDATE THE AUTO-TASK DETAILS FROM THE INSPECTION AND VALIDATE IN THE TASK MODULE - RR-5906 ********************");
-		test.log(LogStatus.INFO,
-				"******************** UPDATE THE AUTO-TASK DETAILS FROM THE INSPECTION AND VALIDATE IN THE TASK MODULE - RR-5906 ********************");
-		Reporter.log(
-				"******************** UPDATE THE AUTO-TASK DETAILS FROM THE INSPECTION AND VALIDATE IN THE TASK MODULE - RR-5906 ********************");
-		log.info(
-				"******************** UPDATE THE AUTO-TASK DETAILS FROM THE INSPECTION AND VALIDATE IN THE TASK MODULE - RR-5906 ********************");
+		// MODULE - RR-5906
+		title("UPDATE THE AUTO-TASK DETAILS FROM THE INSPECTION AND VALIDATE IN THE TASK MODULE - RR-5906");
 
 		// LOGIN WITH ADMIN USER
-
-		System.out.println("******************** LOGIN WITH ADMIN USER ********************");
-		test.log(LogStatus.INFO, "******************** LOGIN WITH ADMIN USER ********************");
-		Reporter.log("******************** LOGIN WITH ADMIN USER ********************");
-		log.info("******************** LOGIN WITH ADMIN USER ********************");
+		title("LOGIN WITH ADMIN USER");
 
 		try {
 
@@ -69,18 +47,12 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 			// Enter the username
 			type("usernametxt_CSS", data.get("username_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the username.");
 
 			// Enter the password
 			type("passwordtxt_CSS", data.get("password_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the password.");
 
 			// Clicking on the "Sign In" button
 			click("signinbtn_BTNTEXT");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the sign in button.");
 
 			// wait for the element
 			explicitWait("propertylist_title_XPATH");
@@ -96,91 +68,61 @@ public class RR5753ClientIssue11Test extends TestBase {
 		}
 
 		// VERIFY AND UPDATE THE AUTO TASK DETAILS AT INSPECTION LEVEL
-
-		System.out.println(
-				"******************** VERIFY AND UPDATE AUTO TASK DETAILS AT INSPECTION LEVEL ********************");
-		test.log(LogStatus.INFO,
-				"******************** VERIFY AND UPDATE AUTO TASK DETAILS AT INSPECTION LEVEL ********************");
-		Reporter.log(
-				"******************** VERIFY AND UPDATE AUTO TASK DETAILS AT INSPECTION LEVEL ********************");
-		log.info("******************** VERIFY AND UPDATE AUTO TASK DETAILS AT INSPECTION LEVEL ********************");
+		title("VERIFY AND UPDATE THE AUTO TASK DETAILS AT INSPECTION LEVEL");
 
 		try {
 
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the checklist/inspection option from side menu
 			click("checklist_sidemenu_XPATH");
-			System.out.println("Clicked on the checklist/inspection option from side menu");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the checklist/inspection screen");
 
 			// wait for 3 seconds
 			Thread.sleep(3000);
 
 			// click on the new checklist button
 			click("checklist_newchecklistbtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected property from the property drop down.");
 
 			// wait for the element
 			Thread.sleep(3000);
 
 			// select the questionnaire option from the checklist type dropdown
 			select("checklist_addchecklist_checklisttypedd_CSS", data.get("questionnaire_checklist_title"));
-			System.out.println("The created questionaaire is selected from the checklist type dropdown.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter data in the checklist title field
 			type("checklist_addchecklist_titletxt_CSS", data.get("checklist_property_title"));
-			System.out.println("Entered the data in the checklist title field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the save button
 			click("checklist_addchecklist_savebtn_CSS");
-			System.out.println("Clicked on the save button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// clear respective the comment box
-			clear("inspection_commentbox1_risk_XPATH");
 
 			// enter the details in the comment box 1 of the category 1 question 1
-			clear("inspection_commentbox1_risk_XPATH");
+
 			type("inspection_commentbox1_risk_XPATH", data.get("comment_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the details in the comment box 1 of the category 1 question 1.");
 
 			// click on the SAP Vacancy Report category label
 			click("inspection_categoryname_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the SAP Vacancy Report category label.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,500)");
+
+			scrollByPixel(500);
 
 			// verify validation 1
 			switchVerification("survey_autotask_validation1_risk_XPATH", "Task/Action",
@@ -204,11 +146,7 @@ public class RR5753ClientIssue11Test extends TestBase {
 						.getAttribute("value")).trim();
 
 				if (duedate.equals(futureDateString)) {
-
-					System.out.println("The due date is verified successfully.");
-					test.log(LogStatus.INFO, "The due date is verified successfully.");
-					Reporter.log("The due date is verified successfully.");
-					log.info("The due date is verified successfully.");
+					successMessage("The due date is verified successfully.");
 				} else {
 					verificationFailed();
 				}
@@ -218,48 +156,28 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 			// update the priority of the task
 			select("inspection_autotask_prioritydd1_risk_XPATH", data.get("auto_Priority1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Updated the priority of the task.");
 
 			// click on the duedate field
 			click("inspection_autotask_validation5_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the duedate field.");
 
 			// click on the today button
 			click("survey_autotask_duedate_todaybtn_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the today button.");
 
 			// update the description of the task
-			clear("inspection_autotask_description1_risk_XPATH");
+
 			type("inspection_autotask_description1_risk_XPATH", data.get("auto_description1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Updated the description of the task.");
 
 			// click on the assign to label
 			click("inspection_autotask_validation3_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the assign to label.");
 
 			// VERIFY THE UPDATED AUTO TASK DETAILS IN TASK TAB OF THE SURVEY
-
-			System.out.println(
-					"******************** VERIFY THE UPDATED AUTO TASK DETAILS IN TASK TAB OF THE SURVEY ********************");
-			test.log(LogStatus.INFO,
-					"******************** VERIFY THE UPDATED AUTO TASK DETAILS IN TASK TAB OF THE SURVEY ********************");
-			Reporter.log(
-					"******************** VERIFY THE UPDATED AUTO TASK DETAILS IN TASK TAB OF THE SURVEY ********************");
-			log.info(
-					"******************** VERIFY THE UPDATED AUTO TASK DETAILS IN TASK TAB OF THE SURVEY ********************");
+			title("VERIFY THE UPDATED AUTO TASK DETAILS IN TASK TAB OF THE SURVEY");
 
 			// click on the electrical(light fixture) link
 			click("inspection_autotask_riskcontrollink_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the electrical(light fixture) link.");
 
 			// scroll down the screen
-			js.executeScript("window.scrollBy(0,200)");
+			scrollByPixel(200);
 
 			// verify the name of the task
 			switchVerification("inspection_autotask_task_taskname_XPATH", "Electrical (Light Fixture)",
@@ -275,30 +193,14 @@ public class RR5753ClientIssue11Test extends TestBase {
 				String TodayString = Date1.toString();
 				String str2 = (driver.findElement(By.xpath(OR.getProperty("inspection_autotask_task_duedate1_XPATH")))
 						.getText()).trim();
-				ngDriver.waitForAngularRequestsToFinish();
+
 				if (str2.equals(TodayString)) {
-
-					System.out.println("The due date is verified successfully.");
-					test.log(LogStatus.INFO, "The due date is verified successfully.");
-					Reporter.log("The due date is verified successfully.");
-					log.info("The due date is verified successfully.");
+					successMessage("The due date is verified successfully.");
 				} else {
-					verificationFailed();
-
-					System.out.println("The due date is not verified.");
-					test.log(LogStatus.INFO, "The due date is not verified.");
-					Reporter.log("The due date is not verified.");
-					log.info("The due date is not verified.");
-
+					verificationFailedMessage("The due date is not verified.");
 				}
 			} catch (Throwable t) {
-				verificationFailed();
-
-				System.out.println("The due date is not verified.");
-				test.log(LogStatus.INFO, "The due date is not verified.");
-				Reporter.log("The due date is not verified.");
-				log.info("The due date is not verified.");
-
+				verificationFailedMessage("The due date is not verified.");
 			}
 		} catch (Throwable t) {
 			verificationFailed();
@@ -306,8 +208,6 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -316,42 +216,26 @@ public class RR5753ClientIssue11Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// VERIFY UPDATED AUTO TASK IN THE TASK MODULE
-
-		System.out.println("******************** VERIFY UPDATED AUTO TASK IN THE TASK MODULE ********************");
-		test.log(LogStatus.INFO,
-				"******************** VERIFY UPDATED AUTO TASK IN THE TASK MODULE ********************");
-		Reporter.log("******************** VERIFY UPDATED AUTO TASK IN THE TASK MODULE ********************");
-		log.info("******************** VERIFY UPDATED AUTO TASK IN THE TASK MODULE ********************");
+		title("VERIFY UPDATED AUTO TASK IN THE TASK MODULE");
 
 		try {
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the task icon from the property list page
 			click("taskicon_CSS");
-			System.out.println("Clicked on the task icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the task screen of the perticular property.");
 
 			// wait for the clear button
 			explicitWaitClickable("task_clearbtn_XPATH");
 
 			// click on the clear button
 			click("task_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter auto generated task in the search field
 			type("survey_task_searchfield_CSS", data.get("autotask_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter auto generated task in the search field.");
 
 			// click on the search button
 			click("survey_task_searchfield_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the search button.");
 
 			// verify the auto generated task 1
 			switchVerification("inspection_autotask1_risk_XPATH", "Electrical (Light Fixture)",
@@ -370,24 +254,12 @@ public class RR5753ClientIssue11Test extends TestBase {
 						+ date1_String + "']";
 
 				if (date1_String.equals(todayDueDate1)) {
-					System.out.println("The due date is verified successfully.");
-					test.log(LogStatus.INFO, "The due date is verified successfully.");
-					Reporter.log("The due date is verified successfully.");
-					log.info("The due date is verified successfully.");
+					successMessage("The due date is verified successfully.");
 				} else {
-					verificationFailed();
-					System.out.println("The due date is not verified.");
-					test.log(LogStatus.INFO, "The due date is not verified.");
-					Reporter.log("The due date is not verified.");
-					log.info("The due date is not verified.");
-
+					verificationFailedMessage("The due date is not verified.");
 				}
 			} catch (Throwable t) {
-				verificationFailed();
-				System.out.println("The due date is not verified.");
-				test.log(LogStatus.INFO, "The due date is not verified.");
-				Reporter.log("The due date is not verified.");
-				log.info("The due date is not verified.");
+				verificationFailedMessage("The due date is not verified.");
 			}
 
 			// verify the priority of the auto generated task 1
@@ -400,8 +272,6 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -410,43 +280,26 @@ public class RR5753ClientIssue11Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// UPDATE THE AUTO GENERATED TASK DETAILS FROM THE TASK MODULE
-
-		System.out.println(
-				"***************** UPDATE THE AUTO GENERATED TASK DETAILS FROM THE TASK MODULE *****************");
-		test.log(LogStatus.INFO,
-				"***************** UPDATE THE AUTO GENERATED TASK DETAILS FROM THE TASK MODULE *****************");
-		Reporter.log("***************** UPDATE THE AUTO GENERATED TASK DETAILS FROM THE TASK MODULE *****************");
-		log.info("***************** UPDATE THE AUTO GENERATED TASK DETAILS FROM THE TASK MODULE *****************");
+		title("UPDATE THE AUTO GENERATED TASK DETAILS FROM THE TASK MODULE");
 
 		try {
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the task icon from the property list page
 			click("taskicon_CSS");
-			System.out.println("Clicked on the task icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the task screen of the perticular property.");
 
 			// wait for the clear button
 			explicitWaitClickable("task_clearbtn_XPATH");
 
 			// click on the clear button
 			click("task_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter auto generated task in the search field
 			type("survey_task_searchfield_CSS", data.get("autotask_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter auto generated task in the search field.");
 
 			// click on the search button
 			click("survey_task_searchfield_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the search button.");
 
 			// verify the auto generated task 1
 			switchVerification("inspection_autotask1_risk_XPATH", "Electrical (Light Fixture)",
@@ -454,8 +307,6 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 			// click on the auto generated task
 			click("inspection_autotask1_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the auto generated task.");
 
 			// verify the details of the description field
 
@@ -465,108 +316,66 @@ public class RR5753ClientIssue11Test extends TestBase {
 						.getAttribute("value");
 
 				if (description1.equals(data.get("auto_description1"))) {
-					System.out.println("The description is verified successfully.");
-					test.log(LogStatus.INFO, "The description is verified successfully.");
-					Reporter.log("The description is verified successfully.");
-					log.info("The description is verified successfully.");
+					successMessage("The description is verified successfully.");
 				} else {
 
-					verificationFailed();
-					System.out.println("The description is not verified.");
-					test.log(LogStatus.INFO, "The description is not verified.");
-					Reporter.log("The description is not verified.");
-					log.info("The description is not verified.");
-
+					verificationFailedMessage("The description is not verified.");
 				}
 			} catch (Throwable t) {
-				verificationFailed();
-				System.out.println("The description is not verified.");
-				test.log(LogStatus.INFO, "The description is not verified.");
-				Reporter.log("The description is not verified.");
-				log.info("The description is not verified.");
+				verificationFailedMessage("The description is not verified.");
 			}
 
 			// click on the assign to field
 			click("survey_autotask1_assigneebtn_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the assign to field.");
 
 			// enter the user name in the search field
-			clear("task_tasklist_tagfilter_tagtxt_searchtxt_XPATH");
+
 			type("task_tasklist_tagfilter_tagtxt_searchtxt_XPATH", data.get("checklist_search_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the user name in the search field.");
 
 			// click on the searched user
 			click("questionnaire_createtask_selectusertxt_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched user.");
 
 			// click on the assign to field
 			click("survey_autotask1_assigneebtn_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the assign to field.");
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,200)");
+
+			scrollByPixel(200);
 
 			// update the priority of the task
 			select("survey_autotask1_prioritydd_risk_XPATH", data.get("auto_Priority2"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Updated the priority of the task.");
 
 			// click on the change due date button
 			click("task_tasktag_changeduedatebtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the change due date button.");
 
 			// enter date which is 2 days before current date
 			LocalDate date2 = LocalDate.now().plusMonths(6);
 			String date2_String = date2.toString();
 			type("task_tasktag_changeduedate_newduedate_XPATH", date2_String);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered date which is 2 days before current date");
 
 			// click on the new due date label
 			click("task_tasktag_changeduedate_newduedatelbl_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the new due date label.");
 
 			// enter data in the reason for change field
 			type("task_updateduedate_reasonforchangetxt_CSS", data.get("reason_for_change"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered data in the reason for change field.");
 
 			// click on the apply button
 			click("task_updateduedate_applybtn_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the apply button.");
 
 			// click on the update button
 			click("environmental_task_submitbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
 
 			// click on the back button
 			click("task_addtask_backbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the back button.");
 
 			// click on the clear button
 			click("task_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter auto generated task in the search field
 			type("survey_task_searchfield_CSS", data.get("autotask_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter auto generated task in the search field.");
 
 			// click on the search button
 			click("survey_task_searchfield_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the search button.");
 
 			// verify the auto generated task 1
 			switchVerification("inspection_autotask1_risk_XPATH", "Electrical (Light Fixture)",
@@ -586,24 +395,12 @@ public class RR5753ClientIssue11Test extends TestBase {
 						+ date22_String + "']";
 
 				if (date22_String.equals(todayDueDate22)) {
-					System.out.println("The due date is verified successfully.");
-					test.log(LogStatus.INFO, "The due date is verified successfully.");
-					Reporter.log("The due date is verified successfully.");
-					log.info("The due date is verified successfully.");
+					successMessage("The due date is verified successfully.");
 				} else {
-					verificationFailed();
-					System.out.println("The due date is not verified.");
-					test.log(LogStatus.INFO, "The due date is not verified.");
-					Reporter.log("The due date is not verified.");
-					log.info("The due date is not verified.");
-
+					verificationFailedMessage("The due date is not verified.");
 				}
 			} catch (Throwable t) {
-				verificationFailed();
-				System.out.println("The due date is not verified.");
-				test.log(LogStatus.INFO, "The due date is not verified.");
-				Reporter.log("The due date is not verified.");
-				log.info("The due date is not verified.");
+				verificationFailedMessage("The due date is not verified.");
 			}
 
 			// verify the priority of the auto generated task 1
@@ -616,8 +413,6 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -626,56 +421,40 @@ public class RR5753ClientIssue11Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// VALIDATE UPDATED DETAILS OF THE TASK IN SURVEY
-
-		System.out.println("***************** VALIDATE UPDATED DETAILS OF THE TASK IN SURVEY *****************");
-		test.log(LogStatus.INFO, "***************** VALIDATE UPDATED DETAILS OF THE TASK IN SURVEY *****************");
-		Reporter.log("***************** VALIDATE UPDATED DETAILS OF THE TASK IN SURVEY *****************");
-		log.info("***************** VALIDATE UPDATED DETAILS OF THE TASK IN SURVEY *****************");
+		title("VALIDATE UPDATED DETAILS OF THE TASK IN SURVEY");
 
 		try {
 
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the checklist/inspection option from side menu
 			click("checklist_sidemenu_XPATH");
-			System.out.println("Clicked on the checklist/inspection option from side menu");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the checklist/inspection screen");
 
 			// wait for 3 seconds
 			Thread.sleep(3000);
 
 			// click on the newly created inspection
 			click("inspection_autotask1_addedinspection_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the newly created inspection.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,600)");
+
+			scrollByPixel(600);
 
 			// verify validation 1
 			switchVerification("survey_autotask_validation1_risk_XPATH", "Task/Action",
@@ -715,11 +494,7 @@ public class RR5753ClientIssue11Test extends TestBase {
 						.getAttribute("value")).trim();
 
 				if (duedate.equals(date3_String)) {
-
-					System.out.println("The due date is verified successfully.");
-					test.log(LogStatus.INFO, "The due date is verified successfully.");
-					Reporter.log("The due date is verified successfully.");
-					log.info("The due date is verified successfully.");
+					successMessage("The due date is verified successfully.");
 				} else {
 					verificationFailed();
 				}
@@ -733,8 +508,6 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -743,49 +516,33 @@ public class RR5753ClientIssue11Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// REMOVE THE DETAILS FROM THE COMMENT BOXES
-
-		System.out.println("***************** REMOVE THE DETAILS FROM THE COMMENT BOXES *****************");
-		test.log(LogStatus.INFO, "***************** REMOVE THE DETAILS FROM THE COMMENT BOXES *****************");
-		Reporter.log("***************** REMOVE THE DETAILS FROM THE COMMENT BOXES *****************");
-		log.info("***************** REMOVE THE DETAILS FROM THE COMMENT BOXES *****************");
+		title("REMOVE THE DETAILS FROM THE COMMENT BOXES");
 
 		try {
 
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the checklist/inspection option from side menu
 			click("checklist_sidemenu_XPATH");
-			System.out.println("Clicked on the checklist/inspection option from side menu");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the checklist/inspection screen");
 
 			// wait for 3 seconds
 			Thread.sleep(3000);
 
 			// click on the newly created inspection
 			click("inspection_autotask1_addedinspection_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the newly created inspection.");
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -793,16 +550,8 @@ public class RR5753ClientIssue11Test extends TestBase {
 			// wait for the element
 			explicitWait("survey_categoryname_risk_XPATH");
 
-			// clear the details in the comment box 1 of the category 1 question 1
-			clear("survey_commentbox1_risk_XPATH");
-
-			// clear the details in the comment box 2 of the category 1 question 1
-			clear("survey_commentbox2_risk_XPATH");
-
 			// click on the Managing Agent Systems category label
 			click("survey_categoryname_risk_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Managing Agent Systems category label.");
 
 			// delete the auto task
 			deleteVerification("inspection_autotask_riskcontrollink_risk_XPATH", "(1) Electrical (Light Fixture)");
@@ -813,8 +562,6 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -823,45 +570,26 @@ public class RR5753ClientIssue11Test extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// VALIDATE REMOVED THE AUTO GENERATED TASKS IN THE TASK MODULE
-
-		System.out.println(
-				"******************** VALIDATE REMOVED THE AUTO GENERATED TASKS IN THE TASK MODULE ********************");
-		test.log(LogStatus.INFO,
-				"******************** VALIDATE REMOVED THE AUTO GENERATED TASKS IN THE TASK MODULE ********************");
-		Reporter.log(
-				"******************** VALIDATE REMOVED THE AUTO GENERATED TASKS IN THE TASK MODULE ********************");
-		log.info(
-				"******************** VALIDATE REMOVED THE AUTO GENERATED TASKS IN THE TASK MODULE ********************");
+		title("VALIDATE REMOVED THE AUTO GENERATED TASKS IN THE TASK MODULE");
 
 		try {
 			// enter the property name in the search field
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered the property name in the search field.");
 
 			// click on the task icon from the property list page
 			click("taskicon_CSS");
-			System.out.println("Clicked on the task icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the task screen of the perticular property.");
 
 			// wait for the clear button
 			explicitWaitClickable("task_clearbtn_XPATH");
 
 			// click on the clear button
 			click("task_clearbtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the clear button.");
 
 			// enter auto generated task in the search field
 			type("survey_task_searchfield_CSS", data.get("autotask_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("enter auto generated task in the search field.");
 
 			// click on the search button
 			click("survey_task_searchfield_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the search button.");
 
 			// verify the auto generated task 1
 			deleteVerification("inspection_autotask1_risk_XPATH", "Electrical (Light Fixture)");
@@ -872,8 +600,6 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -887,16 +613,12 @@ public class RR5753ClientIssue11Test extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("sidemenu_logout_CSS");
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("signinbtn_BTNTEXT");

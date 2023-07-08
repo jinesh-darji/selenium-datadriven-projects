@@ -4,22 +4,10 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.List;
 
-import org.apache.commons.collections4.bag.SynchronizedSortedBag;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.poi.util.SystemOutLogger;
-import org.apache.xmlbeans.impl.xb.xsdschema.NamedGroup;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Reporter;
-import org.testng.SkipException;
 import org.testng.annotations.Test;
-
-import com.mysql.cj.jdbc.NonRegisteringDriver;
-import com.paulhammant.ngwebdriver.ByAngularBinding.NgFindByBuilder;
-import com.paulhammant.ngwebdriver.NgWebDriver;
-import com.relevantcodes.extentreports.LogStatus;
 
 import base.Helper;
 import base.TestBase;

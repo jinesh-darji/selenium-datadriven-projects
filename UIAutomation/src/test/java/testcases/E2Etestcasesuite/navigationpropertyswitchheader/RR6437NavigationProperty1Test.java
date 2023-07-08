@@ -60,8 +60,6 @@ public class RR6437NavigationProperty1Test extends TestBase {
 
 						// click on the action icon of the first record
 						click("task_firstactionicon_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the action icon of the first record.");
 
 						// wait for the element
 						Thread.sleep(3000);
@@ -79,8 +77,6 @@ public class RR6437NavigationProperty1Test extends TestBase {
 
 					// click on the next button
 					click("task_permission_roles_nextbtn_CSS");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the next button.");
 
 				}
 			} catch (Throwable t) {
@@ -2015,8 +2011,6 @@ public class RR6437NavigationProperty1Test extends TestBase {
 
 						// click on the action icon of the first record
 						click("task_firstactionicon_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the action icon of the first record.");
 
 						// wait for the element
 						Thread.sleep(3000);
@@ -2034,8 +2028,6 @@ public class RR6437NavigationProperty1Test extends TestBase {
 
 					// click on the next button
 					click("task_permission_roles_nextbtn_CSS");
-					ngDriver.waitForAngularRequestsToFinish();
-					System.out.println("Clicked on the next button.");
 
 				}
 			} catch (Throwable t) {

@@ -23,14 +23,13 @@ public class RR6340CustomForm13Test extends TestBase {
 		// VALIDATE THE SECURITY PERMISSION OF INDIVIDUAL FIELDS OF THE GENERAL TAB AND
 		// PAGES TAB/S FOR CUSTOM FORM - MULTIPLE TYPE.
 		title("VALIDATE THE SECURITY PERMISSION OF INDIVIDUAL FIELDS OF THE GENERAL TAB AND PAGES TAB/S - MULTIPLE TYPE.");
+		
 		Helper helper = new Helper();
 
 		// refresh the page
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8); // Normal Field 1
 		String fieldName2 = RandomStringUtils.randomAlphabetic(8); // Normal Field 2

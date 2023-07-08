@@ -28,8 +28,6 @@ public class RR6237CustomForm3Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8);
 		String fieldName2 = RandomStringUtils.randomAlphabetic(8);
 		String fieldName3 = RandomStringUtils.randomAlphabetic(8);

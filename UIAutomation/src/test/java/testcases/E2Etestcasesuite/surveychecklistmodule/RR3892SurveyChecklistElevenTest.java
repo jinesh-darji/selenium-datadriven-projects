@@ -26,7 +26,6 @@ public class RR3892SurveyChecklistElevenTest extends TestBase {
 		// AS A PROPERTY MANAGER: TASKS ASSOCIATED WITH THE DEPENDENT QUESTION SHOULD BE
 		// DELETED WHEN ITS PARENT QUESTION IS SWITCHED - The "Pending" task consider as
 		// a Inactive task so it should Deleted successfully.
-
 		title("AS A PROPERTY MANAGER: TASKS ASSOCIATED WITH THE DEPENDENT QUESTION SHOULD BE DELETED WHEN ITS PARENT QUESTION IS SWITCHED - The \\\"Pending\\\" task consider as a Inactive task so it should Deleted successfully.");
 
 		Helper helper = new Helper();
@@ -35,8 +34,6 @@ public class RR3892SurveyChecklistElevenTest extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// ADD NEW QUESTIONNIRE
 		title("ADD NEW QUESTIONNIRE");

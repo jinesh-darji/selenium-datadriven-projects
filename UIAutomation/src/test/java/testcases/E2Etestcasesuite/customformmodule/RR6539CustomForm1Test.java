@@ -22,15 +22,12 @@ public class RR6539CustomForm1Test extends TestBase {
 
 		// VALIDATE THE CHECKBOX TYPE IN THE CUSTOM FORM FIELD IN THE PORTFOLIO
 		// DASHBOARD AND PROPERTY SUMMARY DASHBOARD.
-
 		title("VALIDATE THE CHECKBOX TYPE IN THE CUSTOM FORM FIELD IN THE PORTFOLIO DASHBOARD AND PROPERTY SUMMARY DASHBOARD.");
 
 		// refresh the page
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String name = RandomStringUtils.randomAlphabetic(8);
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8);

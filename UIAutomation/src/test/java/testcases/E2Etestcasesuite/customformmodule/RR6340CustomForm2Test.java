@@ -22,7 +22,6 @@ public class RR6340CustomForm2Test extends TestBase {
 
 		// ADD THE NEW FIELDS IN THE CUSTOM RECORDS AND VALIDATE IN THE PORTFOLIO
 		// DASHBOARD AND PROPERTY SUMMARY DASHBOARD - MULTIPLE TYPE
-
 		title("ADD THE NEW FIELDS IN THE CUSTOM RECORDS AND VALIDATE IN THE PORTFOLIO DASHBOARD AND PROPERTY SUMMARY DASHBOARD - MULTIPLE TYPE");
 
 		// refresh the page
@@ -30,15 +29,12 @@ public class RR6340CustomForm2Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		String fieldName1 = RandomStringUtils.randomAlphabetic(8);
 		String fieldName2 = RandomStringUtils.randomAlphabetic(8);
 		String fieldName3 = RandomStringUtils.randomAlphabetic(8);
 		String fieldName4 = RandomStringUtils.randomAlphabetic(8);
 
 		// CREATE NEW CUSTOM FORMS FOR MULTIPLE RECORD TYPE
-
 		title("CREATE NEW CUSTOM FORMS FOR MULTIPLE RECORD TYPE");
 
 		try {

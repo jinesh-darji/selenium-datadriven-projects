@@ -25,8 +25,6 @@ public class RR6462CustomForm1Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// CREATE NEW CUSTOM FORMS FOR CORPORATE LEVEL
 		title("CREATE NEW CUSTOM FORMS FOR CORPORATE LEVEL");
 

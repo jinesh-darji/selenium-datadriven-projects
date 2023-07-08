@@ -116,8 +116,6 @@ public class RR6426NavigationProperty2Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// synchronization
 		explicitWait("propertylist_title_XPATH");
@@ -233,7 +231,7 @@ public class RR6426NavigationProperty2Test extends TestBase {
 
 			// wait for the element
 			Thread.sleep(2000);
-			
+
 			// enter tenant name in the field
 			type("riskmanagement_tenantnametxt_XPATH", tenantName);
 

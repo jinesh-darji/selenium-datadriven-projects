@@ -25,7 +25,6 @@ public class RR3892SurveyChecklist13Test extends TestBase {
 		// AS A PROPERTY MANAGER: ALL TASKS REGARDLESS OF THE TASK STATUS "CLOSE" SHOULD
 		// GET DELETED ON THE PARENT QUESTION-ANSWER SWITCH - The "Closed" task consider
 		// as a Inactive task so it should be Deleted.
-
 		title("AS A PROPERTY MANAGER: ALL TASKS REGARDLESS OF THE TASK STATUS \"CLOSE\" SHOULD GET DELETED ON THE PARENT QUESTION-ANSWER SWITCH - The \"Closed\" task consider as a Inactive task so it should be Deleted.");
 
 		Helper helper = new Helper();
@@ -34,8 +33,6 @@ public class RR3892SurveyChecklist13Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// ADD NEW QUESTIONNIRE
 		title("ADD NEW QUESTIONNIRE");
@@ -85,7 +82,6 @@ public class RR3892SurveyChecklist13Test extends TestBase {
 
 		} catch (Throwable t) {
 			verificationFailedMessage("The newly created questionnaire is not displayed.");
-
 		}
 
 		// click on the Home button
@@ -130,7 +126,6 @@ public class RR3892SurveyChecklist13Test extends TestBase {
 
 				// click on the survey option from side menu
 				click("surveyoption_XPATH");
-				System.out.println("Clicked on the survey option from side menu");
 
 				// select the respective questionnaire from the dropdown
 				select("survey_questionnairedd_CSS", data.get("questionnaire_title"));
@@ -305,15 +300,12 @@ public class RR3892SurveyChecklist13Test extends TestBase {
 					String str1 = driver.findElement(By.xpath(OR.getProperty("task_closedbtn_filtered_XPATH")))
 							.getText();
 					if (str1.equals("Closed")) {
-
-						successMessage("The closed task is not deleted and verified successfully.");
+						successMessage("The closed task is not deleted from the closed task list.");
 
 					} else {
 						verificationFailedMessage("The closed task is deleted from the closed task list.");
-
 					}
 				} catch (Throwable t) {
-
 					verificationFailedMessage("The closed task is deleted from the closed task list.");
 				}
 
@@ -346,9 +338,7 @@ public class RR3892SurveyChecklist13Test extends TestBase {
 			helper.loginAndUpdateSystemCompany(data, "username_1", "password_1", "system_company_1");
 
 		} catch (Throwable t) {
-
 			helper.questionnaireNotDisplayLogout(data);
-
 		}
 
 		// DELETE THE CLOSED TASK

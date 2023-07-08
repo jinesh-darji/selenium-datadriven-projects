@@ -82,7 +82,6 @@ public class RR6501Environmental1Test extends TestBase {
 						"administration_environmental_environmentalforms_envireportsoption_requiredckbx_XPATH")))
 						.isSelected();
 				if (required == true) {
-
 					successMessage("The required checkbox is selected successfully.");
 
 				} else {
@@ -112,12 +111,12 @@ public class RR6501Environmental1Test extends TestBase {
 			// click on the Environmental Reports option
 			click("administration_environmental_environmentalreports_XPATH");
 
-			// scroll down till asbestos survey
-			scrollTillElement("administration_environmental_environmentalreport_asbestossurveyoption_XPATH");
+			// scroll down till Phase II ESA
+			scrollTillElement("administration_environmental_environmentalreport_phaseIIesaoption_XPATH");
 			scrollByPixel(-200);
 
-			// click on the Asbestos Survey
-			click("administration_environmental_environmentalreport_asbestossurveyoption_XPATH");
+			// click on the Phase II ESA
+			click("administration_environmental_environmentalreport_phaseIIesaoption_XPATH");
 
 			// scroll till date option
 			scrollTillElement("administration_environmental_environmentalreport_dateediticon_XPATH");
@@ -133,7 +132,6 @@ public class RR6501Environmental1Test extends TestBase {
 								"administration_environmental_environmentalreport_daterequiredckbx_XPATH")))
 						.isSelected();
 				if (required == true) {
-
 					successMessage("The required checkbox is selected successfully.");
 
 				} else {
@@ -191,11 +189,10 @@ public class RR6501Environmental1Test extends TestBase {
 						.findElements(By.xpath(OR.getProperty("envreports_totalrecords_XPATH")));
 				int reportCount = reportList.size();
 
-				for (int i = 1; i < reportCount; i++) {
+				for (int i = 1; i <= reportCount; i++) {
 
 					// click on the first record
-					String firstReport = "//table[@id='environmentalDocumentListTable']//tbody//tr[" + i
-							+ "]//td[@class='ng-scope'][1]";
+					String firstReport = "//table[@id='environmentalDocumentListTable']//tbody//tr[1]//td[@class='ng-scope'][1]";
 					driver.findElement(By.xpath(firstReport)).click();
 					consoleMessage("Clicked on the first record.");
 
@@ -334,10 +331,13 @@ public class RR6501Environmental1Test extends TestBase {
 			type("envreportauthortxt_CSS", data.get("author"));
 
 			// scroll down the screen
-			scrollByPixel(400);
+			scrollBottom();
 
 			// enter the description
 			type("envreportdescriptiontxt_CSS", data.get("description"));
+
+			// add the details in the label update field
+			type("envreport_labelupdatetxt_XPATH", data.get("label_update"));
 
 			// click on the Add report button
 			click("envreportsavebtn_CSS");
@@ -482,22 +482,20 @@ public class RR6501Environmental1Test extends TestBase {
 			click("sidemenu_portfoliosummary_XPATH");
 
 			// scroll down
-			scrollTillElement("portfoliodashboard_asbestossurveycard_XPATH");
+			scrollTillElement("portfoliodashboard_phaseIIesacard_XPATH");
 
 			// click on the progress text
-			click("portfoliodashboard_asbestossurveycard_progresstext_XPATH");
+			click("portfoliodashboard_phaseIIesacard_progresstext_XPATH");
 
 			// validate the green circle dot for the respective environmental report
 			try {
 				boolean greendot = driver
-						.findElement(
-								By.xpath(OR.getProperty("portfoliodashboard_asbestossurveycard_greencircledot_XPATH")))
+						.findElement(By.xpath(OR.getProperty("portfoliodashboard_phaseIIesacard_greencircledot_XPATH")))
 						.isDisplayed();
 
 				if (greendot == true) {
 					successMessage(
 							"The green dot is displayed successfully for the newly created environmental report.");
-
 				} else {
 					verificationFailedMessage(
 							"The green dot is not displayed for the newly created environmental report.");
@@ -509,12 +507,11 @@ public class RR6501Environmental1Test extends TestBase {
 			// validate the report date of the newly created environmental report
 			try {
 				String reportDate_actual = (driver
-						.findElement(By.xpath(OR.getProperty("portfoliodashboard_asbestossurveycard_reportdate_XPATH")))
+						.findElement(By.xpath(OR.getProperty("portfoliodashboard_phaseIIesacard_reportdate_XPATH")))
 						.getText()).trim();
 
 				if (reportDate_actual.equals(today_string)) {
 					successMessage("The report date of the newly created environmental report is displayed correct.");
-
 				} else {
 					verificationFailedMessage(
 							"The report date of the newly created environmental report is displayed not correct.");
@@ -527,13 +524,12 @@ public class RR6501Environmental1Test extends TestBase {
 			// validate the Next Assessment date of the newly created environmental report
 			try {
 				String reportDate_actual = (driver
-						.findElement(By.xpath(OR.getProperty("portfoliodashboard_asbestossurveycard_nextassessment_XPATH")))
+						.findElement(By.xpath(OR.getProperty("portfoliodashboard_phaseIIesacard_nextassessment_XPATH")))
 						.getText()).trim();
 
 				if (reportDate_actual.equals(afterOneY_string)) {
 					successMessage(
 							"The Next Assessment date of the newly created environmental report is displayed correct.");
-
 				} else {
 					verificationFailedMessage(
 							"The Next Assessment date of the newly created environmental report is displayed not correct.");
@@ -642,14 +638,14 @@ public class RR6501Environmental1Test extends TestBase {
 			}
 
 			// click on the back to dashboard screen
-			click("portfoliodashboard_asbestossurveycard_backtodashboard_XPATH");
+			click("portfoliodashboard_phaseIIesacard_backtodashboard_XPATH");
 
-			// validate the asbestos survey title
-			switchVerification("portfoliodashboard_asbestossurveycard_title_XPATH", "Asbestos Survey",
-					"The Asbestos Survey environmental report is not displayed.");
+			// validate the Phase II ESA title
+			switchVerification("portfoliodashboard_phaseIIesacard_title_XPATH", "Phase II ESA",
+					"The Phase II ESA environmental report is not displayed.");
 
 			// click on the back button
-			click("portfoliodashboard_asbestossurveycard_backbtn_XPATH");
+			click("portfoliodashboard_phaseIIesacard_backbtn_XPATH");
 
 			// verification of the portfolio title is displayed or not
 			switchVerification("portfoliodashboard_title_XPATH", "Portfolio Summary",
@@ -709,7 +705,6 @@ public class RR6501Environmental1Test extends TestBase {
 							if (greendot_actual == true) {
 								successMessage(
 										"The green dot is displayed successfully for the newly created environmental report.");
-
 							} else {
 								verificationFailedMessage(
 										"The green dot is not displayed for the newly created environmental report.");
@@ -728,7 +723,6 @@ public class RR6501Environmental1Test extends TestBase {
 							if (reportDate_actual.equals(today_string)) {
 								successMessage(
 										"The report date of the newly created environmental report is displayed correct.");
-
 							} else {
 								verificationFailedMessage(
 										"The report date of the newly created environmental report is displayed not correct.");
@@ -822,7 +816,7 @@ public class RR6501Environmental1Test extends TestBase {
 						}
 
 						// click on the back to dashboard screen
-						click("portfoliodashboard_asbestossurveycard_backtodashboard_XPATH");
+						click("portfoliodashboard_phaseIIesacard_backtodashboard_XPATH");
 
 						// verification of the portfolio title is displayed or not
 						switchVerification("navigation_header_propertyname1_XPATH", "[DND] AAAA Risk Test Prop 01 - 01",

@@ -31,8 +31,6 @@ public class RR3682Environmental1Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// CREATE NEW RECORD OF THE ENVIRONMENTAL REPORT
 		title("CREATE NEW RECORD OF THE ENVIRONMENTAL REPORT");
 
@@ -74,10 +72,13 @@ public class RR3682Environmental1Test extends TestBase {
 			type("envreportauthortxt_CSS", data.get("author"));
 
 			// scroll down the screen
-			scrollByPixel(400);
+			scrollBottom();
 
 			// enter the description
 			type("envreportdescriptiontxt_CSS", data.get("description"));
+
+			// add the details in the label update field
+			type("envreport_labelupdatetxt_XPATH", data.get("label_update"));
 
 			// click on the Add report button
 			click("envreportsavebtn_CSS");
@@ -109,7 +110,6 @@ public class RR3682Environmental1Test extends TestBase {
 					"The Test Company 1 is not displayed.");
 
 		} catch (Throwable t) {
-
 			verificationFailed();
 		}
 
@@ -154,7 +154,6 @@ public class RR3682Environmental1Test extends TestBase {
 					"The Updated Title 1 is not displayed successfully.");
 
 		} catch (Throwable t) {
-
 			verificationFailed();
 		}
 

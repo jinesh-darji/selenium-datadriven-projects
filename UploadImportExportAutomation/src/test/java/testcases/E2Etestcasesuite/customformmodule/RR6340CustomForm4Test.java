@@ -22,15 +22,12 @@ public class RR6340CustomForm4Test extends TestBase {
 
 		// PERFORM EXPORT AND IMPORT FUNCTIONALITY OF CUSTOM FORMS AT PORTFOLIO SUMMARY
 		// DASHBOARD AND PROPERTY SUMMARY DASHBOARD - MULTIPLE TYPE
-
 		title("PERFORM EXPORT AND IMPORT FUNCTIONALITY OF CUSTOM FORMS AT PORTFOLIO SUMMARY DASHBOARD AND PROPERTY SUMMARY DASHBOARD - MULTIPLE TYPE");
 
 		// refresh the page
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String fieldName1 = RandomStringUtils.randomAlphanumeric(8); // Normal Field 1
 		String fieldName2 = RandomStringUtils.randomAlphanumeric(8); // Normal Field 2
@@ -1323,7 +1320,6 @@ public class RR6340CustomForm4Test extends TestBase {
 
 		// PERFORM THE EXPORT AND IMPORT FUNCTIONALITY OF THE CUSTOM FORMS - MULTI TYPE
 		// FROM THE PORTFOLIO SUMMARY DASHBOARD
-
 		title("PERFORM THE EXPORT AND IMPORT FUNCTIONALITY OF THE CUSTOM FORMS - MULTI TYPE FROM THE PORTFOLIO SUMMARY DASHBOARD");
 
 		try {
@@ -1378,9 +1374,9 @@ public class RR6340CustomForm4Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 
 			ExcelReader file = new ExcelReader(path_string);
 
@@ -1704,9 +1700,9 @@ public class RR6340CustomForm4Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 
 			ExcelReader file = new ExcelReader(path_string);
 
@@ -1932,9 +1928,9 @@ public class RR6340CustomForm4Test extends TestBase {
 			// wait for the element
 			Thread.sleep(15000);
 
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 
 			ExcelReader file = new ExcelReader(path_string);
 

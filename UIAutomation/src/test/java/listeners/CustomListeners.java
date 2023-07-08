@@ -25,7 +25,7 @@ import utilities.TestUtil;
 public class CustomListeners extends TestBase implements ITestListener, ISuiteListener {
 
 	public String messageBody;
-	
+
 	// public String messageBody;
 
 	public void onTestStart(ITestResult result) {
@@ -37,7 +37,7 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 		test.log(LogStatus.PASS, arg0.getName().toUpperCase() + " PASS");
 		rep.endTest(test);
 		rep.flush();
-		
+
 	}
 
 	public void onTestFailure(ITestResult arg0) {
@@ -85,37 +85,6 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 	}
 
 	public void onStart(ISuite arg0) {
-
-	}
-
-	public void onFinish(ISuite context) {
-		MonitoringMail mail = new MonitoringMail();
-		
-//		try {
-//			messageBody = "http://" + InetAddress.getLocalHost().getHostAddress()
-//					+ ":8080/job/Refined_Risk_UIAutomation/Extent_20Reports/";
-//		} catch (UnknownHostException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-
-		messageBody = "<p>Hello All,</p>\r\n"
-				+ "<p><br></p>\r\n"
-				+ "<p>Please refer to below URL for the automation report of the Regression Test Cases:</p>\r\n"
-				+ "<p><br></p>\r\n"
-				+ "<p>https://autotest.refineddata.com/job/Refined_Risk_UI_Automation/Extent_20Reports/</p>\r\n"
-				+ "<p><br></p>\r\n"
-				+ "<p>Note: Connect to Jinesh Darji on slack, For Jenkins credentials. (if not available)</p>";
-		
-		try {
-			mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, messageBody);
-		} catch (AddressException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 	}
 

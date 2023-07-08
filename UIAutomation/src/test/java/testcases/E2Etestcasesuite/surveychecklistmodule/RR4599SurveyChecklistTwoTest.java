@@ -26,27 +26,17 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 		execution(data, "rR4599SurveyChecklistTwoTest");
 
 		// VERIFY THE QUESTION COMMENTS / INSTRUCTION IN CHECKLIST LEVEL
-
-		System.out.println("VERIFY THE QUESTION COMMENTS / INSTRUCTION IN CHECKLIST LEVEL");
-		test.log(LogStatus.INFO, "VERIFY THE QUESTION COMMENTS / INSTRUCTION IN CHECKLIST LEVEL");
-		Reporter.log("VERIFY THE QUESTION COMMENTS / INSTRUCTION IN CHECKLIST LEVEL");
-		log.info("VERIFY THE QUESTION COMMENTS / INSTRUCTION IN CHECKLIST LEVEL");
+		title("VERIFY THE QUESTION COMMENTS / INSTRUCTION IN CHECKLIST LEVEL");
 
 		Helper helper = new Helper();
-		
+
 		// refresh the page
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		// ADD NEW QUESTIONNIRE FOR CHECKLIST
-
-		System.out.println("***************** ADD NEW QUESTIONNIRE FOR CHECKLIST *****************");
-		test.log(LogStatus.INFO, "***************** ADD NEW QUESTIONNIRE FOR CHECKLIST *****************");
-		Reporter.log("***************** ADD NEW QUESTIONNIRE FOR CHECKLIST *****************");
-		log.info("***************** ADD NEW QUESTIONNIRE FOR CHECKLIST *****************");
+		title("ADD NEW QUESTIONNIRE FOR CHECKLIST");
 
 		try {
 			// wait for the element
@@ -54,35 +44,23 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires tab
 			click("questionnaire_questionnairestab_XPATH");
-			System.out.println("Clicked on the Questionnaires tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires option
 			click("questionnaire_questionnairesoption_XPATH");
-			System.out.println("Clicked on the Questionnaires option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			helper.createChecklistQuestionnaire(data);
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_checklist_title"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify newly created questionnaire for checklist
 			switchVerification("questionnaire_questioncommentinstruction_checklist_XPATH",
@@ -90,88 +68,59 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 					"The Test Question Comment and Instruction Checklist Title record is not displayed in the questionnaire list.");
 
 			// ADD CATEGORY 1 INTO THE QUESTIONNAIRE
+			title("ADD CATEGORY 1 INTO THE QUESTIONNAIRE");
 
 			// click on the created questionnaire
 			click("questionnaire_questioncommentinstruction_checklist_XPATH");
-			System.out.println("Clicked on the newly created questionnaire.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the more button
 			click("questionnaire_morebtn_CSS");
-			System.out.println("Clicked on the more button.");
 
 			// click on the configure questions option
 			click("questionnaire_configurebtn_CSS");
-			System.out.println("Clicked on the configure questions option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the new category button
 			click("questionnaire_newcategorybtn_BTNTEXT");
-			System.out.println("Click on the new category button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// select the language
 			select("questionnaire_newcategory_languagedd_XPATH", data.get("category_language"));
-			System.out.println("The language is selected from the language dropdown.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter the title
 			type("questionnaire_newcategory_titletxt_MODEL", data.get("category_title_1"));
-			System.out.println("The title entered in the title field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the save button
 			click("questionnaire_newcategory_savebtn_CSS");
-			System.out.println("Click on the save button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify newly created category is displayed or not
 			verifyTrue("questionnaire_newcategory_1_XPATH",
 					"The newly created category is not displayed in the category list.");
-			System.out.println("The newly created category is displayed successfully.");
-			test.log(LogStatus.INFO, "The newly created category is displayed successfully.");
 
 			// ADD QUESTIONS INTO THE CATEGORY
+			title("ADD QUESTIONS INTO THE CATEGORY");
 
 			// click on the save button for save all categories
 			click("questionnaire_category_savebtn_CSS");
-			System.out.println("Clicked on the save button for save all questions.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the edit button of category one
 			click("questionnaire_category_editbtn_CSS");
-			System.out.println("Clicked on the edit button of category one");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the edit question button
 			click("questionnaire_category_editquestionbtn_BTNTEXT");
-			System.out.println("Clicked on the edit question button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the new question button
 			click("questionnaire_newquestionbtn_CSS");
-			System.out.println("Clicked on the new question button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// select the English language from the language dropdown
 			select("questionnaire_newquestion_languagedd_CSS", data.get("question_language"));
-			System.out.println("The English option is selected from the language dropdown.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter the label
 			type("questionnaire_newquestion_labeltxt_CSS", data.get("question_label_1"));
-			System.out.println("The data entered in the label field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter the title
 			type("questionnaire_newquestion_titletxt_CSS", data.get("question_title_1"));
-			System.out.println("The data entered in the title field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the save button
 			click("questionnaire_newquestion_savebtn_CSS");
-			System.out.println("Click on the save button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify question one created or not
 			switchVerification("questionnaire_newquestion_1_XPATH", "Test Question Title One",
@@ -179,28 +128,18 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 
 			// click on the new question button
 			click("questionnaire_newquestionbtn_CSS");
-			System.out.println("Clicked on the new question button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// select the English language from the language dropdown
 			select("questionnaire_newquestion_languagedd_CSS", data.get("question_language"));
-			System.out.println("The English option is selected from the language dropdown.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter the label
 			type("questionnaire_newquestion_labeltxt_CSS", data.get("question_label_2"));
-			System.out.println("The data entered in the label field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter the title
 			type("questionnaire_newquestion_titletxt_CSS", data.get("question_title_2"));
-			System.out.println("The data entered in the title field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the save button
 			click("questionnaire_newquestion_savebtn_CSS");
-			System.out.println("Click on the save button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify question two created or not
 			switchVerification("questionnaire_newquestion_2_XPATH", "Test Question Title Two Two",
@@ -208,112 +147,72 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 
 			// click on the save button of the questions
 			click("questionnaire_saveallquestionbtn_CSS");
-			System.out.println("Clicked on the save button to save the question.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the edit question 1 button
 			click("questionnaire_question_1_editbtn_CSS");
-			System.out.println("Clicked on the edit button of the question 1.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// scroll till the Comments and Instructions field
-			WebElement element2 = driver.findElement(
-					By.cssSelector(OR.getProperty("questionnaire_question_1_commentandinstructiontxt_CSS")));
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", element2);
+			scrollTillElement("questionnaire_question_1_commentandinstructiontxt_CSS");
 
 			// enter the data in the Comments and Instructions field
 			type("questionnaire_question_1_commentandinstructiontxt_CSS", data.get("comment_instruction_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("The data entered in the Comments and Instructions field.");
 
 			// scroll up the screen
-			js.executeScript("window.scrollBy(0,-500)");
+			scrollByPixel(-500);
 
 			// click on the save button of the questions
 			click("questionnaire_saveallquestionbtn_CSS");
-			System.out.println("Clicked on the save button to save the question.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the edit question 1 button
 			click("questionnaire_question_1_editbtn_CSS");
-			System.out.println("Clicked on the edit button of the question 1.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// scroll till the Comments and Instructions field
-			js.executeScript("window.scrollBy(0,400)");
+			scrollByPixel(400);
 
 			// click on the option button
 			click("questionnaire_question_1_optionbtn_CSS");
-			System.out.println("Clicked on the option button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// ADD OPTION ONE IN THE QUESTION
+			title("ADD OPTION ONE IN THE QUESTION");
 
 			// click on the save button for all options
 			click("questionnaire_question_1_savealloptionbtn_CSS");
-			System.out.println("Clicked on the save button for save the option list.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the new option button
 			click("questionnaire_question_1_newoptionbtn_CSS");
-			System.out.println("Clicked on the option button");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter data in title of the option of the question 1
 			type("questionnaire_question_1_newoption_1_titletext_CSS", data.get("title_option_1_question_1"));
-			System.out.println("The title is entered successfully for create new option 1 of the question 1");
 
 			// select data in type of the option of the question 1
 			select("questionnaire_question_1_newoption_1_typetext_CSS", data.get("type_option_1_question_1"));
-			System.out.println("The type is entered successfully for create new option 1 of the question 1");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter data in extra of the option of the question 1
 			type("questionnaire_question_1_newoption_1_extratext_CSS", data.get("extra_option_1_question_1"));
-			System.out.println("The extra is entered successfully for create new option 1 of the question 1");
 
 			// click on the save button
 			click("questionnaire_question_1_newoption_1_savebtn_CSS");
-			System.out.println("Clicked on the save button");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the save button for all options
 			click("questionnaire_question_1_savealloptionbtn_CSS");
-			System.out.println("Clicked on the save button for save the option list.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the back to questions button
 			click("questionnaire_question_1_option_backtoquestionsbtn_CSS");
-			System.out.println("Clicked on the back to questions button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the save button for save all question
 			click("questionnaire_saveallquestionbtn_CSS");
-			System.out.println("Clicked on the save button for save all questions.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the back to category button
 			click("questionnaire_question_1_backtocategorybtn_CSS");
-			System.out.println("Clicked on the back to categories button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the save button for save all categories
 			click("questionnaire_category_savebtn_CSS");
-			System.out.println("Clicked on the save button for save all questions.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the back to questionnaire button
 			click("questionnaire_category_backtoquestionnairesbtn_CSS");
-			System.out.println("Clicked on the back to questionnaires button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_checklist_title"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// verify newly created questionnaire for checklist
 			switchVerification("questionnaire_questioncommentinstruction_checklist_XPATH",
@@ -326,8 +225,6 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 
 		// click on the Home Icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the Home Icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -336,45 +233,29 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// VERIFY THE CHECKLIST IN THE PROPERTY LEVEL
-
-		System.out.println("***************** VERIFY THE CHECKLIST IN THE PROPERTY LEVEL *****************");
-		test.log(LogStatus.INFO, "***************** VERIFY THE CHECKLIST IN THE PROPERTY LEVEL *****************");
-		Reporter.log("***************** VERIFY THE CHECKLIST IN THE PROPERTY LEVEL *****************");
-		log.info("***************** VERIFY THE CHECKLIST IN THE PROPERTY LEVEL *****************");
+		title("VERIFY THE CHECKLIST IN THE PROPERTY LEVEL");
 
 		try {
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the checklist/inspection option from side menu
 			click("checklist_sidemenu_XPATH");
-			System.out.println("Clicked on the checklist/inspection option from side menu");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the checklist/inspection screen");
 
 			// select the property level from the dropdown
 			select("survey_leveldropdown_CSS", data.get("property_leveldropdown"));
-			System.out.println("Selected the property level from the dropdown.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the new checklist button
 			click("checklist_newchecklistbtn_CSS");
-			System.out.println("Clicked on the new checklist button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("checklist_addchecklist_checklisttypedd_CSS");
@@ -394,18 +275,12 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 
 					// select the questionnaire option from the checklist type dropdown
 					select("checklist_addchecklist_checklisttypedd_CSS", data.get("questionnaire_checklist_title"));
-					System.out.println("The created questionaaire is selected from the checklist type dropdown.");
-					ngDriver.waitForAngularRequestsToFinish();
 
 					// enter data in the checklist title field
 					type("checklist_addchecklist_titletxt_CSS", data.get("checklist_title"));
-					System.out.println("Entered the data in the checklist title field.");
-					ngDriver.waitForAngularRequestsToFinish();
 
 					// click on the save button
 					click("checklist_addchecklist_savebtn_CSS");
-					System.out.println("Clicked on the save button.");
-					ngDriver.waitForAngularRequestsToFinish();
 
 					// verify questionnaire is selected correctly or not
 					switchVerification("questionnaire_questiontitle_XPATH", "Test Category Title One",
@@ -415,14 +290,7 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 			}
 
 			// VERIFY QUESTION COMMENT / INTRODUCTION IS DISPLAYED OR NOT
-
-			System.out.println(
-					"***************** VERIFY QUESTION COMMENT / INTRODUCTION IS DISPLAYED OR NOT *****************");
-			test.log(LogStatus.INFO,
-					"***************** VERIFY QUESTION COMMENT / INTRODUCTION IS DISPLAYED OR NOT *****************");
-			Reporter.log(
-					"***************** VERIFY QUESTION COMMENT / INTRODUCTION IS DISPLAYED OR NOT *****************");
-			log.info("***************** VERIFY QUESTION COMMENT / INTRODUCTION IS DISPLAYED OR NOT *****************");
+			title("VERIFY QUESTION COMMENT / INTRODUCTION IS DISPLAYED OR NOT");
 
 			try {
 				// wait for the element
@@ -439,41 +307,10 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 							"The Test Comment and Instruction Checklist Two is not displayed.");
 
 				} else {
-					TestUtil.captureScreenshot();
-
-					// ReportNG
-					Reporter.log(
-							"<br>" + "The Test Comment and Instruction Checklist Two is not displayed : " + "<br>");
-					Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-							+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-					Reporter.log("<br>");
-					Reporter.log("<br>");
-
-					// Extent Report
-					test.log(LogStatus.FAIL, " The Test Comment and Instruction Checklist Two is not displayed : ");
-					test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-					System.out.println("The Test Comment and Instruction Checklist Two is not displayed.");
-					log.info("The Test Comment and Instruction Checklist Two is not displayed.");
-
+					verificationFailedMessage("The Test Comment and Instruction Checklist Two is not displayed.");
 				}
 			} catch (Throwable t) {
-				TestUtil.captureScreenshot();
-
-				// ReportNG
-				Reporter.log("<br>" + "The Test Comment and Instruction Checklist Two is not displayed : " + "<br>");
-				Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-						+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-				Reporter.log("<br>");
-				Reporter.log("<br>");
-
-				// Extent Report
-				test.log(LogStatus.FAIL, " The Test Comment and Instruction Checklist Two is not displayed : ");
-				test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-				System.out.println("The Test Comment and Instruction Checklist Two is not displayed.");
-				log.info("The Test Comment and Instruction Checklist Two is not displayed.");
-
+				verificationFailedMessage("The Test Comment and Instruction Checklist Two is not displayed.");
 			}
 
 			// wait for the element
@@ -481,8 +318,6 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 
 			// click on the switch to wizard mode button
 			click("questionnaire_checklist_switchtowizard_CSS");
-			System.out.println("Clicked on the switch to wizard mode button.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWait("questionnaire_questioncommentinstruction_checklistlevel_XPATH");
@@ -499,65 +334,18 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 							"The Test Comment and Instruction Checklist Two is not displayed.");
 
 				} else {
-					TestUtil.captureScreenshot();
-
-					// ReportNG
-					Reporter.log(
-							"<br>" + "The Test Comment and Instruction Checklist Two is not displayed : " + "<br>");
-					Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-							+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-					Reporter.log("<br>");
-					Reporter.log("<br>");
-
-					// Extent Report
-					test.log(LogStatus.FAIL, " The Test Comment and Instruction Checklist Two is not displayed : ");
-					test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-					System.out.println("The Test Comment and Instruction Checklist Two is not displayed.");
-					log.info("The Test Comment and Instruction Checklist Two is not displayed.");
-
+					verificationFailedMessage("The Test Comment and Instruction Checklist Two is not displayed.");
 				}
 			} catch (Throwable t) {
-				TestUtil.captureScreenshot();
-
-				// ReportNG
-				Reporter.log("<br>" + "The Test Comment and Instruction Checklist Two is not displayed : " + "<br>");
-				Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
-						+ TestUtil.screenshotName + " height=200 width=200></img></a>");
-				Reporter.log("<br>");
-				Reporter.log("<br>");
-
-				// Extent Report
-				test.log(LogStatus.FAIL, " The Test Comment and Instruction Checklist Two is not displayed : ");
-				test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-
-				System.out.println("The Test Comment and Instruction Checklist Two is not displayed.");
-				log.info("The Test Comment and Instruction Checklist Two is not displayed.");
-
+				verificationFailedMessage("The Test Comment and Instruction Checklist Two is not displayed.");
 			}
 
 		} catch (Throwable t) {
-			TestUtil.captureScreenshot();
-
-			// ReportNG
-			Reporter.log("<br>" + " The " + data.get("questionnaire_checklist_title")
-					+ " is not displayed in the dropdown." + "<br>");
-			Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
-					+ " height=200 width=200></img></a>");
-			Reporter.log("<br>");
-			Reporter.log("<br>");
-
-			// Extent Report
-			test.log(LogStatus.FAIL,
-					" The " + data.get("questionnaire_checklist_title") + " is not displayed in the dropdown.");
-			test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
+			verificationFailedMessage("The respective questionnaire is not displayed in the dropdown.");
 		}
 
 		// click on the Home button
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home button.");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Navigate to the Home Screen i.e. property listing screen.");
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -566,11 +354,7 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
 
 		// UPDATE THE QUESTIONNAIRE TITLE WITH RANDOM TEXT
-
-		System.out.println("***************** UPDATE THE QUESTIONNAIRE TITLE WITH RANDOM TEXT *****************");
-		test.log(LogStatus.INFO, "***************** UPDATE THE QUESTIONNAIRE TITLE WITH RANDOM TEXT *****************");
-		Reporter.log("***************** UPDATE THE QUESTIONNAIRE TITLE WITH RANDOM TEXT *****************");
-		log.info("***************** UPDATE THE QUESTIONNAIRE TITLE WITH RANDOM TEXT *****************");
+		title("UPDATE THE QUESTIONNAIRE TITLE WITH RANDOM TEXT");
 
 		try {
 			// wait for the element
@@ -578,38 +362,24 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 
 			// click on the settings icon from the top of the screen
 			click("questionnaire_settingicon_userupdate_CSS");
-			System.out.println("Clicked on the settings icon.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// wait for the element
 			explicitWaitClickable("questionnaire_administrationoption_XPATH");
 
 			// click on the Administration option from the side menu
 			click("questionnaire_administrationoption_XPATH");
-			System.out.println("Clicked on the Administration option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires tab
 			click("questionnaire_questionnairestab_XPATH");
-			System.out.println("Clicked on the Questionnaires tab.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the Questionnaires option
 			click("questionnaire_questionnairesoption_XPATH");
-			System.out.println("Clicked on the Questionnaires option.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// enter newly created questionnaire in the filter field
-			clear("ssc_company2_questionnairelist_filtertxt_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
 			type("ssc_company2_questionnairelist_filtertxt_CSS", data.get("questionnaire_checklist_title"));
-			System.out.println("Entered newly created questionnaire in the filter field.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// click on the created questionnaire
 			click("questionnaire_questioncommentinstruction_checklist_XPATH");
-			System.out.println("Clicked on the newly created questionnaire.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// Update the questionnaire with the random text and navigate to the home screen
 			helper.randomText();
@@ -620,15 +390,11 @@ public class RR4599SurveyChecklistTwoTest extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
 
 		// verify the property list
 		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
-
 	}
-
 }

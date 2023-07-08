@@ -40,7 +40,7 @@ public class RR6212DashboardSceen3Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
+		 
 
 		// DELETE ALL THE PREVIOUSLY CREATED ENVIRONMENTAL REPORTS
 
@@ -50,26 +50,26 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
+			 
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the Environmental Reports option
 			click("envreportoption_XPATH");
-			System.out.println("Clicked on the Environmental Reports option.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the Environmental Report Screen.");
+			 
+			 
+			 
 
 			// delete the previously created environmental reports
 			List<WebElement> reportList = driver.findElements(
@@ -82,33 +82,33 @@ public class RR6212DashboardSceen3Test extends TestBase {
 				driver.findElement(By.xpath(
 						"//table[@id='environmentalDocumentListTable']//tbody[@class='drop-task']//tr[1]//td[3]"))
 						.click();
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the first environmental report.");
+				 
+				 
 
 				// wait for the element
 				explicitWaitClickable("envreportdeletebtn_CSS");
 
 				// click on the delete button
 				click("envreportdeletebtn_CSS");
-				System.out.println("Clicked on the Delete Button.");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("The confirmation pop up model is displayed.");
+				 
+				 
+				 
 
 				// wait for the element
 				explicitWaitClickable("envreportmodeldeletebtn_CSS");
 
 				// click on the delete button of the confirmation model
 				click("envreportmodeldeletebtn_CSS");
-				System.out.println("Clicked on the Delete Button of the confirmation popup model.");
-				ngDriver.waitForAngularRequestsToFinish();
+				 
+				 
 
 				// wait for the element
 				explicitWaitClickable("closetoastmsg_CSS");
 
 				// click on the toaster close button
 				click("closetoastmsg_CSS");
-				ngDriver.waitForAngularRequestsToFinish();
-				System.out.println("Clicked on the toaster close button.");
+				 
+				 
 
 			}
 
@@ -118,8 +118,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 		// click on the home icon
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Clicked on the home icon.");
+		 
+		 
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -136,8 +136,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the property one
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property one.");
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -149,18 +149,18 @@ public class RR6212DashboardSceen3Test extends TestBase {
 			// drop the file
 			dropFile(new File(System.getProperty("user.dir") + "\\src\\test\\resources\\logs\\sample.pdf"), droparea, 0,
 					0);
-			ngDriver.waitForAngularRequestsToFinish();
+			 
 			successMessage("Drag and drop the file successfully.");
 
 			// select the respective option from the category dropdown
 			select("propertysummary_recentdocument_categorydd_XPATH", data.get("category_1"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Selected the respective option from the category dropdown.");
+			 
+			 
 
 			// click on the choose button
 			click("propertysummary_recentdocument_choosebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the choose button.");
+			 
+			 
 
 			// wait for the element
 			explicitWait("propertysummary_recentdocument_propertynametitle_XPATH");
@@ -171,8 +171,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the attachment tab
 			click("propertysummary_recentdocument_environmental_attachmenttab_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the attachment tab.");
+			 
+			 
 
 			// validate the count of the attachment
 			switchVerification("propertysummary_recentdocument_environmental_attachmentcount_XPATH", "1",
@@ -180,54 +180,54 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the details tab
 			click("propertysummary_recentdocument_environmental_detailstab_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the details tab.");
+			 
+			 
 
 			// select the checklist from the type dropdown
 			select("envreporttypedd_CSS", data.get("type"));
-			System.out.println("The option is selected from the Type dropdown.");
-			ngDriver.waitForAngularRequestsToFinish();
+			 
+			 
 
 			// enter the title
-			clear("envreporttitletxt_CSS");
+			 
 			type("envreporttitletxt_CSS", data.get("title"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("The data entered in the Title field.");
+			 
+			 
 
 			// enter current date in the date field
 			LocalDate currentDate = LocalDate.now();
 			String currentDate_string = currentDate.toString();
-			clear("envreportdatetxt_CSS");
+			 
 			type("envreportdatetxt_CSS", currentDate_string);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered current date in the date field.");
+			 
+			 
 
 			// enter the company
-			clear("envreportcompanytxt_CSS");
+			 
 			type("envreportcompanytxt_CSS", data.get("company"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("The data entered in the Company field.");
+			 
+			 
 
 			// enter the author
-			clear("envreportauthortxt_CSS");
+			 
 			type("envreportauthortxt_CSS", data.get("author"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("The data entered in the Author field.");
+			 
+			 
 
 			// scroll down the screen
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,400)");
+			 
+			scrollByPixel(400);
 
 			// enter the description
-			clear("envreportdescriptiontxt_CSS");
+			 
 			type("envreportdescriptiontxt_CSS", data.get("description"));
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("The data entered in the Description field.");
+			 
+			 
 
 			// click on the save report button
 			click("propertysummary_recentdocument_environmental_savebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the Save Button.");
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -238,8 +238,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 		// click on the home icon
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		ngDriver.waitForAngularRequestsToFinish();
-		System.out.println("Clicked on the home icon.");
+		 
+		 
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -256,8 +256,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the property one
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property one.");
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -331,8 +331,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
+		 
+		 
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -349,58 +349,58 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
+			 
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the Environmental Reports option
 			click("envreportoption_XPATH");
-			System.out.println("Clicked on the Environmental Reports option.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the Environmental Report Screen.");
+			 
+			 
+			 
 
 			// enter the newly created environmental report in the search field
-			clear("task_listofchecklist_filterfield_CSS");
+			 
 			type("task_listofchecklist_filterfield_CSS", data.get("title"));
-			System.out.println("Entered the newly created environmental report in the search field.");
-			ngDriver.waitForAngularRequestsToFinish();
+			 
+			 
 
 			// click on the searched report
 			click("propertysummary_recentdocument_environmental_addedreport2_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched report.");
+			 
+			 
 
 			// enter past date in the date field
 			LocalDate pastDate = LocalDate.now().minusDays(10);
 			String pastDate_string = pastDate.toString();
-			clear("envreportdatetxt_CSS");
+			 
 			type("envreportdatetxt_CSS", pastDate_string);
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Entered past date in the date field.");
+			 
+			 
 
 			// click on the update button
 			click("propertysummary_recentdocument_environmental_updatebtn_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the update button.");
+			 
+			 
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
+			 
+			 
 
 		} catch (Throwable t) {
 
@@ -410,8 +410,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
+		 
+		 
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -428,8 +428,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the property one
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property one.");
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -505,8 +505,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
+		 
+		 
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -523,8 +523,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the property one
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property one.");
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -544,29 +544,29 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 						// click on the correct document type
 						documentList.get(i).click();
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the correct document type.");
+						 
+						 
 
 						// enter future date in the date field
 						LocalDate futureDate = LocalDate.now().plusDays(10);
 						String futureDate_string = futureDate.toString();
-						clear("envreportdatetxt_CSS");
+						 
 						type("envreportdatetxt_CSS", futureDate_string);
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Entered future date in the date field.");
+						 
+						 
 
 						// click on the update button
 						click("propertysummary_recentdocument_environmental_updatebtn_XPATH");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the update button.");
+						 
+						 
 
 						// wait for the element
 						explicitWaitClickable("closetoastmsg_CSS");
 
 						// click on the toaster close button
 						click("closetoastmsg_CSS");
-						ngDriver.waitForAngularRequestsToFinish();
-						System.out.println("Clicked on the toaster close button.");
+						 
+						 
 
 						break;
 
@@ -583,8 +583,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
+		 
+		 
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -601,8 +601,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the property one
 			click("propertysummary_property1_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the property one.");
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
@@ -676,8 +676,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
+		 
+		 
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");
@@ -693,68 +693,68 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 			// click on the environmental icon from the property list page
 			click("environmentalicon_CSS");
-			System.out.println("Clicked on the environmental icon of the Property.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the environmental screen of the perticular property.");
+			 
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the burger menu
 			click("menubtn_CSS");
-			System.out.println("Clicked on the burger menu button successfully!!!");
-			ngDriver.waitForAngularRequestsToFinish();
+			 
+			 
 
 			// wait for the element
 			Thread.sleep(5000);
 
 			// click on the Environmental Reports option
 			click("envreportoption_XPATH");
-			System.out.println("Clicked on the Environmental Reports option.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Navigate to the Environmental Report Screen.");
+			 
+			 
+			 
 
 			// enter the newly created environmental report in the search field
-			clear("task_listofchecklist_filterfield_CSS");
+			 
 			type("task_listofchecklist_filterfield_CSS", data.get("title"));
-			System.out.println("Entered the newly created environmental report in the search field.");
-			ngDriver.waitForAngularRequestsToFinish();
+			 
+			 
 
 			// click on the searched report
 			click("propertysummary_recentdocument_environmental_addedreport2_XPATH");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the searched report.");
+			 
+			 
 
 			// wait for the element
 			explicitWaitClickable("envreportdeletebtn_CSS");
 
 			// click on the delete button
 			click("envreportdeletebtn_CSS");
-			System.out.println("Clicked on the Delete Button.");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("The confirmation pop up model is displayed.");
+			 
+			 
+			 
 
 			// wait for the element
 			explicitWaitClickable("envreportmodeldeletebtn_CSS");
 
 			// click on the delete button of the confirmation model
 			click("envreportmodeldeletebtn_CSS");
-			System.out.println("Clicked on the Delete Button of the confirmation popup model.");
-			ngDriver.waitForAngularRequestsToFinish();
+			 
+			 
 
 			// wait for the element
 			explicitWaitClickable("closetoastmsg_CSS");
 
 			// click on the toaster close button
 			click("closetoastmsg_CSS");
-			ngDriver.waitForAngularRequestsToFinish();
-			System.out.println("Clicked on the toaster close button.");
+			 
+			 
 
 			// enter the newly created environmental report in the search field
-			clear("task_listofchecklist_filterfield_CSS");
+			 
 			type("task_listofchecklist_filterfield_CSS", data.get("title"));
-			System.out.println("Entered the newly created environmental report in the search field.");
-			ngDriver.waitForAngularRequestsToFinish();
+			 
+			 
 
 			// verification of the environmental report is deleted or not
 			helper.deleteVerification("propertysummary_recentdocument_environmental_addedreport2_XPATH",
@@ -766,8 +766,8 @@ public class RR6212DashboardSceen3Test extends TestBase {
 
 		// click on the home icon from the top of the screen
 		click("questionnaire_homeburgermenubtn_hide_CSS");
-		System.out.println("Clicked on the home icon from the top of the screen.");
-		ngDriver.waitForAngularRequestsToFinish();
+		 
+		 
 
 		// wait for the element
 		explicitWait("propertylist_title_XPATH");

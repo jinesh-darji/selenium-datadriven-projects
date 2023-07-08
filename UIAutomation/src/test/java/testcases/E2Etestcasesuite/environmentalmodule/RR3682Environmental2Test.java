@@ -22,7 +22,6 @@ public class RR3682Environmental2Test extends TestBase {
 		execution(data, "rR3682Environmental2Test");
 
 		// CRUD OPERATION OF THE ENVIRONMENTAL RECORD - ASBESTOS MATERIAL
-
 		title("CRUD OPERATION OF THE ENVIRONMENTAL RECORD - ASBESTOS MATERIAL");
 
 		Helper helper = new Helper();
@@ -31,8 +30,6 @@ public class RR3682Environmental2Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		// CREATE NEW RECORD OF THE ENVIRONMENTAL RECORD
 		title("CREATE NEW RECORD OF THE ENVIRONMENTAL RECORD");
@@ -145,7 +142,6 @@ public class RR3682Environmental2Test extends TestBase {
 					"The Test Details Location 2 is not displayed successfully.");
 
 		} catch (Throwable t) {
-
 			verificationFailed();
 		}
 
@@ -210,7 +206,6 @@ public class RR3682Environmental2Test extends TestBase {
 					"The Update Detailed Location 2 is not displayed.");
 
 		} catch (Throwable t) {
-
 			verificationFailed();
 		}
 

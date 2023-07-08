@@ -1,16 +1,11 @@
 package base;
 
-import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
+import java.time.LocalDate;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -19,18 +14,14 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -84,7 +75,7 @@ public class TestBase {
 			try {
 				config.load(fis);
 				log.info("Config file is loaded successfully!!!");
-				System.out.println("Config file is loaded successfully!!!");
+
 			} catch (IOException e) {
 
 				e.printStackTrace();
@@ -100,7 +91,7 @@ public class TestBase {
 			try {
 				OR.load(fis);
 				log.info("OR file is loaded successfully!!!");
-				System.out.println("OR file is loaded successfully!!!");
+
 			} catch (IOException e) {
 
 				e.printStackTrace();
@@ -126,7 +117,6 @@ public class TestBase {
 			jsDriver = (JavascriptExecutor) driver;
 			ngDriver = new NgWebDriver(jsDriver);
 			log.info("FireFox launched successfully!!!");
-			System.out.println("FireFox launched successfully!!!");
 
 		} else if (config.getProperty("browser").equals("chrome")) {
 
@@ -146,7 +136,7 @@ public class TestBase {
 			jsDriver = (JavascriptExecutor) driver;
 			ngDriver = new NgWebDriver(jsDriver);
 			log.info("Chrome launched successfully!!!");
-			System.out.println("Chrome launched successfully!!!");
+
 		}
 
 		// Initialize the Application URL
@@ -161,7 +151,7 @@ public class TestBase {
 
 		driver.manage().window().maximize();
 		log.info("The window maximize successfully!!!");
-		System.out.println("The window maximize successfully!!!");
+
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implecit.wait")),
 				TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 45);
@@ -194,11 +184,8 @@ public class TestBase {
 	public void type(String locator, String value) {
 
 		consoleMessage("Clearing the : " + locator);
-
 		clear(locator);
-
 		consoleMessage("Cleared the : " + locator);
-
 		consoleMessage("Typing the details in the : " + locator + " field.");
 
 		if (locator.endsWith("_CSS")) {
@@ -261,7 +248,7 @@ public class TestBase {
 		}
 
 		// Using Select Class to fetch the count
-		Select select = new Select(dropdown);
+		Select select = new Select(dropdownRandom);
 		List<WebElement> weblist = select.getOptions();
 
 		// Taking the count of items
@@ -495,7 +482,7 @@ public class TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0," + pixel + ")");
 		ngDriver.waitForAngularRequestsToFinish();
-		consoleMessage("Scroll Down the screen By " + pixel + ".");
+		consoleMessage("Scroll Down the screen By " + pixel + " px.");
 	}
 
 	// Scroll up to top
@@ -553,7 +540,6 @@ public class TestBase {
 		test.log(LogStatus.FAIL, " The verification is failed : ");
 		test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
 
-		System.out.println("The verification is failed.");
 		log.info("The verification is failed.");
 
 	}
@@ -586,30 +572,6 @@ public class TestBase {
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 	}
 
-	public void uploadFile(String fileLocation) {
-		try {
-			// Setting clip board with file location
-			setClipboardData(fileLocation);
-
-			// native key strokes for CTRL, V and ENTER keys
-			Robot robot = new Robot();
-
-			robot.delay(5000);
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_V);
-			robot.delay(5000);
-			robot.keyRelease(KeyEvent.VK_V);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-			robot.delay(5000);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			robot.delay(5000);
-
-		} catch (Exception exp) {
-			exp.printStackTrace();
-		}
-	}
-
 	// Success Message
 	public void successMessage(String message) {
 		System.out.println(message);
@@ -639,35 +601,6 @@ public class TestBase {
 
 	}
 
-	// Drag and Drop the file
-	public void dropFile(File filePath, WebElement target, int offsetX, int offsetY) {
-		if (!filePath.exists())
-			throw new WebDriverException("File not found: " + filePath.toString());
-
-		WebDriver driver = ((RemoteWebElement) target).getWrappedDriver();
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-
-		String JS_DROP_FILE = "var target = arguments[0]," + "    offsetX = arguments[1],"
-				+ "    offsetY = arguments[2]," + "    document = target.ownerDocument || document,"
-				+ "    window = document.defaultView || window;" + "" + "var input = document.createElement('INPUT');"
-				+ "input.type = 'file';" + "input.style.display = 'none';" + "input.onchange = function () {"
-				+ "  var rect = target.getBoundingClientRect(),"
-				+ "      x = rect.left + (offsetX || (rect.width >> 1)),"
-				+ "      y = rect.top + (offsetY || (rect.height >> 1)),"
-				+ "      dataTransfer = { files: this.files };" + ""
-				+ "  ['dragenter', 'dragover', 'drop'].forEach(function (name) {"
-				+ "    var evt = document.createEvent('MouseEvent');"
-				+ "    evt.initMouseEvent(name, !0, !0, window, 0, 0, 0, x, y, !1, !1, !1, !1, 0, null);"
-				+ "    evt.dataTransfer = dataTransfer;" + "    target.dispatchEvent(evt);" + "  });" + ""
-				+ "  setTimeout(function () { document.body.removeChild(input); }, 25);" + "};"
-				+ "document.body.appendChild(input);" + "return input;";
-
-		WebElement input = (WebElement) jse.executeScript(JS_DROP_FILE, target, offsetX, offsetY);
-		input.sendKeys(filePath.getAbsoluteFile().toString());
-		wait.until(ExpectedConditions.stalenessOf(input));
-	}
-
 	// selection of the test case for the execution
 	public void execution(Hashtable<String, String> data, String locator) {
 
@@ -686,37 +619,13 @@ public class TestBase {
 		}
 	}
 
-	// read the PDF file details
-	public String readPdfContent(String url) throws IOException {
+	// enter today's date
+	public String today() {
 
-		URL pdfUrl = new URL(driver.getCurrentUrl());
-		InputStream in = pdfUrl.openStream();
-		BufferedInputStream bf = new BufferedInputStream(in);
-		PDDocument doc = PDDocument.load(bf);
-		int numberOfPages = getPageCount(doc);
-		System.out.println("The total number of pages " + numberOfPages);
-		String content = new PDFTextStripper().getText(doc);
-		doc.close();
+		LocalDate today = LocalDate.now();
+		String today_string = today.toString();
 
-		return content;
-	}
-
-	// get the PDF file count of pages
-	public static int getPageCount(PDDocument doc) {
-		// get the total number of pages in the pdf document
-		int pageCount = doc.getNumberOfPages();
-		return pageCount;
-	}
-
-	// get the PDF file count of pages
-	public static int fetchPageCount() throws IOException {
-
-		URL pdfUrl = new URL(driver.getCurrentUrl());
-		InputStream in = pdfUrl.openStream();
-		BufferedInputStream bf = new BufferedInputStream(in);
-		PDDocument doc = PDDocument.load(bf);
-		int pageCount = doc.getNumberOfPages();
-		return pageCount;
+		return today_string;
 	}
 
 	@AfterSuite

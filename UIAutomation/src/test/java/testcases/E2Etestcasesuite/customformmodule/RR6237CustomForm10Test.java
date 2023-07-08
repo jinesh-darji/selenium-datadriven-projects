@@ -20,7 +20,6 @@ public class RR6237CustomForm10Test extends TestBase {
 
 		// VALIDATE THE COMBINATION OF THE GENERAL SECURITY AND FIELD SECURITY OF THE
 		// CUSTOM FORMS
-
 		title("VALIDATE THE COMBINATION OF THE GENERAL SECURITY AND FIELD SECURITY OF THE CUSTOM FORMS");
 
 		Helper helper = new Helper();
@@ -29,8 +28,6 @@ public class RR6237CustomForm10Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String fieldName1 = RandomStringUtils.randomAlphanumeric(8); // Normal Field 1
 		String fieldName2 = RandomStringUtils.randomAlphanumeric(8); // Normal Field 2
@@ -44,7 +41,6 @@ public class RR6237CustomForm10Test extends TestBase {
 		// CREATE NEW CUSTOM FORMS FOR SINGLE RECORD TYPE (ADD THE SECURITY PERMISSION
 		// FOR CUSTOM FORM AND FIELD SECURITY FOR THE FIRST GENERAL FIELD, FIRST FIELD
 		// OF PAGE ONE, SECOND FIELD OF PAGE TWO AND SECURITY ADDED FOR THE JINESH USER)
-
 		title("CREATE NEW CUSTOM FORMS FOR SINGLE RECORD TYPE (ADD THE SECURITY PERMISSION FOR CUSTOM FORM "
 				+ "AND FIELD SECURITY FOR THE FIRST GENERAL FIELD, FIRST FIELD OF PAGE ONE, SECOND FIELD OF "
 				+ "PAGE TWO AND SECURITY ADDED FOR THE JINESH USER)");
@@ -970,8 +966,6 @@ public class RR6237CustomForm10Test extends TestBase {
 
 			// click on the logout option from the side menu
 			click("sidemenu_logout_CSS");
-			System.out.println("Clicked on the logout option from the side menu.");
-			ngDriver.waitForAngularRequestsToFinish();
 
 			// login with valid credentials
 			helper.loginAndUpdateSystemCompany(data, "username", "password", "system_company_1");

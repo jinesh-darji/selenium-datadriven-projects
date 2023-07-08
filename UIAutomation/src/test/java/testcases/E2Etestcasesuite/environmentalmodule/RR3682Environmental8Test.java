@@ -30,8 +30,6 @@ public class RR3682Environmental8Test extends TestBase {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
-
 		try {
 			// apply the filter 1 on the property list
 			type("envreports_propertylist_filtertxt_CSS", data.get("property_filter1"));
@@ -48,14 +46,14 @@ public class RR3682Environmental8Test extends TestBase {
 			// click on the environmental report
 			click("envreportoption_XPATH");
 
-			// click on the Add report button
-			click("envreportaddbtn_CSS");
-
 			// select the building level from the dropdown
 			select("survey_leveldropdown_CSS", data.get("building_leveldropdown"));
 
 			// select the floor level from the dropdown
 			select("survey_buildingleveldd_CSS", data.get("floor_leveldropdown"));
+
+			// click on the Add report button
+			click("envreportaddbtn_CSS");
 
 			// select the checklist from the type dropdown
 			select("envreporttypedd_CSS", data.get("type"));
@@ -75,8 +73,14 @@ public class RR3682Environmental8Test extends TestBase {
 			// enter the author
 			type("envreportauthortxt_CSS", data.get("author"));
 
+			// scroll down to bottom
+			scrollBottom();
+
 			// enter the description
 			type("envreportdescriptiontxt_CSS", data.get("description"));
+
+			// add the details in the label update field
+			type("envreport_labelupdatetxt_XPATH", data.get("label_update"));
 
 			// click on the save report button
 			click("envreportsavebtn_CSS");
@@ -117,10 +121,10 @@ public class RR3682Environmental8Test extends TestBase {
 
 			// wait for the element
 			Thread.sleep(3000);
-			
+
 			// click on the searched property
 			click("envreports_copyreports_searchedproperty_XPATH");
-			
+
 			// click on the property field
 			click("envreports_copyreports_propertybtn_XPATH");
 
@@ -272,8 +276,6 @@ public class RR3682Environmental8Test extends TestBase {
 
 			// select the property level from the dropdown
 			select("survey_leveldropdown_CSS", data.get("property_leveldropdown"));
-
-			// VERIFY THE ENVIRONMENTAL REPORT IS DELETED OR NOT
 
 			// enter the newly created environmental report in the search field
 			type("task_listofchecklist_filterfield_CSS", data.get("title"));

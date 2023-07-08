@@ -21,7 +21,6 @@ public class RR6462CustomForm3Test extends TestBase {
 
 		// PERFORM EXPORT AND IMPORT FUNCTIONALITY OF CUSTOM FORMS AT PORTFOLIO SUMMARY
 		// DASHBOARD AND PROPERTY SUMMARY DASHBOARD - CORPORATE LEVEL
-
 		title("PERFORM EXPORT AND IMPORT FUNCTIONALITY OF CUSTOM FORMS AT PORTFOLIO SUMMARY DASHBOARD AND PROPERTY SUMMARY DASHBOARD - CORPORATE LEVEL");
 
 		// refresh the page
@@ -730,12 +729,10 @@ public class RR6462CustomForm3Test extends TestBase {
 			Thread.sleep(5000);
 
 			// fetch the record from the download file
-			// ********************** add fetch file code **********************
-
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
-			System.out.println(path_string);
+			consoleMessage(path_string);
+			consoleMessage(path_string);
 			ExcelReader file = new ExcelReader(path_string);
 
 			// add the details of the first normal fields
@@ -1091,11 +1088,9 @@ public class RR6462CustomForm3Test extends TestBase {
 			Thread.sleep(5000);
 
 			// fetch the record from the download file
-			// ********************** add fetch file code **********************
-
-			downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			file = new ExcelReader(path_string);
 
 			// add the details of the first normal fields
@@ -1502,11 +1497,9 @@ public class RR6462CustomForm3Test extends TestBase {
 			Thread.sleep(5000);
 
 			// fetch the record from the download file
-			// ********************** add fetch file code **********************
-
-			File downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			File downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			String path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 
 			ExcelReader file = new ExcelReader(path_string);
 
@@ -1658,11 +1651,9 @@ public class RR6462CustomForm3Test extends TestBase {
 			Thread.sleep(5000);
 
 			// fetch the record from the download file
-			// ********************** add fetch file code **********************
-
-			downloaded = getLastModified("C:\\Users\\Jinesh\\Downloads");
+			downloaded = getLastModified(config.getProperty("downloadFilePath"));
 			path_string = downloaded.toString();
-			System.out.println(path_string);
+			consoleMessage(path_string);
 			file = new ExcelReader(path_string);
 
 			// add the details of the first normal fields

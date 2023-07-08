@@ -3,11 +3,10 @@ package utilities;
 public class TestConfig {
 
 	public static String server = "smtp.gmail.com";
-	public static String from = "jinesh.refineddata@gmail.com";
-	public static String password = "jinesh#2021";
-	public static String[] to = { "jinesh.darji@bacancy.com"};
-	public static String subject = "Refined Risk Project - UI Automation Extent Report";
-	// , "william.ren@refineddata.com", "dev@refineddata.com"
+	public static String from = "email_address";
+	public static String password = "passowrd";
+	public static String[] to = { "receiver_email_address"};
+	public static String subject = "UploadImportExport Automation Extent Report";
 
 	public static String messageBody = "TestMessage";
 	public static String attachmentPath = "c:\\screenshot\\2017_10_3_14_49_9.jpg";

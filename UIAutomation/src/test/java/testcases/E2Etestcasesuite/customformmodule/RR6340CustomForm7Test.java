@@ -20,7 +20,6 @@ public class RR6340CustomForm7Test extends TestBase {
 
 		// VALIDATE THE 'USER TO VIEW FORM' AND 'ROLE TO VIEW FORM' PERMISSIONS OF THE
 		// CUSTOM FORMS - MULTIPLE TYPE
-
 		title("VALIDATE THE 'USER TO VIEW FORM' AND 'ROLE TO VIEW FORM' PERMISSIONS OF THE CUSTOM FORMS - MULTIPLE TYPE");
 
 		Helper helper = new Helper();
@@ -29,8 +28,6 @@ public class RR6340CustomForm7Test extends TestBase {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		driver.navigate().refresh();
-
-		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
 
 		String fieldName1 = RandomStringUtils.randomAlphanumeric(8); // Normal Field 1
 		String fieldName2 = RandomStringUtils.randomAlphanumeric(8); // Normal Field 2
@@ -42,7 +39,6 @@ public class RR6340CustomForm7Test extends TestBase {
 		String pageFieldName4 = RandomStringUtils.randomAlphanumeric(8); // Page Name 2 - Field 2
 
 		// CREATE NEW CUSTOM FORMS FOR MULTIPLE RECORD TYPE
-
 		title("CREATE NEW CUSTOM FORMS FOR MULTIPLE RECORD TYPE");
 
 		try {
