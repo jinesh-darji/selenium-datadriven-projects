@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="UploadImportExportAutomation">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="listeners.CustomListeners" />
+	</listeners>
+
+	<test thread-count="5" name="RefinedRiskLoginTest">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.loginmodule.RefinedRiskLoginTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6552 Environmental 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.environmentalmodule.RR6552Environmental4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6552 Environmental 5 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.environmentalmodule.RR6552Environmental5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6552 Environmental 6 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.environmentalmodule.RR6552Environmental6Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4379 Survey Checklist One Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4379SurveyChecklistOneTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4379 Survey Checklist Two Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4379SurveyChecklistTwoTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4379 Survey Checklist Three Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4379SurveyChecklistThreeTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4379 Survey Checklist Four Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4379SurveyChecklistFourTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4682 Survey Checklist Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR4682SurveyChecklistOneTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6202 Survey Checklist 1 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR6202SurveyChecklist1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6202 Survey Checklist 2 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR6202SurveyChecklist2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6479 Survey Checklist 1 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.surveychecklistmodule.RR6479SurveyChecklist1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6073 Task 1 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6073Task1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6073 Task 2 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6073Task2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6073 Task 3 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6073Task3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6073 Task 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.taskmodule.RR6073Task4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4931 Property Project One Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.propertyprojectmodule.RR4931PropertyProjectOneTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4931 Property Project Two Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.propertyprojectmodule.RR4931PropertyProjectTwoTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4931 Property Project Three Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.propertyprojectmodule.RR4931PropertyProjectThreeTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR4931 Property Project Four Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.propertyprojectmodule.RR4931PropertyProjectFourTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5957 Sustainability 0 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.sustainabilitymodule.RR5957Sustainability0Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5958 Sustainability 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.sustainabilitymodule.RR5958Sustainability4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5961 Sustainability 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.sustainabilitymodule.RR5961Sustainability4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5964 Sustainability 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.sustainabilitymodule.RR5964Sustainability4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5964 Sustainability 5 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.sustainabilitymodule.RR5964Sustainability5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+
+	<test thread-count="5" name="RR6062 Sustainability 3 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.sustainabilitymodule.RR6062Sustainability3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6212 Dashboard Sceen 1 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.dashboardmodule.RR6212DashboardSceen1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6212 Dashboard Sceen 2 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.dashboardmodule.RR6212DashboardSceen2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6212 Dashboard Sceen 3 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.dashboardmodule.RR6212DashboardSceen3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6212 Dashboard Sceen 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.dashboardmodule.RR6212DashboardSceen4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6572 Dashboard Sceen 1 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.dashboardmodule.RR6572DashboardSceen1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6237 Custom Form 5 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6237CustomForm5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6291 Custom Form 3 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6291CustomForm3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6340 Custom Form 4 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6340CustomForm4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6462 Custom Form 3 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6462CustomForm3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6475 Custom Form 1 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6475CustomForm1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6475 Custom Form 2 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6475CustomForm2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6475 Custom Form 3 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6475CustomForm3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6539 Custom Form 2 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6539CustomForm2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6555 Custom Form 10 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm10Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6555 Custom Form 11 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm11Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6555 Custom Form 12 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm12Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6555 Custom Form 13 Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.customformmodule.RR6555CustomForm13Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR6533 Risk Management Test">
+		<classes>
+			<class
+				name="testcases.E2Etestcasesuite.riskmanagementmodule.RR6533RiskManagementTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="Meeting Load Test">
+		<classes>
+			<class name="testcases.MeetingLoadTest" />
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->

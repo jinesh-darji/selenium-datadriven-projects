@@ -1,0 +1,531 @@
+package testcases.smokesuite;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.SkipException;
+import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.LogStatus;
+
+import base.TestBase;
+import net.bytebuddy.asm.Advice.Local;
+import utilities.TestUtil;
+
+public class RR5753ClientIssue8Test extends TestBase {
+
+	@Test(dataProviderClass = TestUtil.class, dataProvider = "dp")
+	public void rR5753ClientIssue8Test(Hashtable<String, String> data) throws IOException, InterruptedException {
+
+		if (!(TestUtil.isTestRunnable("rR5753ClientIssue8Test", excel))) {
+
+			throw new SkipException(
+					"Skipping the test " + "rR5753ClientIssue8Test".toUpperCase() + "as the Run mode is NO");
+		}
+
+		if (!data.get("runmode").equals("Y")) {
+
+			throw new SkipException("Skipping the test case as the Run Mode for data set is NO");
+		}
+
+		// refresh the page
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+		driver.navigate().refresh();
+
+		// AUTO-TASK DETAILS IS DISPLAYED IN SURVEY CLASSIC VIEW WHEN CONFIGURED FOR THE
+		// COMMENT OPTION - RR-5906
+
+		System.out.println(
+				"******************** AUTO-TASK DETAILS IS DISPLAYED IN SURVEY CLASSIC VIEW WHEN CONFIGURED FOR THE COMMENT OPTION - RR-5906 ********************");
+		test.log(LogStatus.INFO,
+				"******************** AUTO-TASK DETAILS IS DISPLAYED IN SURVEY CLASSIC VIEW WHEN CONFIGURED FOR THE COMMENT OPTION - RR-5906 ********************");
+		Reporter.log(
+				"******************** AUTO-TASK DETAILS IS DISPLAYED IN SURVEY CLASSIC VIEW WHEN CONFIGURED FOR THE COMMENT OPTION - RR-5906 ********************");
+		log.info(
+				"******************** AUTO-TASK DETAILS IS DISPLAYED IN SURVEY CLASSIC VIEW WHEN CONFIGURED FOR THE COMMENT OPTION - RR-5906 ********************");
+
+		System.out.println("Navigate to the Home Screen i.e. Property List Screen.");
+
+		// LOGIN WITH ADMIN USER
+
+		System.out.println("******************** LOGIN WITH ADMIN USER ********************");
+		test.log(LogStatus.INFO, "******************** LOGIN WITH ADMIN USER ********************");
+		Reporter.log("******************** LOGIN WITH ADMIN USER ********************");
+		log.info("******************** LOGIN WITH ADMIN USER ********************");
+
+		// wait for the element
+		explicitWaitClickable("signinbtn_BTNTEXT");
+
+		// Enter the username
+		type("usernametxt_CSS", data.get("username_1"));
+		ngDriver.waitForAngularRequestsToFinish();
+		System.out.println("Entered the username.");
+
+		// Enter the password
+		type("passwordtxt_CSS", data.get("password_1"));
+		ngDriver.waitForAngularRequestsToFinish();
+		System.out.println("Entered the password.");
+
+		// Clicking on the "Sign In" button
+		click("signinbtn_BTNTEXT");
+		ngDriver.waitForAngularRequestsToFinish();
+		System.out.println("Clicked on the sign in button.");
+
+		// wait for the element
+		explicitWait("propertylist_title_XPATH");
+
+		// verify the property list
+		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
+
+		// UPDATE THE SYSTEM COMPANY
+		updateCompany(data);
+
+		// VERIFY AUTO TASK DETAILS AT SURVEY LEVEL
+
+		System.out.println("******************** VERIFY AUTO TASK DETAILS AT SURVEY LEVEL ********************");
+		test.log(LogStatus.INFO, "******************** VERIFY AUTO TASK DETAILS AT SURVEY LEVEL ********************");
+		Reporter.log("******************** VERIFY AUTO TASK DETAILS AT SURVEY LEVEL ********************");
+		log.info("******************** VERIFY AUTO TASK DETAILS AT SURVEY LEVEL ********************");
+
+		try {
+
+			// enter the property name in the search field
+			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Entered the property name in the search field.");
+
+			// click on the environmental icon from the property list page
+			click("environmentalicon_CSS");
+			System.out.println("Clicked on the environmental icon of the Property.");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Navigate to the environmental screen of the perticular property.");
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// click on the burger menu
+			click("menubtn_CSS");
+			System.out.println("Clicked on the burger menu button successfully!!!");
+			ngDriver.waitForAngularRequestsToFinish();
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// click on the surveys option from side menu
+			click("surveyoption_XPATH");
+			System.out.println("Clicked on the surveys option from side menu");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Navigate to the csurveys screen");
+
+			// wait for 3 seconds
+			Thread.sleep(3000);
+
+			// select the respective questionnaire
+			select("survey_questionnairedd_CSS", data.get("questionnaire_title"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Selected the respective questionnaire.");
+
+			// wait for the element
+			explicitWait("survey_categoryname_risk_XPATH");
+
+			// clear respective the comment box
+			clear("survey_commentbox1_risk_XPATH");
+			clear("survey_commentbox2_risk_XPATH");
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,300)");
+			clear("survey_commentbox3_risk_XPATH");
+			clear("survey_commentbox4_risk_XPATH");
+			js.executeScript("window.scrollTo(0,0)");
+
+			// enter the details in the comment box 1 of the category 1 question 1
+			clear("survey_commentbox1_risk_XPATH");
+			type("survey_commentbox1_risk_XPATH", data.get("comment_1"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Entered the details in the comment box 1 of the category 1 question 1.");
+
+			// enter the details in the comment box 2 of the category 1 question 1
+			clear("survey_commentbox2_risk_XPATH");
+			type("survey_commentbox2_risk_XPATH", data.get("comment_2"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Entered the details in the comment box 2 of the category 1 question 1.");
+
+			// click on the Managing Agent Systems category label
+			click("survey_categoryname_risk_XPATH");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the Managing Agent Systems category label.");
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// scroll down the screen
+			js.executeScript("window.scrollBy(0,600)");
+
+			// verify validation 1
+			switchVerification("survey_autotask_validation1_risk_XPATH", "Task/Action",
+					"The Task/Action text is not displayed.");
+
+			// verify validation 2
+			switchVerification("survey_autotask_validation2_risk_XPATH", "(1) Risk Control Management System",
+					"The (1) Risk Control Management System text is not displayed.");
+
+			// verify validation 3
+			switchVerification("survey_autotask_validation3_risk_XPATH", "Assigned To: Property Manager",
+					"The Assigned To: Property Manager text is not displayed.");
+
+			// verify validation 4
+			LocalDate currentDate = LocalDate.now();
+			LocalDate futureDate = currentDate.plusYears(1);
+			String futureDateString = futureDate.toString();
+
+			try {
+				String duedate = (driver.findElement(By.xpath(OR.getProperty("survey_autotask_validation5_risk_XPATH")))
+						.getAttribute("value")).trim();
+
+				if (duedate.equals(futureDateString)) {
+
+					System.out.println("The due date is verified successfully.");
+					test.log(LogStatus.INFO, "The due date is verified successfully.");
+					Reporter.log("The due date is verified successfully.");
+					log.info("The due date is verified successfully.");
+				} else {
+					verificationFailed();
+				}
+			} catch (Throwable t) {
+				verificationFailedMessage("The due date is displayed incorrect.");
+			}
+
+			// scroll down the screen
+			js.executeScript("window.scrollBy(0,400)");
+
+			// enter the details in the comment box 1 of the category 1 question 2
+			clear("survey_commentbox3_risk_XPATH");
+			type("survey_commentbox3_risk_XPATH", data.get("comment_3"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Entered the details in the comment box 1 of the category 1 question 2.");
+
+			// enter the details in the comment box 2 of the category 1 question 2
+			clear("survey_commentbox4_risk_XPATH");
+			type("survey_commentbox4_risk_XPATH", data.get("comment_4"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Entered the details in the comment box 2 of the category 1 question 2.");
+
+			// click on the Hazardous Building Materials category label
+			click("survey_categoryname2_risk_XPATH");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the Hazardous Building Materials category label.");
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// scroll down the screen
+			js.executeScript("window.scrollBy(0,400)");
+
+			// verify validation 4
+			switchVerification("survey_autotask_validation4_risk_XPATH", "(1) Contractor Management System",
+					"The (1) Contractor Management System text is not displayed.");
+
+		} catch (Throwable t) {
+			verificationFailed();
+		}
+
+		// click on the home icon from the top of the screen
+		click("questionnaire_homeburgermenubtn_hide_CSS");
+		System.out.println("Clicked on the home icon from the top of the screen.");
+		ngDriver.waitForAngularRequestsToFinish();
+
+		// synchronization
+		explicitWait("propertylist_title_XPATH");
+
+		// verify the property list
+		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
+
+		// GENERATE THE AUTO TASKS IN THE TASK MODULE
+
+		System.out.println("******************** GENERATE THE AUTO TASKS IN THE TASK MODULE ********************");
+		test.log(LogStatus.INFO,
+				"******************** GENERATE THE AUTO TASKS IN THE TASK MODULE ********************");
+		Reporter.log("******************** GENERATE THE AUTO TASKS IN THE TASK MODULE ********************");
+		log.info("******************** GENERATE THE AUTO TASKS IN THE TASK MODULE ********************");
+
+		try {
+			// enter the property name in the search field
+			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Entered the property name in the search field.");
+
+			// click on the task icon from the property list page
+			click("taskicon_CSS");
+			System.out.println("Clicked on the task icon of the Property.");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Navigate to the task screen of the perticular property.");
+
+			// wait for the clear button
+			explicitWaitClickable("task_clearbtn_XPATH");
+
+			// click on the clear button
+			click("task_clearbtn_XPATH");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the clear button.");
+
+			// enter auto generated task in the search field
+			type("survey_task_searchfield_CSS", data.get("autotask_1"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("enter auto generated task in the search field.");
+
+			// click on the search button
+			click("survey_task_searchfield_CSS");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the search button.");
+
+			// verify the auto generated task 1
+			switchVerification("survey_autotask1_risk_XPATH", "Risk Control Management System",
+					"The Risk Control Management System task is not displayed.");
+
+			// click on the clear button
+			click("task_clearbtn_XPATH");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the clear button.");
+
+			// enter auto generated task in the search field
+			type("survey_task_searchfield_CSS", data.get("autotask_2"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("enter auto generated task in the search field.");
+
+			// click on the search button
+			click("survey_task_searchfield_CSS");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the search button.");
+
+			// verify the auto generated task 2
+			switchVerification("survey_autotask2_risk_XPATH", "Contractor Management System",
+					"The Contractor Management System task is not displayed.");
+
+		} catch (Throwable t) {
+			verificationFailed();
+		}
+
+		// click on the home icon from the top of the screen
+		click("questionnaire_homeburgermenubtn_hide_CSS");
+		System.out.println("Clicked on the home icon from the top of the screen.");
+		ngDriver.waitForAngularRequestsToFinish();
+
+		// synchronization
+		explicitWait("propertylist_title_XPATH");
+
+		// verify the property list
+		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
+
+		// REMOVE THE DETAILS FROM THE COMMENT BOXES
+
+		System.out.println("***************** REMOVE THE DETAILS FROM THE COMMENT BOXES *****************");
+		test.log(LogStatus.INFO, "***************** REMOVE THE DETAILS FROM THE COMMENT BOXES *****************");
+		Reporter.log("***************** REMOVE THE DETAILS FROM THE COMMENT BOXES *****************");
+		log.info("***************** REMOVE THE DETAILS FROM THE COMMENT BOXES *****************");
+
+		try {
+
+			// enter the property name in the search field
+			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Entered the property name in the search field.");
+
+			// click on the environmental icon from the property list page
+			click("environmentalicon_CSS");
+			System.out.println("Clicked on the environmental icon of the Property.");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Navigate to the environmental screen of the perticular property.");
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// click on the burger menu
+			click("menubtn_CSS");
+			System.out.println("Clicked on the burger menu button successfully!!!");
+			ngDriver.waitForAngularRequestsToFinish();
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// click on the surveys option from side menu
+			click("surveyoption_XPATH");
+			System.out.println("Clicked on the surveys option from side menu");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Navigate to the csurveys screen");
+
+			// wait for 3 seconds
+			Thread.sleep(3000);
+
+			// select the respective questionnaire
+			select("survey_questionnairedd_CSS", data.get("questionnaire_title"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Selected the respective questionnaire.");
+
+			// wait for the element
+			explicitWait("survey_categoryname_risk_XPATH");
+
+			// clear the details in the comment box 1 of the category 1 question 1
+			clear("survey_commentbox1_risk_XPATH");
+
+			// clear the details in the comment box 2 of the category 1 question 1
+			clear("survey_commentbox2_risk_XPATH");
+
+			// click on the Managing Agent Systems category label
+			click("survey_categoryname_risk_XPATH");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the Managing Agent Systems category label.");
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// scroll down the screen
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,400)");
+
+			// verify validation 2
+			deleteVerification("survey_autotask_validation2_risk_XPATH", "(1) Risk Control Management System");
+
+			// scroll down the screen
+			js.executeScript("window.scrollBy(0,300)");
+
+			// clear the details in the comment box 1 of the category 1 question 2
+			clear("survey_commentbox3_risk_XPATH");
+
+			// clear the details in the comment box 2 of the category 1 question 2
+			clear("survey_commentbox4_risk_XPATH");
+
+			// click on the Hazardous Building Materials category label
+			click("survey_categoryname2_risk_XPATH");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the Hazardous Building Materials category label.");
+
+			// wait for the element
+			Thread.sleep(5000);
+
+			// verify validation 4
+			deleteVerification("survey_autotask_validation4_risk_XPATH", "(1) Contractor Management System");
+
+		} catch (Throwable t) {
+			verificationFailed();
+		}
+
+		// click on the home icon from the top of the screen
+		click("questionnaire_homeburgermenubtn_hide_CSS");
+		System.out.println("Clicked on the home icon from the top of the screen.");
+		ngDriver.waitForAngularRequestsToFinish();
+
+		// synchronization
+		explicitWait("propertylist_title_XPATH");
+
+		// verify the property list
+		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
+
+		// REMOVE THE AUTO GENERATED TASKS IN THE TASK MODULE
+
+		System.out.println(
+				"******************** REMOVE THE AUTO GENERATED TASKS IN THE TASK MODULE ********************");
+		test.log(LogStatus.INFO,
+				"******************** REMOVE THE AUTO GENERATED TASKS IN THE TASK MODULE ********************");
+		Reporter.log("******************** REMOVE THE AUTO GENERATED TASKS IN THE TASK MODULE ********************");
+		log.info("******************** REMOVE THE AUTO GENERATED TASKS IN THE TASK MODULE ********************");
+
+		try {
+			// enter the property name in the search field
+			type("envreports_propertylist_filtertxt_CSS", data.get("property_1"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Entered the property name in the search field.");
+
+			// click on the task icon from the property list page
+			click("taskicon_CSS");
+			System.out.println("Clicked on the task icon of the Property.");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Navigate to the task screen of the perticular property.");
+
+			// wait for the clear button
+			explicitWaitClickable("task_clearbtn_XPATH");
+
+			// click on the clear button
+			click("task_clearbtn_XPATH");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the clear button.");
+
+			// enter auto generated task in the search field
+			type("survey_task_searchfield_CSS", data.get("autotask_1"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("enter auto generated task in the search field.");
+
+			// click on the search button
+			click("survey_task_searchfield_CSS");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the search button.");
+
+			// verify the auto generated task 1
+			deleteVerification("survey_autotask1_risk_XPATH", "Risk Control Management System");
+
+			// click on the clear button
+			click("task_clearbtn_XPATH");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the clear button.");
+
+			// enter auto generated task in the search field
+			type("survey_task_searchfield_CSS", data.get("autotask_2"));
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("enter auto generated task in the search field.");
+
+			// click on the search button
+			click("survey_task_searchfield_CSS");
+			ngDriver.waitForAngularRequestsToFinish();
+			System.out.println("Clicked on the search button.");
+
+			// verify the auto generated task 2
+			deleteVerification("survey_autotask2_risk_XPATH", "Contractor Management System");
+
+		} catch (Throwable t) {
+			verificationFailed();
+		}
+
+		// click on the home icon from the top of the screen
+		click("questionnaire_homeburgermenubtn_hide_CSS");
+		System.out.println("Clicked on the home icon from the top of the screen.");
+		ngDriver.waitForAngularRequestsToFinish();
+
+		// synchronization
+		explicitWait("propertylist_title_XPATH");
+
+		// verify the property list
+		switchVerification("propertylist_title_XPATH", "Property List", "The property list is not displayed.");
+
+		try {
+			// wait for the 5 seconds
+			Thread.sleep(5000);
+
+			// click on the settings icon from the top of the screen
+			click("questionnaire_settingicon_CSS");
+			System.out.println("Clicked on the settings icon.");
+			ngDriver.waitForAngularRequestsToFinish();
+
+			// wait for the element
+			explicitWaitClickable("sidemenu_logout_CSS");
+
+			// click on the logout option from the side menu
+			click("sidemenu_logout_CSS");
+			System.out.println("Clicked on the logout option from the side menu.");
+			ngDriver.waitForAngularRequestsToFinish();
+
+			// wait for the element
+			explicitWaitClickable("signinbtn_BTNTEXT");
+
+		} catch (Throwable t) {
+			verificationFailed();
+		}
+	}
+}

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automation Project Name">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="listeners.CustomListeners" />
+	</listeners>
+
+	<test thread-count="5" name="RR5940 PSDashboard 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5940PSDashboard1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5940 PSDashboard 3 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5940PSDashboard3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5192 Smart Center 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5192SmartCenter1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5192 SmartCenter 2 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5192SmartCenter2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5192 SmartCenter 3 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5192SmartCenter3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5368 Capreit 0 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5368Capreit0Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5368 Capreit 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5368Capreit1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5368 Capreit 2 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5368Capreit2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5368 Capreit 3 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5368Capreit3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5368 Capreit 4 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5368Capreit4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5368 Capreit 5 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5368Capreit5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5368 Capreit 6 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5368Capreit6Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5490 Capreit 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5490Capreit1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5490 Capreit 2 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5490Capreit2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5553 Capreit 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5553Capreit1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5553 Capreit 2 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5553Capreit2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5553 Capreit 3 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5553Capreit3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5553 Capreit 4 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5553Capreit4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5553 Capreit 5 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5553Capreit5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5553 Capreit 6 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5553Capreit6Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5553 Capreit 7 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5553Capreit7Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5594 Capreit 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5594Capreit1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 3 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 4 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 5 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 6 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard6Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 7 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard7Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 8 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard8Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 9 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard9Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 10 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard10Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 11 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard11Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 12 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard12Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 13 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard13Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5595 Morguard 2 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5595Morguard2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5714 RioCan 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5714RioCan1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5714 RioCan 2 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5714RioCan2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5714 RioCan 3 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5714RioCan3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5714 RioCan 4 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5714RioCan4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5714 RioCan 5 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5714RioCan5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5714 RioCan 6 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5714RioCan6Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 1 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue1Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 2 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue2Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 3 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue3Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 4 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue4Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 5 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue5Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 6 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue6Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 7 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue7Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 8 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue8Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 9 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue9Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 10 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue10Test" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="RR5753 Client Issue 11 Test">
+		<classes>
+			<class name="testcases.smokesuite.RR5753ClientIssue11Test" />
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->

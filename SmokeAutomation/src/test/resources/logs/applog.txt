@@ -1,0 +1,19 @@
+INFO    2022-06-16 19:36:21,731 [main] devpinoyLogger  - Config file is loaded successfully!!!
+INFO    2022-06-16 19:36:21,758 [main] devpinoyLogger  - OR file is loaded successfully!!!
+INFO    2022-06-16 19:36:23,494 [main] devpinoyLogger  - Chrome launched successfully!!!
+INFO    2022-06-16 19:36:36,653 [main] devpinoyLogger  - Test site launched successfully!!!https://risk-qa.refineddata.com/riskapp/app/login.html#/
+INFO    2022-06-16 19:36:36,778 [main] devpinoyLogger  - The window maximize successfully!!!
+INFO    2022-06-16 19:36:36,913 [main] devpinoyLogger  - ******************** VERIFY THE COUNT AND DETAILS OF THE 30 DAYS OVERDUE TASK CARD ********************
+INFO    2022-06-16 19:36:52,077 [main] devpinoyLogger  - ******************** LOGIN WITH ADMIN USER ********************
+INFO    2022-06-16 19:37:04,581 [main] devpinoyLogger  - The Property List is verified successfully.
+INFO    2022-06-16 19:37:10,277 [main] devpinoyLogger  - The Property List is verified successfully.
+INFO    2022-06-16 19:37:10,277 [main] devpinoyLogger  - ***************** VERIFY COUNT OF THE 30 DAYS OVERDUE TASK CARD - INITIALY *****************
+INFO    2022-06-16 19:37:24,280 [main] devpinoyLogger  - The 4 is verified successfully.
+INFO    2022-06-16 19:37:39,410 [main] devpinoyLogger  - The verification is failed.
+INFO    2022-06-16 19:37:42,197 [main] devpinoyLogger  - The Property List is verified successfully.
+INFO    2022-06-16 19:37:42,197 [main] devpinoyLogger  - ******************** ADD THE FIRST TASK - SET DUE DATE AS A TODAY ********************
+INFO    2022-06-16 19:37:47,308 [main] devpinoyLogger  - Clear the data of : task_addtask_titletxt_CSS
+INFO    2022-06-16 19:37:47,835 [main] devpinoyLogger  - Clear the data of : task_addtask_locationtxt_CSS
+INFO    2022-06-16 19:37:53,775 [main] devpinoyLogger  - The Smoke Test PSD 1 Task Title is verified successfully.
+INFO    2022-06-16 19:37:57,496 [main] devpinoyLogger  - The Property List is verified successfully.
+INFO    2022-06-16 19:37:57,496 [main] devpinoyLogger  - ***************** VERIFY COUNT OF THE 30 DAYS OVERDUE TASK CARDS - AFTER CREATED TASK WITH TODAY'S DUE DATE *****************
